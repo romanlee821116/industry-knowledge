@@ -2,8 +2,10 @@
 
 import { Center, OrbitControls, useGLTF } from '@react-three/drei';
 import { Canvas, type ThreeEvent } from '@react-three/fiber';
-import { Suspense, useLayoutEffect, useMemo } from 'react';
+import { Suspense, useLayoutEffect, useMemo, useState } from 'react';
 import * as THREE from 'three';
+
+import { cn } from '@/shared/lib/cn';
 
 import { PALETTE } from '../data/micro-views';
 import type { MicroPart, MicroView } from '../types';
@@ -21,7 +23,14 @@ function matchPart(name: string, parts: MicroPart[]) {
   return parts.find((p) => name.startsWith(p.prefix));
 }
 
-function Model({ view, explode, glassTint, selectedPrefix, onSelectPart }: Props) {
+function Model({
+  view,
+  explode,
+  glassTint,
+  selectedPrefix,
+  onSelectPart,
+  onHoverChange,
+}: Props & { onHoverChange: (hovering: boolean) => void }) {
   const { scene } = useGLTF(view.url);
 
   // 每個零件一份材質，依色票上色；只在模型或版本改變時重建
@@ -65,20 +74,30 @@ function Model({ view, explode, glassTint, selectedPrefix, onSelectPart }: Props
           e.stopPropagation();
           onSelectPart(matchPart(e.object.name, view.parts)?.prefix ?? null);
         }}
+        onPointerOver={(e: ThreeEvent<PointerEvent>) => {
+          e.stopPropagation();
+          onHoverChange(Boolean(matchPart(e.object.name, view.parts)));
+        }}
+        onPointerOut={() => onHoverChange(false)}
       />
     </Center>
   );
 }
 
 export function MicroCanvas(props: Props) {
+  const [hovering, setHovering] = useState(false);
   return (
-    <Canvas camera={{ position: [9, 8, 12], fov: 35 }} onPointerMissed={() => props.onSelectPart(null)}>
+    <Canvas
+      className={cn(hovering && 'cursor-pointer')}
+      camera={{ position: [9, 8, 12], fov: 35 }}
+      onPointerMissed={() => props.onSelectPart(null)}
+    >
       <color attach="background" args={['#0f1720']} />
       <hemisphereLight args={['#ffffff', '#334155', 1.2]} />
       <directionalLight position={[6, 10, 6]} intensity={1.6} />
       <directionalLight position={[-6, 4, -4]} intensity={0.4} />
       <Suspense fallback={null}>
-        <Model {...props} />
+        <Model {...props} onHoverChange={setHovering} />
       </Suspense>
       <OrbitControls makeDefault enableDamping />
     </Canvas>

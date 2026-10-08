@@ -118,7 +118,7 @@ export function StackCanvas({
   const labelRefs = useRef(new Map<string, HTMLButtonElement>());
 
   return (
-    <div className="relative h-full w-full">
+    <div className={cn('relative h-full w-full', hoveredId && 'cursor-pointer')}>
       <Canvas
         shadows
         camera={{ position: [26, 16, 26], fov: 35 }}
