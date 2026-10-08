@@ -1,14 +1,16 @@
 'use client';
 
-import { CameraControls, Html } from '@react-three/drei';
+import { CameraControls, Environment, Html, Lightformer, RoundedBox } from '@react-three/drei';
 import { Canvas, useThree, type ThreeEvent } from '@react-three/fiber';
-import { useEffect, useLayoutEffect, useMemo, useRef } from 'react';
+import { EffectComposer, N8AO } from '@react-three/postprocessing';
+import { Suspense, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 
 import { cn } from '@/shared/lib/cn';
 
 import { PALETTE } from '../data/micro-views';
 import type { LayerBlock, LayerInstances, StackLayout } from '../types';
+import { SceneModel } from './SceneModel';
 
 export interface StackLabel {
   id: string;
@@ -34,6 +36,8 @@ interface Props {
   focusKey: number;
   /** 組裝狀態下會擋住內部結構、暫時不可點擊的層（例如蓋板） */
   passiveIds: string[];
+  /** 目前爆炸程度（整廠模型依此抬升可拆零件） */
+  explode: number;
   /** 未選取任何東西時的鏡頭位置與注視點 */
   home: { position: [number, number, number]; target: [number, number, number] };
   onSelectLayer: (id: string) => void;
@@ -50,6 +54,8 @@ interface LookProps {
   clipPlanes: THREE.Plane[];
 }
 
+const METALLIC = new Set(['copper', 'solder', 'gold', 'probe', 'chuck']);
+
 function LayerMaterial({ layerId, palette, opacity, highlighted, selectedId, hoveredId, clipPlanes }: LookProps) {
   const dimmed = highlighted.size > 0 && !highlighted.has(layerId);
   const active = selectedId === layerId || hoveredId === layerId;
@@ -59,8 +65,8 @@ function LayerMaterial({ layerId, palette, opacity, highlighted, selectedId, hov
       color={PALETTE[palette as keyof typeof PALETTE]}
       emissive={active ? '#ffd166' : '#000000'}
       emissiveIntensity={active ? 0.35 : 0}
-      metalness={palette === 'copper' || palette === 'solder' ? 0.6 : 0.05}
-      roughness={0.55}
+      metalness={METALLIC.has(palette) ? 0.85 : 0.08}
+      roughness={METALLIC.has(palette) ? 0.3 : 0.5}
       transparent={finalOpacity < 1}
       opacity={finalOpacity}
       depthWrite={finalOpacity >= 1}
@@ -105,15 +111,30 @@ function Block({
   look: Omit<LookProps, 'layerId' | 'palette' | 'opacity'>;
   handlers: Handlers;
 }) {
-  return (
-    <mesh position={block.position} {...pointerHandlers(block.layerId, handlers)}>
-      {block.shape === 'cylinder' ? (
+  const material = <LayerMaterial layerId={block.layerId} palette={block.palette} opacity={block.opacity} {...look} />;
+  const events = pointerHandlers(block.layerId, handlers);
+  if (block.shape === 'cylinder') {
+    return (
+      <mesh position={block.position} castShadow receiveShadow {...events}>
         <cylinderGeometry args={[block.size[0] / 2, block.size[0] / 2, block.size[1], 64]} />
-      ) : (
-        <boxGeometry args={block.size} />
-      )}
-      <LayerMaterial layerId={block.layerId} palette={block.palette} opacity={block.opacity} {...look} />
-    </mesh>
+        {material}
+      </mesh>
+    );
+  }
+  // 圓角邊緣：半徑不超過最薄邊的 1/4，薄層仍維持銳利
+  const radius = Math.min(0.06, Math.min(...block.size) / 4);
+  return (
+    <RoundedBox
+      args={block.size}
+      radius={radius}
+      smoothness={3}
+      position={block.position}
+      castShadow
+      receiveShadow
+      {...events}
+    >
+      {material}
+    </RoundedBox>
   );
 }
 
@@ -143,6 +164,8 @@ function Instanced({
   return (
     <instancedMesh
       ref={ref}
+      castShadow
+      receiveShadow
       args={[undefined, undefined, inst.positions.length]}
       {...pointerHandlers(inst.layerId, handlers)}
     >
@@ -199,6 +222,7 @@ export function StackCanvas({
   focus,
   focusKey,
   passiveIds,
+  explode,
   home,
   onSelectLayer,
   onHoverLayer,
@@ -219,14 +243,48 @@ export function StackCanvas({
 
   return (
     <Canvas
+      shadows
       camera={{ position: [26, 16, 26], fov: 35 }}
-      gl={{ localClippingEnabled: true, antialias: true }}
+      gl={{ localClippingEnabled: true, antialias: false }}
       onPointerMissed={() => onHoverLayer(null)}
     >
       <color attach="background" args={['#0f1720']} />
-      <hemisphereLight args={['#ffffff', '#334155', 1.1]} />
-      <directionalLight position={[10, 20, 8]} intensity={1.6} />
-      <directionalLight position={[-12, 6, -10]} intensity={0.5} />
+      <hemisphereLight args={['#ffffff', '#334155', 0.35]} />
+      <directionalLight
+        position={[14, 26, 12]}
+        intensity={1.3}
+        castShadow
+        shadow-mapSize={[2048, 2048]}
+        shadow-bias={-0.0004}
+        shadow-camera-left={-30}
+        shadow-camera-right={30}
+        shadow-camera-top={30}
+        shadow-camera-bottom={-30}
+        shadow-camera-far={80}
+      />
+      {/* 無塵室式的柔和頂光與側光，提供金屬與玻璃反射（程式產生，不需下載 HDR） */}
+      <Environment resolution={256} frames={1}>
+        <Lightformer intensity={0.7} rotation-x={Math.PI / 2} position={[0, 14, 0]} scale={[40, 40, 1]} />
+        <Lightformer intensity={0.35} rotation-y={Math.PI / 2} position={[-25, 5, 0]} scale={[40, 8, 1]} />
+        <Lightformer intensity={0.35} rotation-y={-Math.PI / 2} position={[25, 5, 0]} scale={[40, 8, 1]} />
+        <Lightformer intensity={0.25} position={[0, 5, 25]} scale={[40, 8, 1]} />
+      </Environment>
+      {layout.model && (
+        <Suspense fallback={null}>
+          <SceneModel
+            url={layout.model.url}
+            explode={explode}
+            highlighted={highlighted}
+            selectedId={selectedId}
+            hoveredId={hoveredId}
+            clipPlanes={clipPlanes}
+            clipX={clipX}
+            passive={passive}
+            onSelectLayer={onSelectLayer}
+            onHoverLayer={onHoverLayer}
+          />
+        </Suspense>
+      )}
       {layout.blocks.map((b) => (
         <Block key={b.key} block={b} look={look} handlers={handlers} />
       ))}
@@ -248,8 +306,19 @@ export function StackCanvas({
           </button>
         </Html>
       ))}
-      <gridHelper args={[60, 30, '#1e293b', '#1e293b']} position={[0, -0.01, 0]} />
+      {!layout.model && (
+        <>
+          <mesh rotation-x={-Math.PI / 2} position={[0, -0.02, 0]} receiveShadow>
+            <planeGeometry args={[120, 120]} />
+            <shadowMaterial opacity={0.35} />
+          </mesh>
+          <gridHelper args={[60, 30, '#1e293b', '#1e293b']} position={[0, -0.01, 0]} />
+        </>
+      )}
       <CameraRig focus={focus} focusKey={focusKey} home={home} />
+      <EffectComposer multisampling={4}>
+        <N8AO aoRadius={1.2} intensity={2.2} distanceFalloff={1} halfRes />
+      </EffectComposer>
     </Canvas>
   );
 }

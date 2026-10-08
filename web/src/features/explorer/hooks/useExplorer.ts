@@ -275,6 +275,7 @@ export function useExplorer() {
       focus,
       focusKey: state.focusKey,
       passiveIds: [...(config.alwaysPassive ?? []), ...(state.explode < 0.15 ? config.covers : [])],
+      explode: state.explode,
       home: config.home,
       onSelectLayer: (id: string) => actions.select({ kind: 'layer', id }),
       onHoverLayer: actions.hoverLayer,

@@ -213,6 +213,8 @@ export interface LayerInstances {
 export interface StackLayout {
   blocks: LayerBlock[];
   instances: LayerInstances[];
+  /** Blender 匯出的整體場景模型（晶圓廠）；有的話與 blocks 一起渲染 */
+  model?: { url: string };
   /** 每層的包圍盒中心與尺寸，用於鏡頭聚焦與標籤 */
   bounds: Record<LayerId, { center: [number, number, number]; size: [number, number, number] }>;
 }

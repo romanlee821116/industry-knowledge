@@ -10,13 +10,16 @@ def reset_scene():
     bpy.ops.wm.read_factory_settings(use_empty=True)
 
 
-def material(name, rgba, metallic=0.0, roughness=0.5, alpha=1.0):
+def material(name, rgba, metallic=0.0, roughness=0.5, alpha=1.0, emission=None, strength=1.0):
     mat = bpy.data.materials.get(name) or bpy.data.materials.new(name)
     mat.use_nodes = True
     bsdf = mat.node_tree.nodes.get("Principled BSDF")
     bsdf.inputs["Base Color"].default_value = rgba
     bsdf.inputs["Metallic"].default_value = metallic
     bsdf.inputs["Roughness"].default_value = roughness
+    if emission:
+        bsdf.inputs["Emission Color"].default_value = (*emission, 1)
+        bsdf.inputs["Emission Strength"].default_value = strength
     if alpha < 1.0:
         bsdf.inputs["Alpha"].default_value = alpha
         mat.surface_render_method = "BLENDED"
@@ -64,8 +67,9 @@ def box(name, center, size, mat, parent=None):
     return add_object(name, verts, faces, mat, parent=parent)
 
 
-def sweep(name, path, half_w, half_h, mat, segments=16, up_hint=Vector((0, 0, 1)), parent=None):
-    """Sweep an ellipse (half_w along side, half_h along up) along a polyline, capped at both ends."""
+def sweep(name, path, half_w, half_h, mat, segments=16, up_hint=Vector((0, 0, 1)), parent=None, phase=0.0):
+    """Sweep an ellipse (half_w along side, half_h along up) along a polyline, capped at both ends.
+    segments=4 with phase=pi/4 gives a rectangular profile."""
     verts, faces = [], []
     n = len(path)
     for i, p in enumerate(path):
@@ -76,7 +80,7 @@ def sweep(name, path, half_w, half_h, mat, segments=16, up_hint=Vector((0, 0, 1)
         side.normalize()
         up = t.cross(side).normalized()
         for s in range(segments):
-            a = 2 * math.pi * s / segments
+            a = 2 * math.pi * s / segments + phase
             verts.append(p + side * (math.cos(a) * half_w) + up * (math.sin(a) * half_h))
     for i in range(n - 1):
         for s in range(segments):
@@ -165,6 +169,15 @@ def sphere(name, center, radius, mat, rings=12, segments=24, z_scale=1.0, parent
     for s in range(segments):
         faces.append((base + s, base + (s + 1) % segments, top))
     return add_object(name, verts, faces, mat, smooth=True, parent=parent)
+
+
+def bevel(obj, width=0.02, segments=2):
+    """Rounded edges; applied on export (export_apply=True)."""
+    mod = obj.modifiers.new("bevel", "BEVEL")
+    mod.width = width
+    mod.segments = segments
+    mod.limit_method = "ANGLE"
+    return obj
 
 
 def export_glb(path):
