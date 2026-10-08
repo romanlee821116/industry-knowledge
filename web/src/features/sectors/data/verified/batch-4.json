@@ -5,7 +5,7 @@
       "id": "wafer-clean",
       "name": "晶圓清洗設備",
       "category": "equipment",
-      "summary": "移除晶圓表面微粒、金屬與有機殘留的濕式設備。前段晶圓廠主力清洗機由 SCREEN、TEL、Lam 寡占；台廠弘塑、辛耘以先進封裝與部分前段的單晶圓／批次濕式清洗機為主。朋億屬廠務化學品供應系統，並非清洗機台。",
+      "summary": "移除晶圓表面微粒、金屬與有機殘留的濕式設備。前段晶圓廠主力清洗機由 SCREEN、TEL、Lam 寡占；台廠弘塑、辛耘以先進封裝與部分前段的單晶圓／批次濕式清洗機為主。",
       "engineeringNotes": "清洗約占整個晶圓製程步驟的 2～3 成，幾乎每道蝕刻、沉積、CMP 之後都要清洗，分為批次式濕式槽（wet bench）與單晶圓旋轉清洗（single wafer spin）。先進製程以單晶圓清洗為主，以控制微粒與圖形倒塌；先進封裝則在凸塊、RDL、TSV 前後需大量去光阻與清洗。全球市場約由 SCREEN（約 3 成）、TEL、Lam 三家合計近 9 成寡占。",
       "companies": [
         {
@@ -48,14 +48,14 @@
       "id": "etch",
       "name": "蝕刻設備",
       "category": "equipment",
-      "summary": "前段乾式電漿蝕刻機由 Lam、AMAT、TEL 寡占，台股無量產乾蝕刻品牌。台廠可分為：先進封裝濕式蝕刻原廠（弘塑、辛耘）、AMAT 蝕刻機代工（京鼎）、腔體零組件（千附精密）。帆宣查無蝕刻設備業務。",
+      "summary": "前段乾式電漿蝕刻機由 Lam、AMAT、TEL 寡占，台股無量產乾蝕刻品牌。台廠可分為：先進封裝濕式蝕刻原廠（弘塑、辛耘）、AMAT 蝕刻機代工（京鼎）、腔體零組件（千附精密）。",
       "engineeringNotes": "蝕刻把微影定義的圖形轉移到薄膜上，前段多用電漿乾式蝕刻（導體蝕刻、介電質蝕刻、高深寬比 3D NAND 孔洞蝕刻），先進封裝則以濕式蝕刻去除 UBM 種子層、金屬層為主。GAA 電晶體與 3D NAND 層數提高使蝕刻步數與原子層蝕刻（ALE）需求大增。全球蝕刻設備由 AMAT、Lam、TEL 合計約 75% 掌握，Lam 在導體蝕刻領先。",
       "companies": [
         {
           "ticker": "3131",
           "name": "弘塑",
           "verdict": "corrected",
-          "role": "【原廠設備】先進封裝濕式蝕刻（UBM 蝕刻、金屬蝕刻）設備，非前段乾式電漿蝕刻機",
+          "role": "【原廠設備】先進封裝濕式蝕刻（UBM 蝕刻、金屬蝕刻）設備",
           "core": 2,
           "sources": [
             "https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=0000511887_VDK9YZXP7CJ4LE8I2KF1Y",
@@ -108,14 +108,14 @@
       "id": "deposition",
       "name": "薄膜沉積",
       "category": "equipment",
-      "summary": "涵蓋 PVD、CVD、ALD、電鍍等成膜製程。前段主機台由 AMAT、Lam、TEL、ASM 寡占；台股真正自製沉積機台的是天虹（PVD／ALD），京鼎為 AMAT 代工，公準／千附為腔體零組件。原清單的辛耘、帆宣屬代理，弘塑則是先進封裝電鍍。",
+      "summary": "涵蓋 PVD、CVD、ALD、電鍍等成膜製程。前段主機台由 AMAT、Lam、TEL、ASM 寡占；台股真正自製沉積機台的是天虹（PVD／ALD），京鼎為 AMAT 代工，公準／千附為腔體零組件。",
       "engineeringNotes": "沉積是在晶圓上長出導體、介電質或阻障層：PVD 濺鍍金屬（銅種子層、阻障層）、CVD 長介電質與鎢、ALD 一次長一個原子層做高介電閘極與超薄阻障層，先進封裝則以電鍍（ECP）長銅柱與 RDL。AMAT、Lam、TEL 合計約占沉積設備營收 6 成，ASM 主導單晶圓 ALD，Kokusai 主導成熟製程批次爐管。",
       "companies": [
         {
           "ticker": "3583",
           "name": "辛耘",
           "verdict": "corrected",
-          "role": "【代理】代理業務涵蓋薄膜沉積設備（原廠未公開），自製設備產品線無 PVD／CVD／ALD 機台",
+          "role": "【代理】代理業務涵蓋薄膜沉積設備（原廠未公開）",
           "core": 1,
           "sources": ["https://vocus.cc/article/6a6d6bfbfd897800016e33c2", "https://news.cnyes.com/news/id/6596351"],
           "note": "原值『薄膜沉積』→ 新值『薄膜沉積設備代理』：辛耘自製設備為濕製程、TBDB、烘烤，沉積設備僅為代理"
@@ -124,7 +124,7 @@
           "ticker": "3131",
           "name": "弘塑",
           "verdict": "corrected",
-          "role": "【原廠設備】先進封裝金屬化電鍍設備（濕式沉積，用於凸塊／RDL），非 PVD／CVD 真空沉積",
+          "role": "【原廠設備】先進封裝金屬化電鍍設備（濕式沉積，用於凸塊／RDL）",
           "core": 2,
           "sources": [
             "https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=0000511887_VDK9YZXP7CJ4LE8I2KF1Y",
@@ -177,7 +177,7 @@
       "id": "pvd",
       "name": "PVD 物理氣相沉積",
       "category": "equipment",
-      "summary": "濺鍍金屬薄膜的真空設備，AMAT Endura 長期主導。台股自製 PVD 機台的是天虹，京鼎為 AMAT 代工、公準為零組件；原清單辛耘、帆宣皆無 PVD 機台佐證。",
+      "summary": "濺鍍金屬薄膜的真空設備，AMAT Endura 長期主導。台股自製 PVD 機台的是天虹，京鼎為 AMAT 代工、公準為零組件。",
       "engineeringNotes": "PVD 以電漿撞擊靶材，把金屬原子濺鍍到晶圓上，主要用在後段金屬內連線（BEOL）的阻障層（Ta／TaN、Ti／TiN）與銅種子層，以及先進封裝的 UBM／RDL 種子層。AMAT Endura 平台長期是金屬沉積主流，歷史上市佔約 7～8 成。面板級封裝（PLP）帶出方形大尺寸 PVD 新需求。",
       "companies": [
         {
@@ -285,7 +285,7 @@
       "id": "ald",
       "name": "ALD 原子層沉積",
       "category": "equipment",
-      "summary": "一次只長一層原子的高均勻度沉積技術，ASM（單晶圓）與 TEL、Kokusai（批次）主導。台股唯一量產自有 ALD 機台的是天虹；京鼎為 AMAT 代工。原清單辛耘、帆宣皆查無 ALD 機台佐證。",
+      "summary": "一次只長一層原子的高均勻度沉積技術，ASM（單晶圓）與 TEL、Kokusai（批次）主導。台股唯一量產自有 ALD 機台的是天虹；京鼎為 AMAT 代工。",
       "engineeringNotes": "ALD 交替通入兩種前驅物，每循環只自限反應長出約一個原子層，可在高深寬比結構內做到極佳的覆蓋均勻度，用於 High-k 閘極介電質、金屬閘極、間隔層（spacer）與超薄阻障層。GAA 與 3D DRAM 使 ALD 步數持續增加。ASM 在單晶圓 ALD 市佔逾 5 成，整體 ALD 市場 ASM 約 19%、TEL 約 16%。",
       "companies": [
         {
@@ -330,7 +330,7 @@
       "id": "cmp-equipment",
       "name": "CMP 化學機械研磨",
       "category": "equipment",
-      "summary": "CMP 主機台由 AMAT 與 Ebara 雙寡占。台股多屬耗材（中砂鑽石碟）、AMAT 代工（京鼎），以及先進封裝／再生晶圓用的研磨拋光設備（均豪）；原清單弘塑、辛耘無 CMP 機台。",
+      "summary": "CMP 主機台由 AMAT 與 Ebara 雙寡占。台股多屬耗材（中砂鑽石碟）、AMAT 代工（京鼎），以及先進封裝／再生晶圓用的研磨拋光設備（均豪）。",
       "engineeringNotes": "CMP 以研磨墊、研磨液（slurry）與壓力把晶圓表面磨平，用於 STI、鎢塞、銅大馬士革內連線每一層的平坦化，以及混合鍵合（hybrid bonding）前的超平坦表面。鑽石碟（pad conditioner）用來修整研磨墊，是 CMP 的關鍵耗材。CMP 機台 AMAT 約 42%、Ebara 約 27%，合計近 7 成。",
       "companies": [
         {
@@ -390,7 +390,7 @@
       "id": "mask-equipment",
       "name": "光罩設備",
       "category": "equipment",
-      "summary": "光罩相關的傳送載具、清洗、檢測設備。家登做的是光罩傳送盒（載具），子公司家碩才是光罩清洗／交換／檢測設備廠；台灣光罩是光罩製造商（光罩設備的使用者），且原清單 2338 重複列兩次。",
+      "summary": "光罩相關的傳送載具、清洗、檢測設備。家登做的是光罩傳送盒（載具），子公司家碩才是光罩清洗／交換／檢測設備廠。",
       "engineeringNotes": "光罩是微影的圖形母版，EUV 光罩沒有傳統 pellicle 保護時極怕微粒，因此需要真空級潔淨的 EUV Pod（內外雙層盒）與專用的光罩清洗、交換、儲存與檢測設備。光罩檢測由 KLA（約 34%）與 Lasertec（唯一商用 actinic EUV 光罩檢測）主導；EUV 光罩盒則由家登與 Entegris 主導。",
       "companies": [
         {
@@ -438,7 +438,7 @@
       "id": "laser-equipment",
       "name": "雷射設備",
       "category": "equipment",
-      "summary": "半導體雷射製程設備（雷射開槽、切割、鑽孔、修整、TGV）。原清單盟立（AMHS 搬運）、由田（AOI 檢測）、均豪（檢量與磨拋）皆非雷射設備廠；台股雷射設備應看鈦昇、雷科。",
+      "summary": "半導體雷射製程設備（雷射開槽、切割、鑽孔、修整、TGV）。台股雷射設備應看鈦昇、雷科。",
       "engineeringNotes": "雷射在半導體的用途包括：low-k 晶圓切割前的雷射開槽（laser grooving）、隱形切割、TSV／玻璃基板 TGV 鑽孔、雷射剝離（laser debond）、晶圓打標與電阻修整。先進封裝走向面板級與玻璃基板後，雷射鑽孔與切割需求提升。切割／開槽市場由 DISCO 主導（切割設備約 4～7 成），雷射開槽前五大廠約占 8 成。",
       "companies": [
         {
@@ -592,7 +592,7 @@
       "id": "vacuum",
       "name": "真空設備／真空零組件",
       "category": "equipment",
-      "summary": "真空幫浦、真空腔體與相關零組件。乾式幫浦由 Edwards（Atlas Copco）、Ebara、Pfeiffer 寡占，台股無真空幫浦原廠；台廠以真空腔體加工（千附精密、公準）與真空零組件／代理（翔名）為主。原清單漢唐、帆宣、盟立皆為廠務或自動化，非真空設備。",
+      "summary": "真空幫浦、真空腔體與相關零組件。乾式幫浦由 Edwards（Atlas Copco）、Ebara、Pfeiffer 寡占，台股無真空幫浦原廠；台廠以真空腔體加工（千附精密、公準）與真空零組件／代理（翔名）為主。",
       "engineeringNotes": "蝕刻、PVD、CVD、ALD、離子植入與 EUV 曝光都在真空腔體中進行，需要乾式幫浦（粗抽）加渦輪分子幫浦（高真空）串接，並搭配閥件、真空計與尾氣處理。真空腔體多為鋁合金或不鏽鋼精密加工件，屬設備原廠委外的關鍵零組件。高階半導體真空幫浦由 Edwards、Ebara、Pfeiffer 寡占。",
       "companies": [
         {

@@ -48,7 +48,7 @@ const PACKAGE_LAYERS: StackLayer[] = [
     specs: [
       { label: '堆疊層數', value: '8-Hi / 12-Hi（HBM3E），HBM4 12–16-Hi', unverified: true },
       { label: 'B200 配置', value: '8 顆 HBM3E，共 192 GB', unverified: true },
-      { label: '供應商', value: 'SK 海力士、三星、美光（台灣無 HBM DRAM 量產廠）' },
+      { label: '供應商', value: 'SK 海力士、三星、美光' },
       { label: 'HBM4 base die', value: '開始採用邏輯製程，可由台積電代工' },
     ],
     materials: [],

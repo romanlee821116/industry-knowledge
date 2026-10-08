@@ -178,7 +178,7 @@
       "id": "transceiver",
       "name": "光收發模組",
       "category": "optical",
-      "summary": "光收發模組（Transceiver）把電訊號轉成光訊號再轉回來，是資料中心與電信網路的主動元件。台股純模組廠為華星光、眾達-KY、前鼎；光聖只有 FTTH 用的小量模組，波若威則沒有模組產品。",
+      "summary": "光收發模組（Transceiver）把電訊號轉成光訊號再轉回來，是資料中心與電信網路的主動元件。台股純模組廠為華星光、眾達-KY、前鼎。",
       "engineeringNotes": "一顆光模組由 TOSA（雷射＋驅動）、ROSA（PD＋TIA）、DSP 與外殼組成。資料中心短距用 VCSEL＋多模光纖（SR），中長距用 EML 或矽光子（DR／FR），跨資料中心用相干光模組（ZR／ZR+）。LPO（線性驅動）拿掉 DSP 以降低功耗與延遲，但對訊號完整性要求更高。",
       "companies": [
         {
@@ -360,7 +360,7 @@
       "id": "eml",
       "name": "EML 雷射",
       "category": "optical",
-      "summary": "EML（電吸收調變雷射）是 800G／1.6T 單模光模組的主流光源，200G EML 是目前最缺的光通訊零件。台股真正自製 EML 晶片的是華星光，聯亞供應 EML／DFB 磊晶片；光聖不做 EML，原清單有誤。",
+      "summary": "EML（電吸收調變雷射）是 800G／1.6T 單模光模組的主流光源，200G EML 是目前最缺的光通訊零件。台股真正自製 EML 晶片的是華星光，聯亞供應 EML／DFB 磊晶片。",
       "engineeringNotes": "EML 在同一顆 InP 晶片上整合 DFB 雷射與電吸收調變器（EAM），調變速度快、啁啾小，適合 100G／200G per lane 單模傳輸。另一條路線是「CW 雷射＋矽光子調變器（MZM／微環）」，雷射只需穩定輸出連續光，對雷射本身的速度要求低，但需要較高的光功率。全球 200G EML 由 Lumentum、三菱電機、住友電工、Broadcom 合計占 8 成以上。",
       "companies": [
         {
@@ -719,7 +719,7 @@
       "id": "optical-coupling",
       "name": "光耦合（FAU／微透鏡）",
       "category": "optical",
-      "summary": "光耦合元件負責把光纖精準對準矽光晶片的波導，是 CPO 良率關鍵。上詮（FAU）為主力；大立光確實已切入 CPO 光纖陣列 FA 與微透鏡陣列，但仍在送樣、最快 2027 年中量產；訊芯-KY 是在封裝製程中做光纖對位，不是耦合元件供應商。",
+      "summary": "光耦合元件負責把光纖精準對準矽光晶片的波導，是 CPO 良率關鍵。上詮（FAU）為主力；大立光確實已切入 CPO 光纖陣列 FA 與微透鏡陣列，但仍在送樣、最快 2027 年中量產。",
       "engineeringNotes": "FAU（Fiber Array Unit）以 V 型槽把多條光纖以 127µm 等精確間距固定，再以邊緣耦合或光柵耦合對到 PIC 波導，對位公差需在次微米級。微透鏡陣列可放大模場、放寬對位公差並提升良率。耦合損耗每多 1dB 都直接吃掉 CPO 的鏈路預算，因此自動化主動對位設備與高精度被動元件是量產瓶頸。",
       "companies": [
         {

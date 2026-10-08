@@ -88,12 +88,11 @@ export const MATERIALS: Material[] = [
     id: 'abf-film',
     name: 'ABF 增層膜',
     nameEn: 'Ajinomoto Build-up Film',
-    summary:
-      '味之素開發的環氧樹脂系絕緣薄膜，不含玻纖，可雷射鑽孔並做細線路。注意：「ABF 膜」是材料，「ABF 載板」是用它做成的產品，兩者供應商不同。',
+    summary: '味之素開發的環氧樹脂系絕緣薄膜，不含玻纖，可雷射鑽孔並做細線路。由味之素供應，載板廠用它做成 ABF 載板。',
     specs: [
       { label: '組成', value: '環氧樹脂＋大量球形二氧化矽填料' },
       { label: '供應', value: '味之素 Ajinomoto，全球市占逾九成' },
-      { label: '台股相關', value: '中美晶 5483（旗下晶化科技增層膜小量出貨，屬題材）' },
+      { label: '台股相關', value: '中美晶 5483（旗下晶化科技增層膜小量出貨）' },
     ],
     usedIn: ['substrate-buildup'],
     microView: 'substrate-section',
@@ -121,7 +120,7 @@ export const MATERIALS: Material[] = [
     specs: [
       { label: '一般 FR-4', value: '環氧樹脂' },
       { label: '高速 CCL', value: 'PPO／PPE、碳氫樹脂、BMI' },
-      { label: '載板核心', value: 'BT 樹脂（三菱瓦斯主導，台股無量產 BT 本體標的）' },
+      { label: '載板核心', value: 'BT 樹脂（三菱瓦斯）' },
       { label: '台股', value: '國精化 4722、崇舜 7763、雙鍵 4764、三晃 1721、上緯投控 3708、南亞 1303' },
     ],
     usedIn: ['substrate-core', 'server-pcb'],

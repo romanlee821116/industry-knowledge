@@ -146,7 +146,7 @@ export const RACK_LAYERS: StackLayer[] = [
     role: '交換器 ASIC 頻寬每兩年翻倍（51.2T → 102.4T），光模組數量與速率同步提升。',
     specs: [
       { label: '交換 ASIC', value: 'Broadcom Tomahawk、NVIDIA Spectrum／Quantum' },
-      { label: '台廠', value: '智邦 2345、明泰 3380 等（以查證資料為準）' },
+      { label: '台廠', value: '智邦 2345、明泰 3380 等' },
     ],
     materials: ['ccl'],
     processChain: 'rack',
@@ -230,7 +230,7 @@ export const RACK_LAYERS: StackLayer[] = [
     specs: [
       { label: '單顆功率', value: '約 5.5～12 kW 以上', unverified: true },
       { label: '功率元件', value: 'SiC MOSFET（高壓）、GaN HEMT（高頻）' },
-      { label: '台廠', value: '台達電 2308、光寶科 2301 等（以查證資料為準）' },
+      { label: '台廠', value: '台達電 2308、光寶科 2301 等' },
     ],
     materials: [],
     processChain: 'rack',

@@ -450,7 +450,7 @@
       "id": "ate",
       "name": "高階 ATE",
       "category": "equipment",
-      "summary": "自動測試設備（測試機本體），由 Advantest 與 Teradyne 雙寡占。原清單三家皆非 ATE 製造商；台股中唯一有 SoC 測試機產品線的是致茂。",
+      "summary": "自動測試設備（測試機本體），由 Advantest 與 Teradyne 雙寡占。台股中唯一有 SoC 測試機產品線的是致茂。",
       "engineeringNotes": "ATE 是產生測試向量、量測電性並判定 pass/fail 的測試機，CP 與 FT 都要用；探針卡、測試座只是接在 ATE 上的介面。全球 ATE 約 95% 由 Advantest（約 58%）與 Teradyne（約 37%）掌握，SoC 測試機中 Advantest 市佔由約 56%（CY24）升到約 66%（CY25）。台廠多為 ATE 周邊（介面、handler、溫控）或 SLT，而非高階 SoC ATE 本體。",
       "companies": [
         {
@@ -630,7 +630,7 @@
       "id": "hbm-test",
       "name": "HBM 測試",
       "category": "ai-hpc",
-      "summary": "HBM 堆疊的 DRAM 晶粒、基底邏輯晶粒與 KGSD（Known Good Stacked Die）測試。DRAM 探針卡由 FormFactor、MJC 主導，台廠多屬間接受惠，原清單多數缺乏直接佐證。",
+      "summary": "HBM 堆疊的 DRAM 晶粒、基底邏輯晶粒與 KGSD（Known Good Stacked Die）測試。",
       "engineeringNotes": "HBM 以 TSV 堆疊 8–12 層（或更多）DRAM 晶粒，再接在基底邏輯晶粒上；測試點包括每層 DRAM 的晶圓測試、基底晶粒測試、堆疊後 KGSD 全功能測試與預燒，完整流程約 15 道以上。DRAM 晶圓測試講求高平行度（一次觸壓多顆晶粒）的 MEMS 探針卡，主要由 FormFactor、MJC 供應；HBM 測試多在記憶體原廠內部完成。",
       "companies": [
         {

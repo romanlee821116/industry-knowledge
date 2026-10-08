@@ -59,7 +59,7 @@ export const FAB_LAYERS: StackLayer[] = [
     role: '先進製程對金屬雜質的要求達 ppt 等級，化學品純度與供應系統潔淨度直接影響良率。',
     specs: [
       { label: '純度等級', value: 'SEMI G4／G5（金屬雜質 ppt 級）', unverified: true },
-      { label: '台廠', value: '三福化 4755、台特化 4772、勝一 1773 等（以查證資料為準）' },
+      { label: '台廠', value: '三福化 4755、台特化 4772、勝一 1773 等' },
     ],
     materials: [],
     processChain: 'fab',
@@ -202,10 +202,7 @@ export const FAB_LAYERS: StackLayer[] = [
     nameEn: 'Pellicle',
     summary: '架在光罩上方數毫米的超薄透光膜，讓掉落的微粒落在焦平面外、不會被印到晶圓上。',
     role: 'EUV pellicle 需承受高功率光照，材料（多晶矽、碳奈米管等）仍在演進。',
-    specs: [
-      { label: '國際', value: 'Mitsui Chemicals、信越化學', unverified: true },
-      { label: '注意', value: '家登做的是 EUV 光罩盒（reticle pod），不是 pellicle' },
-    ],
+    specs: [{ label: '國際', value: 'Mitsui Chemicals、信越化學', unverified: true }],
     materials: [],
     processChain: 'fab',
   },

@@ -174,7 +174,7 @@
       "id": "ai-asic",
       "name": "AI ASIC",
       "category": "ai-hpc",
-      "summary": "雲端業者（CSP）自研的 AI 加速器（如 Google TPU、AWS Trainium），由 ASIC 設計服務商協助實體設計與量產、台積電代工。台股核心為世芯-KY、創意、聯發科與晶圓代工台積電；聯電並非 AI ASIC 設計或主晶片代工，只提供先進封裝周邊的矽中介層等。",
+      "summary": "雲端業者（CSP）自研的 AI 加速器（如 Google TPU、AWS Trainium），由 ASIC 設計服務商協助實體設計與量產、台積電代工。台股核心為世芯-KY、創意、聯發科與晶圓代工台積電。",
       "engineeringNotes": "AI ASIC 與 GPU 的差異是針對特定模型與資料流客製化，捨棄通用性換取每瓦效能與成本優勢。CSP 通常自行做架構與前端設計，再交給設計服務商做後端實體設計、IP 整合（HBM PHY、SerDes、D2D）、CoWoS 封裝設計與量產管理（turnkey）。市場預估 2027 年 ASIC/XPU 出貨將超越 GPU，但營收規模仍以 GPU 為大宗。",
       "companies": [
         {
@@ -285,8 +285,8 @@
       "id": "hbm",
       "name": "HBM 高頻寬記憶體",
       "category": "ai-hpc",
-      "summary": "HBM 由 SK hynix、Samsung、Micron 三家壟斷，台灣沒有 HBM DRAM 量產廠。原清單南亞科、華邦電、旺宏皆不生產 HBM（南亞科明確不做標準 HBM、華邦 CUBE 為邊緣 AI 客製記憶體、旺宏為 NOR/NAND）。台股真正的 HBM 相關性在於：台積電代工 HBM4 base die 並以 CoWoS 與 GPU 合封、創意提供 HBM4/4E PHY IP、力成承接美光 HBM 部分後段封測。",
-      "engineeringNotes": "HBM 以 TSV 把 8–16 層 DRAM 核心晶粒垂直堆疊在一顆基底邏輯晶粒（base die）上，透過 1024 位元（HBM4 為 2048 位元）超寬介面與 GPU 並排放在矽中介層上。HBM4 起 base die 改用邏輯製程（如台積電 12nm／N3），使台積電成為 HBM 供應鏈一環，並可依客戶需求客製化（custom HBM）。華邦 CUBE、南亞科 UWIO 屬「類 HBM」客製化寬 I/O 記憶體，目標是邊緣 AI 或 WoW 堆疊，不是 JEDEC HBM。",
+      "summary": "HBM 由 SK hynix、Samsung、Micron 三家壟斷，台灣沒有 HBM DRAM 量產廠。台股真正的 HBM 相關性在於：台積電代工 HBM4 base die 並以 CoWoS 與 GPU 合封、創意提供 HBM4/4E PHY IP、力成承接美光 HBM 部分後段封測。",
+      "engineeringNotes": "HBM 以 TSV 把 8–16 層 DRAM 核心晶粒垂直堆疊在一顆基底邏輯晶粒（base die）上，透過 1024 位元（HBM4 為 2048 位元）超寬介面與 GPU 並排放在矽中介層上。HBM4 起 base die 改用邏輯製程（如台積電 12nm／N3），使台積電成為 HBM 供應鏈一環，並可依客戶需求客製化（custom HBM）。",
       "companies": [
         {
           "ticker": "2408",

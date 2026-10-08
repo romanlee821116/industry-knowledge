@@ -211,7 +211,7 @@
       "id": "gan-power-ic",
       "name": "GaN 功率 IC（驅動／整合）",
       "category": "power",
-      "summary": "把 GaN FET 與控制器、驅動電路整合的 IC，或專為 GaN 設計的閘極驅動器。台廠中有實際產品的是矽力（整合 GaN FET 的返馳開關 IC）與力智（GaN Driver IC）；致新查無 GaN 相關產品資訊。",
+      "summary": "把 GaN FET 與控制器、驅動電路整合的 IC，或專為 GaN 設計的閘極驅動器。台廠中有實際產品的是矽力（整合 GaN FET 的返馳開關 IC）與力智（GaN Driver IC）。",
       "engineeringNotes": "GaN HEMT 閘極耐壓低（約 6V）、閾值電壓低且開關極快，對驅動電路的寄生電感、負壓關斷與 dv/dt 抗擾非常敏感，因此業界傾向把驅動器與 GaN FET 單晶或合封整合（例如 Navitas GaNFast、TI LMG 系列）。整合方案可把傳統 2–3 顆晶片的一次側電路縮成一顆，是快充與伺服器 PSU 縮小體積的關鍵。",
       "companies": [
         {
@@ -427,7 +427,7 @@
           "ticker": "8261",
           "name": "富鼎",
           "verdict": "corrected",
-          "role": "以離散 MOSFET 為主，供應伺服器 SPS 電源與散熱；1,200V IGBT 模組為開發中產品，並非模組大廠",
+          "role": "以離散 MOSFET 為主，供應伺服器 SPS 電源與散熱；1,200V IGBT 模組為開發中產品",
           "core": 1,
           "sources": ["https://news.cnyes.com/news/id/6315205", "https://uc913.com/stock-8261/"],
           "note": "原值『功率模組核心』→ 元件供應商：富鼎賣離散 MOSFET 給電源廠，非模組廠"
@@ -588,7 +588,7 @@
       "id": "high-speed-transmission",
       "name": "高速傳輸（材料／線纜）",
       "category": "ai-hpc",
-      "summary": "AI 伺服器與交換器的高速訊號傳輸硬體：高速 CCL（台光電、台燿、聯茂）與高速銅纜（貿聯）。聯電不屬於此族群核心，僅透過矽光子代工沾邊。",
+      "summary": "AI 伺服器與交換器的高速訊號傳輸硬體：高速 CCL（台光電、台燿、聯茂）與高速銅纜（貿聯）。",
       "engineeringNotes": "SerDes 單通道速率由 112G 走向 224G PAM4 後，PCB 損耗容許量急遽縮小，CCL 必須從 M7 升級到 M8（800G 交換器、主流 AI 伺服器）、M9（下一代 GPU 與 1.6T 交換器），層數由 20–30 層增加到 36–48 層。機櫃內 GPU 互連則以銅纜為主（GB200 NVL72 背板約 5,000 條 224G 銅纜），距離拉長時改用含 retimer 的主動式電纜 AEC，再更遠才用光纖。",
       "companies": [
         {
@@ -628,7 +628,7 @@
           "ticker": "2303",
           "name": "聯電",
           "verdict": "corrected",
-          "role": "晶圓代工廠；與高速傳輸相關的是矽光子平台（與 SILITH 合作交付 1.6T 晶圓、2027 年推 12 吋平台），並非 CCL 或線纜",
+          "role": "晶圓代工廠；與高速傳輸相關的是矽光子平台（與 SILITH 合作交付 1.6T 晶圓、2027 年推 12 吋平台）",
           "core": 1,
           "sources": ["https://news.nextapple.com/finance/20260714/161C36512AC602EEDCEF2CC40E88F44E"],
           "note": "原值『高速傳輸核心』→ 邊緣：聯電僅以矽光子代工沾邊"
