@@ -1,0 +1,793 @@
+{
+  "generatedAt": "2026-10-08",
+  "groups": [
+    {
+      "id": "silicon-wafer",
+      "name": "矽晶圓（含再生晶圓）",
+      "category": "materials",
+      "summary": "晶圓製造最上游的基板材料，全球由信越、SUMCO、環球晶、Siltronic、SK Siltron 五強寡占九成以上。台灣三雄為環球晶、台勝科、合晶；2026 年 7 月起 12 吋晶圓三年多來首度漲價。另納入測試／控片用的再生晶圓業者。",
+      "engineeringNotes": "多晶矽經柴可拉斯基法（CZ）拉成單晶棒，再切片、研磨、拋光（Polished）或長磊晶層（Epi）成為 8／12 吋晶圓；先進邏輯要求表面奈米級平坦度與極低金屬／顆粒汙染。定價以長約（LTA）為主，景氣循環落後晶圓廠稼動率約 2–3 季。再生晶圓是把晶圓廠用過的控片／擋片去膜、研磨拋光後重複使用，先進製程每片產品晶圓耗用的控片數更多，2 奈米需求進一步增加。",
+      "companies": [
+        {
+          "ticker": "6488",
+          "name": "環球晶",
+          "verdict": "confirmed",
+          "role": "全球第三大矽晶圓廠（市佔約 17–18%），產品涵蓋 3–12 吋拋光／磊晶晶圓、SOI 與 SiC 基板，於台、日、韓、美、歐設廠",
+          "core": 3,
+          "sources": ["https://news.cnyes.com/news/id/4547775", "https://money.udn.com/money/story/5612/9709531"],
+          "note": ""
+        },
+        {
+          "ticker": "3532",
+          "name": "台勝科",
+          "verdict": "confirmed",
+          "role": "台塑集團與日本 SUMCO 合資的 8／12 吋半導體矽晶圓廠，12 吋占營收七成以上",
+          "core": 3,
+          "sources": [
+            "https://www.businesstoday.com.tw/article/category/183008/post/202606230006/",
+            "https://money.udn.com/money/story/5612/9709531"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6182",
+          "name": "合晶",
+          "verdict": "confirmed",
+          "role": "8 吋利基型（重摻、磊晶）矽晶圓龍頭，積極擴展 12 吋產能",
+          "core": 2,
+          "sources": ["https://money.udn.com/money/story/5612/9709531", "https://statementdog.com/news/16948"],
+          "note": ""
+        },
+        {
+          "ticker": "5483",
+          "name": "中美晶",
+          "verdict": "added",
+          "role": "環球晶母公司（持股約 46%），獲利約七成以上來自環球晶認列；同時轉投資台特化、宏捷科、朋程",
+          "core": 2,
+          "sources": [
+            "https://dalabs.org/guide/tw-stock-guide/what-is-5483-doing/",
+            "https://7evenguy.com/what-is-twstock-5483-doing/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "5434",
+          "name": "崇越",
+          "verdict": "added",
+          "role": "信越化學矽晶圓在台代理商，矽晶圓長約看至 2027 年（通路商，非製造）",
+          "core": 1,
+          "sources": ["https://news.cnyes.com/news/id/4723932", "https://www.pocket.tw/school/report/SCHOOL/6428/"],
+          "note": ""
+        },
+        {
+          "ticker": "8028",
+          "name": "昇陽半導體",
+          "verdict": "added",
+          "role": "台灣第一、全球第二大再生晶圓廠，月產能 2026 年挑戰 120 萬片",
+          "core": 2,
+          "sources": ["https://news.cnyes.com/news/id/6136965", "https://uanalyze.com.tw/articles/621136634"],
+          "note": ""
+        },
+        {
+          "ticker": "1560",
+          "name": "中砂",
+          "verdict": "added",
+          "role": "除鑽石碟外亦生產 12 吋再生晶圓，為再生晶圓三雄之一",
+          "core": 1,
+          "sources": [
+            "https://tw.stock.yahoo.com/news/%E4%B8%AD%E7%A0%82%E9%91%BD%E7%9F%B3%E7%A2%9F-%E5%86%8D%E7%94%9F%E6%99%B6%E5%9C%93%E5%85%A9%E5%A4%A7%E6%A5%AD%E5%8B%99%E6%93%B4%E7%94%A2-%E5%85%A8%E5%B9%B4%E7%87%9F%E6%94%B6%E6%88%B0%E7%99%BE%E5%84%84%E5%85%83-030146917.html",
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/165606"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3583",
+          "name": "辛耘",
+          "verdict": "added",
+          "role": "濕製程設備商，兼營再生晶圓業務，受惠台積電提高再生晶圓委外比例",
+          "core": 1,
+          "sources": ["https://www.moneyweekly.com.tw/ArticleData/Info/Article/165606"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "photoresist",
+      "name": "光阻與微影周邊材料",
+      "category": "materials",
+      "summary": "黃光微影的感光材料，前段 KrF／ArF／EUV 光阻幾乎由日系 JSR、TOK、信越、住友、富士軟片寡占約九成。台廠目前以 g/i-line 與厚膜光阻、先進封裝 PSPI、乾膜光阻、BARC 等周邊材料切入，並由崇越代理信越光阻。",
+      "engineeringNotes": "光阻依曝光波長分 g-line（436nm）、i-line（365nm）、KrF（248nm）、ArF／ArFi（193nm）與 EUV（13.5nm），越先進對解析度、線邊粗糙度（LER）與金屬雜質（ppt 級）要求越嚴。光阻下方常塗布底部抗反射層（BARC）以抑制駐波，上方或周邊另有保護層、修整材料。先進封裝重布線層（RDL）則使用感光聚醯亞胺（PSPI）作為介電層，PCB／載板使用乾膜光阻。",
+      "companies": [
+        {
+          "ticker": "",
+          "name": "台灣晶技",
+          "verdict": "removed",
+          "role": "台灣晶技（3042）為石英振盪器廠，與光阻無關",
+          "core": 1,
+          "sources": [],
+          "note": "原值『台灣晶技』→ 移除：使用者已自行標註錯誤，台灣晶技主營石英元件，不生產光阻"
+        },
+        {
+          "ticker": "1711",
+          "name": "永光",
+          "verdict": "confirmed",
+          "role": "台灣本土光阻主力廠，供應 g-line、i-line、厚膜與 KrF 光阻，並切入先進封裝 PSPI，受惠台積電光阻在地化",
+          "core": 3,
+          "sources": [
+            "https://news.cnyes.com/news/id/4863108",
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/253750",
+            "https://ecbu.ecic.com/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "1717",
+          "name": "長興",
+          "verdict": "confirmed",
+          "role": "全球最大乾膜光阻製造商（市佔約 25%，主要用於 PCB／載板），並以液態封裝材料切入 CoWoS 先進封裝",
+          "core": 1,
+          "sources": [
+            "https://www.pocket.tw/school/report/SCHOOL/6172/",
+            "https://money.udn.com/money/story/5710/9229559"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4772",
+          "name": "台特化",
+          "verdict": "removed",
+          "role": "主業為半導體特殊氣體（矽乙烷、矽丙烷）與無水氫氟酸，不生產光阻",
+          "core": 1,
+          "sources": [
+            "https://uanalyze.com.tw/articles/4116723149",
+            "https://goodinfo.tw/tw/BasicInfo.asp?STOCK_ID=4772"
+          ],
+          "note": "原值『光阻』→ 移除：台特化為特殊氣體／特化廠，應歸入電子氣體族群"
+        },
+        {
+          "ticker": "4749",
+          "name": "新應材",
+          "verdict": "added",
+          "role": "台積電黃光微影周邊材料供應商（BARC、保護層等），切入 2 奈米製程，並開發 KrF／ArF 光阻",
+          "core": 3,
+          "sources": [
+            "https://dalabs.org/guide/tw-stock-guide/what-is-new-material-4749-doing/",
+            "https://school.gugu.fund/blog/concept-stocks/4475031624"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "5434",
+          "name": "崇越",
+          "verdict": "added",
+          "role": "獨家代理信越化學光阻（含 EUV），在台光阻市佔約五成（通路商）",
+          "core": 2,
+          "sources": ["https://news.cnyes.com/news/id/4680012", "https://www.pocket.tw/school/report/SCHOOL/6428/"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "specialty-chemicals",
+      "name": "半導體特用化學品",
+      "category": "materials",
+      "summary": "涵蓋顯影液、光阻剝離液、蝕刻液、清洗溶劑等配方型或高純度化學品。台積電推動在地化後，三福化、勝一、新應材、達興材料、永光等本土廠陸續打入先進製程與 CoWoS 先進封裝。",
+      "engineeringNotes": "特用化學品貫穿黃光（顯影液 TMAH 2.38%）、蝕刻後清洗、光阻剝離與先進封裝（剝離液、暫時鍵合／解鍵合材料）等步驟，金屬離子需控制在 ppt 等級。台廠多從面板或成熟製程切入，再以在地化、回收再生（如 TMAH 回收）與客製配方爭取先進製程認證，認證週期通常 1–3 年。",
+      "companies": [
+        {
+          "ticker": "4755",
+          "name": "三福化",
+          "verdict": "confirmed",
+          "role": "TMAH 顯影液、光阻剝離液等精密化學品，剝離液受惠 CoWoS 擴產，TMAH 回收純化產線切入台積電",
+          "core": 3,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=2788babd-6769-436a-b142-35b7af9f5be8",
+            "https://statementdog.com/news/5526",
+            "https://news.cnyes.com/news/id/4877205"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4772",
+          "name": "台特化",
+          "verdict": "confirmed",
+          "role": "半導體特殊氣體與精密化學材料廠（矽乙烷、矽丙烷、無水氫氟酸）；屬特化中的特殊氣體分支",
+          "core": 2,
+          "sources": ["https://uanalyze.com.tw/articles/4116723149", "https://uanalyze.com.tw/articles/3236412869"],
+          "note": ""
+        },
+        {
+          "ticker": "1773",
+          "name": "勝一",
+          "verdict": "confirmed",
+          "role": "電子級溶劑（PM、PMA 等）主力廠，台積電營收占比約三成，打入 3 奈米製程",
+          "core": 2,
+          "sources": [
+            "https://www.pocket.tw/school/report/SCHOOL/6280/",
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=8dab605d-9932-446b-abf3-d29508603955"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "1711",
+          "name": "永光",
+          "verdict": "confirmed",
+          "role": "電子化學事業含光阻、顯影液、研磨漿料、濕製程化學品",
+          "core": 2,
+          "sources": ["https://ecbu.ecic.com/", "https://news.cnyes.com/news/id/4863108"],
+          "note": ""
+        },
+        {
+          "ticker": "4749",
+          "name": "新應材",
+          "verdict": "added",
+          "role": "半導體特用化學材料廠，BARC 等微影周邊材料打入台積電 2 奈米",
+          "core": 2,
+          "sources": ["https://dalabs.org/guide/tw-stock-guide/what-is-new-material-4749-doing/"],
+          "note": ""
+        },
+        {
+          "ticker": "5234",
+          "name": "達興材料",
+          "verdict": "added",
+          "role": "由面板材料轉型半導體，產品含光阻剝離液、高選擇比銅蝕刻液、高純度溶劑、暫時保護膠等",
+          "core": 2,
+          "sources": [
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=4933fd6a-b8c5-41d0-91b0-f053278ee485",
+            "https://7evenguy.com/what-is-dar-hsing-materials-5234-doing/"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "cmp-slurry",
+      "name": "CMP 研磨液",
+      "category": "materials",
+      "summary": "化學機械研磨（CMP）所用含奈米磨粒的化學漿料，全球由 Entegris（CMC）、Fujimi、DuPont、Resonac、富士軟片等日美廠主導，台灣本土上市廠僅永光有研磨漿料產品線，其餘多為代理。",
+      "engineeringNotes": "研磨液由磨粒（二氧化矽、氧化鈰、氧化鋁）、氧化劑、錯合劑與界面活性劑組成，依研磨對象分為 Oxide/STI、W、Cu、Barrier、Poly 等配方。關鍵規格是移除率、選擇比與大顆粒（LPC）數量控制，配方需與研磨墊、鑽石碟一起被晶圓廠認證，切換成本高。",
+      "companies": [
+        {
+          "ticker": "4755",
+          "name": "三福化",
+          "verdict": "removed",
+          "role": "主力為 TMAH 顯影液與剝離液，查無自製 CMP 研磨液產品",
+          "core": 1,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=2788babd-6769-436a-b142-35b7af9f5be8",
+            "https://statementdog.com/news/5526"
+          ],
+          "note": "原值『CMP 研磨液』→ 移除：查無三福化研磨液產品佐證，應歸特用／高純度化學品"
+        },
+        {
+          "ticker": "1773",
+          "name": "勝一",
+          "verdict": "removed",
+          "role": "電子級溶劑廠，非研磨液廠",
+          "core": 1,
+          "sources": ["https://www.pocket.tw/school/report/SCHOOL/6280/"],
+          "note": "原值『CMP 研磨液』→ 移除：勝一主營電子級溶劑"
+        },
+        {
+          "ticker": "1711",
+          "name": "永光",
+          "verdict": "added",
+          "role": "電子化學事業產品線含研磨漿料（CMP slurry）",
+          "core": 1,
+          "sources": ["https://ecbu.ecic.com/"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "cmp-pad",
+      "name": "CMP 研磨墊與鑽石碟",
+      "category": "materials",
+      "summary": "CMP 耗材除研磨液外，還有研磨墊（pad）與修整研磨墊用的鑽石碟（pad conditioner）。研磨墊由 DuPont 寡占約六成以上，台灣頌勝（子公司智勝科技）2026 年上市，為國內唯一量產並打入台積電的研磨墊廠；中砂則是鑽石碟大廠。",
+      "engineeringNotes": "研磨墊多為多孔聚氨酯（PU），硬墊用於平坦化、軟墊用於最終拋光，表面溝槽設計影響研磨液分布與移除均勻性。研磨過程中墊面孔洞會被堵塞（glazing），需以鑲嵌鑽石顆粒的鑽石碟持續修整（conditioning）恢復粗糙度。先進製程 CMP 道次增加（2 奈米較 3 奈米更多），帶動研磨墊與鑽石碟用量同步成長。",
+      "companies": [
+        {
+          "ticker": "1560",
+          "name": "中砂",
+          "verdict": "corrected",
+          "role": "CMP 鑽石碟（pad conditioner）大廠，為台積電 3 奈米鑽石碟最大供應商；不生產研磨墊",
+          "core": 3,
+          "sources": [
+            "https://wantrich.chinatimes.com/news/20260917900221-420101",
+            "https://vocus.cc/article/629ce211fd89780001d0303e"
+          ],
+          "note": "原值『CMP 研磨墊』→ 新值『CMP 鑽石碟』：中砂生產的是修整研磨墊的鑽石碟，非研磨墊本體；族群已更名為『研磨墊與鑽石碟』"
+        },
+        {
+          "ticker": "7768",
+          "name": "頌勝",
+          "verdict": "added",
+          "role": "旗下智勝科技為國內唯一量產 CMP 研磨墊並打入台積電的廠商，具 RIM 製程專利，2026/5/7 上市",
+          "core": 3,
+          "sources": [
+            "https://www.bnext.com.tw/article/90538/pvichem-listed",
+            "https://www.twse.com.tw/market_insights/zh/detail/8a8216d69dbea9fd019dd834d10f0094"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "1307",
+          "name": "三芳",
+          "verdict": "added",
+          "role": "PU 合成皮廠，透過子公司生產 CMP 研磨墊，客戶集中於中國記憶體廠",
+          "core": 1,
+          "sources": ["https://money.udn.com/money/story/5612/9764753"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "sputter-target",
+      "name": "濺鍍靶材",
+      "category": "materials",
+      "summary": "PVD 濺鍍沉積金屬薄膜（Cu、Ta、Ti、Co、Ru 等）的原料靶材，全球由 JX 金屬、Materion、Honeywell、Tosoh 等主導。台股純正標的為光洋科，其子公司創鉅已取得台積電 2 奈米與釕靶材訂單。",
+      "engineeringNotes": "靶材需 5N–6N 以上純度，並控制晶粒尺寸與織構以確保膜厚均勻；製程包含精煉、熔鑄或粉末冶金、軋延熱處理與背板接合（bonding）。先進製程導線微縮後，阻障層／襯墊層由 Ta/TaN 往 Co、Ru 演進，釕靶材成為 2 奈米與新興記憶體（RRAM）的關鍵材料；貴金屬回收能力可降低原料成本。",
+      "companies": [
+        {
+          "ticker": "1785",
+          "name": "光洋科",
+          "verdict": "confirmed",
+          "role": "貴金屬精煉回收與濺鍍靶材廠，持股約七成的創鉅取得台積電 2 奈米與 3／5 奈米靶材訂單，並供應釕靶材",
+          "core": 3,
+          "sources": [
+            "https://udn.com/news/story/7254/9405346",
+            "https://money.udn.com/money/story/11074/9488929",
+            "https://news.cnyes.com/news/id/4751672"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6182",
+          "name": "合晶",
+          "verdict": "removed",
+          "role": "矽晶圓廠，不生產靶材",
+          "core": 1,
+          "sources": ["https://money.udn.com/money/story/5612/9709531"],
+          "note": "原值『靶材』→ 移除：合晶為矽晶圓廠，已列於矽晶圓族群"
+        },
+        {
+          "ticker": "5434",
+          "name": "崇越",
+          "verdict": "removed",
+          "role": "半導體材料通路商，代理產品為光阻、矽晶圓、研磨液、石英等，查無自製或主力代理靶材佐證",
+          "core": 1,
+          "sources": ["https://www.pocket.tw/school/report/SCHOOL/6428/"],
+          "note": "原值『靶材』→ 移除：崇越為代理商且查無靶材相關佐證，已改列矽晶圓與光阻族群"
+        }
+      ]
+    },
+    {
+      "id": "electronic-gas",
+      "name": "電子特殊氣體",
+      "category": "materials",
+      "summary": "晶圓廠沉積、蝕刻、摻雜與腔體清潔所需的高純度氣體，全球由 Air Liquide、Linde、Air Products、大陽日酸寡占。台股主要標的為持股聯華林德五成的聯華（1229）與自製矽乙烷的台特化；亞東氣體為液空合資、未上市。",
+      "engineeringNotes": "電子氣體分為大宗氣體（N2、O2、Ar、H2，多以現場製氣廠管線供應）與特殊氣體（SiH4、Si2H6、NF3、WF6、NH3、C4F6 等）。先進製程 ALD／CVD 需要低熱預算的前驅物，例如矽乙烷可在較低溫度下沉積高品質矽膜，純度需達 4N8–5N 以上。特殊氣體供應高度寡占，台特化為全球四家矽乙烷供應商之一。",
+      "companies": [
+        {
+          "ticker": "1229",
+          "name": "聯華",
+          "verdict": "corrected",
+          "role": "持股 50% 聯華林德氣體，國內氣體市佔約五成、電子級特殊氣體市佔約六成，氣體事業貢獻過半獲利",
+          "core": 2,
+          "sources": [
+            "https://www.stockfeel.com.tw/%E8%81%AF%E8%8F%AF%EF%BC%881229%EF%BC%89%E5%85%AC%E5%8F%B8%E4%BB%8B%E7%B4%B9-2/",
+            "https://blog.fugle.tw/post/earnings-call-1229-2026-03-31"
+          ],
+          "note": "原值『1290』→ 新值『1229』：聯華實業股票代號為 1229"
+        },
+        {
+          "ticker": "4755",
+          "name": "三福化",
+          "verdict": "removed",
+          "role": "主力為濕式化學品（TMAH、剝離液），查無電子特殊氣體產品",
+          "core": 1,
+          "sources": ["https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=2788babd-6769-436a-b142-35b7af9f5be8"],
+          "note": "原值『電子氣體』→ 移除：三福化為液態化學品廠，查無氣體業務佐證"
+        },
+        {
+          "ticker": "4772",
+          "name": "台特化",
+          "verdict": "confirmed",
+          "role": "自製電子級矽乙烷（純度 4N8–5N）、矽丙烷，為台灣唯一、全球四家矽乙烷供應商之一，並代理銷售多種特殊氣體",
+          "core": 3,
+          "sources": [
+            "https://uanalyze.com.tw/articles/4116723149",
+            "https://goodinfo.tw/tw/BasicInfo.asp?STOCK_ID=4772"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "",
+          "name": "亞東氣體",
+          "verdict": "removed",
+          "role": "法國液空集團與遠東集團合資的工業氣體公司，非公開發行、未上市",
+          "core": 1,
+          "sources": [
+            "https://www.feg.com.tw/tw/business/company.aspx?id=4",
+            "https://tw.airliquide.com/zh/guanyuwomen"
+          ],
+          "note": "原值『亞東氣體*』→ 移除：亞東工業氣體未上市，僅能列為產業參考"
+        }
+      ]
+    },
+    {
+      "id": "high-purity-chemicals",
+      "name": "高純度化學品（濕電子化學品）",
+      "category": "materials",
+      "summary": "晶圓清洗、蝕刻與黃光製程用的超高純度酸鹼與溶劑（HF、H2SO4、H2O2、IPA、TMAH、電子級溶劑等），國際由 BASF、三菱化學、關東化學、Stella Chemifa 主導。台股相關為三福化（TMAH）、台特化（無水氫氟酸）、勝一（電子級溶劑）；李長榮（電子級 IPA）已私有化下市。",
+      "engineeringNotes": "濕電子化學品依 SEMI 等級分 G1–G5，先進製程需 G5 級，金屬離子 <10 ppt、顆粒數嚴格控制。一片晶圓在數百道製程中反覆清洗（RCA、SC1／SC2、DHF、IPA 乾燥），用量大且與晶圓廠稼動率高度連動。在地化、回收再純化（TMAH、溶劑）是台廠切入的主要策略。",
+      "companies": [
+        {
+          "ticker": "4755",
+          "name": "三福化",
+          "verdict": "confirmed",
+          "role": "半導體級 TMAH 與多種蝕刻液、精密化學品，TMAH 回收純化切入台積電供應鏈",
+          "core": 3,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=2788babd-6769-436a-b142-35b7af9f5be8",
+            "https://news.cnyes.com/news/id/4877205"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4772",
+          "name": "台特化",
+          "verdict": "confirmed",
+          "role": "自製無水氫氟酸（AHF），為高純度氫氟酸與含氟化學品原料",
+          "core": 2,
+          "sources": ["https://uanalyze.com.tw/articles/3236412869", "https://uanalyze.com.tw/articles/4116723149"],
+          "note": ""
+        },
+        {
+          "ticker": "1773",
+          "name": "勝一",
+          "verdict": "confirmed",
+          "role": "電子級溶劑供應商，金屬離子控制達 ppt 等級，打入台積電先進製程",
+          "core": 2,
+          "sources": [
+            "https://www.pocket.tw/school/report/SCHOOL/6280/",
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=8dab605d-9932-446b-abf3-d29508603955"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "1704",
+          "name": "李長榮化工",
+          "verdict": "removed",
+          "role": "台灣唯一垂直整合生產電子級 IPA 的廠商，供應台積電；2019/1/30 由 KKR 收購私有化下市",
+          "core": 1,
+          "sources": [
+            "https://www.chinatimes.com/realtimenews/20190130003132-260410",
+            "https://www.businesstoday.com.tw/article/category/183015/post/202111030047/"
+          ],
+          "note": "原值『李長榮 1705』→ 移除：代號應為 1704（榮化），且已於 2019 年（非 2020 年）私有化下市，無法投資"
+        }
+      ]
+    },
+    {
+      "id": "photomask",
+      "name": "光罩",
+      "category": "materials",
+      "summary": "微影曝光時承載電路圖形的石英母版。先進製程光罩多由晶圓廠自製（台積電、三星、英特爾），商用光罩市場由 Toppan、DNP、Photronics 三強主導。台股純正標的為台灣光罩，專注成熟製程、特殊製程與先進封裝光罩。",
+      "engineeringNotes": "光罩以合成石英基板鍍鉻（二元光罩）或 MoSi（相移光罩 PSM）製成，EUV 則改用多層 Mo/Si 反射式光罩。以電子束或雷射直寫圖形後需經量測、缺陷檢測與修補，再貼上 pellicle 保護。先進節點每套光罩可達數十至上百片，成本動輒數百萬美元，因此晶圓廠多自建 captive mask shop。",
+      "companies": [
+        {
+          "ticker": "2338",
+          "name": "光罩",
+          "verdict": "confirmed",
+          "role": "台灣光罩，從事 IC 光罩研發製造，涵蓋成熟／特殊製程、矽光子、FOPLP 與 2.5D/3D 先進封裝用 14 吋光罩",
+          "core": 3,
+          "sources": [
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=2b4ab57f-fb7a-4d56-8ef9-762c9fcf7d2e",
+            "https://tw.stock.yahoo.com/news/%E5%8D%8A%E5%B0%8E%E9%AB%94-%E5%8F%B0%E7%81%A3%E5%85%89%E7%BD%A9-%E6%93%B4%E5%A4%A7%E5%B8%83%E5%B1%8014%E5%90%8B%E5%85%89%E7%BD%A9%E7%94%A2%E7%B7%9A-001117028.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4348",
+          "name": "清惠",
+          "verdict": "unverified",
+          "role": "查無代號 4348、名為清惠且從事光罩之上市櫃公司",
+          "core": 1,
+          "sources": [],
+          "note": "無法查證：搜尋不到對應公司，疑為代號或名稱錯誤，建議使用者提供更多資訊"
+        }
+      ]
+    },
+    {
+      "id": "pellicle",
+      "name": "EUV 光罩盒／晶圓載具與 Pellicle",
+      "category": "materials",
+      "summary": "原族群『光罩保護膜』重新定義為光罩與晶圓的污染防護耗材：EUV 光罩盒（reticle pod）、晶圓傳送盒（FOUP）與光罩保護膜（pellicle）。家登為 EUV 光罩盒全球龍頭，與 Entegris 共同主導；pellicle 則由三井化學、信越化學等日廠掌握，台股目前無 pellicle 上市廠。",
+      "engineeringNotes": "EUV 光罩採反射式且部分場景不貼 pellicle，對微粒極度敏感，因此需內外雙層的 EUV dual pod 在真空與搬運中保護光罩，須經 ASML 認證。Pellicle 是張貼在光罩上方數毫米的超薄膜，使微粒落在焦平面外；EUV pellicle 需 ≥90% 穿透率並承受高功率光源熱負載，材料由多晶矽往奈米碳管（CNT）演進。FOUP 則用於 12 吋晶圓在廠內各工序間的密封搬運。",
+      "companies": [
+        {
+          "ticker": "3680",
+          "name": "家登",
+          "verdict": "corrected",
+          "role": "全球 EUV 光罩盒龍頭（市佔約八成以上），並供應 12 吋晶圓傳送盒 FOUP；不生產 pellicle",
+          "core": 3,
+          "sources": [
+            "https://www.pocket.tw/school/report/SCHOOL/6409/",
+            "https://uanalyze.com.tw/articles/407009553",
+            "https://news.cnyes.com/news/id/4627746"
+          ],
+          "note": "原值『光罩保護膜 pellicle』→ 新值『EUV 光罩盒與晶圓載具』：家登產品為 reticle pod 與 FOUP，pellicle 由三井化學、信越等供應；族群已重新定義"
+        }
+      ]
+    },
+    {
+      "id": "diamond",
+      "name": "鑽石材料（鑽石工具與 CVD 鑽石散熱）",
+      "category": "materials",
+      "summary": "半導體用鑽石分兩類：一是 CMP 鑽石碟、鑽石砂輪等鑽石工具，二是以 MPCVD 成長的人造鑽石作為高功率晶片散熱材料。前者台股以中砂為代表；後者仍在送樣驗證階段，題材性高於營收貢獻。",
+      "engineeringNotes": "鑽石碟以硬焊或電鍍方式把鑽石顆粒固定在基盤上，顆粒排列、高度一致性決定修整研磨墊的效果與壽命。CVD 鑽石熱導率約 1,500–2,200 W/m·K，為銅的 4–5 倍，可作為 GPU 熱點散熱片或鑽石銅複合材料，但大面積成長成本高、與晶片接合的熱介面仍是量產門檻。",
+      "companies": [
+        {
+          "ticker": "1560",
+          "name": "中砂",
+          "verdict": "confirmed",
+          "role": "鑽石工具與 CMP 鑽石碟大廠，台積電 3／2 奈米鑽石碟主力供應商，毛利率約 40%",
+          "core": 3,
+          "sources": [
+            "https://wantrich.chinatimes.com/news/20260917900221-420101",
+            "https://tw.stock.yahoo.com/news/%E4%B8%AD%E7%A0%82%E9%91%BD%E7%9F%B3%E7%A2%9F-%E5%86%8D%E7%94%9F%E6%99%B6%E5%9C%93%E5%85%A9%E5%A4%A7%E6%A5%AD%E5%8B%99%E6%93%B4%E7%94%A2-%E5%85%A8%E5%B9%B4%E7%87%9F%E6%94%B6%E6%88%B0%E7%99%BE%E5%84%84%E5%85%83-030146917.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4772",
+          "name": "台特化",
+          "verdict": "removed",
+          "role": "主業為矽乙烷等特殊氣體與無水氫氟酸，查無鑽石材料業務",
+          "core": 1,
+          "sources": [
+            "https://uanalyze.com.tw/articles/4116723149",
+            "https://goodinfo.tw/tw/BasicInfo.asp?STOCK_ID=4772"
+          ],
+          "note": "原值『鑽石材料』→ 移除：查無台特化鑽石相關產品佐證"
+        },
+        {
+          "ticker": "6895",
+          "name": "宏碩系統",
+          "verdict": "added",
+          "role": "微波加熱模組與異質材料焊接廠，推出 CVD 鑽石成長與鑽石銅焊接散熱方案（目前營收主力仍為 AI 液冷元件）",
+          "core": 1,
+          "sources": [
+            "https://www.cnyes.com/twstock/6895/company/profile",
+            "https://www.cmoney.tw/forum/article/179619435"
+          ],
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "globalPlayers": [
+    {
+      "groupId": "silicon-wafer",
+      "name": "信越化學（Shin-Etsu）",
+      "country": "JP",
+      "role": "全球最大矽晶圓廠（市佔約 33%）",
+      "sources": ["https://news.cnyes.com/news/id/4547775"]
+    },
+    {
+      "groupId": "silicon-wafer",
+      "name": "SUMCO",
+      "country": "JP",
+      "role": "全球第二大矽晶圓廠（市佔約 25%），台勝科合資母公司",
+      "sources": [
+        "https://news.cnyes.com/news/id/4547775",
+        "https://www.businesstoday.com.tw/article/category/183008/post/202606230006/"
+      ]
+    },
+    {
+      "groupId": "silicon-wafer",
+      "name": "Siltronic",
+      "country": "DE",
+      "role": "全球前五大矽晶圓廠之一",
+      "sources": ["https://blog.bei-sin.com/stock-knowledge/silicon-wafer-industry-sic/"]
+    },
+    {
+      "groupId": "photoresist",
+      "name": "JSR",
+      "country": "JP",
+      "role": "先進微影光阻龍頭（2024 年市佔逾 22%），EUV 光阻三強之一",
+      "sources": ["https://www.gminsights.com/industry-analysis/photoresist-chemicals-for-advanced-lithography-market"]
+    },
+    {
+      "groupId": "photoresist",
+      "name": "東京應化（TOK）",
+      "country": "JP",
+      "role": "EUV／ArF 光阻主力供應商，在台設有台灣東應化",
+      "sources": [
+        "https://reports.valuates.com/market-reports/QYRE-Auto-36H8625/global-euv-photoresists",
+        "https://toktaiwan.com/tw/product/01"
+      ]
+    },
+    {
+      "groupId": "photoresist",
+      "name": "信越化學（Shin-Etsu）",
+      "country": "JP",
+      "role": "EUV 光阻三強之一，由崇越在台代理",
+      "sources": [
+        "https://reports.valuates.com/market-reports/QYRE-Auto-36H8625/global-euv-photoresists",
+        "https://news.cnyes.com/news/id/4680012"
+      ]
+    },
+    {
+      "groupId": "specialty-chemicals",
+      "name": "BASF",
+      "country": "DE",
+      "role": "全球濕電子化學品龍頭（市佔約 17%）",
+      "sources": [
+        "https://www.globalgrowthinsights.com/market-reports/semiconductor-electronic-wet-chemicals-market-116298"
+      ]
+    },
+    {
+      "groupId": "specialty-chemicals",
+      "name": "DuPont（Qnity）",
+      "country": "US",
+      "role": "半導體特用化學品與 CMP 材料大廠",
+      "sources": [
+        "https://jeez-semicon.com/blog/top-cmp-slurry-manufacturers-suppliers-in-2026-a-complete-procurement-guide/"
+      ]
+    },
+    {
+      "groupId": "cmp-slurry",
+      "name": "Entegris（CMC Materials）",
+      "country": "US",
+      "role": "併購 CMC 後成為全球 CMP 研磨液龍頭（市佔約 22–24%）",
+      "sources": [
+        "https://jeez-semicon.com/blog/top-cmp-slurry-manufacturers-suppliers-in-2026-a-complete-procurement-guide/"
+      ]
+    },
+    {
+      "groupId": "cmp-slurry",
+      "name": "Fujimi",
+      "country": "JP",
+      "role": "矽晶圓與先進製程研磨液大廠，台積電、三星主要供應商",
+      "sources": [
+        "https://technews.tw/2026/07/07/fujimi-incorporated-cmp-slurry",
+        "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=8a5b349c-222e-47fe-81f3-86b2594e7b03"
+      ]
+    },
+    {
+      "groupId": "cmp-slurry",
+      "name": "Resonac（原昭和電工／日立化成）",
+      "country": "JP",
+      "role": "氧化鈰研磨液大廠，在台設研磨液廠",
+      "sources": ["https://www.semi.org/zh/node/zh-24826"]
+    },
+    {
+      "groupId": "cmp-pad",
+      "name": "DuPont（Qnity）",
+      "country": "US",
+      "role": "CMP 研磨墊龍頭，市佔約六成以上",
+      "sources": [
+        "https://jeez-semicon.com/blog/top-cmp-slurry-manufacturers-suppliers-in-2026-a-complete-procurement-guide/",
+        "https://money.udn.com/money/story/5612/9764753"
+      ]
+    },
+    {
+      "groupId": "sputter-target",
+      "name": "JX 金屬（JX Advanced Metals）",
+      "country": "JP",
+      "role": "全球最大半導體靶材廠之一（市佔約 14–18%）",
+      "sources": ["https://www.giiresearch.com/report/qyr1557588-sputtering-target-semiconductor-global-market.html"]
+    },
+    {
+      "groupId": "sputter-target",
+      "name": "Materion",
+      "country": "US",
+      "role": "全球主要高純度靶材供應商",
+      "sources": ["https://www.giiresearch.com/report/qyr1557588-sputtering-target-semiconductor-global-market.html"]
+    },
+    {
+      "groupId": "sputter-target",
+      "name": "Honeywell",
+      "country": "US",
+      "role": "半導體銅、鈦、鉭靶材主要供應商",
+      "sources": ["https://www.giiresearch.com/report/qyr1557588-sputtering-target-semiconductor-global-market.html"]
+    },
+    {
+      "groupId": "electronic-gas",
+      "name": "Air Liquide（液化空氣）",
+      "country": "FR",
+      "role": "全球電子氣體兩強之一，在台透過亞東工業氣體營運",
+      "sources": [
+        "https://www.persistencemarketresearch.com/market-research/electronic-specialty-gases-market.asp",
+        "https://tw.airliquide.com/zh/guanyuwomen"
+      ]
+    },
+    {
+      "groupId": "electronic-gas",
+      "name": "Linde（林德）",
+      "country": "DE/US",
+      "role": "全球電子氣體兩強之一，在台與聯華合資聯華林德",
+      "sources": [
+        "https://www.persistencemarketresearch.com/market-research/electronic-specialty-gases-market.asp",
+        "https://www.stockfeel.com.tw/%E8%81%AF%E8%8F%AF%EF%BC%881229%EF%BC%89%E5%85%AC%E5%8F%B8%E4%BB%8B%E7%B4%B9-2/"
+      ]
+    },
+    {
+      "groupId": "electronic-gas",
+      "name": "大陽日酸（Taiyo Nippon Sanso）",
+      "country": "JP",
+      "role": "日本最大工業／電子氣體商",
+      "sources": ["https://www.persistencemarketresearch.com/market-research/electronic-specialty-gases-market.asp"]
+    },
+    {
+      "groupId": "high-purity-chemicals",
+      "name": "三菱化學（Mitsubishi Chemical）",
+      "country": "JP",
+      "role": "超高純度濕電子化學品領導廠",
+      "sources": ["https://www.factmr.com/report/high-purity-electronic-chemicals-market"]
+    },
+    {
+      "groupId": "high-purity-chemicals",
+      "name": "Stella Chemifa",
+      "country": "JP",
+      "role": "高純度氫氟酸等含氟化學品專業廠",
+      "sources": ["https://www.factmr.com/report/high-purity-electronic-chemicals-market"]
+    },
+    {
+      "groupId": "high-purity-chemicals",
+      "name": "BASF",
+      "country": "DE",
+      "role": "濕電子化學品龍頭（市佔約 17%）",
+      "sources": [
+        "https://www.globalgrowthinsights.com/market-reports/semiconductor-electronic-wet-chemicals-market-116298"
+      ]
+    },
+    {
+      "groupId": "photomask",
+      "name": "Toppan Photomask",
+      "country": "JP",
+      "role": "商用光罩龍頭之一（市佔約 28%）",
+      "sources": ["https://www.reportprime.com/semiconductor-photomask-r1541/company"]
+    },
+    {
+      "groupId": "photomask",
+      "name": "DNP（大日本印刷）",
+      "country": "JP",
+      "role": "商用光罩三強之一（市佔約 26%）",
+      "sources": ["https://www.reportprime.com/semiconductor-photomask-r1541/company"]
+    },
+    {
+      "groupId": "photomask",
+      "name": "Photronics",
+      "country": "US",
+      "role": "商用光罩三強之一（市佔約 26%）",
+      "sources": ["https://www.reportprime.com/semiconductor-photomask-r1541/company"]
+    },
+    {
+      "groupId": "pellicle",
+      "name": "Mitsui Chemicals（三井化學）",
+      "country": "JP",
+      "role": "EUV pellicle 主要商業供應商，與 imec 合作量產 CNT pellicle",
+      "sources": ["https://bits-chips.com/article/imec-and-mitsui-commercialize-carbon-nanotube-euv-pellicles/"]
+    },
+    {
+      "groupId": "pellicle",
+      "name": "Shin-Etsu Chemical（信越化學）",
+      "country": "JP",
+      "role": "DUV／EUV pellicle 供應商",
+      "sources": ["https://www.researchandmarkets.com/reports/6100534/euv-pellicle-market-report-trends-forecast"]
+    },
+    {
+      "groupId": "pellicle",
+      "name": "Entegris",
+      "country": "US",
+      "role": "EUV 光罩盒另一主要供應商，與家登競爭並曾授權技術",
+      "sources": [
+        "https://www.digitimes.com/news/a20190923PD204.html",
+        "https://www.nasdaq.com/press-release/entegris-licenses-rsp-and-extreme-ultraviolet-euv-technology-to-gudeng-precision-ltd."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,512 @@
+{
+  "generatedAt": "2026-10-08",
+  "groups": [
+    {
+      "id": "chiplet",
+      "name": "Chiplet 小晶片",
+      "category": "advanced-packaging",
+      "summary": "把大型 SoC 拆成多顆小晶粒（運算、I/O、HBM 介面），再以 2.5D/3D 先進封裝整合。台股參與者分三類：製造與封裝平台（台積電）、Die-to-Die 介面 IP 與設計整合（創意、世芯）、委外先進封裝（日月光投控）。",
+      "engineeringNotes": "Chiplet 的關鍵是晶粒間互連：2.5D 以矽中介層（CoWoS-S）、局部矽橋（CoWoS-L、Intel EMIB、日月光 FOCoS-Bridge）或 RDL 中介層連接，3D 則以 SoIC 混合鍵合（hybrid bonding，無凸塊）垂直堆疊。晶粒間介面標準為 UCIe，亦有廠商自有協定（如創意 GLink）。由於多顆晶粒合封，每顆晶粒封裝前都必須是 KGD（Known Good Die），因此 Chiplet 同時拉動先進封裝與晶圓測試需求。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "confirmed",
+          "role": "3DFabric 平台：CoWoS（S/R/L）2.5D 與 SoIC 3D 混合鍵合，是 AI Chiplet 的主要製造與整合平台",
+          "core": 3,
+          "sources": [
+            "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/SoIC.htm",
+            "https://www.ctee.com.tw/news/20250730700073-439901"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3443",
+          "name": "創意",
+          "verdict": "confirmed",
+          "role": "UCIe 與 GLink-2.5D/3D Die-to-Die 介面 IP、2.5D/3D APT 先進封裝設計平台（基於台積電 3DFabric）",
+          "core": 3,
+          "sources": [
+            "https://www.guc-asic.com/tw/news/PressRelease/PR_TC_20250925",
+            "https://www.eettaiwan.com/express/ucie-40gbps-ip/",
+            "https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?cnlid=13&id=0000611196_6UH28UC08RWAZV7YDAJIA"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3661",
+          "name": "世芯-KY",
+          "verdict": "confirmed",
+          "role": "多晶粒 3DIC 設計平台（3nm I/O chiplet、UCIe、SoIC 堆疊），量產經驗涵蓋 CoWoS-S/R/L 與 SoIC-X",
+          "core": 2,
+          "sources": [
+            "https://www.chinatimes.com/realtimenews/20260423001054-260410",
+            "https://vocus.cc/article/69dc97c9fd8978000185aea7"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3711",
+          "name": "日月光投控",
+          "verdict": "confirmed",
+          "role": "VIPack 先進封裝平台：FOCoS／FOCoS-Bridge（扇出 RDL＋局部矽橋）與 2.5D/3D TSV 封裝，並承接台積電 CoWoS 委外",
+          "core": 2,
+          "sources": [
+            "https://www.aseglobal.com/press-room-ch/focos-advancements",
+            "https://news.cnyes.com/news/id/4883278"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2303",
+          "name": "聯電",
+          "verdict": "added",
+          "role": "Chiplet 周邊製造：矽中介層（interposer）、深溝槽電容（DTC）、晶圓對晶圓混合鍵合",
+          "core": 1,
+          "sources": ["https://money.udn.com/money/story/11162/9637889"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "package-substrate",
+      "name": "封裝基板",
+      "category": "advanced-packaging",
+      "summary": "IC 載板泛指承載晶片並把微細凸塊間距轉接到 PCB 的基板，涵蓋 ABF 載板（CPU/GPU/ASIC/交換器等高腳數晶片）與 BT 載板（記憶體、手機 AP、RF 等）。與「ABF 載板」族群高度重疊，差別在於本族群也包含 BT；台股四大廠為欣興、南電、景碩、臻鼎-KY。",
+      "engineeringNotes": "ABF 載板以味之素增層膜（Ajinomoto Build-up Film）做介電層，用 SAP 製程做出細線路，AI GPU 載板已達 20 層以上、尺寸逾 100×100mm，良率隨層數與面積急降，是產能吃緊的主因。BT 載板以 BT 樹脂玻纖基材為核心，多用於記憶體與手機晶片。上游材料（ABF 膜、T-Glass 低膨脹玻纖布）同樣是瓶頸。",
+      "companies": [
+        {
+          "ticker": "3037",
+          "name": "欣興",
+          "verdict": "confirmed",
+          "role": "全球 ABF 載板龍頭，AI 占比逾五成，NVIDIA GPU 載板主要供應商；亦有 BT、HDI、PCB",
+          "core": 3,
+          "sources": [
+            "https://www.ctee.com.tw/news/20260224700216-439901",
+            "https://www.businesstoday.com.tw/article/category/183008/post/202604210006/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "8046",
+          "name": "南電",
+          "verdict": "confirmed",
+          "role": "ABF＋BT 兼具，IC 載板占營收近九成、ABF 約 55–60%，強項為 800G 交換器等網通載板",
+          "core": 3,
+          "sources": [
+            "https://vocus.cc/article/6a2bfbc1fd89780001958938",
+            "https://finance.technews.tw/2026/05/08/high-end-network-switches/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3189",
+          "name": "景碩",
+          "verdict": "confirmed",
+          "role": "全球主要 BT 載板廠，ABF 比重提升至約 4 成，已打入 NVIDIA Vera Rubin CPU/GPU 載板",
+          "core": 3,
+          "sources": [
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/238816",
+            "https://www.ctee.com.tw/news/20251110700195-439901"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4958",
+          "name": "臻鼎-KY",
+          "verdict": "added",
+          "role": "旗下禮鼎半導體生產 ABF 與 BT 載板，ABF 達 28 層、150×150mm 能力，2026 年 ABF 營收已超越 BT；主業仍為 PCB",
+          "core": 2,
+          "sources": [
+            "https://blog.fugle.tw/post/earnings-call-4958-2026-06-11",
+            "https://money.udn.com/money/story/5710/9769042"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "advanced-node",
+      "name": "先進製程",
+      "category": "wafer",
+      "summary": "業界一般指 7nm 以下（FinFET 至 GAA 奈米片）的邏輯製程。台股中只有台積電具備 7nm 以下量產能力；聯電最先進為 14nm（與 Intel 合作 12nm 預計 2027 量產），世界先進為 8 吋特殊製程（新加坡 12 吋廠為 40–130nm），兩者皆屬成熟／特殊製程。",
+      "engineeringNotes": "先進製程的世代以電晶體結構區分：16/7/5/3nm 為 FinFET，2nm 起改為 GAA 奈米片（nanosheet），A16 再加入背面供電（Super Power Rail）。每代進步主要看 PPA（效能、功耗、面積），並需要 EUV 微影，資本支出與良率門檻極高，因此全球僅台積電、三星、Intel 三家角逐。12nm 以上通常歸為成熟製程，聯電與世界先進的定位是特殊製程（電源管理、驅動 IC、嵌入式記憶體等）。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "confirmed",
+          "role": "N3／N2 量產、N2P 與 A16 2026 下半年量產；2026Q1 7nm 以下占營收約 74%",
+          "core": 3,
+          "sources": [
+            "https://leveragetw.com/tsmc-2026-shareholders-meeting/",
+            "https://www.cna.com.tw/news/afe/202407180326.aspx"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2303",
+          "name": "聯電",
+          "verdict": "removed",
+          "role": "成熟／特殊製程晶圓代工，最先進為 14nm，與 Intel 合作 12nm FinFET 預計 2027 年量產",
+          "core": 1,
+          "sources": [
+            "https://money.udn.com/money/story/5612/9528066",
+            "https://technews.tw/2024/02/03/umc-partners-with-intel-to-develop-12nm-platform/"
+          ],
+          "note": "原值『先進製程』→ 移除：聯電最先進量產節點為 14nm，12nm 為 Intel 合作且尚未量產，不屬 7nm 以下先進製程"
+        },
+        {
+          "ticker": "5347",
+          "name": "世界",
+          "verdict": "removed",
+          "role": "8 吋特殊製程晶圓代工（電源管理、驅動 IC），新加坡 VSMC 12 吋廠為 40–130nm，2027Q1 量產",
+          "core": 1,
+          "sources": [
+            "https://finance.technews.tw/2026/09/28/world-advanced-technologies-in-partnership-with-nxp-and-vsmc-opens-12-inch-fab-in-singapore",
+            "https://uc913.com/stock-5347/"
+          ],
+          "note": "原值『先進製程』→ 移除：世界先進最先進節點為 40nm，屬成熟特殊製程；公司名稱「先進」不代表先進製程"
+        }
+      ]
+    },
+    {
+      "id": "ai-asic",
+      "name": "AI ASIC",
+      "category": "ai-hpc",
+      "summary": "雲端業者（CSP）自研的 AI 加速器（如 Google TPU、AWS Trainium），由 ASIC 設計服務商協助實體設計與量產、台積電代工。台股核心為世芯-KY、創意、聯發科與晶圓代工台積電；聯電並非 AI ASIC 設計或主晶片代工，只提供先進封裝周邊的矽中介層等。",
+      "engineeringNotes": "AI ASIC 與 GPU 的差異是針對特定模型與資料流客製化，捨棄通用性換取每瓦效能與成本優勢。CSP 通常自行做架構與前端設計，再交給設計服務商做後端實體設計、IP 整合（HBM PHY、SerDes、D2D）、CoWoS 封裝設計與量產管理（turnkey）。市場預估 2027 年 ASIC/XPU 出貨將超越 GPU，但營收規模仍以 GPU 為大宗。",
+      "companies": [
+        {
+          "ticker": "3661",
+          "name": "世芯-KY",
+          "verdict": "confirmed",
+          "role": "北美 CSP（AWS）3nm AI ASIC 主要設計服務夥伴，2nm 下一代晶片 2026Q4 流片",
+          "core": 3,
+          "sources": [
+            "https://money.udn.com/money/story/5710/9595232",
+            "https://www.ctee.com.tw/news/20260703701036-430201"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3443",
+          "name": "創意",
+          "verdict": "confirmed",
+          "role": "美系 CSP 3nm AI 加速器 turnkey 量產，3nm 以下占 2026Q1 turnkey 營收約 60%",
+          "core": 3,
+          "sources": [
+            "https://vocus.cc/article/6aae7c7afd897800017976f5",
+            "https://wantrich.chinatimes.com/news/20260423900263-420101"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "confirmed",
+          "role": "AI ASIC 晶圓代工（N3/N2）與 CoWoS 封裝；Broadcom 約占 2026 CoWoS 產能 13%",
+          "core": 3,
+          "sources": ["https://statementdog.com/news/15201", "https://www.ctee.com.tw/news/20250730700073-439901"],
+          "note": ""
+        },
+        {
+          "ticker": "2303",
+          "name": "聯電",
+          "verdict": "corrected",
+          "role": "AI 先進封裝周邊：矽中介層、深溝槽電容（DTC），非 AI ASIC 設計或主運算晶片代工",
+          "core": 1,
+          "sources": ["https://money.udn.com/money/story/11162/9637889"],
+          "note": "原值『AI ASIC』→ 新值『AI 先進封裝矽中介層／DTC 供應』：聯電不做 ASIC 設計，主晶片製程也非其 14nm 以上節點所能涵蓋，僅屬間接受惠"
+        },
+        {
+          "ticker": "2454",
+          "name": "聯發科",
+          "verdict": "added",
+          "role": "Google TPU AI 加速器 ASIC 設計夥伴，2026 年 AI ASIC 營收預估約 20 億美元，第二顆 ASIC 目標 2027 量產",
+          "core": 2,
+          "sources": ["https://udn.com/news/story/7253/9474616", "https://www.ctee.com.tw/news/20260623700059-439901"],
+          "note": ""
+        },
+        {
+          "ticker": "3035",
+          "name": "智原",
+          "verdict": "added",
+          "role": "成熟製程 AI ASIC（如 14nm 雲端 AI 案）與先進封裝服務，規模較小",
+          "core": 1,
+          "sources": ["https://news.cnyes.com/news/id/6435258"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "asic-design-service",
+      "name": "ASIC 設計服務",
+      "category": "ai-hpc",
+      "summary": "替客戶把晶片規格落實為可量產晶片的設計服務商（NRE＋turnkey 量產）。台股三雄：世芯-KY、創意（皆以台積電先進製程為主）、智原（聯電體系，成熟製程＋先進封裝服務）。",
+      "engineeringNotes": "設計服務營收分兩段：NRE（委託設計費，含後端實體設計、IP 授權、光罩）與 turnkey 量產（代客戶向晶圓廠、封測廠下單並管理良率，營收大但毛利較低）。進入 3nm/2nm 後，單案 NRE 動輒上億美元且需 CoWoS 與 HBM 整合經驗，門檻大幅提高。創意的大股東為台積電、智原的大股東為聯電，因此製程生態系不同。",
+      "companies": [
+        {
+          "ticker": "3661",
+          "name": "世芯-KY",
+          "verdict": "confirmed",
+          "role": "高階 HPC/AI ASIC 設計服務，以台積電 N3/N2 與 CoWoS 為主，CSP 客戶集中度高",
+          "core": 3,
+          "sources": ["https://money.udn.com/money/story/5710/9595232", "https://news.cnyes.com/news/id/5580042"],
+          "note": ""
+        },
+        {
+          "ticker": "3443",
+          "name": "創意",
+          "verdict": "confirmed",
+          "role": "台積電轉投資的設計服務商，turnkey＋NRE＋自有 IP（HBM PHY、UCIe/GLink）",
+          "core": 3,
+          "sources": [
+            "https://vocus.cc/article/6aae7c7afd897800017976f5",
+            "https://www.guc-asic.com/tw/news/PressRelease/PR_TC_20250925"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3035",
+          "name": "智原",
+          "verdict": "confirmed",
+          "role": "聯電體系 ASIC 設計服務，成熟製程為主，取得 14nm AI ASIC 與高階封裝新案，先進封裝營收占比目標 15–20%",
+          "core": 2,
+          "sources": [
+            "https://news.cnyes.com/news/id/6435258",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=90580248-4082-4d1d-8b4f-9c52bd521ddf"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "hbm",
+      "name": "HBM 高頻寬記憶體",
+      "category": "ai-hpc",
+      "summary": "HBM 由 SK hynix、Samsung、Micron 三家壟斷，台灣沒有 HBM DRAM 量產廠。原清單南亞科、華邦電、旺宏皆不生產 HBM（南亞科明確不做標準 HBM、華邦 CUBE 為邊緣 AI 客製記憶體、旺宏為 NOR/NAND）。台股真正的 HBM 相關性在於：台積電代工 HBM4 base die 並以 CoWoS 與 GPU 合封、創意提供 HBM4/4E PHY IP、力成承接美光 HBM 部分後段封測。",
+      "engineeringNotes": "HBM 以 TSV 把 8–16 層 DRAM 核心晶粒垂直堆疊在一顆基底邏輯晶粒（base die）上，透過 1024 位元（HBM4 為 2048 位元）超寬介面與 GPU 並排放在矽中介層上。HBM4 起 base die 改用邏輯製程（如台積電 12nm／N3），使台積電成為 HBM 供應鏈一環，並可依客戶需求客製化（custom HBM）。華邦 CUBE、南亞科 UWIO 屬「類 HBM」客製化寬 I/O 記憶體，目標是邊緣 AI 或 WoW 堆疊，不是 JEDEC HBM。",
+      "companies": [
+        {
+          "ticker": "2408",
+          "name": "南亞科",
+          "verdict": "removed",
+          "role": "標準 DRAM（DDR4/DDR5/LPDDR）；另開發客製化超高頻寬 UWIO DRAM（WoW 堆疊），僅小量營收",
+          "core": 1,
+          "sources": [
+            "https://www.ctee.com.tw/news/20260522700080-439901",
+            "https://www.peoplenews.tw/articles/economic-news/43153"
+          ],
+          "note": "原值『HBM』→ 移除：南亞科總經理明確表示不在 HBM2～HBM4 規格與三大廠競爭；其客製化 UWIO 屬類 HBM 產品，可另列客製化記憶體族群"
+        },
+        {
+          "ticker": "2344",
+          "name": "華邦電",
+          "verdict": "removed",
+          "role": "利基型 DRAM、NOR/NAND Flash；CUBE 為邊緣 AI 用客製化超高頻寬記憶體（類 HBM，非 JEDEC HBM）",
+          "core": 1,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=386b14cf-cd8c-4c67-bc54-ccd759ac4b93",
+            "https://www.eet-china.com/news/202406227190.html"
+          ],
+          "note": "原值『HBM』→ 移除：華邦電不生產資料中心用標準 HBM，CUBE 定位在 HBM 與傳統 DRAM 之間的邊緣 AI 市場"
+        },
+        {
+          "ticker": "2337",
+          "name": "旺宏",
+          "verdict": "removed",
+          "role": "NOR Flash（約 48%）、NAND／eMMC（約 43%）、ROM，不生產 DRAM",
+          "core": 1,
+          "sources": [
+            "https://finance.technews.tw/2026/07/28/macronixs-eps-for-the-second-quarter-of-2026-reached-nt3-91/"
+          ],
+          "note": "原值『HBM』→ 移除：旺宏為非揮發性記憶體廠，無 DRAM 產品線，與 HBM 無直接關係"
+        },
+        {
+          "ticker": "6239",
+          "name": "力成",
+          "verdict": "confirmed",
+          "role": "美光 HBM 部分後段封測委外；2026 年暫緩 HBM 新案開發、既有客戶照常，預計 2027 重啟",
+          "core": 1,
+          "sources": [
+            "https://vocus.cc/article/683964dcfd89780001fd25ad",
+            "https://tw.stock.yahoo.com/news/%E5%8A%9B%E6%88%90-%E6%98%8E%E5%B9%B4%E8%B3%87%E6%9C%AC%E6%94%AF%E5%87%BA%E7%9C%8B400%E5%84%84-%E6%93%B4foplp%E7%94%A2%E8%83%BD%E6%9A%AB%E7%B7%A9%E9%96%8B%E7%99%BChbm-093034245.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "added",
+          "role": "SK hynix HBM4 base die 代工（12nm，HBM4E 客製版評估 N3），並以 CoWoS 將 HBM 與 GPU/ASIC 合封",
+          "core": 3,
+          "sources": [
+            "https://www.trendforce.com/news/2026/03/20/news-sk-hynix-reportedly-weighs-tsmc-3nm-for-hbm4e-logic-dies-to-gain-edge-over-samsung/",
+            "https://www.techpowerup.com/322534/tsmc-unveils-next-generation-hbm4-base-dies-built-on-12-nm-and-5-nm-nodes"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3443",
+          "name": "創意",
+          "verdict": "added",
+          "role": "HBM4／HBM4E PHY 與控制器 IP（HBM4E 已於 N2P 設計定案並獲 AI ASIC 採用）；HBM4 base die 目前無專案",
+          "core": 1,
+          "sources": [
+            "https://money.udn.com/money/story/5612/9770449",
+            "https://tw.stock.yahoo.com/news/%E5%89%B5%E6%84%8Fq3%E7%8D%B2%E5%88%A9%E6%9C%89%E6%9C%9B%E5%84%AA%E6%96%BCq2-hbm4-die%E7%9B%AE%E5%89%8D%E6%B2%92%E6%9C%89%E5%B0%88%E6%A1%88-%E4%BD%86%E8%83%BD%E5%8A%9B%E5%B7%B2%E5%B0%B1%E4%BD%8D-022857383.html"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "gpu-supply-chain",
+      "name": "GPU 供應鏈",
+      "category": "ai-hpc",
+      "summary": "以 NVIDIA Blackwell／Rubin 為主的資料中心 GPU 從晶圓、封裝、測試到載板的台灣供應鏈。晶圓與 CoWoS 由台積電主導，日月光（矽品）承接部分 CoWoS 後段，京元電負責 GPU 測試，載板以欣興、景碩為主；南電的強項在交換器載板，對 GPU 直接滲透度較低。",
+      "engineeringNotes": "一顆 Blackwell/Rubin GPU 的製造流程為：台積電 N4P/N3 晶圓 → CoW（晶粒與 HBM 貼到中介層，CoWoS-L）→ oS（中介層貼到 ABF 載板）→ CP/FT/burn-in/SLT 測試 → 上板組成 GB200/GB300/VR200 等系統。CoWoS 產能是長期瓶頸，NVIDIA 約占 2026 年 CoWoS 需求六成；GPU 載板尺寸大、層數高，只有少數廠商能量產。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "confirmed",
+          "role": "GPU 晶圓代工（N4P/N3）與 CoWoS-L 先進封裝，NVIDIA 約占 2026 年 CoWoS 需求 60%",
+          "core": 3,
+          "sources": [
+            "https://www.ctee.com.tw/news/20250730700073-439901",
+            "https://cdn.technews.tw/2025/01/16/blackwell-cowos-l/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3711",
+          "name": "日月光投控",
+          "verdict": "confirmed",
+          "role": "旗下矽品承接台積電 CoWoS 委外（oS 與部分 CoW），LEAP 先進封測 2026 營收約倍增至 32 億美元",
+          "core": 2,
+          "sources": ["https://www.cna.com.tw/news/afe/202501150335.aspx", "https://www.ftnn.com.tw/news/556840"],
+          "note": ""
+        },
+        {
+          "ticker": "2449",
+          "name": "京元電",
+          "verdict": "confirmed",
+          "role": "NVIDIA GPU 成品測試、burn-in、SLT，Vera CPU 測試全數承接；2026 年 AI 占營收逾 7 成",
+          "core": 3,
+          "sources": ["https://news.cnyes.com/news/id/6609911", "https://www.ftnn.com.tw/news/582349"],
+          "note": ""
+        },
+        {
+          "ticker": "3037",
+          "name": "欣興",
+          "verdict": "confirmed",
+          "role": "NVIDIA GPU ABF 載板主要供應商（Blackwell 第二大供應商、Vera Rubin 主力之一），並供應 HDI／PCB",
+          "core": 3,
+          "sources": [
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/238816",
+            "https://money.udn.com/money/story/5607/9517546"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3189",
+          "name": "景碩",
+          "verdict": "confirmed",
+          "role": "Vera Rubin 平台 ABF 載板第二／三供應商，美系大客戶 CPU 載板市占約 45%、GPU 載板約 20%",
+          "core": 2,
+          "sources": [
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/238816",
+            "https://www.ftnn.com.tw/news/555113"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "8046",
+          "name": "南電",
+          "verdict": "corrected",
+          "role": "AI 伺服器周邊與 800G 交換器 ABF 載板為主，GPU 本體載板滲透度低於欣興、景碩",
+          "core": 1,
+          "sources": [
+            "https://vocus.cc/article/6a2bfbc1fd89780001958938",
+            "https://finance.technews.tw/2026/05/08/high-end-network-switches/"
+          ],
+          "note": "原值『GPU 載板』→ 新值『AI 交換器／網通 ABF 載板』：南電受惠 AI 基礎建設，但公開資料多指向交換器與網通，查無其為 NVIDIA GPU 主力載板商的直接佐證"
+        }
+      ]
+    }
+  ],
+  "globalPlayers": [
+    {
+      "groupId": "asic-design-service",
+      "name": "Broadcom（博通）",
+      "country": "US",
+      "role": "客製化 AI ASIC（XPU）龍頭，市占約 70% 以上，客戶含 Google、Meta、OpenAI 等",
+      "sources": [
+        "https://www.tomshardware.com/tech-industry/semiconductors/custom-ai-asics-examined-from-broadcom-to-mtia",
+        "https://www.kucoin.com/news/flash/jpmorgan-custom-ai-asic-market-to-reach-60-70-billion-by-2026"
+      ]
+    },
+    {
+      "groupId": "asic-design-service",
+      "name": "Marvell（邁威爾）",
+      "country": "US",
+      "role": "客製化 AI ASIC 第二大廠（市占約 20–25%），客戶含 AWS Trainium、Microsoft Maia",
+      "sources": [
+        "https://finance.yahoo.com/markets/stocks/articles/better-custom-asic-stock-marvell-173500258.html",
+        "https://www.kucoin.com/news/flash/jpmorgan-custom-ai-asic-market-to-reach-60-70-billion-by-2026"
+      ]
+    },
+    {
+      "groupId": "hbm",
+      "name": "SK hynix（SK 海力士）",
+      "country": "KR",
+      "role": "HBM 龍頭（2026Q2 營收市占約 50%），NVIDIA HBM4 最大供應商，base die 委由台積電代工",
+      "sources": [
+        "https://www.astutegroup.com/news/general/sk-hynix-holds-62-of-hbm-micron-overtakes-samsung-2026-battle-pivots-to-hbm4/",
+        "https://www.trendforce.com/news/2024/12/04/news-sk-hynixs-hbm4-to-use-tsmcs-3nm-base-die/"
+      ]
+    },
+    {
+      "groupId": "hbm",
+      "name": "Samsung（三星電子）",
+      "country": "KR",
+      "role": "HBM 第二大廠（2026Q2 市占約 33%），2026 年 2 月起量產出貨 HBM4，base die 採自家晶圓代工",
+      "sources": [
+        "https://www.trendforce.com/news/2026/02/09/news-samsung-hbm4-reportedly-to-ship-first-after-lunar-new-year-initial-share-projected-at-mid-20/",
+        "https://siliconanalysts.com/analysis/hbm4-market-share-race-2026"
+      ]
+    },
+    {
+      "groupId": "hbm",
+      "name": "Micron（美光）",
+      "country": "US",
+      "role": "HBM 第三大廠（市占約 18–21%），部分 HBM 後段封測委外力成",
+      "sources": [
+        "https://www.astutegroup.com/news/general/sk-hynix-holds-62-of-hbm-micron-overtakes-samsung-2026-battle-pivots-to-hbm4/",
+        "https://money.udn.com/money/story/11162/8834099"
+      ]
+    },
+    {
+      "groupId": "advanced-node",
+      "name": "Samsung Foundry（三星晶圓代工）",
+      "country": "KR",
+      "role": "SF2（2nm GAA）量產，客戶含 Exynos 2600、Tesla AI5/AI6、礦機 ASIC 與 CSP 專案",
+      "sources": [
+        "https://wccftech.com/samsung-lands-secret-2nm-cloud-giant-says-foundry-orders-set-to-more-than-double-in-2026/",
+        "https://anysilicon.com/news/samsung-begins-mass-production-of-advanced-2nm-gaa-chips-strengthening-its-foundry-leadership/"
+      ]
+    },
+    {
+      "groupId": "advanced-node",
+      "name": "Intel Foundry（英特爾晶圓代工）",
+      "country": "US",
+      "role": "Intel 18A（RibbonFET＋PowerVia 背面供電）2025 年底量產，外部客戶含 Microsoft Maia；亦與聯電合作 12nm",
+      "sources": [
+        "https://en.wikipedia.org/wiki/2_nm_process",
+        "https://www.trendforce.com/news/2026/08/31/news-sk-hynix-reportedly-weighs-intel-for-hbm4e-base-dies-amid-tsmc-cost-pressure-and-supply-diversification/"
+      ]
+    }
+  ]
+}

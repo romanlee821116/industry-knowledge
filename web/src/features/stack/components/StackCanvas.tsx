@@ -171,7 +171,7 @@ function CameraRig({ focus, focusKey, home }: Pick<Props, 'focus' | 'focusKey' |
       return;
     }
     const target = new THREE.Vector3(...focus.center);
-    const radius = Math.max(new THREE.Vector3(...focus.size).length() / 2, 1.2);
+    const radius = Math.max(new THREE.Vector3(...focus.size).length() / 2, 2.5);
     const distance = (radius / Math.sin(THREE.MathUtils.degToRad(camera.fov / 2))) * 1.35;
     // 沿用目前的水平方位角，俯角至少 MIN_ELEVATION
     const dir = camera.position.clone().sub(controls.getTarget(new THREE.Vector3())).normalize();

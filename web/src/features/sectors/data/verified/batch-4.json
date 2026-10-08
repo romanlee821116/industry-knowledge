@@ -1,0 +1,890 @@
+{
+  "generatedAt": "2026-10-08",
+  "groups": [
+    {
+      "id": "wafer-clean",
+      "name": "晶圓清洗設備",
+      "category": "equipment",
+      "summary": "移除晶圓表面微粒、金屬與有機殘留的濕式設備。前段晶圓廠主力清洗機由 SCREEN、TEL、Lam 寡占；台廠弘塑、辛耘以先進封裝與部分前段的單晶圓／批次濕式清洗機為主。朋億屬廠務化學品供應系統，並非清洗機台。",
+      "engineeringNotes": "清洗約占整個晶圓製程步驟的 2～3 成，幾乎每道蝕刻、沉積、CMP 之後都要清洗，分為批次式濕式槽（wet bench）與單晶圓旋轉清洗（single wafer spin）。先進製程以單晶圓清洗為主，以控制微粒與圖形倒塌；先進封裝則在凸塊、RDL、TSV 前後需大量去光阻與清洗。全球市場約由 SCREEN（約 3 成）、TEL、Lam 三家合計近 9 成寡占。",
+      "companies": [
+        {
+          "ticker": "3131",
+          "name": "弘塑",
+          "verdict": "confirmed",
+          "role": "【原廠設備】自製 8／12 吋單晶圓旋轉清洗機與濕式槽，主要用於 CoWoS、SoIC 等先進封裝；設備本業約占營收 65%（另有添鴻化學品約 20%、佳霖代理約 15%）",
+          "core": 3,
+          "sources": [
+            "https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=0000511887_VDK9YZXP7CJ4LE8I2KF1Y",
+            "https://wantrich.chinatimes.com/news/20260526900688-420101",
+            "https://7evenguy.com/what-is-3131-doing/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3583",
+          "name": "辛耘",
+          "verdict": "confirmed",
+          "role": "【原廠設備＋代理】自製批次式與單晶圓濕式製程設備（清洗、蝕刻、去光阻），可用於 FEOL、BEOL、先進封裝與光罩；1H26 自製設備約占營收 41%、代理約 48%、再生晶圓約 9%",
+          "core": 3,
+          "sources": ["https://news.cnyes.com/news/id/6596351", "https://x.com/QQ_Timmy/status/2098377997602660496"],
+          "note": ""
+        },
+        {
+          "ticker": "6613",
+          "name": "朋億*",
+          "verdict": "removed",
+          "role": "【廠務工程】高潔淨度水、氣、化學品供應系統整合與設備製造（化學品供應／分裝系統），不生產晶圓清洗機台",
+          "core": 1,
+          "sources": [
+            "https://www.cnyes.com/twstock/profile.aspx?code=6613",
+            "https://blog.fugle.tw/post/earnings-call-6613-2025-05-26"
+          ],
+          "note": "原值『晶圓清洗設備』→ 移除：朋億是廠務化學品供應系統整合商，應歸入廠務工程／化學品供應系統族群"
+        }
+      ]
+    },
+    {
+      "id": "etch",
+      "name": "蝕刻設備",
+      "category": "equipment",
+      "summary": "前段乾式電漿蝕刻機由 Lam、AMAT、TEL 寡占，台股無量產乾蝕刻品牌。台廠可分為：先進封裝濕式蝕刻原廠（弘塑、辛耘）、AMAT 蝕刻機代工（京鼎）、腔體零組件（千附精密）。帆宣查無蝕刻設備業務。",
+      "engineeringNotes": "蝕刻把微影定義的圖形轉移到薄膜上，前段多用電漿乾式蝕刻（導體蝕刻、介電質蝕刻、高深寬比 3D NAND 孔洞蝕刻），先進封裝則以濕式蝕刻去除 UBM 種子層、金屬層為主。GAA 電晶體與 3D NAND 層數提高使蝕刻步數與原子層蝕刻（ALE）需求大增。全球蝕刻設備由 AMAT、Lam、TEL 合計約 75% 掌握，Lam 在導體蝕刻領先。",
+      "companies": [
+        {
+          "ticker": "3131",
+          "name": "弘塑",
+          "verdict": "corrected",
+          "role": "【原廠設備】先進封裝濕式蝕刻（UBM 蝕刻、金屬蝕刻）設備，非前段乾式電漿蝕刻機",
+          "core": 2,
+          "sources": [
+            "https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=0000511887_VDK9YZXP7CJ4LE8I2KF1Y",
+            "https://7evenguy.com/what-is-3131-doing/"
+          ],
+          "note": "原值『蝕刻設備』→ 新值『先進封裝濕式蝕刻設備』：弘塑僅做濕式蝕刻，與 Lam／TEL 的前段乾式蝕刻屬不同市場"
+        },
+        {
+          "ticker": "3583",
+          "name": "辛耘",
+          "verdict": "corrected",
+          "role": "【原廠設備＋代理】自製濕式蝕刻設備（金屬／氧化物濕蝕刻）；代理業務涵蓋蝕刻設備（原廠品牌未公開揭露）",
+          "core": 2,
+          "sources": ["https://news.cnyes.com/news/id/6596351", "https://vocus.cc/article/6a6d6bfbfd897800016e33c2"],
+          "note": "原值『蝕刻設備』→ 新值『濕式蝕刻自製＋蝕刻設備代理』：自製部分為濕式蝕刻，乾式蝕刻僅為代理"
+        },
+        {
+          "ticker": "6196",
+          "name": "帆宣",
+          "verdict": "removed",
+          "role": "【廠務工程＋代理＋OEM】氣體化學品自動化供應系統、廠務整合、代理 Kokusai 爐管與光阻液、ASML EUV 模組代工；查無蝕刻設備業務",
+          "core": 1,
+          "sources": ["https://uc913.com/stock-6196/"],
+          "note": "原值『蝕刻設備』→ 移除：帆宣主業為二次配／供應系統與 ASML 模組代工，非蝕刻設備廠"
+        },
+        {
+          "ticker": "3413",
+          "name": "京鼎",
+          "verdict": "added",
+          "role": "【代工設備模組】鴻海集團，為 AMAT 合約代工蝕刻、CVD、PVD、EPI、ALD 等前段設備及零組件，AMAT 約占營收 8 成",
+          "core": 2,
+          "sources": [
+            "https://uanalyze.com.tw/articles/345835408",
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=141d7096-8bb6-42c3-a23e-649c0eb7449a"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6829",
+          "name": "千附精密",
+          "verdict": "added",
+          "role": "【零組件】蝕刻／薄膜設備用真空腔體與精密零件，客戶含 AMAT、ASML、Lam，半導體約占營收 65～70%",
+          "core": 1,
+          "sources": ["https://www.cmoney.tw/forum/article/176077541", "https://uc913.com/stock-6829/"],
+          "note": "任務提示的代號 6914 有誤，千附精密股票代號為 6829"
+        }
+      ]
+    },
+    {
+      "id": "deposition",
+      "name": "薄膜沉積",
+      "category": "equipment",
+      "summary": "涵蓋 PVD、CVD、ALD、電鍍等成膜製程。前段主機台由 AMAT、Lam、TEL、ASM 寡占；台股真正自製沉積機台的是天虹（PVD／ALD），京鼎為 AMAT 代工，公準／千附為腔體零組件。原清單的辛耘、帆宣屬代理，弘塑則是先進封裝電鍍。",
+      "engineeringNotes": "沉積是在晶圓上長出導體、介電質或阻障層：PVD 濺鍍金屬（銅種子層、阻障層）、CVD 長介電質與鎢、ALD 一次長一個原子層做高介電閘極與超薄阻障層，先進封裝則以電鍍（ECP）長銅柱與 RDL。AMAT、Lam、TEL 合計約占沉積設備營收 6 成，ASM 主導單晶圓 ALD，Kokusai 主導成熟製程批次爐管。",
+      "companies": [
+        {
+          "ticker": "3583",
+          "name": "辛耘",
+          "verdict": "corrected",
+          "role": "【代理】代理業務涵蓋薄膜沉積設備（原廠未公開），自製設備產品線無 PVD／CVD／ALD 機台",
+          "core": 1,
+          "sources": ["https://vocus.cc/article/6a6d6bfbfd897800016e33c2", "https://news.cnyes.com/news/id/6596351"],
+          "note": "原值『薄膜沉積』→ 新值『薄膜沉積設備代理』：辛耘自製設備為濕製程、TBDB、烘烤，沉積設備僅為代理"
+        },
+        {
+          "ticker": "3131",
+          "name": "弘塑",
+          "verdict": "corrected",
+          "role": "【原廠設備】先進封裝金屬化電鍍設備（濕式沉積，用於凸塊／RDL），非 PVD／CVD 真空沉積",
+          "core": 2,
+          "sources": [
+            "https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=0000511887_VDK9YZXP7CJ4LE8I2KF1Y",
+            "https://7evenguy.com/what-is-3131-doing/"
+          ],
+          "note": "原值『薄膜沉積』→ 新值『先進封裝電鍍（濕式沉積）』：弘塑無真空沉積機台"
+        },
+        {
+          "ticker": "6196",
+          "name": "帆宣",
+          "verdict": "corrected",
+          "role": "【代理】代理 Kokusai Electric（原日立國際）批次爐管，用於擴散與熱製程沉積，供應台灣晶圓代工與記憶體廠",
+          "core": 1,
+          "sources": ["https://www.chinatimes.com/newspapers/20130904000390-260210", "https://uc913.com/stock-6196/"],
+          "note": "原值『薄膜沉積』→ 新值『爐管設備代理』：帆宣不自製沉積設備，相關營收來自代理"
+        },
+        {
+          "ticker": "6937",
+          "name": "天虹",
+          "verdict": "added",
+          "role": "【原廠設備】自有品牌 PVD、ALD（含 PEALD、Powder ALD）、Bonder／De-bonder，應用於先進製程、先進封裝、化合物半導體；台股少數前段沉積設備原廠",
+          "core": 3,
+          "sources": [
+            "https://statementdog.com/news/13905",
+            "https://www.twse.com.tw/market_insights/zh/detail/ff8080818c000119018c38aa4bb30151"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3413",
+          "name": "京鼎",
+          "verdict": "added",
+          "role": "【代工設備模組】為 AMAT 代工 CVD、PVD、ALD、EPI 等薄膜設備與零組件",
+          "core": 2,
+          "sources": ["https://uanalyze.com.tw/articles/345835408"],
+          "note": ""
+        },
+        {
+          "ticker": "3178",
+          "name": "公準",
+          "verdict": "added",
+          "role": "【零組件】CVD 設備大型腔體與 PVD 設備中小型零件精密加工，客戶含 AMAT、ASML（合計逾 5 成營收）",
+          "core": 1,
+          "sources": ["https://fnc.ebc.net.tw/fncnews/stock/165619"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "pvd",
+      "name": "PVD 物理氣相沉積",
+      "category": "equipment",
+      "summary": "濺鍍金屬薄膜的真空設備，AMAT Endura 長期主導。台股自製 PVD 機台的是天虹，京鼎為 AMAT 代工、公準為零組件；原清單辛耘、帆宣皆無 PVD 機台佐證。",
+      "engineeringNotes": "PVD 以電漿撞擊靶材，把金屬原子濺鍍到晶圓上，主要用在後段金屬內連線（BEOL）的阻障層（Ta／TaN、Ti／TiN）與銅種子層，以及先進封裝的 UBM／RDL 種子層。AMAT Endura 平台長期是金屬沉積主流，歷史上市佔約 7～8 成。面板級封裝（PLP）帶出方形大尺寸 PVD 新需求。",
+      "companies": [
+        {
+          "ticker": "3583",
+          "name": "辛耘",
+          "verdict": "unverified",
+          "role": "代理業務泛稱涵蓋薄膜沉積，但查無代理 PVD 機型或原廠的具體公開資料；自製設備無 PVD",
+          "core": 1,
+          "sources": [],
+          "note": ""
+        },
+        {
+          "ticker": "6196",
+          "name": "帆宣",
+          "verdict": "removed",
+          "role": "【廠務工程＋代理】供應系統、廠務整合、代理爐管；查無 PVD 設備業務",
+          "core": 1,
+          "sources": ["https://uc913.com/stock-6196/"],
+          "note": "原值『PVD』→ 移除：帆宣代理的是 Kokusai 爐管（熱製程），非 PVD"
+        },
+        {
+          "ticker": "6937",
+          "name": "天虹",
+          "verdict": "added",
+          "role": "【原廠設備】自製 PVD 機台，含 310×310mm 面板級封裝 PVD（已交機驗證、進入放量）",
+          "core": 3,
+          "sources": ["https://statementdog.com/news/13905", "https://news.cnyes.com/news/id/6331979"],
+          "note": ""
+        },
+        {
+          "ticker": "3413",
+          "name": "京鼎",
+          "verdict": "added",
+          "role": "【代工設備模組】為 AMAT 代工 PVD 等薄膜設備",
+          "core": 2,
+          "sources": ["https://uanalyze.com.tw/articles/345835408"],
+          "note": ""
+        },
+        {
+          "ticker": "3178",
+          "name": "公準",
+          "verdict": "added",
+          "role": "【零組件】PVD 設備中小型精密零件",
+          "core": 1,
+          "sources": ["https://fnc.ebc.net.tw/fncnews/stock/165619"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "cvd",
+      "name": "CVD 化學氣相沉積",
+      "category": "equipment",
+      "summary": "以氣相化學反應長介電質／鎢等薄膜，單晶圓 CVD 由 AMAT、Lam、TEL 主導，批次爐管由 Kokusai、TEL 主導。帆宣為 Kokusai 爐管代理；京鼎代工 AMAT CVD；公準、千附供應 CVD 腔體。",
+      "engineeringNotes": "CVD 用前驅物氣體在加熱或電漿條件下反應成膜，常見 PECVD（層間介電質 SiO₂／SiN）、LPCVD 與批次爐管（多晶矽、氮化矽）、W-CVD（接觸孔填鎢）。3D NAND 的數百層 ONON 疊層與 GAA 結構大幅增加 CVD 用量。AMAT、Lam、TEL 合計約占沉積營收 6 成，Kokusai 在成熟製程批次爐管具主導地位。",
+      "companies": [
+        {
+          "ticker": "3583",
+          "name": "辛耘",
+          "verdict": "unverified",
+          "role": "代理業務泛稱涵蓋薄膜沉積與擴散，但查無代理 CVD 機型或原廠的具體公開資料；自製設備無 CVD",
+          "core": 1,
+          "sources": [],
+          "note": ""
+        },
+        {
+          "ticker": "6196",
+          "name": "帆宣",
+          "verdict": "corrected",
+          "role": "【代理】代理 Kokusai Electric 批次爐管（擴散／熱製程，含 LPCVD 類應用）與相關耗材",
+          "core": 1,
+          "sources": ["https://www.chinatimes.com/newspapers/20130904000390-260210", "https://uc913.com/stock-6196/"],
+          "note": "原值『CVD』→ 新值『爐管代理』：帆宣不自製 CVD 設備，僅代理 Kokusai 爐管"
+        },
+        {
+          "ticker": "3413",
+          "name": "京鼎",
+          "verdict": "added",
+          "role": "【代工設備模組】為 AMAT 代工 CVD 等薄膜設備",
+          "core": 2,
+          "sources": ["https://uanalyze.com.tw/articles/345835408"],
+          "note": ""
+        },
+        {
+          "ticker": "3178",
+          "name": "公準",
+          "verdict": "added",
+          "role": "【零組件】CVD 設備大型腔體及中小型零件",
+          "core": 1,
+          "sources": ["https://fnc.ebc.net.tw/fncnews/stock/165619"],
+          "note": ""
+        },
+        {
+          "ticker": "6829",
+          "name": "千附精密",
+          "verdict": "added",
+          "role": "【零組件】CVD 鋁合金真空腔體、PVD 不鏽鋼腔體，客戶含 AMAT、Lam",
+          "core": 1,
+          "sources": ["https://www.cmoney.tw/forum/article/176077541"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ald",
+      "name": "ALD 原子層沉積",
+      "category": "equipment",
+      "summary": "一次只長一層原子的高均勻度沉積技術，ASM（單晶圓）與 TEL、Kokusai（批次）主導。台股唯一量產自有 ALD 機台的是天虹；京鼎為 AMAT 代工。原清單辛耘、帆宣皆查無 ALD 機台佐證。",
+      "engineeringNotes": "ALD 交替通入兩種前驅物，每循環只自限反應長出約一個原子層，可在高深寬比結構內做到極佳的覆蓋均勻度，用於 High-k 閘極介電質、金屬閘極、間隔層（spacer）與超薄阻障層。GAA 與 3D DRAM 使 ALD 步數持續增加。ASM 在單晶圓 ALD 市佔逾 5 成，整體 ALD 市場 ASM 約 19%、TEL 約 16%。",
+      "companies": [
+        {
+          "ticker": "3583",
+          "name": "辛耘",
+          "verdict": "unverified",
+          "role": "查無辛耘自製或代理 ALD 設備的具體公開資料",
+          "core": 1,
+          "sources": [],
+          "note": ""
+        },
+        {
+          "ticker": "6196",
+          "name": "帆宣",
+          "verdict": "unverified",
+          "role": "代理 Kokusai 爐管（Kokusai 亦有批次 ALD），但查無帆宣代理 ALD 機型的明確資料",
+          "core": 1,
+          "sources": [],
+          "note": ""
+        },
+        {
+          "ticker": "6937",
+          "name": "天虹",
+          "verdict": "added",
+          "role": "【原廠設備】量產型 ALD、PEALD、Powder ALD，並開發 UV 輔助 ALD；與晶圓大廠共同開發 ALD 機台",
+          "core": 3,
+          "sources": ["https://statementdog.com/news/13905", "https://www.ctee.com.tw/news/20251003700187-439901"],
+          "note": ""
+        },
+        {
+          "ticker": "3413",
+          "name": "京鼎",
+          "verdict": "added",
+          "role": "【代工設備模組】為 AMAT 代工 ALD 等薄膜設備",
+          "core": 1,
+          "sources": ["https://uanalyze.com.tw/articles/345835408"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "cmp-equipment",
+      "name": "CMP 化學機械研磨",
+      "category": "equipment",
+      "summary": "CMP 主機台由 AMAT 與 Ebara 雙寡占。台股多屬耗材（中砂鑽石碟）、AMAT 代工（京鼎），以及先進封裝／再生晶圓用的研磨拋光設備（均豪）；原清單弘塑、辛耘無 CMP 機台。",
+      "engineeringNotes": "CMP 以研磨墊、研磨液（slurry）與壓力把晶圓表面磨平，用於 STI、鎢塞、銅大馬士革內連線每一層的平坦化，以及混合鍵合（hybrid bonding）前的超平坦表面。鑽石碟（pad conditioner）用來修整研磨墊，是 CMP 的關鍵耗材。CMP 機台 AMAT 約 42%、Ebara 約 27%，合計近 7 成。",
+      "companies": [
+        {
+          "ticker": "1560",
+          "name": "中砂",
+          "verdict": "corrected",
+          "role": "【耗材】CMP 鑽石碟（約占營收 3 成，3nm 市佔約 7 成）與再生晶圓（約 5 成），不生產 CMP 機台",
+          "core": 2,
+          "sources": [
+            "https://uanalyze.com.tw/articles/8633910914",
+            "https://wantrich.chinatimes.com/news/20260917900221-420101"
+          ],
+          "note": "原值『CMP 設備』→ 新值『CMP 耗材（鑽石碟）』：中砂是耗材供應商，非機台廠"
+        },
+        {
+          "ticker": "3583",
+          "name": "辛耘",
+          "verdict": "removed",
+          "role": "自製設備為批次／單晶圓濕製程、TBDB、烘烤，無 CMP 機台",
+          "core": 1,
+          "sources": ["https://news.cnyes.com/news/id/6596351"],
+          "note": "原值『CMP』→ 移除：查無辛耘自製或代理 CMP 機台的公開資料"
+        },
+        {
+          "ticker": "3131",
+          "name": "弘塑",
+          "verdict": "removed",
+          "role": "濕式清洗、蝕刻、去光阻、電鍍設備與化學品，無 CMP 機台",
+          "core": 1,
+          "sources": ["https://7evenguy.com/what-is-3131-doing/"],
+          "note": "原值『CMP』→ 移除：弘塑產品線不含 CMP"
+        },
+        {
+          "ticker": "5443",
+          "name": "均豪",
+          "verdict": "added",
+          "role": "【原廠設備】研磨（Grinder）與 CMP 拋光設備，應用於先進封裝薄化平坦化與再生晶圓；半導體約占營收 8 成",
+          "core": 2,
+          "sources": [
+            "https://udn.com/news/story/7240/9725081",
+            "https://readmo.cmoney.tw/article/71a833ea-5fef-4fc2-a7ea-3b16d530bcad"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3413",
+          "name": "京鼎",
+          "verdict": "added",
+          "role": "【代工設備模組】協助 AMAT 生產 CMP 設備（與薄膜、蝕刻、檢測設備並列）",
+          "core": 1,
+          "sources": ["https://www.sie.com.tw/Luckylong/article.do?id=A20240411100825LLA"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "mask-equipment",
+      "name": "光罩設備",
+      "category": "equipment",
+      "summary": "光罩相關的傳送載具、清洗、檢測設備。家登做的是光罩傳送盒（載具），子公司家碩才是光罩清洗／交換／檢測設備廠；台灣光罩是光罩製造商（光罩設備的使用者），且原清單 2338 重複列兩次。",
+      "engineeringNotes": "光罩是微影的圖形母版，EUV 光罩沒有傳統 pellicle 保護時極怕微粒，因此需要真空級潔淨的 EUV Pod（內外雙層盒）與專用的光罩清洗、交換、儲存與檢測設備。光罩檢測由 KLA（約 34%）與 Lasertec（唯一商用 actinic EUV 光罩檢測）主導；EUV 光罩盒則由家登與 Entegris 主導。",
+      "companies": [
+        {
+          "ticker": "3680",
+          "name": "家登",
+          "verdict": "corrected",
+          "role": "【載具／零組件】EUV 光罩傳送盒（全球 EUV Pod 市佔逾 8 成）與晶圓載具 FOUP，非製程設備",
+          "core": 2,
+          "sources": ["https://statementdog.com/news/9146", "https://vocus.cc/article/695b9695fd89780001a963df"],
+          "note": "原值『光罩設備』→ 新值『光罩載具（EUV Pod）』：家登是光罩盒／載具廠，設備由子公司家碩負責"
+        },
+        {
+          "ticker": "2338",
+          "name": "光罩（台灣光罩）",
+          "verdict": "removed",
+          "role": "光罩研發、製造與銷售（光罩製造商，屬光罩設備的使用者）",
+          "core": 1,
+          "sources": [
+            "https://zh.wikipedia.org/zh-hant/%E5%8F%B0%E7%81%A3%E5%85%89%E7%BD%A9",
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=2b4ab57f-fb7a-4d56-8ef9-762c9fcf7d2e"
+          ],
+          "note": "原值『光罩設備』（台灣光罩、光罩各列一次）→ 移除並去重：兩者為同一家公司 2338，且為光罩製造商非設備商，應歸入光罩族群"
+        },
+        {
+          "ticker": "6953",
+          "name": "家碩",
+          "verdict": "added",
+          "role": "【原廠設備】EUV／先進光罩清洗、交換、儲存、檢測與充氣設備，家登子公司，客戶含台積電、Intel",
+          "core": 3,
+          "sources": ["https://statementdog.com/news/5786", "https://blog.fugle.tw/post/2024-gudeng-equipment-report"],
+          "note": ""
+        },
+        {
+          "ticker": "6937",
+          "name": "天虹",
+          "verdict": "added",
+          "role": "【原廠設備】新開發 EUV 光罩保護層量測設備，預期 2026 年放量",
+          "core": 1,
+          "sources": ["https://statementdog.com/news/13905"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "laser-equipment",
+      "name": "雷射設備",
+      "category": "equipment",
+      "summary": "半導體雷射製程設備（雷射開槽、切割、鑽孔、修整、TGV）。原清單盟立（AMHS 搬運）、由田（AOI 檢測）、均豪（檢量與磨拋）皆非雷射設備廠；台股雷射設備應看鈦昇、雷科。",
+      "engineeringNotes": "雷射在半導體的用途包括：low-k 晶圓切割前的雷射開槽（laser grooving）、隱形切割、TSV／玻璃基板 TGV 鑽孔、雷射剝離（laser debond）、晶圓打標與電阻修整。先進封裝走向面板級與玻璃基板後，雷射鑽孔與切割需求提升。切割／開槽市場由 DISCO 主導（切割設備約 4～7 成），雷射開槽前五大廠約占 8 成。",
+      "companies": [
+        {
+          "ticker": "2464",
+          "name": "盟立",
+          "verdict": "removed",
+          "role": "【原廠設備】半導體 AMHS（OHT 天車、Stocker、EFEM）與工廠自動化，非雷射設備",
+          "core": 1,
+          "sources": ["https://www.mirle.com.tw/product_introduction/59/"],
+          "note": "原值『雷射設備』→ 移除：盟立為自動化搬運系統廠，應歸晶圓搬運族群"
+        },
+        {
+          "ticker": "3455",
+          "name": "由田",
+          "verdict": "removed",
+          "role": "【原廠設備】AOI 自動光學檢測設備（PCB／載板、先進封裝 RDL、面板），非雷射加工設備",
+          "core": 1,
+          "sources": ["https://blog.fugle.tw/utechzone-analysis/", "https://uc913.com/stock-3455/"],
+          "note": "原值『雷射設備』→ 移除：由田為 AOI 檢測設備廠，應歸檢測量測族群"
+        },
+        {
+          "ticker": "5443",
+          "name": "均豪",
+          "verdict": "removed",
+          "role": "【原廠設備】檢測量測（AOI）與研磨拋光設備，非雷射設備",
+          "core": 1,
+          "sources": [
+            "https://udn.com/news/story/7240/9725081",
+            "https://blog.fugle.tw/post/earnings-call-5443-2025-11-11"
+          ],
+          "note": "原值『雷射設備』→ 移除：均豪核心為檢量與磨拋，應歸 AOI／CMP 研磨族群"
+        },
+        {
+          "ticker": "8027",
+          "name": "鈦昇",
+          "verdict": "added",
+          "role": "【原廠設備】雷射加工設備（切割、鑽孔、開槽，約占 5～6 成）、電漿清洗設備；切入 FOPLP 與玻璃基板 TGV 雷射鑽孔",
+          "core": 3,
+          "sources": [
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/225803",
+            "https://vocus.cc/article/6a4dd1a8fd89780001f3e9dd"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6207",
+          "name": "雷科",
+          "verdict": "added",
+          "role": "【原廠設備】雷射修整機、TSV 飛秒鑽孔、SiC 飛秒切割、Wafer Trim、Laser Deflash／Marking 等半導體雷射設備",
+          "core": 2,
+          "sources": [
+            "https://readmo.cmoney.tw/article/35439f63-0ea8-44c4-adcc-e6e9bb8f855e",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=cffaf585-75bb-4bf1-a7ce-b731cd8d9ac7"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "wet-process",
+      "name": "濕製程設備",
+      "category": "equipment",
+      "summary": "以化學液進行清洗、蝕刻、去光阻、顯影、電鍍的設備總稱。弘塑、辛耘為台灣濕製程雙雄，主戰場在 CoWoS／SoIC 等先進封裝，並逐步打入前段。",
+      "engineeringNotes": "濕製程設備分批次濕式槽（一次處理 25～50 片）與單晶圓旋轉式（逐片噴灑、旋乾），核心技術在化學液溫度與濃度控制、微粒控制與藥液回收。先進封裝的凸塊、RDL、TSV 都需多道去光阻、UBM 蝕刻與電鍍，使台廠濕製程設備在 CoWoS 擴產中大量受惠。前段晶圓廠的濕式清洗仍以 SCREEN、TEL、Lam 為主。",
+      "companies": [
+        {
+          "ticker": "3131",
+          "name": "弘塑",
+          "verdict": "confirmed",
+          "role": "【原廠設備】濕式槽與單晶圓旋轉設備（清洗、顯影、蝕刻、去光阻、電鍍）及化學品供應系統，台積電先進封裝主要供應商",
+          "core": 3,
+          "sources": [
+            "https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=0000511887_VDK9YZXP7CJ4LE8I2KF1Y",
+            "https://www.chinatimes.com/realtimenews/20260527000932-260410"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3583",
+          "name": "辛耘",
+          "verdict": "confirmed",
+          "role": "【原廠設備】批次式與單晶圓濕式製程設備，用於 FEOL、BEOL、先進封裝；自製設備 2026 年業績估增 5 成、部分訂單看到 2028 年",
+          "core": 3,
+          "sources": ["https://news.cnyes.com/news/id/6596351", "https://www.cw.com.tw/article/5134117"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "wafer-handling",
+      "name": "晶圓搬運（AMHS／EFEM）",
+      "category": "equipment",
+      "summary": "晶圓廠天車（OHT）、倉儲（Stocker）、機台前端模組（EFEM）與載具。300mm AMHS 由 Murata Machinery、Daifuku 寡占；台廠盟立已打入台積電，迅得、華景電切入中小型與先進封裝廠。帆宣的「自動化供應系統」是氣體化學品供應，非晶圓搬運。",
+      "engineeringNotes": "12 吋晶圓廠以 FOUP 裝載晶圓，靠天花板軌道上的 OHT 在數百台機台間自動運送，Stocker 暫存，EFEM 負責把晶圓從 FOUP 取出送進製程腔體；MCS 物料控制系統負責派工。先進製程對微污染敏感，FOUP 需充氮（N₂ purge）防止 AMC 污染。全球半導體 AMHS 約由 Murata（約 48%）與 Daifuku（約 39%）合計近 9 成掌握。",
+      "companies": [
+        {
+          "ticker": "2464",
+          "name": "盟立",
+          "verdict": "confirmed",
+          "role": "【原廠設備】半導體 AMHS：OHT 天車、Stocker、EFEM、AMR、MCS，客戶含台積電、日月光、矽品；半導體約占營收 57%（2025 前三季）",
+          "core": 3,
+          "sources": [
+            "https://www.mirle.com.tw/product_introduction/59/",
+            "https://news.cnyes.com/news/id/4500919",
+            "https://uc913.com/stock-2464/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6438",
+          "name": "迅得",
+          "verdict": "confirmed",
+          "role": "【原廠設備】自動化倉儲與搬運（Stocker、AGV／RGV、OHT）；晶圓製造自動化僅約占 11%，PCB 40%、後段封裝 32%、IC 載板 15%（2025 前三季）",
+          "core": 2,
+          "sources": [
+            "https://uanalyze.com.tw/articles/9326740898",
+            "https://www.stockfeel.com.tw/financial/?stock=6438"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6196",
+          "name": "帆宣",
+          "verdict": "removed",
+          "role": "【廠務工程】「自動化供應系統」指氣體、化學品自動供應管線，非晶圓搬運設備",
+          "core": 1,
+          "sources": ["https://uc913.com/stock-6196/"],
+          "note": "原值『晶圓搬運』→ 移除：帆宣的自動化供應系統是廠務氣體化學品供應，易與 AMHS 混淆"
+        },
+        {
+          "ticker": "6788",
+          "name": "華景電",
+          "verdict": "added",
+          "role": "【原廠設備】晶圓製程 AMC 微污染防治傳載系統（FOUP 充氣／EFEM 相關，約占營收 84%）與 RFID 派工追蹤系統",
+          "core": 2,
+          "sources": ["https://uanalyze.com.tw/articles/296135619", "https://uc913.com/stock-6788/"],
+          "note": ""
+        },
+        {
+          "ticker": "3680",
+          "name": "家登",
+          "verdict": "added",
+          "role": "【載具／零組件】晶圓載具 FOUP（全球市佔逾 3 成），屬搬運系統的承載耗材",
+          "core": 1,
+          "sources": ["https://statementdog.com/news/9146"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "vacuum",
+      "name": "真空設備／真空零組件",
+      "category": "equipment",
+      "summary": "真空幫浦、真空腔體與相關零組件。乾式幫浦由 Edwards（Atlas Copco）、Ebara、Pfeiffer 寡占，台股無真空幫浦原廠；台廠以真空腔體加工（千附精密、公準）與真空零組件／代理（翔名）為主。原清單漢唐、帆宣、盟立皆為廠務或自動化，非真空設備。",
+      "engineeringNotes": "蝕刻、PVD、CVD、ALD、離子植入與 EUV 曝光都在真空腔體中進行，需要乾式幫浦（粗抽）加渦輪分子幫浦（高真空）串接，並搭配閥件、真空計與尾氣處理。真空腔體多為鋁合金或不鏽鋼精密加工件，屬設備原廠委外的關鍵零組件。高階半導體真空幫浦由 Edwards、Ebara、Pfeiffer 寡占。",
+      "companies": [
+        {
+          "ticker": "2404",
+          "name": "漢唐",
+          "verdict": "removed",
+          "role": "【廠務工程】無塵室與機電系統整合，台積電最大無塵室供應商，非真空設備",
+          "core": 1,
+          "sources": ["https://www.kelvintaispace.com/uisco-twstock-2404/", "https://uc913.com/stock-2404/"],
+          "note": "原值『真空設備』→ 移除：漢唐是無塵室廠務工程，應歸廠務工程族群"
+        },
+        {
+          "ticker": "6196",
+          "name": "帆宣",
+          "verdict": "removed",
+          "role": "【廠務工程＋OEM】氣體化學品供應系統、廠務整合、ASML EUV 模組代工；查無真空幫浦或真空設備產品",
+          "core": 1,
+          "sources": ["https://uc913.com/stock-6196/"],
+          "note": "原值『真空設備』→ 移除：帆宣為二次配／供應系統與 ASML 模組代工"
+        },
+        {
+          "ticker": "2464",
+          "name": "盟立",
+          "verdict": "removed",
+          "role": "【原廠設備】半導體 AMHS 與工廠自動化，非真空設備",
+          "core": 1,
+          "sources": ["https://www.mirle.com.tw/product_introduction/59/"],
+          "note": "原值『真空設備』→ 移除：盟立為自動化搬運系統廠"
+        },
+        {
+          "ticker": "6829",
+          "name": "千附精密",
+          "verdict": "added",
+          "role": "【零組件】半導體真空腔體（PVD 不鏽鋼、CVD 鋁合金）與設備精密零件，客戶含 AMAT、ASML、Lam；另出貨量子電腦超低溫真空腔體",
+          "core": 2,
+          "sources": [
+            "https://www.cmoney.tw/forum/article/176077541",
+            "https://www.ttv.com.tw/finance/view/0820261310144DF8DBC781D840878DC3FD95BAA3E6715738/587"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "8091",
+          "name": "翔名",
+          "verdict": "added",
+          "role": "【零組件＋代理】離子植入、薄膜、蝕刻設備關鍵零組件與耗材；代理島津渦輪分子幫浦、氦氣測漏儀及 Mass-Vac 真空捕捉器",
+          "core": 2,
+          "sources": [
+            "https://vocus.cc/article/6a523044fd89780001b78a02",
+            "https://luckylong.pixnet.net/blog/posts/5069310002-%E9%9B%A2%E5%AD%90%E6%A4%8D%E5%85%A5%E6%A9%9F%EF%BC%9A%E7%BF%94%E5%90%8D(8091)%E5%8D%8A%E5%B0%8E%E9%AB%94%E8%A8%AD%E5%82%99%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A5%AD%E5%8B%99"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3178",
+          "name": "公準",
+          "verdict": "added",
+          "role": "【零組件】CVD 大型腔體與 PVD 零件精密加工，客戶含 AMAT、ASML",
+          "core": 1,
+          "sources": ["https://fnc.ebc.net.tw/fncnews/stock/165619"],
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "globalPlayers": [
+    {
+      "groupId": "wafer-clean",
+      "name": "SCREEN Holdings",
+      "country": "JP",
+      "role": "晶圓清洗設備龍頭（市佔約 3 成），濕式槽與單晶圓清洗皆領先",
+      "sources": [
+        "https://www.verifiedmarketresearch.com/blog/top-semiconductor-wafer-cleaning-equipment-manufacturers/"
+      ]
+    },
+    {
+      "groupId": "wafer-clean",
+      "name": "Tokyo Electron（TEL）",
+      "country": "JP",
+      "role": "晶圓清洗設備第二大廠（約 24%）",
+      "sources": [
+        "https://www.verifiedmarketresearch.com/blog/top-semiconductor-wafer-cleaning-equipment-manufacturers/"
+      ]
+    },
+    {
+      "groupId": "wafer-clean",
+      "name": "Lam Research",
+      "country": "US",
+      "role": "單晶圓清洗設備主要廠商（約 18%）",
+      "sources": [
+        "https://www.verifiedmarketresearch.com/blog/top-semiconductor-wafer-cleaning-equipment-manufacturers/"
+      ]
+    },
+    {
+      "groupId": "wet-process",
+      "name": "SCREEN Holdings",
+      "country": "JP",
+      "role": "濕式槽（wet bench）與單晶圓濕製程龍頭",
+      "sources": ["https://www.mordorintelligence.com/industry-reports/wafer-cleaning-equipment-market"]
+    },
+    {
+      "groupId": "wet-process",
+      "name": "ACM Research（盛美）",
+      "country": "US/CN",
+      "role": "單晶圓清洗與電鍍等濕製程設備，與 SCREEN、TEL、AMAT、Lam 合計約占 65% 營收",
+      "sources": ["https://www.mordorintelligence.com/industry-reports/wafer-cleaning-equipment-market"]
+    },
+    {
+      "groupId": "etch",
+      "name": "Lam Research",
+      "country": "US",
+      "role": "蝕刻設備龍頭之一（約 28%），導體蝕刻與高深寬比蝕刻領先",
+      "sources": [
+        "https://www.mordorintelligence.com/industry-reports/semiconductor-etch-equipment-market",
+        "https://semiconductorx.com/wfe-etching.php"
+      ]
+    },
+    {
+      "groupId": "etch",
+      "name": "Applied Materials（AMAT）",
+      "country": "US",
+      "role": "蝕刻設備主要廠商（約 32%），介電質蝕刻與原子層蝕刻",
+      "sources": ["https://www.mordorintelligence.com/industry-reports/semiconductor-etch-equipment-market"]
+    },
+    {
+      "groupId": "etch",
+      "name": "Tokyo Electron（TEL）",
+      "country": "JP",
+      "role": "蝕刻設備第三大廠（約 15%），介電質蝕刻為主",
+      "sources": ["https://www.mordorintelligence.com/industry-reports/semiconductor-etch-equipment-market"]
+    },
+    {
+      "groupId": "deposition",
+      "name": "Applied Materials（AMAT）",
+      "country": "US",
+      "role": "全球最大沉積設備商（PVD、CVD、ALD、EPI 全產品線）",
+      "sources": ["https://www.mordorintelligence.com/industry-reports/semiconductor-cvd-equipment-market/companies"]
+    },
+    {
+      "groupId": "deposition",
+      "name": "Lam Research",
+      "country": "US",
+      "role": "CVD／ALD（鎢、介電質）沉積主要廠商",
+      "sources": ["https://www.mordorintelligence.com/industry-reports/semiconductor-cvd-equipment-market/companies"]
+    },
+    {
+      "groupId": "deposition",
+      "name": "Tokyo Electron（TEL）",
+      "country": "JP",
+      "role": "批次與單晶圓 CVD／ALD 主要廠商，與 AMAT、Lam 合計約占沉積營收 6 成",
+      "sources": ["https://www.mordorintelligence.com/industry-reports/semiconductor-cvd-equipment-market/companies"]
+    },
+    {
+      "groupId": "pvd",
+      "name": "Applied Materials（AMAT）",
+      "country": "US",
+      "role": "PVD 龍頭，Endura 平台長期主導金屬沉積（歷史市佔約 78%）",
+      "sources": [
+        "https://ir.appliedmaterials.com/node/9476/pdf",
+        "https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-sets-industry-record-shipment-3000th-endura"
+      ]
+    },
+    {
+      "groupId": "cvd",
+      "name": "Applied Materials（AMAT）",
+      "country": "US",
+      "role": "CVD 設備主要廠商",
+      "sources": ["https://www.mordorintelligence.com/industry-reports/semiconductor-cvd-equipment-market/companies"]
+    },
+    {
+      "groupId": "cvd",
+      "name": "Lam Research",
+      "country": "US",
+      "role": "PECVD 與 W-CVD 主要廠商",
+      "sources": ["https://www.mordorintelligence.com/industry-reports/semiconductor-cvd-equipment-market/companies"]
+    },
+    {
+      "groupId": "cvd",
+      "name": "Kokusai Electric",
+      "country": "JP",
+      "role": "成熟製程批次爐管龍頭（帆宣為其台灣代理）",
+      "sources": [
+        "https://www.mordorintelligence.com/industry-reports/semiconductor-cvd-equipment-market/companies",
+        "https://www.chinatimes.com/newspapers/20130904000390-260210"
+      ]
+    },
+    {
+      "groupId": "ald",
+      "name": "ASM International",
+      "country": "NL",
+      "role": "ALD 龍頭（整體約 19%，單晶圓 ALD 逾 55%）",
+      "sources": ["https://www.gminsights.com/industry-analysis/ald-equipment-market"]
+    },
+    {
+      "groupId": "ald",
+      "name": "Tokyo Electron（TEL）",
+      "country": "JP",
+      "role": "ALD 第二大廠（約 16%），批次爐管 ALD 領先",
+      "sources": ["https://www.gminsights.com/industry-analysis/ald-equipment-market"]
+    },
+    {
+      "groupId": "cmp-equipment",
+      "name": "Applied Materials（AMAT）",
+      "country": "US",
+      "role": "CMP 機台龍頭（約 42%）",
+      "sources": ["https://www.globalgrowthinsights.com/market-reports/cmp-equipment-market-115415"]
+    },
+    {
+      "groupId": "cmp-equipment",
+      "name": "Ebara（荏原）",
+      "country": "JP",
+      "role": "CMP 機台第二大廠（約 27%），推出混合鍵合用 CMP；亦為半導體乾式真空幫浦大廠",
+      "sources": [
+        "https://www.globalgrowthinsights.com/market-reports/cmp-equipment-market-115415",
+        "https://www.ebara.com/global-en/precision/"
+      ]
+    },
+    {
+      "groupId": "mask-equipment",
+      "name": "KLA",
+      "country": "US",
+      "role": "光罩檢測龍頭（EUV 光罩檢測市佔逾 34%），Teron／TeraScan 系列",
+      "sources": ["https://www.gminsights.com/industry-analysis/euv-mask-inspection-market"]
+    },
+    {
+      "groupId": "mask-equipment",
+      "name": "Lasertec",
+      "country": "JP",
+      "role": "唯一商用 actinic EUV 光罩／光罩基板檢測設備（ACTIS 系列）",
+      "sources": ["https://www.gminsights.com/industry-analysis/euv-mask-inspection-market"]
+    },
+    {
+      "groupId": "mask-equipment",
+      "name": "Entegris",
+      "country": "US",
+      "role": "EUV 光罩盒（Dual Pod）主要供應商，與家登競爭",
+      "sources": ["https://semiengineering.com/searching-for-euv-mask-defects/"]
+    },
+    {
+      "groupId": "laser-equipment",
+      "name": "DISCO",
+      "country": "JP",
+      "role": "切割、研磨與雷射開槽設備龍頭（切割設備市佔約 4～7 成）",
+      "sources": [
+        "https://finance.yahoo.com/news/disco-corp-precision-toolmaker-quietly-115707225.html",
+        "https://www.openpr.com/news/3994776/laser-grooving-equipment-for-semiconductor-market-projected"
+      ]
+    },
+    {
+      "groupId": "laser-equipment",
+      "name": "EO Technics",
+      "country": "KR",
+      "role": "雷射開槽／打標設備主要廠商（雷射開槽前五大之一）",
+      "sources": ["https://www.openpr.com/news/3994776/laser-grooving-equipment-for-semiconductor-market-projected"]
+    },
+    {
+      "groupId": "wafer-handling",
+      "name": "Murata Machinery（村田機械）",
+      "country": "JP",
+      "role": "半導體 AMHS 龍頭（約 48%）",
+      "sources": ["https://electronicsbuzz.in/amhs-for-semiconductor-market-size-to-surpass-6-20-bn-by-2034/"]
+    },
+    {
+      "groupId": "wafer-handling",
+      "name": "Daifuku（大福）",
+      "country": "JP",
+      "role": "半導體 AMHS 第二大廠（約 39%）",
+      "sources": ["https://electronicsbuzz.in/amhs-for-semiconductor-market-size-to-surpass-6-20-bn-by-2034/"]
+    },
+    {
+      "groupId": "vacuum",
+      "name": "Edwards Vacuum（Atlas Copco 集團）",
+      "country": "UK/SE",
+      "role": "半導體真空幫浦龍頭（售後市場約 3 成）",
+      "sources": [
+        "https://www.semi.org/en/blogs/business-markets/european-suppliers-dominate-vacuum-subsystems-market",
+        "https://www.globalgrowthinsights.com/market-reports/semiconductor-vacuum-pump-after-market-101324"
+      ]
+    },
+    {
+      "groupId": "vacuum",
+      "name": "Ebara（荏原）",
+      "country": "JP",
+      "role": "半導體乾式真空幫浦主要廠商（售後市場約 25%）",
+      "sources": ["https://www.globalgrowthinsights.com/market-reports/semiconductor-vacuum-pump-after-market-101324"]
+    },
+    {
+      "groupId": "vacuum",
+      "name": "Pfeiffer Vacuum（Busch 集團）",
+      "country": "DE",
+      "role": "渦輪分子幫浦與乾式幫浦主要廠商",
+      "sources": ["https://www.semi.org/en/blogs/business-markets/european-suppliers-dominate-vacuum-subsystems-market"]
+    }
+  ]
+}

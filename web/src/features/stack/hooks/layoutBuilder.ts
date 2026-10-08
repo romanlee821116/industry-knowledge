@@ -30,6 +30,7 @@ export function createLayoutBuilder(explode: number) {
   let y = 0;
   let slot = 0;
   let originX = 0;
+  let originZ = 0;
   const lift = () => slot * explode * EXPLODE_GAP;
 
   const api = {
@@ -40,8 +41,9 @@ export function createLayoutBuilder(explode: number) {
     get liftedY() {
       return y + lift();
     },
-    column(x: number) {
+    column(x: number, z = 0) {
       originX = x;
+      originZ = z;
       y = 0;
       slot = 0;
     },
@@ -60,15 +62,21 @@ export function createLayoutBuilder(explode: number) {
         palette,
         opacity: opts.opacity,
         shape: opts.shape,
-        position: [originX + ox, y + size[1] / 2 + lift() + oy, oz],
+        position: [originX + ox, y + size[1] / 2 + lift() + oy, originZ + oz],
       });
     },
     /** 不受爆炸位移影響的絕對位置方塊（例如 PCB 內層銅） */
     fixedBlock(block: LayerBlock) {
-      blocks.push({ ...block, position: [originX + block.position[0], block.position[1], block.position[2]] });
+      blocks.push({
+        ...block,
+        position: [originX + block.position[0], block.position[1], originZ + block.position[2]],
+      });
     },
     instances(inst: LayerInstances) {
-      instances.push({ ...inst, positions: inst.positions.map(([px, py, pz]) => [originX + px, py, pz]) });
+      instances.push({
+        ...inst,
+        positions: inst.positions.map(([px, py, pz]) => [originX + px, py, originZ + pz]),
+      });
     },
     advance(height: number) {
       y += height;

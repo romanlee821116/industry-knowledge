@@ -22,16 +22,40 @@ export type LayerId =
   | 'handler'
   | 'dut-package'
   | 'test-socket'
-  | 'load-board';
+  | 'load-board'
+  // 晶圓廠場景
+  | 'fab-wafer'
+  | 'foup'
+  | 'wet-bench'
+  | 'chem-supply'
+  | 'deposition-tool'
+  | 'pvd-chamber'
+  | 'sputter-target'
+  | 'cvd-chamber'
+  | 'ald-chamber'
+  | 'gas-cabinet'
+  | 'coater-track'
+  | 'litho-scanner'
+  | 'reticle'
+  | 'pellicle'
+  | 'etch-tool'
+  | 'cmp-tool'
+  | 'cmp-pad'
+  | 'cmp-slurry'
+  | 'pad-conditioner'
+  | 'inspection-tool'
+  | 'vacuum-pump'
+  | 'amhs'
+  | 'process-flow';
 
 /** 已建模的 3D 場景 */
-export type SceneKey = 'package' | 'test';
+export type SceneKey = 'fab' | 'package' | 'test';
 
 export type MaterialId = 'glass-fabric' | 'ccl' | 'abf-film' | 'copper-foil' | 'resin';
 
-export type MicroViewId = 'glass-fabric' | 'substrate-section' | 'probe-contact' | 'pogo-pin';
+export type MicroViewId = 'glass-fabric' | 'substrate-section' | 'probe-contact' | 'pogo-pin' | 'chip-section';
 
-export type ProcessChainId = 'laminate' | 'substrate' | 'cowos' | 'test';
+export type ProcessChainId = 'laminate' | 'substrate' | 'cowos' | 'test' | 'fab';
 
 /** 材料色票 key：技術插畫風，每種材料固定一色 */
 export type PaletteKey =
@@ -57,7 +81,14 @@ export type PaletteKey =
   | 'ate'
   | 'handler'
   | 'socket'
-  | 'pogo';
+  | 'pogo'
+  | 'tool'
+  | 'toolDark'
+  | 'liquid'
+  | 'plasma'
+  | 'padDark'
+  | 'flow'
+  | 'oxide';
 
 export interface Spec {
   label: string;

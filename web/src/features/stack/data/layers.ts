@@ -1,4 +1,5 @@
 import type { SceneKey, StackLayer } from '../types';
+import { FAB_LAYERS } from './fab-layers';
 import { TEST_LAYERS } from './test-layers';
 
 /**
@@ -244,7 +245,7 @@ const PACKAGE_LAYERS: StackLayer[] = [
   },
 ];
 
-export const LAYERS: StackLayer[] = [...PACKAGE_LAYERS, ...TEST_LAYERS];
+export const LAYERS: StackLayer[] = [...FAB_LAYERS, ...PACKAGE_LAYERS, ...TEST_LAYERS];
 
 export const sceneOfLayer = (layer: StackLayer): SceneKey => layer.scene ?? 'package';
 

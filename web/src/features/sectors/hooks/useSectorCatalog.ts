@@ -1,9 +1,12 @@
 import { CATALOG, COMPANY_ANCHORS, MODELED_SCENES } from '../data/catalog';
 import batch1 from '../data/verified/batch-1.json';
 import batch2 from '../data/verified/batch-2.json';
+import batch3 from '../data/verified/batch-3.json';
+import batch4 from '../data/verified/batch-4.json';
+import batch5 from '../data/verified/batch-5.json';
 import type { CompanyIndexEntry, SectorCategory, SectorGroup, SectorStatus, VerifiedBatch } from '../types';
 
-const BATCHES: VerifiedBatch[] = [batch1 as VerifiedBatch, batch2 as VerifiedBatch];
+const BATCHES: VerifiedBatch[] = [batch1, batch2, batch3, batch4, batch5] as VerifiedBatch[];
 
 const VERIFIED = new Map(BATCHES.flatMap((b) => b.groups.map((g) => [g.id, g])));
 const GLOBAL_PLAYERS = BATCHES.flatMap((b) => b.globalPlayers);

@@ -14,7 +14,12 @@ interface Options {
 /** 依場景計算每個方塊的位置（厚度誇張化，非真實比例） */
 export function useStackLayout({ scene, explode, interposerVariant, substrateVariant }: Options): StackLayout {
   return useMemo(
-    () => (scene === 'test' ? buildTest(explode) : buildPackage(explode, interposerVariant, substrateVariant)),
+    () =>
+      scene === 'test'
+        ? buildTest(explode)
+        : scene === 'fab'
+          ? buildFab(explode)
+          : buildPackage(explode, interposerVariant, substrateVariant),
     [scene, explode, interposerVariant, substrateVariant],
   );
 }
@@ -232,6 +237,153 @@ function buildTest(explode: number): StackLayout {
 
   b.block('handler-head', 'handler', [3.2, 0.8, 3.2], 'handler');
   b.block('handler-arm', 'handler', [1.4, 1.6, 1.4], 'handler', { offset: [0, 0.8, 0] });
+
+  return b.build();
+}
+
+/** 晶圓廠場景：8 座機台沿製程循環排成一圈，天花板為天車軌道 */
+const FAB_RX = 13;
+const FAB_RZ = 8;
+
+/** 第 i 站在橢圓上的位置（由正前方逆時針排列） */
+export function fabStationPosition(i: number, count = 8): [number, number] {
+  const a = Math.PI / 2 + (i * 2 * Math.PI) / count;
+  return [FAB_RX * Math.cos(a), FAB_RZ * Math.sin(a)];
+}
+
+function buildFab(explode: number): StackLayout {
+  const b = createLayoutBuilder(explode);
+  const station = (i: number) => b.column(...fabStationPosition(i));
+  const step = (h: number) => {
+    b.advance(h);
+    b.nextSlot();
+  };
+
+  // ① 晶圓與 FOUP：爆炸時晶圓從傳送盒中升起
+  station(0);
+  b.block('foup', 'foup', [2.2, 2.2, 2.4], 'tool', { opacity: 0.35 });
+  for (let k = 0; k < 6; k++) {
+    b.block(`foup-wafer-${k}`, 'fab-wafer', [1.9, 0.03, 1.9], 'silicon', {
+      shape: 'cylinder',
+      offset: [0, 0.3 + k * 0.3, 0],
+    });
+  }
+  step(2.3);
+  b.block('wafer-showcase', 'fab-wafer', [3, 0.06, 3], 'silicon', { shape: 'cylinder' });
+  grid(7, 7, 2.1, 2.1, 0)
+    .filter(([x, , z]) => Math.hypot(x, z) < 1.3)
+    .forEach(([x, , z], k) =>
+      b.block(`wafer-die-${k}`, 'fab-wafer', [0.3, 0.015, 0.3], 'die', { offset: [x, 0.06, z] }),
+    );
+
+  // ② 濕式清洗＋化學品供應
+  station(1);
+  b.block('wet-base', 'wet-bench', [5, 1.2, 2], 'tool');
+  b.block('chem-tank-0', 'chem-supply', [0.9, 2, 0.9], 'tool', { shape: 'cylinder', offset: [-1.4, 0, -1.9] });
+  b.block('chem-tank-1', 'chem-supply', [0.9, 2, 0.9], 'tool', { shape: 'cylinder', offset: [-0.2, 0, -1.9] });
+  step(1.2);
+  [-1.6, 0, 1.6].forEach((x, k) =>
+    b.block(`wet-tank-${k}`, 'wet-bench', [1.2, 0.5, 1.4], 'liquid', { offset: [x, 0, 0], opacity: 0.6 }),
+  );
+
+  // ③ 薄膜沉積叢集：中央傳送腔＋PVD／CVD／ALD 製程腔＋特氣櫃＋真空幫浦
+  station(2);
+  const chambers: [string, LayerId, number][] = [
+    ['pvd', 'pvd-chamber', 0],
+    ['cvd', 'cvd-chamber', (2 * Math.PI) / 3],
+    ['ald', 'ald-chamber', (4 * Math.PI) / 3],
+  ];
+  const at = (a: number, r: number): Vec3 => [r * Math.cos(a), 0, r * Math.sin(a)];
+  b.block('transfer', 'deposition-tool', [2, 1, 2], 'toolDark', { shape: 'cylinder' });
+  chambers.forEach(([key, id, a]) => {
+    b.block(`chamber-${key}`, id, [1.5, 1.3, 1.5], 'tool', { shape: 'cylinder', offset: at(a, 1.9) });
+    b.block(`pump-${key}`, 'vacuum-pump', [0.55, 0.5, 0.55], 'toolDark', { offset: at(a, 3.05) });
+  });
+  b.block('gas-cabinet', 'gas-cabinet', [0.9, 2.4, 0.9], 'toolDark', { offset: [-2.4, 0, 2.4] });
+  step(1.3);
+  b.block('target', 'sputter-target', [1.2, 0.12, 1.2], 'copper', { shape: 'cylinder', offset: at(0, 1.9) });
+
+  // ④ 塗佈顯影（光阻）
+  station(3);
+  b.block('track', 'coater-track', [3, 1.2, 2], 'tool');
+  step(1.2);
+  b.block('spin-cup', 'coater-track', [1, 0.3, 1], 'toolDark', { shape: 'cylinder' });
+
+  // ⑤ 曝光機＋光罩＋保護膜
+  station(4);
+  b.block('scanner', 'litho-scanner', [4.5, 2.4, 3], 'tool');
+  step(2.4);
+  b.block('reticle', 'reticle', [1.3, 0.06, 1.3], 'oxide');
+  step(0.06);
+  b.block('pellicle', 'pellicle', [1.3, 0.03, 1.3], 'glass', { opacity: 0.5 });
+
+  // ⑥ 乾式蝕刻：透明腔體內的電漿
+  station(5);
+  b.block('etch-base', 'etch-tool', [2.6, 0.8, 2.6], 'toolDark');
+  b.block('etch-pump', 'vacuum-pump', [0.6, 0.5, 0.6], 'toolDark', { offset: [1.7, 0, 0] });
+  step(0.8);
+  b.block('etch-chamber', 'etch-tool', [2, 1.4, 2], 'tool', { shape: 'cylinder', opacity: 0.4 });
+  b.block('plasma', 'etch-tool', [1.6, 0.4, 1.6], 'plasma', { shape: 'cylinder', offset: [0, 0.5, 0], opacity: 0.75 });
+
+  // ⑦ CMP：研磨墊 → 研磨頭／鑽石碟／研磨液臂
+  station(6);
+  b.block('cmp-base', 'cmp-tool', [4, 1, 3], 'tool');
+  step(1);
+  b.block('cmp-pad', 'cmp-pad', [2.6, 0.1, 2.6], 'padDark', { shape: 'cylinder' });
+  step(0.1);
+  b.block('cmp-head', 'cmp-tool', [0.9, 0.4, 0.9], 'toolDark', { shape: 'cylinder', offset: [0.5, 0, 0.2] });
+  b.block('conditioner', 'pad-conditioner', [0.6, 0.15, 0.6], 'solder', { shape: 'cylinder', offset: [-0.7, 0, 0.6] });
+  b.block('slurry-arm', 'cmp-slurry', [1.4, 0.1, 0.15], 'liquid', { offset: [-0.3, 0.4, -0.8] });
+
+  // ⑧ 檢測量測／雷射
+  station(7);
+  b.block('inspect', 'inspection-tool', [2.6, 1.6, 2.2], 'tool');
+  step(1.6);
+  b.block('inspect-head', 'inspection-tool', [0.9, 0.5, 0.9], 'toolDark', { shape: 'cylinder' });
+
+  // 天車軌道（固定在天花板）與地面的製程循環路線
+  b.column(0, 0);
+  const ring = (rx: number, rz: number, n: number) =>
+    Array.from({ length: n }, (_, k) => {
+      const a = (k / n) * 2 * Math.PI;
+      return [rx * Math.cos(a), rz * Math.sin(a)] as const;
+    });
+  ring(FAB_RX, FAB_RZ, 96).forEach(([x, z], k) =>
+    b.fixedBlock({
+      key: `rail-${k}`,
+      layerId: 'amhs',
+      size: [0.35, 0.12, 0.35],
+      palette: 'toolDark',
+      position: [x, 6, z],
+    }),
+  );
+  [0.6, 3.4].forEach((a, k) => {
+    const [x, z] = [FAB_RX * Math.cos(a), FAB_RZ * Math.sin(a)];
+    b.fixedBlock({
+      key: `oht-${k}`,
+      layerId: 'amhs',
+      size: [0.8, 0.5, 0.8],
+      palette: 'handler',
+      position: [x, 5.65, z],
+    });
+    b.fixedBlock({
+      key: `oht-foup-${k}`,
+      layerId: 'amhs',
+      size: [0.7, 0.6, 0.75],
+      palette: 'tool',
+      position: [x, 5.1, z],
+    });
+  });
+  ring(8.5, 4, 60).forEach(([x, z], k) =>
+    b.fixedBlock({
+      key: `flow-${k}`,
+      layerId: 'process-flow',
+      size: k % 5 === 0 ? [0.5, 0.05, 0.5] : [0.22, 0.04, 0.22],
+      palette: 'flow',
+      opacity: 0.8,
+      position: [x, 0.03, z],
+    }),
+  );
 
   return b.build();
 }

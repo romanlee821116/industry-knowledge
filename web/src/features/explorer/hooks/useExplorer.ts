@@ -85,6 +85,22 @@ interface SceneConfig {
 }
 
 const SCENES: Record<SceneKey, SceneConfig> = {
+  fab: {
+    labels: [
+      'fab-wafer',
+      'wet-bench',
+      'chem-supply',
+      'deposition-tool',
+      'gas-cabinet',
+      'coater-track',
+      'litho-scanner',
+      'etch-tool',
+      'cmp-tool',
+      'inspection-tool',
+    ],
+    covers: [],
+    home: { position: [4, 32, 42], target: [0, 0, 1] },
+  },
   package: {
     labels: ['lid', 'gpu', 'hbm', 'ubump', 'interposer', 'c4', 'substrate', 'bga', 'server-pcb'],
     covers: ['lid'],

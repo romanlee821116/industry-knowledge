@@ -20,6 +20,17 @@ interface Props {
 const ERA_LABEL = { mainstream: '主流', next: '下一代', legacy: '傳統' } as const;
 
 const OVERVIEW: Record<SceneKey, { title: string; intro: string; tips: string[] }> = {
+  fab: {
+    title: '晶圓廠製程線（前段）',
+    intro:
+      '一片 12 吋晶圓沿著地上的循環路線，在清洗 → 沉積 → 塗佈光阻 → 曝光 → 蝕刻 → CMP → 檢測之間反覆跑數十到上百輪，一層層做出電晶體與銅導線；天花板的天車負責搬運 FOUP。',
+    tips: [
+      '點「矽晶圓」可開啟晶片內部剖面，看每道製程做出了哪一層',
+      '每座機台上方可拆出關鍵耗材：濺鍍靶材、光罩與保護膜、CMP 研磨墊與鑽石碟',
+      '左側「半導體設備」「半導體材料」族群可直接定位到對應機台',
+      '前段主機台多由 AMAT、Lam、TEL、ASML、KLA 寡占，台廠多在耗材、廠務與先進封裝設備',
+    ],
+  },
   package: {
     title: 'CoWoS AI GPU 封裝全堆疊',
     intro: '由下而上：PCB 主機板 → BGA 錫球 → ABF 載板 → C4 凸塊 → 中介層 → 微凸塊 → GPU＋HBM → 蓋板。',

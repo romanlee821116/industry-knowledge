@@ -154,4 +154,57 @@ export const PROCESS_CHAINS: Record<ProcessChainId, ProcessChain> = {
       },
     ],
   },
+  fab: {
+    id: 'fab',
+    name: '前段晶圓製程循環',
+    steps: [
+      {
+        title: '矽晶圓投片',
+        description: '12 吋晶圓裝在 FOUP 中，由天車送進產線。',
+        produces: ['fab-wafer', 'foup', 'amhs'],
+      },
+      { title: '清洗', description: '去除微粒與污染物，每道製程前後都要做。', produces: ['wet-bench', 'chem-supply'] },
+      {
+        title: '薄膜沉積',
+        description: '以 PVD／CVD／ALD 長出絕緣層、阻障層或金屬層。',
+        produces: [
+          'deposition-tool',
+          'pvd-chamber',
+          'sputter-target',
+          'cvd-chamber',
+          'ald-chamber',
+          'gas-cabinet',
+          'vacuum-pump',
+        ],
+      },
+      { title: '塗佈光阻', description: '旋轉塗佈光阻並烘烤。', produces: ['coater-track'] },
+      {
+        title: '曝光',
+        description: '曝光機把光罩圖形縮小投影到光阻上（關鍵層用 EUV）。',
+        produces: ['litho-scanner', 'reticle', 'pellicle'],
+      },
+      { title: '顯影', description: '洗掉曝光（或未曝光）區域的光阻，留下圖形。', produces: ['coater-track'] },
+      {
+        title: '蝕刻',
+        description: '電漿把沒有光阻保護的薄膜吃掉，圖形轉印到材料上。',
+        produces: ['etch-tool', 'gas-cabinet', 'vacuum-pump'],
+      },
+      { title: '去光阻＋清洗', description: '灰化去除殘餘光阻，再清洗。', produces: ['wet-bench'] },
+      {
+        title: 'CMP 平坦化',
+        description: '研磨掉多餘材料（例如鑲嵌製程多鍍的銅），讓表面平整。',
+        produces: ['cmp-tool', 'cmp-pad', 'cmp-slurry', 'pad-conditioner'],
+      },
+      {
+        title: '檢測量測',
+        description: '量測線寬、膜厚、缺陷後回到循環起點，重複數十至上百次。',
+        produces: ['inspection-tool', 'process-flow'],
+      },
+      {
+        title: '晶圓完成 → CP 測試',
+        description: '完成所有導線層與凸塊後，送去晶圓測試（見測試場景）。',
+        produces: ['fab-wafer'],
+      },
+    ],
+  },
 };
