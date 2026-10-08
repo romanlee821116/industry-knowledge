@@ -1,5 +1,6 @@
 import type { SceneKey, StackLayer } from '../types';
 import { FAB_LAYERS } from './fab-layers';
+import { RACK_LAYERS } from './rack-layers';
 import { TEST_LAYERS } from './test-layers';
 
 /**
@@ -240,12 +241,13 @@ const PACKAGE_LAYERS: StackLayer[] = [
       { label: '銅箔', value: 'HVLP 低粗糙度銅箔（降低高頻集膚效應損耗）' },
     ],
     materials: ['ccl', 'glass-fabric', 'copper-foil', 'resin'],
+    related: ['gpu-module'],
     microView: 'glass-fabric',
     processChain: 'laminate',
   },
 ];
 
-export const LAYERS: StackLayer[] = [...FAB_LAYERS, ...PACKAGE_LAYERS, ...TEST_LAYERS];
+export const LAYERS: StackLayer[] = [...FAB_LAYERS, ...PACKAGE_LAYERS, ...TEST_LAYERS, ...RACK_LAYERS];
 
 export const sceneOfLayer = (layer: StackLayer): SceneKey => layer.scene ?? 'package';
 

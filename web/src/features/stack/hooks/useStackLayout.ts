@@ -9,18 +9,27 @@ interface Options {
   explode: number;
   interposerVariant: string;
   substrateVariant: string;
+  switchVariant: string;
 }
 
 /** 依場景計算每個方塊的位置（厚度誇張化，非真實比例） */
-export function useStackLayout({ scene, explode, interposerVariant, substrateVariant }: Options): StackLayout {
+export function useStackLayout({
+  scene,
+  explode,
+  interposerVariant,
+  substrateVariant,
+  switchVariant,
+}: Options): StackLayout {
   return useMemo(
     () =>
       scene === 'test'
         ? buildTest(explode)
         : scene === 'fab'
           ? buildFab(explode)
-          : buildPackage(explode, interposerVariant, substrateVariant),
-    [scene, explode, interposerVariant, substrateVariant],
+          : scene === 'rack'
+            ? buildRack(explode, switchVariant)
+            : buildPackage(explode, interposerVariant, substrateVariant),
+    [scene, explode, interposerVariant, substrateVariant, switchVariant],
   );
 }
 
@@ -382,6 +391,130 @@ function buildFab(explode: number): StackLayout {
       palette: 'flow',
       opacity: 0.8,
       position: [x, 0.03, z],
+    }),
+  );
+
+  return b.build();
+}
+
+/** 伺服器機櫃：由下而上 電源櫃 → 運算托盤 → NVLink 交換托盤 → 運算托盤 → 電源櫃 → Scale-out 交換器 */
+function buildRack(explode: number, switchVariant: string): StackLayout {
+  const b = createLayoutBuilder(explode);
+  const TRAY_W = 6;
+  const TRAY_D = 8;
+  const TRAY_H = 0.7;
+  const BASE_T = 0.1;
+  const step = () => {
+    b.advance(TRAY_H);
+    b.nextSlot();
+  };
+  const base = (key: string, id: LayerId) => b.block(key, id, [TRAY_W, BASE_T, TRAY_D], 'toolDark');
+  const on = (key: string, id: LayerId, size: Vec3, palette: PaletteKey, x: number, z: number, dy = 0) =>
+    b.block(key, id, size, palette, { offset: [x, BASE_T + dy, z] });
+
+  const powerShelf = (n: number) => {
+    base(`ps-${n}`, 'power-shelf');
+    on(`ps-${n}-busbar`, 'power-shelf', [5.6, 0.3, 0.3], 'copper', 0, -3.7);
+    for (let k = 0; k < 6; k++) on(`ps-${n}-psu-${k}`, 'psu', [0.85, 0.5, 3.2], 'handler', -2.5 + k, 2.2);
+    step();
+  };
+
+  const computeTray = (n: number) => {
+    base(`ct-${n}`, 'compute-tray');
+    [-1.5, 1.5].forEach((x, j) => {
+      on(`ct-${n}-board-${j}`, 'gpu-module', [2.6, 0.06, 4.4], 'pcb', x, -0.6);
+      [-1.9, -0.6].forEach((z, g) => {
+        on(`ct-${n}-gpu-${j}-${g}`, 'gpu-module', [1, 0.14, 1], 'lid', x, z, 0.06);
+        on(`ct-${n}-cold-${j}-${g}`, 'cooling', [0.9, 0.1, 0.9], 'copper', x, z, 0.2);
+      });
+      on(`ct-${n}-cpu-${j}`, 'gpu-module', [0.75, 0.12, 0.75], 'die', x, 0.7, 0.06);
+      [-0.55, 0.55].forEach((dx, k) =>
+        on(`ct-${n}-mem-${j}-${k}`, 'memory-module', [0.3, 0.08, 0.6], 'hbm', x + dx, 0.7, 0.06),
+      );
+      for (let k = 0; k < 5; k++)
+        on(`ct-${n}-vrm-${j}-${k}`, 'vrm', [0.22, 0.14, 0.22], 'toolDark', x - 1.1, -2.5 + k * 0.5, 0.06);
+    });
+    [-0.6, 0.6].forEach((x, k) => on(`ct-${n}-retimer-${k}`, 'retimer-chip', [0.35, 0.08, 0.35], 'die', x, 2.4));
+    [-1.8, 1.8].forEach((x, k) => {
+      on(`ct-${n}-nic-${k}`, 'nic', [1.4, 0.08, 1], 'pcb', x, 3.1);
+      on(`ct-${n}-nic-port-${k}`, 'nic', [0.7, 0.3, 0.3], 'tool', x, 3.75);
+    });
+    step();
+  };
+
+  const switchTray = (n: number) => {
+    base(`st-${n}`, 'nvlink-switch');
+    [-1.3, 1.3].forEach((x, k) => {
+      on(`st-${n}-asic-${k}`, 'nvlink-switch', [1.1, 0.15, 1.1], 'die', x, 0);
+      on(`st-${n}-cold-${k}`, 'cooling', [1, 0.1, 1], 'copper', x, 0, 0.15);
+    });
+    on(`st-${n}-conn`, 'nvlink-switch', [5, 0.3, 0.3], 'copper', 0, -3.7);
+    step();
+  };
+
+  powerShelf(0);
+  computeTray(0);
+  computeTray(1);
+  switchTray(0);
+  switchTray(1);
+  computeTray(2);
+  computeTray(3);
+  powerShelf(1);
+
+  // Scale-out 交換器：可插拔光模組 vs CPO
+  base('tor', 'tor-switch');
+  on('tor-asic', 'tor-switch', [1.4, 0.2, 1.4], 'die', 0, 0);
+  if (switchVariant === 'cpo') {
+    const engines: [number, number][] = [
+      [-1.1, -0.6],
+      [-1.1, 0.6],
+      [1.1, -0.6],
+      [1.1, 0.6],
+      [-0.5, -1.1],
+      [0.5, -1.1],
+      [-0.5, 1.1],
+      [0.5, 1.1],
+    ];
+    engines.forEach(([x, z], k) => {
+      on(`tor-oe-${k}`, 'optical-module', [0.4, 0.14, 0.4], 'gold', x, z);
+      on(`tor-oe-fiber-${k}`, 'fiber-cable', [0.05, 0.04, 3.9 - z], 'flow', x * 0.6, (z + 3.9) / 2, 0.16);
+    });
+    for (let k = 0; k < 8; k++) on(`tor-fp-${k}`, 'fiber-cable', [0.4, 0.25, 0.3], 'socket', -2.45 + k * 0.7, 3.85);
+  } else {
+    for (let k = 0; k < 16; k++) {
+      const x = -2.65 + k * 0.35;
+      on(`tor-trx-${k}`, 'optical-module', [0.28, 0.24, 1.3], 'tool', x, 3.4);
+      on(`tor-fiber-${k}`, 'fiber-cable', [0.05, 0.05, 1.6], 'flow', x, 4.85);
+    }
+  }
+  step();
+
+  // 固定件：機櫃框、後方銅纜背板、液冷分歧管（不隨爆炸移動）
+  const H = b.y;
+  b.fixedBlock({
+    key: 'frame',
+    layerId: 'rack-frame',
+    size: [6.8, H + 0.4, 8.6],
+    palette: 'tool',
+    opacity: 0.08,
+    position: [0, (H + 0.4) / 2, 0],
+  });
+  b.fixedBlock({
+    key: 'spine',
+    layerId: 'nvlink-spine',
+    size: [4.6, H * 0.62, 0.35],
+    palette: 'copper',
+    opacity: 0.85,
+    position: [0, H * 0.45, -4.55],
+  });
+  [-3.1, 3.1].forEach((x, k) =>
+    b.fixedBlock({
+      key: `manifold-${k}`,
+      layerId: 'cooling',
+      shape: 'cylinder',
+      size: [0.3, H, 0.3],
+      palette: 'liquid',
+      position: [x, H / 2, -4.5],
     }),
   );
 

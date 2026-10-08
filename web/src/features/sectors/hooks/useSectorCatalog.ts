@@ -4,9 +4,12 @@ import batch2 from '../data/verified/batch-2.json';
 import batch3 from '../data/verified/batch-3.json';
 import batch4 from '../data/verified/batch-4.json';
 import batch5 from '../data/verified/batch-5.json';
+import batch6 from '../data/verified/batch-6.json';
+import batch7 from '../data/verified/batch-7.json';
+import batch8 from '../data/verified/batch-8.json';
 import type { CompanyIndexEntry, SectorCategory, SectorGroup, SectorStatus, VerifiedBatch } from '../types';
 
-const BATCHES: VerifiedBatch[] = [batch1, batch2, batch3, batch4, batch5] as VerifiedBatch[];
+const BATCHES: VerifiedBatch[] = [batch1, batch2, batch3, batch4, batch5, batch6, batch7, batch8] as VerifiedBatch[];
 
 const VERIFIED = new Map(BATCHES.flatMap((b) => b.groups.map((g) => [g.id, g])));
 const GLOBAL_PLAYERS = BATCHES.flatMap((b) => b.globalPlayers);

@@ -15,7 +15,7 @@ export function ExplorerLayout({ sidebar, search, sceneSwitch, viewport, toolbar
       <aside className="hidden flex-col overflow-hidden border-r border-slate-800 lg:flex">
         <div className="border-b border-slate-800 p-3">
           <h1 className="text-sm font-semibold tracking-wide text-slate-100">半導體產業 3D 知識庫</h1>
-          <p className="mt-0.5 text-xs text-slate-500">AI 晶片：晶圓廠・封裝・測試</p>
+          <p className="mt-0.5 text-xs text-slate-500">AI 晶片：晶圓廠・封裝・測試・機櫃</p>
         </div>
         <div className="flex-1 overflow-y-auto">{sidebar}</div>
       </aside>

@@ -9,7 +9,7 @@ export interface Selection {
 }
 
 /** 可切換技術版本的對象：中介層、載板核心、玻纖布 */
-export type VariantSlot = 'interposer' | 'substrate' | 'glass-fabric';
+export type VariantSlot = 'interposer' | 'substrate' | 'glass-fabric' | 'switch';
 
 export interface LinkItem {
   kind: SelectionKind;
@@ -37,6 +37,7 @@ export type PanelCard =
       layer: StackLayer;
       parent?: LinkItem;
       children: LinkItem[];
+      related: LinkItem[];
       materials: LinkItem[];
       sectors: SectorGroup[];
       chain?: ChainView;

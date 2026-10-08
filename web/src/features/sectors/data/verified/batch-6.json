@@ -1,0 +1,768 @@
+{
+  "generatedAt": "2026-10-08",
+  "groups": [
+    {
+      "id": "mature-node",
+      "name": "成熟製程晶圓代工",
+      "category": "wafer",
+      "summary": "以 28 奈米以上（含 22/28nm）邏輯與混合訊號製程為主的純晶圓代工廠，客戶為驅動 IC、PMIC、MCU、CIS 等。2026 年受成熟製程漲價潮與 AI 周邊（電源、中介層）訂單帶動，稼動率回升至 9 成上下。",
+      "engineeringNotes": "成熟製程的競爭力不在線寬，而在製程平台（BCD、HV、eNVM、RF）與良率、折舊已攤提完畢帶來的成本優勢。8 吋廠設備多已停產，二手機台稀缺，導致 8 吋產能難以擴充；12 吋成熟製程則面臨中國大陸新產能的價格競爭。記憶體 IDM（華邦電、南亞科）雖擁有成熟節點產線，但主要生產自家記憶體，並非對外開放的邏輯代工平台。",
+      "companies": [
+        {
+          "ticker": "2303",
+          "name": "聯電",
+          "verdict": "confirmed",
+          "role": "全球第四大晶圓代工（2026Q2 市佔約 3.9%），22/28nm 為主力，22nm 單季營收占比創新高；8 吋年產能約 435 萬片",
+          "core": 3,
+          "sources": [
+            "https://udn.com/news/story/7253/9472143",
+            "https://www.chinatimes.com/realtimenews/20260729003700-260410",
+            "https://news.cnyes.com/news/id/6602442"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "5347",
+          "name": "世界",
+          "verdict": "confirmed",
+          "role": "8 吋特殊製程純代工廠（PMIC、驅動 IC、分離式元件），新加坡 VSMC 12 吋廠 2027Q1 量產、首期產能已被客戶包下",
+          "core": 3,
+          "sources": [
+            "https://www.businessweekly.com.tw/business/blog/3021455",
+            "https://finance.technews.tw/2026/09/28/world-advanced-technologies-in-partnership-with-nxp-and-vsmc-opens-12-inch-fab-in-singapore",
+            "https://news.cnyes.com/news/id/6443051"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6770",
+          "name": "力積電",
+          "verdict": "confirmed",
+          "role": "記憶體與邏輯雙軌代工；銅鑼 12 吋廠 2024 年啟用（55/40/28nm），並承接 Navitas GaN 轉單",
+          "core": 3,
+          "sources": [
+            "https://www.chinatimes.com/realtimenews/20240502002068-260410",
+            "https://www.businessweekly.com.tw/business/blog/3021455"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2344",
+          "name": "華邦電",
+          "verdict": "removed",
+          "role": "利基型記憶體 IDM（CMS／Flash），12 吋廠主要生產自家 DRAM／NOR Flash；晶圓代工僅由子公司新唐 6 吋廠提供、占比極小",
+          "core": 1,
+          "sources": [
+            "https://zh.wikipedia.org/zh-tw/%E8%8F%AF%E9%82%A6%E9%9B%BB%E5%AD%90",
+            "https://tw.stock.yahoo.com/news/%E8%8F%AF%E9%82%A6%E9%9B%BB%E6%93%B4%E9%AB%98%E9%9B%84%E5%BB%A0%E8%A1%9D16%E5%A5%88%E7%B1%B3-%E9%95%B7%E7%B4%84%E5%BB%B6%E4%BC%B8%E8%87%B35%E5%B9%B4-025000506.html"
+          ],
+          "note": "原值『成熟製程代工』→ 移除：華邦電為記憶體 IDM，非對外成熟邏輯代工；可歸入 12 吋晶圓（自有 12 吋廠）族群"
+        }
+      ]
+    },
+    {
+      "id": "specialty-process",
+      "name": "特色製程晶圓代工",
+      "category": "wafer",
+      "summary": "BCD／高壓（HV）、嵌入式記憶體（eNVM）、RF、CIS、MEMS、矽光子等「非線寬微縮」的差異化製程代工。AI 伺服器電源、矽光子與車用帶動需求。",
+      "engineeringNotes": "BCD 製程把 Bipolar（類比精度）、CMOS（邏輯）、DMOS（功率開關）整合在同一晶片，是 PMIC 的核心平台；HV 製程用於顯示驅動 IC。矽光子使用 SOI 晶圓，在矽上製作波導與調變器，聯電已於 2026 年首批量產出貨。特色製程的護城河在於與客戶共同開發的 PDK 及長期認證，轉單成本高。",
+      "companies": [
+        {
+          "ticker": "2303",
+          "name": "聯電",
+          "verdict": "confirmed",
+          "role": "22/28nm eHV、eNVM、RF-SOI 與矽光子平台；2026 年矽光子首批量產，資本支出九成投入 12 吋與特殊製程／封裝",
+          "core": 3,
+          "sources": [
+            "https://www.bnext.com.tw/article/90812/umc-2026-q1",
+            "https://www.chinatimes.com/realtimenews/20260729003700-260410"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "5347",
+          "name": "世界",
+          "verdict": "confirmed",
+          "role": "以特色製程為核心的 8 吋代工（BCD、HV、分離式元件、GaN-on-QST），新加坡 12 吋廠將生產混合訊號、電源管理與矽中介層",
+          "core": 3,
+          "sources": [
+            "https://en.wikipedia.org/wiki/Vanguard_International_Semiconductor_Corporation",
+            "https://finance.technews.tw/2026/09/28/world-advanced-technologies-in-partnership-with-nxp-and-vsmc-opens-12-inch-fab-in-singapore"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6770",
+          "name": "力積電",
+          "verdict": "confirmed",
+          "role": "提供 PMIC、驅動 IC、CIS 等特色製程，並以 8B 廠 0.18µm 平台生產 GaN 功率元件",
+          "core": 2,
+          "sources": [
+            "https://ec.ltn.com.tw/article/breakingnews/5094361",
+            "https://www.businessweekly.com.tw/business/blog/3021455"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "confirmed",
+          "role": "特殊製程涵蓋 MEMS、CIS、eNVM、RF、Analog、HV、BCD 等，但占台積電營收比重小，股價主要受先進製程驅動",
+          "core": 1,
+          "sources": ["https://techorange.com/2021/08/23/specialty-technology-of-tsmc/"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "wafer-12",
+      "name": "12 吋晶圓廠",
+      "category": "wafer",
+      "summary": "擁有 12 吋（300mm）晶圓製造產線的台股廠商，含邏輯代工與記憶體 IDM。12 吋為先進與主流成熟製程的標準尺寸，單片晶粒數約為 8 吋的 2.25 倍。",
+      "engineeringNotes": "12 吋晶圓面積是 8 吋的 2.25 倍，在相同製程下單位晶粒成本可降低約 3 成，但建廠資本支出動輒數千億台幣。12 吋廠產能通常以「每月萬片（kwpm）」計，記憶體廠（DRAM／NAND）與邏輯代工共用同尺寸設備生態系。擴產時程從動工到量產約 2–3 年，因此新廠時程是判斷未來供給的關鍵指標。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "confirmed",
+          "role": "全球最大 12 吋晶圓代工廠（2026Q2 代工市佔 72.5%）",
+          "core": 3,
+          "sources": ["https://news.cnyes.com/news/id/6602442"],
+          "note": ""
+        },
+        {
+          "ticker": "2303",
+          "name": "聯電",
+          "verdict": "confirmed",
+          "role": "12 吋主力為 22/28nm，2026Q3 季產能約 132.5 萬片 12 吋約當晶圓",
+          "core": 3,
+          "sources": [
+            "https://www.chinatimes.com/realtimenews/20260729003700-260410",
+            "https://udn.com/news/story/7253/9472143"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6770",
+          "name": "力積電",
+          "verdict": "confirmed",
+          "role": "銅鑼 12 吋新廠 2024 年 5 月啟用，規劃月產能 5 萬片，並有新竹 12 吋記憶體／邏輯產線",
+          "core": 3,
+          "sources": [
+            "https://www.chinatimes.com/realtimenews/20240502002068-260410",
+            "https://www.cna.com.tw/news/afe/202103250058.aspx"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2337",
+          "name": "旺宏",
+          "verdict": "confirmed",
+          "role": "NOR／NAND Flash IDM，擁有 12 吋晶圓五廠並曾投資 415 億元擴建 5B 廠",
+          "core": 2,
+          "sources": ["https://www.chinatimes.com/realtimenews/20210727004619-260410"],
+          "note": ""
+        },
+        {
+          "ticker": "2408",
+          "name": "南亞科",
+          "verdict": "confirmed",
+          "role": "DRAM IDM，現有 12 吋廠並興建新北泰山 10 奈米級 12 吋新廠（月產能約 4.5 萬片）",
+          "core": 2,
+          "sources": [
+            "https://www.wealth.com.tw/articles/05ac3cc5-abb7-4dc8-8c1f-66d02e4a0e8c",
+            "https://www.ctee.com.tw/news/20260814701489-430201"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2344",
+          "name": "華邦電",
+          "verdict": "added",
+          "role": "利基型 DRAM／Flash IDM，擁有台中與高雄 12 吋廠，高雄 Module A 擴至月產能 2.4 萬片並導入 16nm，第二座 12 吋廠預計 2027 年動工",
+          "core": 2,
+          "sources": [
+            "https://tw.stock.yahoo.com/news/%E8%8F%AF%E9%82%A6%E9%9B%BB%E6%93%B4%E9%AB%98%E9%9B%84%E5%BB%A0%E8%A1%9D16%E5%A5%88%E7%B1%B3-%E9%95%B7%E7%B4%84%E5%BB%B6%E4%BC%B8%E8%87%B35%E5%B9%B4-025000506.html",
+            "https://money.udn.com/money/story/5612/9675064"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "5347",
+          "name": "世界",
+          "verdict": "added",
+          "role": "與 NXP 合資的新加坡 VSMC 12 吋廠已完工試產，預計 2027Q1 量產、2029 年滿載月產 4.4 萬片（非台灣本地廠）",
+          "core": 1,
+          "sources": [
+            "https://finance.technews.tw/2026/09/28/world-advanced-technologies-in-partnership-with-nxp-and-vsmc-opens-12-inch-fab-in-singapore",
+            "https://news.cnyes.com/news/id/6443051"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "wafer-8",
+      "name": "8 吋晶圓廠",
+      "category": "wafer",
+      "summary": "擁有 8 吋（200mm）晶圓產線的代工廠，主力產品為 PMIC、功率分離元件、驅動 IC、MEMS 與 GaN-on-Si。AI 伺服器電源帶動 8 吋需求回溫，但設備老舊、擴產困難。",
+      "engineeringNotes": "8 吋設備原廠多已停產，新增產能多仰賴二手機台或翻新設備，因此 8 吋供給彈性遠低於 12 吋。GaN-on-Si 與 SiC 正從 6 吋轉進 8 吋，讓既有 8 吋矽廠可轉作化合物半導體產線（如力積電 GaN、漢磊與世界合作 SiC）。8 吋晶圓的晶粒數約為 6 吋的 1.78 倍。",
+      "companies": [
+        {
+          "ticker": "5347",
+          "name": "世界",
+          "verdict": "confirmed",
+          "role": "全台最大 8 吋純代工廠，台灣與新加坡多座 8 吋廠，並將以 8 吋平台驗證台積電授權的 GaN 製程",
+          "core": 3,
+          "sources": [
+            "https://en.wikipedia.org/wiki/Vanguard_International_Semiconductor_Corporation",
+            "https://technews.tw/2026/01/28/vis-signs-gan-technology-licensing-agreement-with-tsmc/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2303",
+          "name": "聯電",
+          "verdict": "confirmed",
+          "role": "8 吋年產能約 435 萬片，約占營收 15–20%",
+          "core": 2,
+          "sources": [
+            "https://www.chinatimes.com/realtimenews/20260729003700-260410",
+            "https://udn.com/news/story/7253/9472143"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6770",
+          "name": "力積電",
+          "verdict": "confirmed",
+          "role": "竹南 8B 廠 8 吋產線（0.18µm）為 Navitas GaN 代工基地",
+          "core": 2,
+          "sources": ["https://ec.ltn.com.tw/article/breakingnews/5094361", "https://news.cnyes.com/news/id/6047250"],
+          "note": ""
+        },
+        {
+          "ticker": "2342",
+          "name": "茂矽",
+          "verdict": "removed",
+          "role": "目前營運 6 吋功率元件晶圓廠；8 吋廠仍屬規劃（大股東中美晶、朋程支持，合資或自建），尚未投產",
+          "core": 1,
+          "sources": [
+            "https://www.cna.com.tw/news/afe/202504230119.aspx",
+            "https://stock.ltn.com.tw/article/kjftae2zwnh7"
+          ],
+          "note": "原值『8 吋晶圓』→ 移除：茂矽現有產線為 6 吋，8 吋廠尚在規劃階段，待實際投產再納入"
+        }
+      ]
+    },
+    {
+      "id": "wafer-sic",
+      "name": "SiC 碳化矽元件製造",
+      "category": "wafer",
+      "summary": "碳化矽功率元件（SiC MOSFET、SBD／JBS）的晶圓代工與磊晶代工。AI 資料中心 800V HVDC、車用逆變器與工業電源為主要需求；台股廠商多處於 6 吋放量、8 吋試產驗證期。",
+      "engineeringNotes": "SiC 的能隙約 3.26eV、崩潰電場約為矽的 10 倍，適合 650V–1700V 以上高壓應用。SiC 製程需高溫離子佈植（>500°C）與 1600°C 以上活化退火，閘極氧化層介面缺陷是 MOSFET 可靠度與良率瓶頸，因此新進者需長時間車規驗證。基板占元件成本約 47%、磊晶約 23%，8 吋化是降本關鍵。",
+      "companies": [
+        {
+          "ticker": "3707",
+          "name": "漢磊",
+          "verdict": "confirmed",
+          "role": "台灣 SiC／GaN 功率元件代工龍頭；與世界先進合作 8 吋 SiC 產線試產驗證順利、預計 2026H2 商業量產，法人預估下半年 SiC 營收拚增逾 120%",
+          "core": 3,
+          "sources": [
+            "https://www.chinatimes.com/realtimenews/20261007003543-260410",
+            "https://ec.ltn.com.tw/article/breakingnews/5468824",
+            "https://tw.stock.yahoo.com/news/%E6%BC%A2%E7%A3%8A%E4%B8%96%E7%95%8C%E5%85%88%E9%80%B2%E5%90%88%E4%BD%9C8%E5%90%8B%E7%A2%B3%E5%8C%96%E7%9F%BD%E6%99%B6%E5%9C%93-%E6%8B%9A2026%E4%B8%8B%E5%8D%8A%E5%B9%B4%E9%87%8F%E7%94%A2-094049812.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3016",
+          "name": "嘉晶",
+          "verdict": "confirmed",
+          "role": "SiC 磊晶代工，新增日系 IDM 客戶並於 2026Q2 進入量產",
+          "core": 2,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=53348425-3556-451f-a91b-449b5ea07c76",
+            "https://blog.fugle.tw/post/earnings-call-3016-2026-09-22"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2342",
+          "name": "茂矽",
+          "verdict": "confirmed",
+          "role": "6 吋 SiC MOSFET／JBS 產線 2025 年中建置完成；650V、1200V MOSFET 已送樣，2026 下半年仍處客戶驗證與量產銜接期，明顯營收貢獻落在 2027 年——題材有、需追蹤量產進度",
+          "core": 1,
+          "sources": [
+            "https://tw.stock.yahoo.com/news/%E8%8C%82%E7%9F%BDq3%E7%87%9F%E9%81%8B%E5%9B%9E%E6%BA%AB-sic%E6%98%8E%E5%B9%B4%E6%8B%9A%E6%94%BE%E9%87%8F-051700540.html",
+            "https://blog.fugle.tw/post/earnings-call-2342-2026-04-23",
+            "https://www.cna.com.tw/news/afe/202504230119.aspx"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "5347",
+          "name": "世界",
+          "verdict": "added",
+          "role": "提供廠房與營運，與漢磊合作 8 吋 SiC 產線（漢磊負責高壓技術與客戶），2026H2 拚量產",
+          "core": 1,
+          "sources": [
+            "https://tw.stock.yahoo.com/news/%E6%BC%A2%E7%A3%8A%E4%B8%96%E7%95%8C%E5%85%88%E9%80%B2%E5%90%88%E4%BD%9C8%E5%90%8B%E7%A2%B3%E5%8C%96%E7%9F%BD%E6%99%B6%E5%9C%93-%E6%8B%9A2026%E4%B8%8B%E5%8D%8A%E5%B9%B4%E9%87%8F%E7%94%A2-094049812.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "removed",
+          "role": "未提供 SiC 功率元件代工；SiC 題材來自評估以單晶 SiC 取代 CoWoS 矽中介層以改善散熱，屬 SiC 材料的需求端",
+          "core": 1,
+          "sources": [
+            "https://www.sinotrade.com.tw/richclub/hotstock/%E5%8F%B0%E7%A9%8D%E9%9B%BBCoWoS%E5%8D%87%E7%B4%9A%E5%BC%95%E7%88%86%E7%A2%B3%E5%8C%96%E7%9F%BDSiC%E7%86%B1%E6%BD%AE-%E6%BC%A2%E7%A3%8A-%E5%90%88%E6%99%B6%E7%AD%897%E6%AA%94%E6%A6%82%E5%BF%B5%E8%82%A1%E6%80%8E%E9%BA%BC%E9%81%B8--%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-68c90e9b44d9c0793a7fcd0c"
+          ],
+          "note": "原值『SiC 晶圓製造』→ 移除：台積電非 SiC 元件代工廠，CoWoS 採用 SiC 屬材料需求題材，應列入 SiC 材料受惠而非製造商"
+        },
+        {
+          "ticker": "6613",
+          "name": "朋億*",
+          "verdict": "removed",
+          "role": "高科技廠務製程系統（供酸、純水、化學品供應系統）工程與設備商，無 SiC 元件或材料業務",
+          "core": 1,
+          "sources": ["https://tw.stock.yahoo.com/quote/6613.TWO/profile"],
+          "note": "原值『SiC』→ 移除：朋億為廠務工程，查無 SiC 製造業務，最多為擴廠受惠的間接題材"
+        }
+      ]
+    },
+    {
+      "id": "wafer-gan",
+      "name": "GaN 氮化鎵元件製造",
+      "category": "wafer",
+      "summary": "GaN 功率（GaN-on-Si，100V–650V）與射頻（GaN-on-SiC HEMT）元件代工。台積電將於 2027/7/31 退出 GaN 代工，轉單由力積電（Navitas）與世界先進（技術授權）承接；AI 伺服器 48V／800V 電源為成長主軸。",
+      "engineeringNotes": "GaN 為橫向 HEMT 結構，靠 AlGaN/GaN 異質介面的二維電子氣導通，開關速度快、適合高頻 DC-DC；功率型多用 GaN-on-Si（可上 8 吋、與矽廠相容），射頻型用 GaN-on-SiC（散熱好、用於基地台與衛星）。GaN-on-QST 使用與 GaN 熱膨脹係數匹配的基板，可長較厚磊晶層以支援更高電壓。GaN 磊晶與矽基板的晶格失配大，翹曲與缺陷控制是良率關鍵。",
+      "companies": [
+        {
+          "ticker": "3707",
+          "name": "漢磊",
+          "verdict": "confirmed",
+          "role": "GaN 功率元件代工，法人預估 2026H2 GaN 營收增 25–30%、產能滿載；8 吋 GaN 製程已開發完成並小量試產",
+          "core": 3,
+          "sources": [
+            "https://www.chinatimes.com/realtimenews/20261007003543-260410",
+            "https://ec.ltn.com.tw/article/breakingnews/5468824"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6770",
+          "name": "力積電",
+          "verdict": "added",
+          "role": "承接 Navitas GaN 代工（竹南 8B 廠 8 吋、100V–650V），100V 於 2026H1 量產，GaN 產能規劃擴 3–4 倍，打入 NVIDIA 800V 電源生態系",
+          "core": 3,
+          "sources": [
+            "https://ec.ltn.com.tw/article/breakingnews/5094361",
+            "https://news.cnyes.com/news/id/6047250",
+            "https://www.ctee.com.tw/news/20251112700990-430201"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "5347",
+          "name": "世界",
+          "verdict": "corrected",
+          "role": "既有 GaN-on-QST 平台；2026/1 取得台積電 650V／80V GaN-on-Si 技術授權，8 吋平台驗證、2028H1 量產",
+          "core": 2,
+          "sources": [
+            "https://technews.tw/2026/01/28/vis-signs-gan-technology-licensing-agreement-with-tsmc/",
+            "https://www.ctee.com.tw/news/20260128701146-430501"
+          ],
+          "note": "原值『GaN 代工』→ 修正角色：GaN-on-Si 主力產能要到 2028H1 才量產，現階段屬布局期，core 下修為 2"
+        },
+        {
+          "ticker": "3105",
+          "name": "穩懋",
+          "verdict": "confirmed",
+          "role": "全球最大砷化鎵代工，提供 6 吋 GaN-on-SiC（0.1µm HEMT）射頻代工，應用於 5G、衛星；功率 GaN 非主力",
+          "core": 2,
+          "sources": [
+            "https://www.chinatimes.com/realtimenews/20200914001360-260410",
+            "https://news.cnyes.com/news/id/4429816"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3016",
+          "name": "嘉晶",
+          "verdict": "confirmed",
+          "role": "GaN-on-Si 磊晶代工：6 吋 GaN 2026Q1 轉盈且供不應求，8 吋 GaN 已完成客戶驗證並小量生產",
+          "core": 2,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=76924971-1262-422c-a816-0319f97bfb4f",
+            "https://blog.fugle.tw/post/earnings-call-3016-2026-09-22"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4991",
+          "name": "環宇-KY",
+          "verdict": "added",
+          "role": "III-V 化合物代工，提供 4 吋 GaN-on-SiC 射頻代工並取得 6 吋認證；營收主力已轉向 InP 光通訊",
+          "core": 1,
+          "sources": ["https://www.chinatimes.com/realtimenews/20200330003968-260410"],
+          "note": ""
+        },
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "corrected",
+          "role": "已確認逐步退出 GaN 代工，2027/7/31 結束業務，並將技術授權予世界先進與 GlobalFoundries",
+          "core": 1,
+          "sources": [
+            "https://www.ctee.com.tw/news/20250703700434-430501",
+            "https://finance.ettoday.net/news/2989301",
+            "https://technews.tw/2026/01/28/vis-signs-gan-technology-licensing-agreement-with-tsmc/"
+          ],
+          "note": "原值『GaN 代工主力』→ 退場中：台積電 2027/7/31 終止 GaN 代工，core 降為 1，僅保留作為轉單源頭參考"
+        }
+      ]
+    },
+    {
+      "id": "soi",
+      "name": "SOI 絕緣層上覆矽",
+      "category": "wafer",
+      "summary": "SOI 晶圓（矽／埋入氧化層／頂層薄矽）供 RF 前端（RF-SOI）、矽光子、功率與車用元件使用。矽光子／CPO 成為 SOI 新一輪成長動能。",
+      "engineeringNotes": "SOI 的埋入氧化層（BOX）可隔絕寄生電容與漏電，RF-SOI 用於手機射頻開關，FD-SOI 用於低功耗邏輯，厚膜 SOI 用於功率與 MEMS。矽光子以頂層矽為光波導、BOX 為下包覆層，對頂層矽厚度均勻性要求極高。主流製法為 Soitec 的 Smart Cut（氫離子佈植剝離），全球產能高度集中。",
+      "companies": [
+        {
+          "ticker": "6488",
+          "name": "環球晶",
+          "verdict": "confirmed",
+          "role": "美國唯一具 12 吋 SOI 量產基地（密蘇里），8 吋與 12 吋 SOI 已量產，RF-SOI 與矽光子產品進入高量產",
+          "core": 3,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=ae10c195-b154-4c7b-874e-20340ea0c7a8",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=7088e21e-5270-442a-9b31-3ac04cf714a3"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6182",
+          "name": "合晶",
+          "verdict": "confirmed",
+          "role": "SOI 營收約占 7–10%（以功率應用為主），將 SOI 部門獨立為子公司「睿晶」並攻矽光子",
+          "core": 2,
+          "sources": [
+            "https://www.ctee.com.tw/news/20241221700171-439901",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=ae10c195-b154-4c7b-874e-20340ea0c7a8"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2303",
+          "name": "聯電",
+          "verdict": "corrected",
+          "role": "SOI 晶圓的使用者（RF-SOI 與矽光子製程代工，向 Soitec 等採購 SOI 基板），非 SOI 晶圓供應商",
+          "core": 1,
+          "sources": ["https://news.cnyes.com/news/id/4447180", "https://www.bnext.com.tw/article/90812/umc-2026-q1"],
+          "note": "原值『SOI』→ 修正角色：聯電為 SOI 製程代工（需求端），非 SOI 晶圓製造商"
+        }
+      ]
+    },
+    {
+      "id": "mems",
+      "name": "MEMS 微機電製造與封測",
+      "category": "wafer",
+      "summary": "MEMS 感測器（麥克風、加速度計、陀螺儀、壓力計）的晶圓代工與封裝測試。台股純 MEMS 代工廠亞太優勢未上市（欣興子公司），可投資標的以代工廠的 MEMS 平台與封測廠為主。",
+      "engineeringNotes": "MEMS 以半導體微影與體／表面微加工（深反應離子蝕刻 DRIE、犧牲層釋放）製作可動結構，製程無標準化，常是「一個產品一套製程」。MEMS 封裝需留空腔或開孔（麥克風音孔、壓力計），且要避免應力影響可動結構，因此封裝占成本比重高，是封測廠的利基市場。CMOS-MEMS 將感測結構與讀取電路整合在同一晶片或以晶圓堆疊結合。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "added",
+          "role": "2008 年起提供 MEMS 代工，感測器 SoC 平台（0.5–0.11µm）支援加速度計、陀螺儀、麥克風、壓力計與 CMOS-MEMS 氣壓計；占營收比重極低",
+          "core": 1,
+          "sources": [
+            "https://www.materialsnet.com.tw/DocView.aspx?id=7449",
+            "https://techorange.com/2021/08/23/specialty-technology-of-tsmc/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "5347",
+          "name": "世界",
+          "verdict": "confirmed",
+          "role": "2019 年收購 GlobalFoundries 新加坡 Fab 3E，該 8 吋廠生產 MEMS 與類比／混合訊號晶片",
+          "core": 2,
+          "sources": ["https://en.wikipedia.org/wiki/Vanguard_International_Semiconductor_Corporation"],
+          "note": ""
+        },
+        {
+          "ticker": "2369",
+          "name": "菱生",
+          "verdict": "added",
+          "role": "全球少數能提供 MEMS 感測器全面封測服務的封測廠（麥克風、加速度計、陀螺儀、壓力計）",
+          "core": 2,
+          "sources": ["https://www.cmoney.tw/forum/article/177596664"],
+          "note": ""
+        },
+        {
+          "ticker": "6271",
+          "name": "同欣電",
+          "verdict": "added",
+          "role": "混合積體電路模組（含 MEMS 封裝）約占營收 24%，負責 NB 用 MEMS 麥克風等封裝，主力仍為 CIS 影像產品",
+          "core": 2,
+          "sources": [
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=8cdaee80-14fd-4613-b69e-8a49bc1f3543",
+            "https://www.ctee.com.tw/news/20140521700133-439901"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3037",
+          "name": "欣興",
+          "verdict": "added",
+          "role": "持有台灣唯一純 MEMS 晶圓代工廠亞太優勢微系統（APM）最高約 69.57% 股權，MEMS 僅占集團極小比重",
+          "core": 1,
+          "sources": [
+            "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E6%AC%A3%E8%88%88%E5%B0%87%E5%8F%83%E8%88%87%E4%BA%9E%E5%A4%AA%E5%84%AA%E5%8B%A2%E5%BE%AE%E7%B3%BB%E7%B5%B1%E5%A2%9E%E8%B3%87%E6%A1%88-%E8%A9%B2%E5%85%AC%E5%8F%B8%E5%B0%87%E6%88%90%E7%82%BA%E6%AC%A3%E8%88%88%E5%AD%90%E5%85%AC%E5%8F%B8-104235255.html",
+            "https://www.apmsinc.com/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6223",
+          "name": "旺矽",
+          "verdict": "removed",
+          "role": "生產 MEMS 探針卡（以 MEMS 製程做探針的測試介面），並非 MEMS 元件製造或封測",
+          "core": 1,
+          "sources": [
+            "https://www.pocket.tw/school/report/SCHOOL/6433/",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=02ff03f7-b441-4340-9005-ae29bf920d5a"
+          ],
+          "note": "原值『MEMS』→ 移除：旺矽的 MEMS 是探針卡技術，屬探針卡族群，不是 MEMS 元件供應鏈"
+        },
+        {
+          "ticker": "3530",
+          "name": "晶相光",
+          "verdict": "removed",
+          "role": "CMOS 影像感測器 IC 設計公司，非 MEMS；使用者標示的「晶方*」實為晶相光（晶方科技為中國上市公司，非台股）",
+          "core": 1,
+          "sources": [
+            "https://goodinfo.tw/tw/BasicInfo.asp?STOCK_ID=3530",
+            "https://tw.stock.yahoo.com/quote/3530/profile"
+          ],
+          "note": "原值『晶方* 3530』→ 移除：3530 為晶相光（CIS 設計），名稱錯誤且非 MEMS 業務"
+        },
+        {
+          "ticker": "2492",
+          "name": "華新科",
+          "verdict": "removed",
+          "role": "被動元件廠（MLCC 約 44%、晶片電阻 21%、射頻元件 17%），無 MEMS 製造業務",
+          "core": 1,
+          "sources": ["https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=9e8c4959-7b59-4ca9-9f0e-164c17abf605"],
+          "note": "原值『MEMS』→ 移除：華新科為被動元件，應歸入 MLCC／被動元件族群"
+        }
+      ]
+    },
+    {
+      "id": "sic-material",
+      "name": "SiC 基板與磊晶材料",
+      "category": "materials",
+      "summary": "SiC 單晶基板（長晶、切磨拋）與 SiC 磊晶片供應商。基板＋磊晶約占 SiC 元件成本 7 成，6 吋轉 8 吋與 CoWoS 中介層新應用為題材；中國廠（天岳、天科合達）低價擴產壓縮價格。台股另有穩晟材料（中砂、矽力入股）未公開發行。",
+      "engineeringNotes": "SiC 基板以物理氣相傳輸法（PVT）在 2000°C 以上長晶，速度每小時僅約 0.2–0.5mm，且易產生微管、基面差排（BPD）等缺陷，良率與長晶速度是成本核心。磊晶需在基板上以 CVD 長出摻雜精準的漂移層，並把 BPD 轉換為無害的 TED，否則會造成雙極劣化。基板分導電型（N-type，功率元件用）與半絕緣型（SI，射頻 GaN-on-SiC 用）。",
+      "companies": [
+        {
+          "ticker": "6488",
+          "name": "環球晶",
+          "verdict": "confirmed",
+          "role": "台灣 SiC 基板主力，8 吋 SiC 進度優於預期，目標 2026 年 8 吋出貨量超過 6 吋；基板在台灣、磊晶在美國",
+          "core": 3,
+          "sources": [
+            "https://tw.stock.yahoo.com/news/%E7%92%B0%E7%90%83%E6%99%B68%E5%90%8Bsic%E9%80%B2%E5%B1%95%E5%84%AA%E6%96%BC%E9%A0%90%E6%9C%9F-%E5%BE%90%E7%A7%80%E8%98%AD%EF%BC%9A2026%E5%B9%B48%E5%90%8B%E5%87%BA%E8%B2%A8%E8%B6%85%E9%81%8E6%E5%90%8B-055741259.html",
+            "https://www.bnext.com.tw/article/77171/glabal-wafers-sic-wolfspeed-rampup"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3016",
+          "name": "嘉晶",
+          "verdict": "confirmed",
+          "role": "國內唯一可同時提供 SiC 與 GaN 磊晶代工的廠商，SiC 磊晶已打入日系 IDM 並量產",
+          "core": 3,
+          "sources": [
+            "https://www.bnext.com.tw/article/60316/episil",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=53348425-3556-451f-a91b-449b5ea07c76"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6930",
+          "name": "盛新",
+          "verdict": "added",
+          "role": "廣運／太極集團 SiC 基板廠，已開發 6 吋與 8 吋 N 型與半絕緣型基板，2026/10/15 起登錄興櫃（尚未上市櫃、流動性低）",
+          "core": 1,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=edba8473-3a4b-46d1-884a-38ed44188c8d",
+            "https://www.ctee.com.tw/news/20260902700244-439901"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3707",
+          "name": "漢磊",
+          "verdict": "corrected",
+          "role": "SiC 元件代工廠，本身不生產基板；透過持股子公司嘉晶間接擁有 SiC 磊晶材料",
+          "core": 1,
+          "sources": [
+            "https://www.bnext.com.tw/article/60316/episil",
+            "https://www.chinatimes.com/realtimenews/20261007003543-260410"
+          ],
+          "note": "原值『SiC 材料』→ 修正角色：漢磊為元件代工（歸 wafer-sic），材料曝險來自子公司嘉晶，core 降為 1"
+        }
+      ]
+    },
+    {
+      "id": "gan-material",
+      "name": "GaN 磊晶材料",
+      "category": "materials",
+      "summary": "GaN-on-Si、GaN-on-SiC 磊晶片供應商。AI 伺服器電源帶動 6 吋 GaN 磊晶供不應求，8 吋進入小量產。",
+      "engineeringNotes": "GaN 缺乏便宜的同質基板，因此以 MOCVD 在矽、SiC 或藍寶石上做異質磊晶，需先長 AlN 成核層與應力緩衝層來抵銷晶格與熱膨脹係數失配。磊晶片的翹曲（bow）、缺陷密度與 2DEG 均勻性直接決定元件崩潰電壓與動態導通電阻（current collapse）。GaN-on-Si 可上 8 吋甚至 12 吋，是功率元件降本主路線。",
+      "companies": [
+        {
+          "ticker": "3016",
+          "name": "嘉晶",
+          "verdict": "confirmed",
+          "role": "GaN-on-Si 磊晶主力：6 吋 GaN 供不應求並於 2026Q1 轉盈，8 吋 GaN 已通過客戶驗證、小量生產",
+          "core": 3,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=76924971-1262-422c-a816-0319f97bfb4f",
+            "https://blog.fugle.tw/post/earnings-call-3016-2026-09-22",
+            "https://udn.com/news/story/7252/9771121"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6488",
+          "name": "環球晶",
+          "verdict": "added",
+          "role": "可供應 4 吋 GaN-on-SiC 與 6 吋 GaN-on-Si 磊晶片",
+          "core": 2,
+          "sources": ["https://news.cnyes.com/news/id/4516305"],
+          "note": ""
+        },
+        {
+          "ticker": "3707",
+          "name": "漢磊",
+          "verdict": "corrected",
+          "role": "GaN 元件代工廠，GaN 磊晶由子公司嘉晶供應",
+          "core": 1,
+          "sources": [
+            "https://www.bnext.com.tw/article/60316/episil",
+            "https://www.chinatimes.com/realtimenews/20261007003543-260410"
+          ],
+          "note": "原值『GaN 材料』→ 修正角色：漢磊屬元件代工（歸 wafer-gan），材料曝險來自子公司嘉晶"
+        },
+        {
+          "ticker": "3105",
+          "name": "穩懋",
+          "verdict": "removed",
+          "role": "GaN-on-SiC 射頻元件代工廠，非對外銷售的 GaN 磊晶片供應商",
+          "core": 1,
+          "sources": [
+            "https://www.chinatimes.com/realtimenews/20200914001360-260410",
+            "https://news.cnyes.com/news/id/4429816"
+          ],
+          "note": "原值『GaN 材料』→ 移除：穩懋為元件代工，已列於 wafer-gan 族群"
+        }
+      ]
+    }
+  ],
+  "globalPlayers": [
+    {
+      "groupId": "mature-node",
+      "name": "GlobalFoundries（格芯）",
+      "country": "US",
+      "role": "全球前五大晶圓代工，專注成熟／特色製程（FD-SOI、RF、矽光子），並取得台積電 GaN 技術授權",
+      "sources": ["https://news.cnyes.com/news/id/6602442", "https://news.cnyes.com/news/id/6230412"]
+    },
+    {
+      "groupId": "mature-node",
+      "name": "SMIC（中芯國際）",
+      "country": "CN",
+      "role": "中國最大晶圓代工，2026Q2 市佔約 5.4%、季增 20%，成熟製程價格競爭主要來源",
+      "sources": ["https://news.cnyes.com/news/id/6602442"]
+    },
+    {
+      "groupId": "specialty-process",
+      "name": "Tower Semiconductor（高塔）",
+      "country": "IL",
+      "role": "特色製程代工（RF-SOI、SiGe、矽光子、CIS、電源管理），受惠 AI 光通訊訂單",
+      "sources": ["https://news.cnyes.com/news/id/6602442"]
+    },
+    {
+      "groupId": "wafer-sic",
+      "name": "Wolfspeed",
+      "country": "US",
+      "role": "SiC 基板與元件垂直整合大廠，2024 年基板市佔約 33.7%，2025 年歷經財務重整、市佔下滑",
+      "sources": [
+        "https://www.semiconductor-today.com/news_items/2025/may/trendforce-120525.shtml",
+        "https://www.sec.gov/Archives/edgar/data/895419/000089541925000110/wolf-20250629.htm"
+      ]
+    },
+    {
+      "groupId": "sic-material",
+      "name": "Coherent",
+      "country": "US",
+      "role": "SiC 基板與磊晶供應商，2024 年基板市佔約 13.9%",
+      "sources": ["https://www.semiconductor-today.com/news_items/2025/may/trendforce-120525.shtml"]
+    },
+    {
+      "groupId": "sic-material",
+      "name": "SICC（山東天岳）",
+      "country": "CN",
+      "role": "中國 SiC 基板龍頭，2024 年市佔約 17.1%，2025 年起躍居全球前列，與天科合達共同壓低基板價格",
+      "sources": ["https://www.semiconductor-today.com/news_items/2025/may/trendforce-120525.shtml"]
+    },
+    {
+      "groupId": "wafer-gan",
+      "name": "Innoscience（英諾賽科）",
+      "country": "CN",
+      "role": "全球最大 GaN 專業 IDM，8 吋 GaN-on-Si，2024 年 GaN 功率元件市佔約 29.9%",
+      "sources": ["https://en.wikipedia.org/wiki/Innoscience"]
+    },
+    {
+      "groupId": "soi",
+      "name": "Soitec",
+      "country": "FR",
+      "role": "全球 SOI 晶圓龍頭（Smart Cut 技術專利），與 GlobalFoundries、ST、Tower 簽長約，矽光子 SOI 主要供應商",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Soitec",
+        "https://www.morningstar.com/stocks/soitec-is-niche-player-wafer-semiconductor-industry"
+      ]
+    },
+    {
+      "groupId": "mems",
+      "name": "Bosch",
+      "country": "DE",
+      "role": "全球 MEMS 龍頭（2024 年 MEMS 營收約 20 億美元），車用與消費感測器自製 IDM",
+      "sources": [
+        "https://www.yolegroup.com/press-release/mems-market-regains-momentum-leading-companies-bosch-stmicroelectronics-and-tdk-navigate-the-post-inventory-growth-era/"
+      ]
+    },
+    {
+      "groupId": "mems",
+      "name": "STMicroelectronics",
+      "country": "CH",
+      "role": "MEMS 前三大，手機慣性感測器主力，並以 lab-in-fab 模式為他廠代工",
+      "sources": [
+        "https://www.yolegroup.com/press-release/mems-market-regains-momentum-leading-companies-bosch-stmicroelectronics-and-tdk-navigate-the-post-inventory-growth-era/"
+      ]
+    },
+    {
+      "groupId": "mems",
+      "name": "Silex Microsystems",
+      "country": "SE",
+      "role": "全球最大純 MEMS 晶圓代工廠（中資持有）",
+      "sources": ["https://www.eenewseurope.com/en/chinas-silex-microsystems-remains-top-mems-foundry/"]
+    }
+  ]
+}

@@ -41,6 +41,17 @@ const OVERVIEW: Record<SceneKey, { title: string; intro: string; tips: string[] 
       '載板、玻纖布可開啟微觀切片與製程鏈',
     ],
   },
+  rack: {
+    title: 'AI 伺服器機櫃',
+    intro:
+      '由下而上：電源櫃 → 運算托盤 ×2 → NVLink 交換托盤 ×2 → 運算托盤 ×2 → 電源櫃 → Scale-out 交換器。後方是 NVLink 銅纜背板與液冷分歧管，頂部交換器的光模組與光纖把機櫃連成 GPU 叢集。',
+    tips: [
+      '點「GPU 模組」→「其他場景的相關結構」可直接跳到封裝場景看 GPU 內部',
+      '點「高速交換器」可切換「可插拔光模組／CPO 共同封裝光學」比較兩種架構',
+      '點「光收發模組」開啟微觀切片，看雷射、DSP、透鏡與光纖',
+      '左側「光通訊」「電源／功率半導體」「AI／HPC」族群可直接定位',
+    ],
+  },
   test: {
     title: 'AI 晶片測試：CP 與 FT',
     intro:
@@ -221,6 +232,11 @@ export function KnowledgePanel({ card, onNavigate, onVariantChange, onOpenMicro,
         {(card.parent || card.children.length > 0) && (
           <Section title="結構關係">
             <Chips items={[...(card.parent ? [card.parent] : []), ...card.children]} onNavigate={onNavigate} />
+          </Section>
+        )}
+        {card.related.length > 0 && (
+          <Section title="其他場景的相關結構">
+            <Chips items={card.related} onNavigate={onNavigate} />
           </Section>
         )}
         {card.materials.length > 0 && (

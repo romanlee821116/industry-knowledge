@@ -34,7 +34,7 @@ interface ExplorerState {
 }
 
 /** 測試場景的零件上下疊在一起看不出結構，切換過去時預設拉開 */
-const SCENE_DEFAULT_EXPLODE: Record<SceneKey, number> = { fab: 0.5, package: 0, test: 1 };
+const SCENE_DEFAULT_EXPLODE: Record<SceneKey, number> = { fab: 0.5, package: 0, test: 1, rack: 0.5 };
 
 export const useExplorerStore = create<ExplorerState>((set) => ({
   scene: 'package',
@@ -43,7 +43,7 @@ export const useExplorerStore = create<ExplorerState>((set) => ({
   explode: 0,
   clipEnabled: false,
   clipX: 0,
-  variants: { interposer: 'cowos-l', substrate: 'organic-core', 'glass-fabric': 'low-cte' },
+  variants: { interposer: 'cowos-l', substrate: 'organic-core', 'glass-fabric': 'low-cte', switch: 'pluggable' },
   microView: null,
   microPart: null,
   microExplode: 0,

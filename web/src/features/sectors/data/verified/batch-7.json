@@ -1,0 +1,926 @@
+{
+  "generatedAt": "2026-10-08",
+  "groups": [
+    {
+      "id": "optical-800g",
+      "name": "800G 光模組",
+      "category": "optical",
+      "summary": "800G 可插拔光收發模組是 2025–2026 年 AI 資料中心 Scale-out 網路主流規格。台股真正做 800G 模組組裝的只有華星光、眾達-KY、前鼎（量小）等少數業者；光聖、波若威是供應 800G 佈線所需的光纖被動元件，並不生產模組。",
+      "engineeringNotes": "800G 模組常見為 8×100G PAM4（OSFP／QSFP-DD），單通道 100G 以 EML 或「CW 雷射＋矽光子調變器」實現；短距 SR8 則用 VCSEL＋多模光纖。光模組內部 BOM 以雷射與 DSP 為成本大宗，因此上游 EML／CW 雷射晶片供給常是出貨瓶頸。800G 交換器埠數倍增也推高 MPO 跳線、高芯數光纜的用量。",
+      "companies": [
+        {
+          "ticker": "4979",
+          "name": "華星光",
+          "verdict": "confirmed",
+          "role": "InP 晶片自製（EML、DFB／CW 雷射、PD／APD）垂直整合至光收發模組：400G／800G 資料中心模組與 400ZR／800ZR 相干模組，1.6T 小量出貨",
+          "core": 3,
+          "sources": [
+            "https://udn.com/news/story/7252/9720193",
+            "https://vocus.cc/article/6a963bb3fd89780001c34868",
+            "https://uanalyze.com.tw/articles/9472551469"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4977",
+          "name": "眾達-KY",
+          "verdict": "confirmed",
+          "role": "高速光收發模組廠（SFP／QSFP 至 400G／800G），並為 Broadcom CPO 平台供應光引擎與 ELSFP 外置雷射光源模組",
+          "core": 2,
+          "sources": [
+            "https://www.cmoney.tw/forum/article/175689341",
+            "https://tw.stock.yahoo.com/news/%E7%9C%BE%E9%81%94-ky%E7%9C%8B%E6%97%BAcpo%E6%88%90ai%E6%99%82%E4%BB%A3%E9%97%9C%E9%8D%B5%E6%8A%80%E8%A1%93-%E8%88%87%E5%8D%9A%E9%80%9A%E5%90%88%E4%BD%9C%E5%82%99%E6%88%B02026-cpo%E9%87%8F%E7%94%A2%E6%BD%AE-085531203.html",
+            "https://7evenguy.com/what-is-4977-doing/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4908",
+          "name": "前鼎",
+          "verdict": "confirmed",
+          "role": "光收發模組與光次模組封裝廠，400G／800G 資料中心模組已小量出貨，但營收仍以電信、工控與 FTTx 為主",
+          "core": 1,
+          "sources": [
+            "https://blog.fugle.tw/post/earnings-call-4908-2026-04-17",
+            "https://money.udn.com/money/story/11074/9586309"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6442",
+          "name": "光聖",
+          "verdict": "corrected",
+          "role": "800G／1.6T 資料中心佈線的光纖被動元件：高芯數光纜（Torpedo Cable）、MPO 跳線、配線面板／卡匣，非 800G 光模組製造商",
+          "core": 2,
+          "sources": [
+            "https://blog.fugle.tw/post/earnings-call-6442-2026-03-12",
+            "https://news.cnyes.com/news/id/6325868"
+          ],
+          "note": "原值「800G 光模組」→「800G 佈線被動元件」：光聖被動元件占營收約 8 成，主動元件只有 FTTH 用 OSA／模組"
+        },
+        {
+          "ticker": "3163",
+          "name": "波若威",
+          "verdict": "corrected",
+          "role": "光纖被動元件 ODM，供應 800G／1.6T 資料中心光纖套件、WDM、分光元件，非光模組廠",
+          "core": 1,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=40d51b65-dd70-4cb5-a51a-3e6bcd641d27",
+            "https://www.pocket.tw/school/report/SCHOOL/6257/"
+          ],
+          "note": "原值「800G 光模組」→「800G 光纖被動套件」：波若威產品為 OIN 光纖連接、Branch、WDM、AMP，沒有光收發模組產品線"
+        },
+        {
+          "ticker": "3450",
+          "name": "聯鈞",
+          "verdict": "added",
+          "role": "雷射二極體 COS（Chip on Submount）封裝與光學引擎測試，供 800G 以上光模組使用",
+          "core": 1,
+          "sources": [
+            "https://news.cnyes.com/news/id/6054608",
+            "https://dalabs.org/guide/tw-stock-guide/what-is-3450-doing/"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "optical-1-6t",
+      "name": "1.6T 光模組",
+      "category": "optical",
+      "summary": "1.6T 是 800G 的下一代，2026 年開始放量、2027 年大量出貨。台股中具 1.6T 模組能力的以華星光為主；眾達-KY、訊芯-KY 則是從 CPO（光引擎／ELSFP）切入。智邦是交換器系統廠，屬光模組的下游需求端。",
+      "engineeringNotes": "1.6T 模組多為 8×200G PAM4，單通道 200G 需要 200G EML 或高功率 CW 雷射＋矽光子調變器，200G EML 交期超過 40 週，是全產業最缺的零件。1.6T 被視為可插拔模組與 CPO 的交叉點：搭配 102.4T 交換器（Broadcom Tomahawk 6）後，前面板可插拔模組的功耗與 SerDes 走線損耗逼近極限，CPO 才開始有經濟性。",
+      "companies": [
+        {
+          "ticker": "4979",
+          "name": "華星光",
+          "verdict": "confirmed",
+          "role": "InP 晶片自製（EML、DFB／CW 雷射、PD／APD）垂直整合至光收發模組：400G／800G 資料中心模組與 400ZR／800ZR 相干模組，1.6T 小量出貨；1.6T 自 2026 年開始小量出貨",
+          "core": 3,
+          "sources": [
+            "https://vocus.cc/article/69f150fefd897800010f0f4f",
+            "https://vocus.cc/article/6a963bb3fd89780001c34868"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4977",
+          "name": "眾達-KY",
+          "verdict": "confirmed",
+          "role": "與 Broadcom 合作 51.2T／102.4T CPO 平台，供應光引擎與 ELSFP 外置光源（每台 CPO 交換器約 32 顆 ELSFP），以 CPO 路線卡位 1.6T 世代",
+          "core": 2,
+          "sources": [
+            "https://www.cmoney.tw/forum/article/175689341",
+            "https://tw.stock.yahoo.com/news/%E7%9C%BE%E9%81%94-ky%E7%9C%8B%E6%97%BAcpo%E6%88%90ai%E6%99%82%E4%BB%A3%E9%97%9C%E9%8D%B5%E6%8A%80%E8%A1%93-%E8%88%87%E5%8D%9A%E9%80%9A%E5%90%88%E4%BD%9C%E5%82%99%E6%88%B02026-cpo%E9%87%8F%E7%94%A2%E6%BD%AE-085531203.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6442",
+          "name": "光聖",
+          "verdict": "corrected",
+          "role": "1.6T 世代資料中心的高芯數光纜、MPO 跳線等被動佈線，非 1.6T 模組製造商",
+          "core": 1,
+          "sources": [
+            "https://blog.fugle.tw/post/earnings-call-6442-2026-03-12",
+            "https://news.cnyes.com/news/id/6325868"
+          ],
+          "note": "原值「1.6T 光模組」→「1.6T 佈線被動元件」：光聖不生產資料中心光收發模組"
+        },
+        {
+          "ticker": "3163",
+          "name": "波若威",
+          "verdict": "corrected",
+          "role": "800G／1.6T 光纖套件與 CPO 用高密度光纖配線盒（2026 下半年量產），屬被動元件",
+          "core": 1,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=40d51b65-dd70-4cb5-a51a-3e6bcd641d27",
+            "https://www.cmoney.tw/forum/article/177390670"
+          ],
+          "note": "原值「1.6T 光模組」→「1.6T／CPO 光纖被動套件」：波若威不生產光收發模組"
+        },
+        {
+          "ticker": "2345",
+          "name": "智邦",
+          "verdict": "corrected",
+          "role": "資料中心交換器系統廠（800G／1.6T 白牌交換器、Tomahawk 6 CPO 交換器、OCS 光交換），是光模組的下游採購端，非光模組製造商",
+          "core": 2,
+          "sources": [
+            "https://money.udn.com/money/story/5710/9388623",
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/221773",
+            "https://news.cnyes.com/news/id/5014649"
+          ],
+          "note": "原值「1.6T 光模組」→「1.6T 交換器系統（光模組需求端）」：智邦光通訊布局以交換器系統與轉投資 OWS／WSS 技術為主"
+        },
+        {
+          "ticker": "6451",
+          "name": "訊芯-KY",
+          "verdict": "added",
+          "role": "CPO／高速光模組 SiP 封裝，越南北江廠建置 1.6T CPO 專用產線，51.2T CPO 已小量出貨",
+          "core": 2,
+          "sources": ["https://www.cmoney.tw/forum/article/176847911", "https://uanalyze.com.tw/articles/9286212491"],
+          "note": ""
+        },
+        {
+          "ticker": "4906",
+          "name": "正文",
+          "verdict": "added",
+          "role": "網通 ODM 跨入 1.6T 光收發模組，目標 Q4 量產供應 Hyperscaler 資料中心",
+          "core": 1,
+          "sources": [
+            "https://tw.stock.yahoo.com/news/%E6%AD%A3%E6%96%871-6t%E5%85%89%E6%94%B6%E7%99%BC%E6%A8%A1%E7%B5%84%E6%8B%9Aq4%E9%87%8F%E7%94%A2-%E6%94%BBhyperscaler-dc%E5%95%86%E6%A9%9F-080800666.html"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "transceiver",
+      "name": "光收發模組",
+      "category": "optical",
+      "summary": "光收發模組（Transceiver）把電訊號轉成光訊號再轉回來，是資料中心與電信網路的主動元件。台股純模組廠為華星光、眾達-KY、前鼎；光聖只有 FTTH 用的小量模組，波若威則沒有模組產品。",
+      "engineeringNotes": "一顆光模組由 TOSA（雷射＋驅動）、ROSA（PD＋TIA）、DSP 與外殼組成。資料中心短距用 VCSEL＋多模光纖（SR），中長距用 EML 或矽光子（DR／FR），跨資料中心用相干光模組（ZR／ZR+）。LPO（線性驅動）拿掉 DSP 以降低功耗與延遲，但對訊號完整性要求更高。",
+      "companies": [
+        {
+          "ticker": "4979",
+          "name": "華星光",
+          "verdict": "confirmed",
+          "role": "InP 晶片自製（EML、DFB／CW 雷射、PD／APD）垂直整合至光收發模組：400G／800G 資料中心模組與 400ZR／800ZR 相干模組，1.6T 小量出貨",
+          "core": 3,
+          "sources": [
+            "https://udn.com/news/story/7252/9720193",
+            "https://vocus.cc/article/6a963bb3fd89780001c34868",
+            "https://uanalyze.com.tw/articles/9472551469"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4977",
+          "name": "眾達-KY",
+          "verdict": "confirmed",
+          "role": "光收發模組設計製造（10G～400G／800G 可插拔）並延伸至 CPO 光引擎與 ELSFP，客戶包括 Broadcom、Cisco",
+          "core": 2,
+          "sources": ["https://7evenguy.com/what-is-4977-doing/", "https://www.cmoney.tw/forum/article/175689341"],
+          "note": ""
+        },
+        {
+          "ticker": "4908",
+          "name": "前鼎",
+          "verdict": "confirmed",
+          "role": "光收發模組與光次模組封裝製造：資料中心 100G～800G、基地台 10G～50G、超高溫工控模組、GPON／10G PON；開發 CPO 用 ELSFP",
+          "core": 2,
+          "sources": [
+            "https://blog.fugle.tw/post/earnings-call-4908-2026-04-17",
+            "https://money.udn.com/money/story/11074/9586309"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6442",
+          "name": "光聖",
+          "verdict": "corrected",
+          "role": "光主動元件只有 FTTH 接取網用 OSA 與光收發模組，營收占比小；主力為資料中心光被動元件",
+          "core": 1,
+          "sources": ["https://blog.fugle.tw/post/earnings-call-6442-2026-03-12"],
+          "note": "原值「光收發模組主力廠」→「FTTH 小量模組，非資料中心模組廠」：被動元件約占 2026 上半年營收 8 成"
+        },
+        {
+          "ticker": "3163",
+          "name": "波若威",
+          "verdict": "removed",
+          "role": "光纖被動元件 ODM（光纖連接、Branch、WDM、光放大器 AMP），無光收發模組產品",
+          "core": 1,
+          "sources": [
+            "https://www.pocket.tw/school/report/SCHOOL/6257/",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=40d51b65-dd70-4cb5-a51a-3e6bcd641d27"
+          ],
+          "note": "原值「光收發模組」→ 移除：波若威不生產光收發模組，應歸入光纖連接器／被動元件族群"
+        },
+        {
+          "ticker": "4906",
+          "name": "正文",
+          "verdict": "added",
+          "role": "網通 ODM 跨入資料中心 1.6T 光收發模組",
+          "core": 1,
+          "sources": [
+            "https://tw.stock.yahoo.com/news/%E6%AD%A3%E6%96%871-6t%E5%85%89%E6%94%B6%E7%99%BC%E6%A8%A1%E7%B5%84%E6%8B%9Aq4%E9%87%8F%E7%94%A2-%E6%94%BBhyperscaler-dc%E5%95%86%E6%A9%9F-080800666.html"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "optical-engine",
+      "name": "光引擎（CPO／矽光引擎）",
+      "category": "optical",
+      "summary": "光引擎是把 PIC（光子晶片）、EIC（驅動／TIA）與光纖耦合介面封在一起的次系統，CPO 時代直接與交換器 ASIC 共封裝。台股做光引擎封裝的是台積電（COUPE）、日月光、訊芯-KY、眾達-KY；上詮供應引擎的光纖陣列 FAU，聯亞供應引擎的外部光源，全新則屬更上游磊晶、與光引擎無直接關聯。",
+      "engineeringNotes": "矽光引擎本身不發光（矽是間接能隙），需外接 CW 雷射作為光源，CPO 架構通常把雷射放在前面板可抽換的 ELSFP 裡以利散熱與維修。台積電 COUPE 以 SoIC 把 EIC 疊在 PIC 上，縮短電路並降低寄生效應。CPO 把光電轉換點從前面板移到 ASIC 旁，省去長距離 SerDes 與 retimer，每 bit 功耗可降約 50–65%。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "added",
+          "role": "COUPE 緊湊型通用光子引擎平台，用於 NVIDIA Spectrum-X／Quantum-X Photonics 與 Broadcom Tomahawk 6-Davisson CPO 交換器",
+          "core": 3,
+          "sources": [
+            "https://investors.broadcom.com/news-releases/news-release-details/broadcom-announces-tomahawkr-6-davisson-industrys-first-1024",
+            "https://www.ctee.com.tw/news/20251108700010-431003",
+            "https://www.trendforce.com/presscenter/news/20260727-13151.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6451",
+          "name": "訊芯-KY",
+          "verdict": "confirmed",
+          "role": "CPO 光引擎與高速光模組 SiP 封裝，為 Broadcom CPO 封測夥伴，51.2T 小量出貨、1.6T CPO 產線建置中",
+          "core": 3,
+          "sources": [
+            "https://www.cmoney.tw/forum/article/176847911",
+            "https://uanalyze.com.tw/articles/9286212491",
+            "https://www.good-group.com.tw/tw/research/show.aspx?num=375"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3711",
+          "name": "日月光投控",
+          "verdict": "added",
+          "role": "以 VIPack、FOCoS、2.5D／3D 封裝承接 PIC、EIC、ASIC 共封裝，CPO 封裝已進入量產",
+          "core": 2,
+          "sources": [
+            "https://money.udn.com/money/story/11162/9725925",
+            "https://tw.stock.yahoo.com/news/%E6%97%A5%E6%9C%88%E5%85%89%E5%B7%B2%E9%87%8F%E7%94%A2cpo%E5%B0%81%E8%A3%9D-%E5%90%B3%E7%94%B0%E7%8E%89%E6%8C%87-%E7%9F%BD%E5%85%89%E5%AD%90%E6%9C%AA%E4%BE%86%E9%97%9C%E9%8D%B5%E6%98%AF%E6%88%90%E6%9C%AC%E8%88%87%E9%87%8F%E7%94%A2%E8%A6%8F%E6%A8%A1-035301317.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4977",
+          "name": "眾達-KY",
+          "verdict": "added",
+          "role": "Broadcom 供應鏈中負責光引擎與 ELSFP 外置光源模組",
+          "core": 2,
+          "sources": [
+            "https://www.cmoney.tw/forum/article/175689341",
+            "https://tw.stock.yahoo.com/news/%E7%9C%BE%E9%81%94-ky%E7%9C%8B%E6%97%BAcpo%E6%88%90ai%E6%99%82%E4%BB%A3%E9%97%9C%E9%8D%B5%E6%8A%80%E8%A1%93-%E8%88%87%E5%8D%9A%E9%80%9A%E5%90%88%E4%BD%9C%E5%82%99%E6%88%B02026-cpo%E9%87%8F%E7%94%A2%E6%BD%AE-085531203.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3363",
+          "name": "上詮",
+          "verdict": "confirmed",
+          "role": "光引擎的光纖耦合介面：FAU 光纖陣列、保偏光纖陣列、ReLFACon 可耐回焊透鏡式光纖陣列連接器，屬台積電矽光子生態系；3.2T 產品 2026 下半年出貨",
+          "core": 2,
+          "sources": [
+            "https://www.ctee.com.tw/news/20260529700202-439901",
+            "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E9%BB%9E%E7%81%ABcpo%E5%85%83%E5%B9%B4-%E5%85%89%E9%80%9A%E8%A8%8A%E5%BB%A0%E4%B8%8A%E8%A9%AE-%E7%A0%B8%E9%87%8D%E9%87%91%E6%93%B4%E7%94%A2%E6%90%B6%E5%95%86%E6%A9%9F-3-2t%E7%94%A2%E5%93%81%E4%B8%8B%E5%8D%8A%E5%B9%B4%E5%87%BA%E8%B2%A8-065000879.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3081",
+          "name": "聯亞",
+          "verdict": "corrected",
+          "role": "供應光引擎外部光源所需的 CW 雷射磊晶片／晶粒，不組裝光引擎",
+          "core": 2,
+          "sources": [
+            "https://uanalyze.com.tw/articles/1037047603",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=600a927c-818e-45d6-9bda-8021508a6f48"
+          ],
+          "note": "原值「光引擎」→「光引擎外部光源（CW 雷射磊晶）」：聯亞是上游磊晶廠，光引擎由封裝廠組裝"
+        },
+        {
+          "ticker": "2455",
+          "name": "全新",
+          "verdict": "removed",
+          "role": "InP／GaAs 磊晶廠（PD、VCSEL 磊晶），產品進入光模組元件，不參與光引擎製造",
+          "core": 1,
+          "sources": [
+            "https://www.pocket.tw/school/report/SCHOOL/7339/",
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/216079"
+          ],
+          "note": "原值「光引擎」→ 移除：全新為磊晶材料廠，與光引擎封裝相隔兩層，應歸入雷射／VCSEL／磊晶族群"
+        },
+        {
+          "ticker": "3450",
+          "name": "聯鈞",
+          "verdict": "added",
+          "role": "雷射 COS 封裝、外置雷射光源（ELS）封裝與光學引擎測試",
+          "core": 1,
+          "sources": [
+            "https://news.cnyes.com/news/id/6054608",
+            "https://dalabs.org/guide/tw-stock-guide/what-is-3450-doing/"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "eml",
+      "name": "EML 雷射",
+      "category": "optical",
+      "summary": "EML（電吸收調變雷射）是 800G／1.6T 單模光模組的主流光源，200G EML 是目前最缺的光通訊零件。台股真正自製 EML 晶片的是華星光，聯亞供應 EML／DFB 磊晶片；光聖不做 EML，原清單有誤。",
+      "engineeringNotes": "EML 在同一顆 InP 晶片上整合 DFB 雷射與電吸收調變器（EAM），調變速度快、啁啾小，適合 100G／200G per lane 單模傳輸。另一條路線是「CW 雷射＋矽光子調變器（MZM／微環）」，雷射只需穩定輸出連續光，對雷射本身的速度要求低，但需要較高的光功率。全球 200G EML 由 Lumentum、三菱電機、住友電工、Broadcom 合計占 8 成以上。",
+      "companies": [
+        {
+          "ticker": "4979",
+          "name": "華星光",
+          "verdict": "confirmed",
+          "role": "自製 100G／200G EML 雷射晶片（InP 晶圓廠），並用於自家 800G／1.6T 模組",
+          "core": 3,
+          "sources": ["https://vocus.cc/article/6a963bb3fd89780001c34868", "https://udn.com/news/story/7252/9720193"],
+          "note": ""
+        },
+        {
+          "ticker": "3081",
+          "name": "聯亞",
+          "verdict": "confirmed",
+          "role": "InP 雷射磊晶片供應商，產品含 EML、DFB 磊晶，但目前營收主力為矽光子用 CW 雷射",
+          "core": 2,
+          "sources": [
+            "https://uanalyze.com.tw/articles/1037047603",
+            "https://vocus.cc/article/6a555031fd897800017ba520"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6442",
+          "name": "光聖",
+          "verdict": "removed",
+          "role": "光纖被動元件與光纜廠，不生產 EML 雷射晶片；僅透過換股入股 IET-KY（約 15%）布局上游 InP 磊晶",
+          "core": 1,
+          "sources": [
+            "https://blog.fugle.tw/post/earnings-call-6442-2026-03-12",
+            "https://money.udn.com/money/story/5607/9183723"
+          ],
+          "note": "原值「EML」→ 移除：光聖主動元件只有 FTTH 用 OSA／模組，沒有 EML 晶片製程"
+        }
+      ]
+    },
+    {
+      "id": "vcsel",
+      "name": "VCSEL",
+      "category": "optical",
+      "summary": "VCSEL（垂直共振腔面射型雷射）用於資料中心短距多模傳輸（SR 模組、AOC）。台股以全新（磊晶）、穩懋與宏捷科（晶圓代工）、光環（晶粒）為主；華星光明確不自製 VCSEL，聯亞的 VCSEL 磊晶以 3D 感測／LiDAR 為主。",
+      "engineeringNotes": "VCSEL 由 GaAs 基板長出、光從表面垂直射出，可整片晶圓測試、成本低、功耗低，但傳輸距離約 100 公尺內、只能配多模光纖。資料中心 VCSEL 已由 50G 推進到 100G／200G per lane，但高速下頻寬與距離受限，長距仍需 InP 系的 EML 或 CW 雷射。",
+      "companies": [
+        {
+          "ticker": "2455",
+          "name": "全新",
+          "verdict": "confirmed",
+          "role": "GaAs／InP MOCVD 磊晶廠，供應伺服器間短距傳輸用 VCSEL 磊晶與 PIN 接收端磊晶，400G VCSEL 量產",
+          "core": 3,
+          "sources": [
+            "https://www.pocket.tw/school/report/SCHOOL/7339/",
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/216079"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3105",
+          "name": "穩懋",
+          "verdict": "added",
+          "role": "GaAs 晶圓代工切入資料中心 50G／100G VCSEL 與 1.6T 接收端 PD",
+          "core": 2,
+          "sources": [
+            "https://uanalyze.com.tw/articles/393923376",
+            "https://tw.stock.yahoo.com/news/%E7%A9%A9%E6%87%8B1-6t-pd%E5%87%BA%E8%B2%A8%E5%A2%9E%E6%BA%AB-%E5%85%89%E9%80%9A%E8%A8%8A%E5%8D%A0%E6%AF%94%E6%98%8E%E5%B9%B4%E7%BA%8C%E5%8D%87-021000033.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3234",
+          "name": "光環",
+          "verdict": "added",
+          "role": "VCSEL、PD、DFB 晶粒與 TO-CAN／OSA／AOC 垂直整合，自行發展 100G VCSEL／PD Array",
+          "core": 2,
+          "sources": [
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=68b38423-aeeb-48f4-ad79-3dbe555c87cb",
+            "https://uanalyze.com.tw/articles/8243912876"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "8086",
+          "name": "宏捷科",
+          "verdict": "added",
+          "role": "GaAs 晶圓代工擴大光通訊與 VCSEL 代工，資本支出多用於光通訊設備",
+          "core": 1,
+          "sources": ["https://www.chinatimes.com/realtimenews/20261005001060-260410"],
+          "note": ""
+        },
+        {
+          "ticker": "4971",
+          "name": "IET-KY",
+          "verdict": "added",
+          "role": "MBE 磊晶廠，具 InP 與 VCSEL 磊晶技術",
+          "core": 1,
+          "sources": [
+            "https://money.udn.com/money/story/5607/9183723",
+            "https://dalabs.org/guide/tw-stock-guide/what-is-iet-ky-4971-doing/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3081",
+          "name": "聯亞",
+          "verdict": "corrected",
+          "role": "有 850／940nm GaAs VCSEL 磊晶片，但應用以 3D 感測、LiDAR 等消費／車用為主，光通訊主力是 InP CW／EML 雷射",
+          "core": 1,
+          "sources": [
+            "https://www.lmoc.com.tw/index.php?option=module&lang=cht&task=pageinfo&id=17&index=3",
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=cdfb5f2e-c314-4cdb-9504-843fbb062049"
+          ],
+          "note": "原值「光通訊 VCSEL」→「消費性 VCSEL 磊晶（非資料中心主力）」：聯亞光通訊營收來自 InP 雷射磊晶"
+        },
+        {
+          "ticker": "4979",
+          "name": "華星光",
+          "verdict": "removed",
+          "role": "InP 系雷射（EML、DFB／CW）與 PD 晶片廠，不自製 VCSEL",
+          "core": 1,
+          "sources": ["https://vocus.cc/article/6a963bb3fd89780001c34868"],
+          "note": "原值「VCSEL」→ 移除：華星光法說明確表示不自製 VCSEL"
+        }
+      ]
+    },
+    {
+      "id": "silicon-photonics",
+      "name": "矽光子",
+      "category": "optical",
+      "summary": "矽光子把調變器、波導、PD 用 CMOS 製程做在矽晶片上，台積電 COUPE 帶動 2026 年成為商轉元年。台股鏈條：上游 CW 雷射（聯亞、環宇-KY）→ PIC 製造與封裝（台積電、日月光、訊芯-KY）→ 光纖耦合（上詮、波若威）→ 測試（旺矽）。",
+      "engineeringNotes": "矽光子的優勢是能用成熟 CMOS 產線大量製造調變器與波導，但矽不能發光，必須外接 InP CW 雷射，因此「高功率、多波長 CW 雷射」成為關鍵瓶頸。矽波導模場直徑僅約 0.5µm，與單模光纖約 9µm 差距大，需要邊緣耦合／光柵耦合與 FAU 精密對位，耦合損耗與良率是量產難點。CPO 封裝前需做晶圓級光電同測篩除不良 PIC／EIC。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "added",
+          "role": "COUPE 矽光子平台，PIC 製造＋SoIC 堆疊 EIC，NVIDIA、Broadcom CPO 交換器皆採用",
+          "core": 3,
+          "sources": [
+            "https://investors.broadcom.com/news-releases/news-release-details/broadcom-announces-tomahawkr-6-davisson-industrys-first-1024",
+            "https://www.ctee.com.tw/news/20251108700010-431003",
+            "https://www.trendforce.com/presscenter/news/20260727-13151.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3081",
+          "name": "聯亞",
+          "verdict": "confirmed",
+          "role": "矽光子用高功率 CW 雷射磊晶片與晶粒（多波長），Datacom 營收占比約 75–80%",
+          "core": 3,
+          "sources": [
+            "https://uanalyze.com.tw/articles/1037047603",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=600a927c-818e-45d6-9bda-8021508a6f48",
+            "https://vocus.cc/article/6a555031fd897800017ba520"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3363",
+          "name": "上詮",
+          "verdict": "confirmed",
+          "role": "矽光子 FAU 光纖陣列與 ReLFACon，台積電矽光子聯盟成員，擴建 FAU 產能",
+          "core": 3,
+          "sources": [
+            "https://www.ctee.com.tw/news/20260529700202-439901",
+            "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E9%BB%9E%E7%81%ABcpo%E5%85%83%E5%B9%B4-%E5%85%89%E9%80%9A%E8%A8%8A%E5%BB%A0%E4%B8%8A%E8%A9%AE-%E7%A0%B8%E9%87%8D%E9%87%91%E6%93%B4%E7%94%A2%E6%90%B6%E5%95%86%E6%A9%9F-3-2t%E7%94%A2%E5%93%81%E4%B8%8B%E5%8D%8A%E5%B9%B4%E5%87%BA%E8%B2%A8-065000879.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6451",
+          "name": "訊芯-KY",
+          "verdict": "confirmed",
+          "role": "矽光子／CPO SiP 封裝，Broadcom 合作夥伴",
+          "core": 2,
+          "sources": [
+            "https://uanalyze.com.tw/articles/9286212491",
+            "https://www.good-group.com.tw/tw/research/show.aspx?num=375"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3711",
+          "name": "日月光投控",
+          "verdict": "added",
+          "role": "PIC／EIC／ASIC 共封裝的後段封裝，CPO 封裝已量產",
+          "core": 2,
+          "sources": [
+            "https://money.udn.com/money/story/11162/9725925",
+            "https://tw.stock.yahoo.com/news/%E6%97%A5%E6%9C%88%E5%85%89%E5%B7%B2%E9%87%8F%E7%94%A2cpo%E5%B0%81%E8%A3%9D-%E5%90%B3%E7%94%B0%E7%8E%89%E6%8C%87-%E7%9F%BD%E5%85%89%E5%AD%90%E6%9C%AA%E4%BE%86%E9%97%9C%E9%8D%B5%E6%98%AF%E6%88%90%E6%9C%AC%E8%88%87%E9%87%8F%E7%94%A2%E8%A6%8F%E6%A8%A1-035301317.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6223",
+          "name": "旺矽",
+          "verdict": "confirmed",
+          "role": "矽光子／CPO 晶圓級光電同測探針卡與 CPO 測試設備（測試介面，非製造），已獲 NVIDIA CPO 導入",
+          "core": 2,
+          "sources": [
+            "https://www.ctee.com.tw/news/20260910700215-430201",
+            "https://udn.com/news/story/7253/9451318",
+            "https://news.cnyes.com/news/id/6018141"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4991",
+          "name": "環宇-KY",
+          "verdict": "added",
+          "role": "III-V 光電晶圓代工，70mW CW 雷射已量產小量出貨、100mW 認證中，並供應高速 PD",
+          "core": 2,
+          "sources": [
+            "https://uanalyze.com.tw/articles/2879854923",
+            "https://wantrich.chinatimes.com/news/20251105900684-420101",
+            "https://blog.fugle.tw/post/earnings-call-4991-2026-03-04"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2455",
+          "name": "全新",
+          "verdict": "confirmed",
+          "role": "InP PD 與 VCSEL 磊晶，矽光模組接收端 PD 磊晶受惠，屬間接供應",
+          "core": 1,
+          "sources": [
+            "https://www.cmoney.tw/notes/note-detail.aspx?nid=957407",
+            "https://www.pocket.tw/school/report/SCHOOL/7339/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6442",
+          "name": "光聖",
+          "verdict": "corrected",
+          "role": "CPO 外部連接層的高密度光纖／MPO 佈線，並透過換股入股 IET-KY 布局 InP 磊晶，非矽光晶片或封裝廠",
+          "core": 1,
+          "sources": [
+            "https://dalabs.org/guide/tw-stock-guide/what-is-6442-doing/",
+            "https://money.udn.com/money/story/5607/9183723"
+          ],
+          "note": "原值「矽光子」→「CPO 外部光纖佈線＋策略投資」：光聖不製造矽光晶片"
+        },
+        {
+          "ticker": "3163",
+          "name": "波若威",
+          "verdict": "added",
+          "role": "CPO 用高密度光纖配線盒與光纖套件，2026 下半年量產",
+          "core": 1,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=40d51b65-dd70-4cb5-a51a-3e6bcd641d27",
+            "https://www.cmoney.tw/forum/article/177390670"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "optical-fiber",
+      "name": "光纖／光纜",
+      "category": "optical",
+      "summary": "此族群指光纖本體（拉絲）與光纜、光纖佈線組件。台股能自拉光纖絲的極少，聯光通正建置光纖絲產能；光聖、波若威屬光纖佈線組件與被動元件，不生產光纖本體；華星光為主動元件廠，與光纖無關。",
+      "engineeringNotes": "光纖由預形體（preform）拉絲而成，全球預形體與光纖由 Corning、長飛、住友、藤倉等掌握。資料中心用單模（9µm 纖芯）配 EML／矽光，多模（50µm）配 VCSEL。AI 叢集讓單棟資料中心光纖芯數暴增，高芯數光纜（3,456～13,824 芯）與 MPO 預端接組件成為佈線主流。",
+      "companies": [
+        {
+          "ticker": "6442",
+          "name": "光聖",
+          "verdict": "corrected",
+          "role": "資料中心高芯數光纜組件（最高約 13,824 芯）與光纖跳線、配線卡匣，屬光纖佈線組件，非光纖拉絲廠",
+          "core": 2,
+          "sources": [
+            "https://blog.fugle.tw/post/earnings-call-6442-2026-03-12",
+            "https://dalabs.org/guide/tw-stock-guide/what-is-6442-doing/"
+          ],
+          "note": "原值「光纖」→「光纖佈線組件／高芯數光纜」：光聖採購光纖加工成光纜與跳線"
+        },
+        {
+          "ticker": "3163",
+          "name": "波若威",
+          "verdict": "corrected",
+          "role": "光纖被動元件 ODM，光纖連接產品（OIN）約占營收 33%，非光纖本體製造",
+          "core": 1,
+          "sources": ["https://www.pocket.tw/school/report/SCHOOL/6257/"],
+          "note": "原值「光纖」→「光纖連接被動元件」"
+        },
+        {
+          "ticker": "4903",
+          "name": "聯光通",
+          "verdict": "added",
+          "role": "光纖電纜廠，採購光纖棒在台建置光纖絲拉絲產能，已開始量產出貨",
+          "core": 2,
+          "sources": [
+            "https://money.udn.com/money/story/5710/9768876",
+            "https://www.cnyes.com/twstock/4903/company/profile"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4979",
+          "name": "華星光",
+          "verdict": "removed",
+          "role": "光主動元件（雷射晶片、光模組）廠，不生產光纖或光纜",
+          "core": 1,
+          "sources": ["https://vocus.cc/article/6a963bb3fd89780001c34868"],
+          "note": "原值「光纖」→ 移除：華星光產品為 InP 晶片與光收發模組，無光纖產品"
+        }
+      ]
+    },
+    {
+      "id": "fiber-connector",
+      "name": "光纖連接器／跳線",
+      "category": "optical",
+      "summary": "光纖連接器、跳線與 MPO 預端接組件是資料中心佈線的消耗型被動元件，800G／1.6T 埠數倍增與 AI 叢集直接帶動用量。上詮、光聖、波若威三家皆屬實。",
+      "engineeringNotes": "MPO／MTP 是多芯（12／16／24 芯以上）並排的連接器，800G DR8、SR8 模組即用 MPO-16／MPO-12 介面。連接器關鍵指標是插入損耗與回波損耗，陶瓷插芯研磨精度決定品質。CPO 時代進一步需要高密度、低損耗的光纖陣列連接器（如 ReLFACon）與 shuffle box 做光纖重新排序。",
+      "companies": [
+        {
+          "ticker": "6442",
+          "name": "光聖",
+          "verdict": "confirmed",
+          "role": "MPO／MTP 跳線、光纖連接器、耦合器、衰減器與 Patch Panel，主供 Hyperscaler 資料中心",
+          "core": 3,
+          "sources": [
+            "https://blog.fugle.tw/post/earnings-call-6442-2026-03-12",
+            "https://news.cnyes.com/news/id/6325868",
+            "https://dalabs.org/guide/tw-stock-guide/what-is-6442-doing/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3363",
+          "name": "上詮",
+          "verdict": "confirmed",
+          "role": "光纖跳接線起家（約占營收 77%）、光纖連接器與耦合產品，並推出 CPO 用 ReLFACon 光纖陣列連接器",
+          "core": 2,
+          "sources": [
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=32ec510e-9d60-43b5-80f4-bd0495efe759",
+            "https://www.ctee.com.tw/news/20260529700202-439901"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3163",
+          "name": "波若威",
+          "verdict": "confirmed",
+          "role": "光纖連接產品（OIN，約 33%）與 800G／1.6T 光纖套件、CPO 光纖配線盒",
+          "core": 2,
+          "sources": [
+            "https://www.pocket.tw/school/report/SCHOOL/6257/",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=40d51b65-dd70-4cb5-a51a-3e6bcd641d27"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "optical-coupling",
+      "name": "光耦合（FAU／微透鏡）",
+      "category": "optical",
+      "summary": "光耦合元件負責把光纖精準對準矽光晶片的波導，是 CPO 良率關鍵。上詮（FAU）為主力；大立光確實已切入 CPO 光纖陣列 FA 與微透鏡陣列，但仍在送樣、最快 2027 年中量產；訊芯-KY 是在封裝製程中做光纖對位，不是耦合元件供應商。",
+      "engineeringNotes": "FAU（Fiber Array Unit）以 V 型槽把多條光纖以 127µm 等精確間距固定，再以邊緣耦合或光柵耦合對到 PIC 波導，對位公差需在次微米級。微透鏡陣列可放大模場、放寬對位公差並提升良率。耦合損耗每多 1dB 都直接吃掉 CPO 的鏈路預算，因此自動化主動對位設備與高精度被動元件是量產瓶頸。",
+      "companies": [
+        {
+          "ticker": "3363",
+          "name": "上詮",
+          "verdict": "confirmed",
+          "role": "CPO／矽光子 FAU 光纖陣列、保偏光纖陣列、ReLFACon 透鏡式光纖陣列連接器，供台積電矽光子平台",
+          "core": 3,
+          "sources": [
+            "https://www.ctee.com.tw/news/20260529700202-439901",
+            "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E9%BB%9E%E7%81%ABcpo%E5%85%83%E5%B9%B4-%E5%85%89%E9%80%9A%E8%A8%8A%E5%BB%A0%E4%B8%8A%E8%A9%AE-%E7%A0%B8%E9%87%8D%E9%87%91%E6%93%B4%E7%94%A2%E6%90%B6%E5%95%86%E6%A9%9F-3-2t%E7%94%A2%E5%93%81%E4%B8%8B%E5%8D%8A%E5%B9%B4%E5%87%BA%E8%B2%A8-065000879.html",
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=32ec510e-9d60-43b5-80f4-bd0495efe759"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3008",
+          "name": "大立光",
+          "verdict": "confirmed",
+          "role": "以精密塑膠射出微透鏡技術切入 CPO：光纖陣列 FA 與多通道微透鏡陣列 PMLA，2026 年 7 月送樣，最快 2027 年中量產",
+          "core": 1,
+          "sources": [
+            "https://www.ctee.com.tw/news/20260716701098-430502",
+            "https://www.ctee.com.tw/news/20260713700635-430201",
+            "https://udn.com/news/story/7240/9292079"
+          ],
+          "note": "屬實但仍屬早期：目前尚無量產營收"
+        },
+        {
+          "ticker": "6451",
+          "name": "訊芯-KY",
+          "verdict": "corrected",
+          "role": "CPO 封裝廠，在封裝製程中執行光纖對位耦合，並不供應耦合元件",
+          "core": 1,
+          "sources": ["https://www.cmoney.tw/forum/article/176847911", "https://uanalyze.com.tw/articles/9286212491"],
+          "note": "原值「光耦合元件」→「CPO 封裝（耦合製程）」：訊芯是封裝服務，耦合元件由上詮等供應"
+        }
+      ]
+    },
+    {
+      "id": "optical-laser",
+      "name": "光通訊雷射／磊晶",
+      "category": "optical",
+      "summary": "光通訊雷射上游為 InP／GaAs 磊晶與雷射晶片。台股中聯亞（CW／EML 磊晶）、華星光（EML／DFB／CW 晶片自製）、環宇-KY（CW 雷射與 PD 代工）最直接；全新以 PD 與 VCSEL 磊晶為主；IET-KY 為 MBE 磊晶；光環有 DFB／VCSEL 晶粒與 CW 雷射代工。",
+      "engineeringNotes": "光通訊雷射分三類：VCSEL（GaAs、短距多模）、EML（InP、DFB＋EAM，高速單模）、CW DFB 雷射（InP、只出連續光，搭配矽光子調變）。磊晶品質決定雷射效率、壽命與良率，MOCVD 為主流，IET 採用的 MBE 在層厚與摻雜控制更精準。InP 基板受中國磷化物出口管制影響，供給緊張也推升上游議價力。",
+      "companies": [
+        {
+          "ticker": "3081",
+          "name": "聯亞",
+          "verdict": "confirmed",
+          "role": "InP 雷射磊晶龍頭：矽光子用高功率多波長 CW 雷射磊晶片與晶粒、EML／DFB 磊晶與 PD 磊晶",
+          "core": 3,
+          "sources": [
+            "https://uanalyze.com.tw/articles/1037047603",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=600a927c-818e-45d6-9bda-8021508a6f48",
+            "https://vocus.cc/article/6a555031fd897800017ba520"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4979",
+          "name": "華星光",
+          "verdict": "confirmed",
+          "role": "自有 InP 晶圓製程，自製 EML、DFB／CW（16 波長）雷射晶片與 PD／APD",
+          "core": 3,
+          "sources": ["https://vocus.cc/article/6a963bb3fd89780001c34868", "https://udn.com/news/story/7252/9720193"],
+          "note": ""
+        },
+        {
+          "ticker": "2455",
+          "name": "全新",
+          "verdict": "corrected",
+          "role": "InP／GaAs MOCVD 磊晶廠，強項是 800G 接收端 PD 磊晶（全球領先）與 VCSEL 磊晶，EML／CW 雷射磊晶非主力",
+          "core": 2,
+          "sources": [
+            "https://www.pocket.tw/school/report/SCHOOL/7339/",
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/216079"
+          ],
+          "note": "原值「光通訊雷射」→「PD 與 VCSEL 磊晶為主」：全新光通訊營收主力在接收端 PD"
+        },
+        {
+          "ticker": "4991",
+          "name": "環宇-KY",
+          "verdict": "added",
+          "role": "III-V 光電晶圓代工，70mW CW 雷射量產、100mW 認證中，並供應 200G PD",
+          "core": 2,
+          "sources": [
+            "https://uanalyze.com.tw/articles/2879854923",
+            "https://wantrich.chinatimes.com/news/20251105900684-420101",
+            "https://blog.fugle.tw/post/earnings-call-4991-2026-03-04"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4971",
+          "name": "IET-KY",
+          "verdict": "added",
+          "role": "MBE 磊晶廠，InP 磊晶用於 800G 以上光模組雷射與 PD，光聖換股入股約 15%",
+          "core": 1,
+          "sources": [
+            "https://dalabs.org/guide/tw-stock-guide/what-is-iet-ky-4971-doing/",
+            "https://money.udn.com/money/story/5607/9183723"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3234",
+          "name": "光環",
+          "verdict": "added",
+          "role": "VCSEL、FP／DFB 雷射與 PD 晶粒垂直整合，承接高功率 CW DFB 雷射代工",
+          "core": 1,
+          "sources": [
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=68b38423-aeeb-48f4-ad79-3dbe555c87cb",
+            "https://uanalyze.com.tw/articles/8243912876"
+          ],
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "globalPlayers": [
+    {
+      "groupId": "transceiver",
+      "name": "中際旭創（Innolight）",
+      "country": "CN",
+      "role": "全球光模組出貨龍頭，800G 市占約 4 成以上，率先量產 1.6T",
+      "sources": ["https://photoncap.net/p/chinese-optical-modules-own-7-of"]
+    },
+    {
+      "groupId": "transceiver",
+      "name": "新易盛（Eoptolink）",
+      "country": "CN",
+      "role": "全球前五大光模組廠，產品涵蓋 SR8 至 ZR+，800G LPO 打入 Meta、Amazon",
+      "sources": ["https://photoncap.net/p/chinese-optical-modules-own-7-of"]
+    },
+    {
+      "groupId": "transceiver",
+      "name": "Coherent（高意）",
+      "country": "US",
+      "role": "全球第二大光模組廠（約 15–16%），垂直整合 InP／GaAs 雷射，相干 400ZR／800ZR 強項",
+      "sources": [
+        "https://photoncap.net/p/chinese-optical-modules-own-7-of",
+        "https://www.sec.gov/Archives/edgar/data/820318/000082031825000014/iivi-20250630.htm"
+      ]
+    },
+    {
+      "groupId": "eml",
+      "name": "Lumentum",
+      "country": "US",
+      "role": "200G EML 量產領先者，EML 與 CW 雷射產能為全產業瓶頸，交期逾 40 週",
+      "sources": [
+        "https://carrio6.substack.com/p/broadcom-and-lumentum-say-laser-demand",
+        "https://financefeeds.com/lumentum-coherent-ciena-corning-ai-optics-2026/"
+      ]
+    },
+    {
+      "groupId": "eml",
+      "name": "Broadcom（博通）",
+      "country": "US",
+      "role": "EML／VCSEL 雷射主要供應商之一，亦為 CPO 交換器（Tomahawk 6-Davisson）主導者",
+      "sources": [
+        "https://carrio6.substack.com/p/broadcom-and-lumentum-say-laser-demand",
+        "https://www.techflowpost.com/en-US/article/33273"
+      ]
+    },
+    {
+      "groupId": "eml",
+      "name": "三菱電機（Mitsubishi Electric）",
+      "country": "JP",
+      "role": "與 Lumentum、住友、Broadcom 合計占 200G EML 八成以上，擴產策略保守",
+      "sources": ["https://www.techflowpost.com/en-US/article/33273"]
+    },
+    {
+      "groupId": "optical-engine",
+      "name": "Broadcom（博通）",
+      "country": "US",
+      "role": "102.4T Tomahawk 6-Davisson CPO 交換器，光引擎採台積電 COUPE",
+      "sources": [
+        "https://investors.broadcom.com/news-releases/news-release-details/broadcom-announces-tomahawkr-6-davisson-industrys-first-1024",
+        "https://www.trendforce.com/presscenter/news/20260727-13151.html"
+      ]
+    },
+    {
+      "groupId": "optical-engine",
+      "name": "NVIDIA（輝達）",
+      "country": "US",
+      "role": "Spectrum-X／Quantum-X Photonics CPO 交換器，與台積電 COUPE 共同開發",
+      "sources": [
+        "https://www.trendforce.com/presscenter/news/20260727-13151.html",
+        "https://www.ctee.com.tw/news/20251108700010-431003"
+      ]
+    },
+    {
+      "groupId": "optical-engine",
+      "name": "台積電 COUPE（2330，台股）",
+      "country": "TW",
+      "role": "CPO 光引擎平台，NVIDIA 與 Broadcom 均採用",
+      "sources": [
+        "https://investors.broadcom.com/news-releases/news-release-details/broadcom-announces-tomahawkr-6-davisson-industrys-first-1024",
+        "https://www.ctee.com.tw/news/20251108700010-431003"
+      ]
+    }
+  ]
+}

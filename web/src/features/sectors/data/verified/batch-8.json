@@ -1,0 +1,1040 @@
+{
+  "generatedAt": "2026-10-08",
+  "groups": [
+    {
+      "id": "power-gan",
+      "name": "GaN 功率元件",
+      "category": "power",
+      "summary": "以功率元件角度看氮化鎵（GaN）：從磊晶、晶圓代工到元件。台積電已確定 2027 年退出 GaN 代工，Navitas 轉單力積電；漢磊 GaN 產能滿載，是台股最純的 GaN 功率代工標的。AI 伺服器 PSU 與 800V HVDC 架構是 2026 年後最大需求來源。",
+      "engineeringNotes": "GaN 為橫向 HEMT 結構，電子遷移率高、寄生電容小，可在數百 kHz 至 MHz 開關，最適合 100–650V 中壓、追求高功率密度的場合（快充、伺服器 PSU 的 PFC/LLC、48V→12V DC-DC）。功率 GaN 主流是 GaN-on-Si（6/8 吋矽基板），通訊射頻則用 GaN-on-SiC（散熱佳但成本高），兩者製程與客戶完全不同。AI 機櫃由 54V 走向 800V HVDC 後，GaN 主要落在 PSU 前端高頻級與 800V→54V/12V 的隔離 DC-DC，SiC 則負責更高壓的固態變壓器與 AC/DC 前端。",
+      "companies": [
+        {
+          "ticker": "3707",
+          "name": "漢磊",
+          "verdict": "confirmed",
+          "role": "台股最純的 GaN/SiC 功率代工平台；GaN 月產能約 2,000 片、稼動率由 30% 升至約 95%，客戶需求約現有產能兩倍，2026 下半年 GaN 營收估再增 25–30%，主要受 AI 伺服器電源帶動",
+          "core": 3,
+          "sources": [
+            "https://www.chinatimes.com/realtimenews/20261007003543-260410",
+            "https://technews.tw/2026/10/07/episil-targets-10-20-ai-revenue-share-2027-gan-sic-dual-growth-engines/",
+            "https://www.pocket.tw/school/report/SCHOOL/6389/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3016",
+          "name": "嘉晶",
+          "verdict": "confirmed",
+          "role": "漢磊集團旗下磊晶廠，供應 GaN-on-Si 磊晶片（AI 伺服器 PSU、快充）與 SiC 磊晶；屬材料端，非元件製造",
+          "core": 2,
+          "sources": [
+            "https://udn.com/news/story/7252/9771121",
+            "https://blog.fugle.tw/earnings-call-3016-2025-09-17/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3105",
+          "name": "穩懋",
+          "verdict": "corrected",
+          "role": "GaN 產品為 GaN-on-SiC，主要用於 5G 基地台與衛星射頻 PA；功率 GaN 尚非主力，僅為延伸布局題材",
+          "core": 1,
+          "sources": [
+            "https://statementdog.com/tags/1168",
+            "https://www.chinatimes.com/realtimenews/20200914001360-260410"
+          ],
+          "note": "原值『GaN 功率元件核心廠』→ 射頻 GaN-on-SiC 為主、功率 GaN 為邊緣布局：穩懋 GaN 量產品多用於通訊 PA"
+        },
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "corrected",
+          "role": "曾為 Navitas 等 650V GaN 代工主力，但已證實將於 2027 年 7 月 31 日前全面退出 GaN 代工業務",
+          "core": 1,
+          "sources": ["https://udn.com/news/story/7240/8847590", "https://www.ctee.com.tw/news/20250703700434-430501"],
+          "note": "原值『GaN 代工核心』→ 退出中（2027/7 前結束）：台積電評估後決定兩年內逐步退出 GaN，客戶轉往力積電等"
+        },
+        {
+          "ticker": "6770",
+          "name": "力積電",
+          "verdict": "added",
+          "role": "承接 Navitas 100V–650V GaN 代工（竹南 8 吋、0.18µm），100V 產品 2026 上半年量產，650V 未來 1–2 年由台積電轉入，間接打入 NVIDIA 800V HVDC 供應鏈",
+          "core": 2,
+          "sources": ["https://news.cnyes.com/news/id/6047250", "https://udn.com/news/story/7240/8847590"],
+          "note": ""
+        },
+        {
+          "ticker": "2308",
+          "name": "台達電",
+          "verdict": "added",
+          "role": "旗下子公司碇基半導體（Ancora，源自台達研發中心）自研 GaN 電晶體，用於伺服器與高階 PSU；台達本身亦是 GaN/SiC 的最大下游使用者之一",
+          "core": 1,
+          "sources": ["https://www.deltaww.com/zh-TW/news/39097", "https://www.ctee.com.tw/news/20260907700068-430502"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "power-sic",
+      "name": "SiC 功率元件",
+      "category": "power",
+      "summary": "以功率元件角度看碳化矽（SiC）：基板（環球晶）→ 磊晶（嘉晶）→ 元件代工（漢磊、茂矽、世界先進合作 8 吋）。電動車需求放緩後 2025 年處於谷底，2026 下半年因 8 吋量產與 AI 800V 電源需求出現 V 型復甦。",
+      "engineeringNotes": "SiC 為垂直型元件，臨界電場約為矽的 10 倍、熱導率高，最適合 650V–3.3kV 高壓大功率（電動車主逆變器、OBC、充電樁、太陽能、資料中心固態變壓器與 800V AC/DC 前端），開關頻率一般在數十至一兩百 kHz，低於 GaN。產業成本關鍵在基板：6 吋轉 8 吋可增加近一倍晶粒數，但長晶缺陷控制困難。AI 電源鏈中，800V HVDC 的 AC→800V 整流與 SST 多採 SiC，因為 GaN 目前主力耐壓止於 650V。",
+      "companies": [
+        {
+          "ticker": "3707",
+          "name": "漢磊",
+          "verdict": "confirmed",
+          "role": "6 吋 SiC MOSFET 代工月產能約 5,000 片；與世界先進合作 8 吋 SiC（世界先進入股約 13%），2026 年試產、下半年驗證；2026 下半年 SiC 營收估較上半年增逾 120%",
+          "core": 3,
+          "sources": [
+            "https://www.chinatimes.com/realtimenews/20261007003543-260410",
+            "https://www.sipo.org.tw/industry-overview/industry-news/item/3855-2024091102.html",
+            "https://tw.stock.yahoo.com/news/8%E5%90%8B-sic%E9%87%8F%E7%94%A2%E9%80%B2%E5%85%A5%E5%80%92%E6%95%B8-%E6%BC%A2%E7%A3%8A-%E5%98%89%E6%99%B6%E8%B5%B0%E5%87%BA%E4%BD%8E%E6%BD%AE-2026%E5%B9%B4%E8%BF%8E%E9%9B%99%E4%BD%8D%E6%95%B8%E6%88%90%E9%95%B7-043610933.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3016",
+          "name": "嘉晶",
+          "verdict": "confirmed",
+          "role": "SiC 磊晶片供應商，8 吋 SiC 磊晶已完成製程開發並送樣，2026 年進入小量生產",
+          "core": 2,
+          "sources": [
+            "https://tw.stock.yahoo.com/news/8%E5%90%8B-sic%E9%87%8F%E7%94%A2%E9%80%B2%E5%85%A5%E5%80%92%E6%95%B8-%E6%BC%A2%E7%A3%8A-%E5%98%89%E6%99%B6%E8%B5%B0%E5%87%BA%E4%BD%8E%E6%BD%AE-2026%E5%B9%B4%E8%BF%8E%E9%9B%99%E4%BD%8D%E6%95%B8%E6%88%90%E9%95%B7-043610933.html",
+            "https://blog.fugle.tw/earnings-call-3016-2025-09-17/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2342",
+          "name": "茂矽",
+          "verdict": "confirmed",
+          "role": "6 吋功率代工廠，導入月產能約 3,000 片 SiC 製程平台，650V/1200V 平面式 SiC MOSFET 2026 年量產、下半年開始貢獻營收",
+          "core": 2,
+          "sources": ["https://udn.com/news/story/7253/9179810", "https://www.ctee.com.tw/news/20251204700536-430201"],
+          "note": ""
+        },
+        {
+          "ticker": "6488",
+          "name": "環球晶",
+          "verdict": "confirmed",
+          "role": "SiC 基板（晶圓）供應商，已開發 8 吋 SiC 晶球並獲車電 IDM 客戶青睞，目標 2026 年 8 吋出貨超越 6 吋；屬上游材料而非功率元件",
+          "core": 2,
+          "sources": ["https://news.cnyes.com/news/id/5357535", "https://blog.fugle.tw/post/globalwafers-sic"],
+          "note": ""
+        },
+        {
+          "ticker": "5347",
+          "name": "世界先進",
+          "verdict": "added",
+          "role": "投資漢磊並合作 8 吋 SiC 晶圓代工產線（規劃月產能約 1,500 片），2026 年試產",
+          "core": 1,
+          "sources": [
+            "https://www.sipo.org.tw/industry-overview/industry-news/item/3855-2024091102.html",
+            "https://tw.stock.yahoo.com/news/8%E5%90%8B-sic%E9%87%8F%E7%94%A2%E9%80%B2%E5%85%A5%E5%80%92%E6%95%B8-%E6%BC%A2%E7%A3%8A-%E5%98%89%E6%99%B6%E8%B5%B0%E5%87%BA%E4%BD%8E%E6%BD%AE-2026%E5%B9%B4%E8%BF%8E%E9%9B%99%E4%BD%8D%E6%95%B8%E6%88%90%E9%95%B7-043610933.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "8255",
+          "name": "朋程",
+          "verdict": "added",
+          "role": "開發 800V 電池系統用 SiC 功率模組，目標成為台灣首家 SiC IDM（關聯企業環球晶供晶圓）",
+          "core": 1,
+          "sources": [
+            "https://tw.news.yahoo.com/news/%E6%9C%8B%E7%A8%8B%E6%98%8E%E5%B9%B4%E6%8E%A8sic%E6%A8%A1%E7%B5%84-%E6%8B%9A%E9%9B%BB%E5%8B%95%E8%BB%8A4%E5%A4%A7%E9%A0%98%E5%9F%9F-041028299.html",
+            "https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=0000688385_6BO2PZYW9ZL7AV48OXQF3"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "gan-charger",
+      "name": "GaN 充電器／電源轉接器",
+      "category": "power",
+      "summary": "消費型 GaN 快充與筆電 adapter 的台系電源廠。真正以自有品牌或 ODM 推出 GaN 充電器的是台達電（Innergie）與群光集團的群電；光寶科、康舒的 GaN 應用重心已轉向伺服器 PSU。",
+      "engineeringNotes": "GaN 充電器的核心是把 PFC 與返馳／LLC 的開關頻率由約 65–100kHz 拉高到數百 kHz，使變壓器與電容大幅縮小，65W adapter 可縮到約 50cc。主流方案是控制器＋GaN FET 合封（如 TI、Navitas、Power Integrations、矽力的整合式 GaN IC），電源廠負責系統設計、熱管理與安規。此族群毛利偏低、競爭來自大陸 ODM，台廠逐步轉往高瓦數 AI 電源。",
+      "companies": [
+        {
+          "ticker": "2308",
+          "name": "台達電",
+          "verdict": "confirmed",
+          "role": "自有消費電源品牌 Innergie 推出 C6、C10 等搭載 GaN 元件的 USB-C 充電器，同時為多家筆電品牌代工原廠 adapter",
+          "core": 2,
+          "sources": ["https://www.cool3c.com/article/176354"],
+          "note": ""
+        },
+        {
+          "ticker": "2301",
+          "name": "光寶科",
+          "verdict": "corrected",
+          "role": "全球前二大電源供應器廠，產品涵蓋 5W adapter 至大型電源；GaN 公開案例主要是與 TI 合作的伺服器 PSU（鈦金級、>95W/in³），消費型 GaN 充電器未見具體產品",
+          "core": 1,
+          "sources": ["https://www.ctee.com.tw/news/20230302701128-430502", "https://www.liteon.com/zh-tw/product/372"],
+          "note": "原值『GaN 充電器核心』→ 邊緣：光寶 GaN 主力應用在伺服器 PSU 而非消費快充"
+        },
+        {
+          "ticker": "2385",
+          "name": "群光",
+          "verdict": "corrected",
+          "role": "GaN 筆電電源實際由子公司群電（6412）執行；群光本身以鍵盤、相機模組為主",
+          "core": 1,
+          "sources": ["https://udn.com/news/story/7240/6838399"],
+          "note": "原值『群光 2385』→ 應以子公司群電 6412 為主：與 TI 合推 65W GaN 筆電電源 Le Petit 的是群電"
+        },
+        {
+          "ticker": "6412",
+          "name": "群電",
+          "verdict": "added",
+          "role": "與 TI 合推 65W GaN 筆電電源供應器 Le Petit（體積約 49cc、效率達 94%），為筆電 adapter 大廠",
+          "core": 3,
+          "sources": [
+            "https://udn.com/news/story/7240/6838399",
+            "https://www.moneydj.com/KMDJ/news/newsviewer.aspx?a=d0f4aee8-ca46-40c0-ba6c-da7390da23b5"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6282",
+          "name": "康舒",
+          "verdict": "corrected",
+          "role": "消費性電源比重已降至約 18%，主力轉往企業用與電信電源；仍有 240W PD3.1 高密度 adapter，伺服器 CRPS 電源採用 SiC/GaN 設計",
+          "core": 1,
+          "sources": ["https://money.udn.com/money/story/5612/7805502", "https://news.cnyes.com/news/id/5586958"],
+          "note": "原值『GaN 充電器』→ 邊緣：康舒已轉型企業／AI 電源，消費快充非主力"
+        }
+      ]
+    },
+    {
+      "id": "gan-power-ic",
+      "name": "GaN 功率 IC（驅動／整合）",
+      "category": "power",
+      "summary": "把 GaN FET 與控制器、驅動電路整合的 IC，或專為 GaN 設計的閘極驅動器。台廠中有實際產品的是矽力（整合 GaN FET 的返馳開關 IC）與力智（GaN Driver IC）；致新查無 GaN 相關產品資訊。",
+      "engineeringNotes": "GaN HEMT 閘極耐壓低（約 6V）、閾值電壓低且開關極快，對驅動電路的寄生電感、負壓關斷與 dv/dt 抗擾非常敏感，因此業界傾向把驅動器與 GaN FET 單晶或合封整合（例如 Navitas GaNFast、TI LMG 系列）。整合方案可把傳統 2–3 顆晶片的一次側電路縮成一顆，是快充與伺服器 PSU 縮小體積的關鍵。",
+      "companies": [
+        {
+          "ticker": "8081",
+          "name": "致新",
+          "verdict": "unverified",
+          "role": "類比 PMIC 設計公司（PMIC 占營收八成以上），查無 GaN 驅動或 GaN 整合 IC 的公開產品資訊",
+          "core": 1,
+          "sources": [],
+          "note": ""
+        },
+        {
+          "ticker": "6415",
+          "name": "矽力*-KY",
+          "verdict": "confirmed",
+          "role": "推出 SY50296 等整合 650V GaN FET 的高頻 QR 返馳開關 IC，把控制器、驅動與 GaN 元件整合為單晶片",
+          "core": 2,
+          "sources": ["https://www.silergy.com/news/newsview?id=1017"],
+          "note": ""
+        },
+        {
+          "ticker": "6719",
+          "name": "力智",
+          "verdict": "confirmed",
+          "role": "產品線含 GaN Driver IC、Power Stage、DrMOS 與 PMIC，AI 相關營收 2026 年首季首度破 5%、目標雙位數占比",
+          "core": 2,
+          "sources": [
+            "https://udn.com/news/story/7253/9483375",
+            "https://readmo.cmoney.tw/article/8db432d5-2599-485f-98e5-dbf9488cb420"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "sic-mosfet",
+      "name": "SiC MOSFET",
+      "category": "power",
+      "summary": "碳化矽 MOSFET 元件本身（設計、代工或 IDM）。台股真正生產 SiC MOSFET 的是漢磊（代工）與茂矽（2026 年量產）；嘉晶只供應磊晶片，富鼎、強茂則以自有品牌開發 SiC 元件。",
+      "engineeringNotes": "SiC MOSFET 取代矽 IGBT 的關鍵在於沒有拖尾電流，開關損耗低，可在更高頻率運作並縮小磁性元件。主流結構有平面式（planar，台廠多從此入門）與溝槽式（trench，Infineon、ROHM 等，通道密度更高）。可靠度挑戰在閘極氧化層與 SiC/SiO₂ 介面缺陷造成的閾值漂移，車規認證通常需 2–3 年。",
+      "companies": [
+        {
+          "ticker": "3707",
+          "name": "漢磊",
+          "verdict": "confirmed",
+          "role": "SiC MOSFET 代工主力，6 吋 SiC 月產能約 5,000 片（以 MOSFET 計），並與世界先進合作 8 吋",
+          "core": 3,
+          "sources": [
+            "https://www.chinatimes.com/realtimenews/20261007003543-260410",
+            "https://www.pocket.tw/school/report/SCHOOL/6389/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3016",
+          "name": "嘉晶",
+          "verdict": "corrected",
+          "role": "僅供應 SiC 磊晶片（MOSFET 的漂移層），不製造 MOSFET 元件",
+          "core": 1,
+          "sources": [
+            "https://blog.fugle.tw/earnings-call-3016-2025-09-17/",
+            "https://tw.stock.yahoo.com/news/8%E5%90%8B-sic%E9%87%8F%E7%94%A2%E9%80%B2%E5%85%A5%E5%80%92%E6%95%B8-%E6%BC%A2%E7%A3%8A-%E5%98%89%E6%99%B6%E8%B5%B0%E5%87%BA%E4%BD%8E%E6%BD%AE-2026%E5%B9%B4%E8%BF%8E%E9%9B%99%E4%BD%8D%E6%95%B8%E6%88%90%E9%95%B7-043610933.html"
+          ],
+          "note": "原值『SiC MOSFET』→ 上游磊晶材料：嘉晶屬磊晶廠，元件製造在漢磊"
+        },
+        {
+          "ticker": "2342",
+          "name": "茂矽",
+          "verdict": "confirmed",
+          "role": "650V/1200V 平面式 SiC MOSFET 2026 年量產，SiC 平台月產能約 3,000 片，2026–2027 年逐步填滿",
+          "core": 2,
+          "sources": ["https://udn.com/news/story/7253/9179810", "https://www.ctee.com.tw/news/20251204700536-430201"],
+          "note": ""
+        },
+        {
+          "ticker": "8261",
+          "name": "富鼎",
+          "verdict": "added",
+          "role": "功率元件設計公司，已完成 900V/1,200V SiC MOSFET 開發並投產，瞄準新能源車",
+          "core": 1,
+          "sources": ["https://uc913.com/stock-8261/"],
+          "note": ""
+        },
+        {
+          "ticker": "2481",
+          "name": "強茂",
+          "verdict": "added",
+          "role": "功率 IDM，SiC MOSFET 與 SiC 蕭特基二極體已開始量產並導入工控與電源模組客戶",
+          "core": 1,
+          "sources": [
+            "https://technews.tw/2026/07/02/ai-server-mosfet-sic/",
+            "https://www.pocket.tw/school/report/SCHOOL/6520/"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "igbt",
+      "name": "IGBT",
+      "category": "power",
+      "summary": "絕緣閘雙極電晶體，用於電動車逆變器、工業馬達、太陽能。台股 IGBT 主要是茂矽（FS-IGBT 代工）、強茂（650V/1200V 自有產品）、朋程（車用 IGBT 模組）與漢磊（代工）。華新科是被動元件廠，應剔除。",
+      "engineeringNotes": "IGBT 結合 MOSFET 的電壓驅動與雙極電晶體的低導通壓降，適合 600V–6.5kV、開關頻率約 20kHz 以下的大電流應用。現代主流為場截止（Field Stop）溝槽式結構，需晶圓背面薄化與離子佈植，代工門檻較高。在 800V 電動車與高頻電源中，IGBT 正逐步被 SiC MOSFET 取代，但在成本敏感的 400V 平台與工業領域仍是主力。",
+      "companies": [
+        {
+          "ticker": "8261",
+          "name": "富鼎",
+          "verdict": "corrected",
+          "role": "營收主力為 MOSFET（伺服器電源、散熱風扇、筆電），IGBT 僅為產品線一環，已開發 1,200V 高壓 IGBT 模組",
+          "core": 1,
+          "sources": ["https://uc913.com/stock-8261/", "https://news.cnyes.com/news/id/6315205"],
+          "note": "原值『IGBT 核心』→ 邊緣：富鼎以 MOSFET 為主，IGBT 比重小"
+        },
+        {
+          "ticker": "2492",
+          "name": "華新科",
+          "verdict": "removed",
+          "role": "被動元件廠（MLCC 約 46%、電阻約 22%、RF 約 14%），不生產 IGBT",
+          "core": 1,
+          "sources": ["https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=9e8c4959-7b59-4ca9-9f0e-164c17abf605"],
+          "note": "原值『IGBT』→ 移除：華新科為 MLCC／電阻等被動元件廠，與功率半導體無關"
+        },
+        {
+          "ticker": "5425",
+          "name": "台半",
+          "verdict": "unverified",
+          "role": "功率分離元件 IDM，車用營收約 56%；查無 IGBT 量產的公開資訊，SiC 布局以蕭特基二極體為主",
+          "core": 1,
+          "sources": [],
+          "note": ""
+        },
+        {
+          "ticker": "2342",
+          "name": "茂矽",
+          "verdict": "added",
+          "role": "IGBT 代工主力之一，1200V 場截止（FS）IGBT 中低電流產品穩定出貨，新一代 FS-IGBT 送樣中，鎖定車用與工業",
+          "core": 3,
+          "sources": ["https://www.ctee.com.tw/news/20220419700059-430502", "https://news.cnyes.com/news/id/4555852"],
+          "note": ""
+        },
+        {
+          "ticker": "2481",
+          "name": "強茂",
+          "verdict": "added",
+          "role": "台灣最大整流元件廠，產品線含 650V、1200V IGBT，目標太陽能、工業馬達與車用",
+          "core": 2,
+          "sources": [
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/110362",
+            "https://www.pocket.tw/school/report/SCHOOL/6520/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "8255",
+          "name": "朋程",
+          "verdict": "added",
+          "role": "自行開發 750V/1200V 車用 IGBT 模組（100–150kW），已取得歐洲、中國、台灣車廠訂單",
+          "core": 2,
+          "sources": [
+            "https://tw.news.yahoo.com/news/%E6%9C%8B%E7%A8%8B%E6%98%8E%E5%B9%B4%E6%8E%A8sic%E6%A8%A1%E7%B5%84-%E6%8B%9A%E9%9B%BB%E5%8B%95%E8%BB%8A4%E5%A4%A7%E9%A0%98%E5%9F%9F-041028299.html",
+            "https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=0000688385_6BO2PZYW9ZL7AV48OXQF3"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3707",
+          "name": "漢磊",
+          "verdict": "added",
+          "role": "功率代工廠，與茂矽同為國際大廠委外二極體與 IGBT 的代工夥伴",
+          "core": 1,
+          "sources": [
+            "https://news.cnyes.com/news/id/4555852",
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/110362"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "power-module",
+      "name": "功率模組／AI 伺服器電源",
+      "category": "power",
+      "summary": "把功率元件整合成模組或電源系統。AI 伺服器電源櫃（power shelf／PSU）、BBU、800V HVDC 機櫃由台達電（資料中心電源市佔約 6 成）與光寶科雙強主導，康舒、群電為第二梯隊；車用 IGBT/SiC 模組則以朋程為代表。",
+      "engineeringNotes": "NVIDIA 的 AI 機櫃供電演進：GB200 用 5.5kW PSU 組成 33kW power shelf，GB300 單顆 PSU 約 12kW，Rubin（VR200）世代上看 18kW，並在 Kyber 世代走向 800V HVDC，把 AC→DC 移到機櫃外的 sidecar／power rack，機櫃內再由 800V 降到 54V／12V，最後由 DC-DC 模組（包括貼在 GPU 背面的垂直供電 VPD）降到約 0.65–0.8V。GaN 用在 PSU 的高頻 PFC/LLC 與 800V→54V 隔離 DC-DC，SiC 用在 800V AC/DC 前端與固態變壓器；BBU（電池備援）則是每座 power shelf 的標配。",
+      "companies": [
+        {
+          "ticker": "2308",
+          "name": "台達電",
+          "verdict": "confirmed",
+          "role": "資料中心電源市佔約 60%，產品涵蓋 PSU、BBU/CBU、800VDC/±400VDC power rack，是 NVIDIA 800V 架構主要供應商；並與英飛凌合作開發 GPU 背面垂直供電 DC-DC 模組，與 SiC/GaN 供應商早期共同開發",
+          "core": 3,
+          "sources": [
+            "https://www.ctee.com.tw/news/20260907700068-430502",
+            "https://technews.tw/2025/07/14/delta-ai-servers-enter-the-era-of-ultra-high-power/",
+            "https://www.growin.ai/en/my/blog/industry/800v-dc-ai-data-center"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2301",
+          "name": "光寶科",
+          "verdict": "confirmed",
+          "role": "AI 伺服器電源市佔約 2–3 成，供應 5.5kW PSU／33kW power shelf 與 BBU；COMPUTEX 2026 首秀 800VDC 電源機櫃，並與 Wolfspeed 合作把 SiC MOSFET 導入 800VDC sidecar 平台",
+          "core": 3,
+          "sources": [
+            "https://technews.tw/2026/06/02/ai-kiteon-800vdc-infrasture/",
+            "https://www.ctee.com.tw/news/20260907700068-430502",
+            "https://money.udn.com/money/story/5612/9109934"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "8261",
+          "name": "富鼎",
+          "verdict": "corrected",
+          "role": "以離散 MOSFET 為主，供應伺服器 SPS 電源與散熱；1,200V IGBT 模組為開發中產品，並非模組大廠",
+          "core": 1,
+          "sources": ["https://news.cnyes.com/news/id/6315205", "https://uc913.com/stock-8261/"],
+          "note": "原值『功率模組核心』→ 元件供應商：富鼎賣離散 MOSFET 給電源廠，非模組廠"
+        },
+        {
+          "ticker": "2481",
+          "name": "強茂",
+          "verdict": "corrected",
+          "role": "功率分離元件 IDM，SiC 與高壓 MOSFET 導入電源模組客戶，並供應 AI 伺服器熱插拔 MOSFET；本身不以模組為主",
+          "core": 1,
+          "sources": ["https://technews.tw/2026/07/02/ai-server-mosfet-sic/", "https://news.cnyes.com/news/id/6519166"],
+          "note": "原值『功率模組』→ 元件供應商：強茂以離散元件為主"
+        },
+        {
+          "ticker": "6282",
+          "name": "康舒",
+          "verdict": "added",
+          "role": "AI 電源營收占比約 3 成，33kW power shelf 已量產、72kW 送安規，100kW power shelf 與 25kW PSU 開發中，預計 2027 年量產",
+          "core": 2,
+          "sources": [
+            "https://www.ctee.com.tw/news/20260916700527-439901",
+            "https://cdnfinance.technews.tw/2026/09/16/acbels-ai-revenue-share-30-100kw-power-shelf-validation/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6412",
+          "name": "群電",
+          "verdict": "added",
+          "role": "以 PSU 切入 AI 伺服器電源，延伸至 power shelf 等模組化電源，已打入美系品牌客戶供應鏈",
+          "core": 1,
+          "sources": ["https://technews.tw/2026/05/05/psu-ai-server-power/"],
+          "note": ""
+        },
+        {
+          "ticker": "8255",
+          "name": "朋程",
+          "verdict": "added",
+          "role": "自製車用 IGBT 模組（750V/1200V）與 800V 平台 SiC 模組，打入電動車與充電樁供應鏈",
+          "core": 2,
+          "sources": [
+            "https://tw.news.yahoo.com/news/%E6%9C%8B%E7%A8%8B%E6%98%8E%E5%B9%B4%E6%8E%A8sic%E6%A8%A1%E7%B5%84-%E6%8B%9A%E9%9B%BB%E5%8B%95%E8%BB%8A4%E5%A4%A7%E9%A0%98%E5%9F%9F-041028299.html",
+            "https://news.cnyes.com/news/id/5508559"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "auto-power",
+      "name": "車用功率半導體",
+      "category": "power",
+      "summary": "供應車用二極體、MOSFET、IGBT、SiC 的台廠。車用占營收比重最高的是台半（約 56%）、茂矽（約 47%）與朋程（車用二極體龍頭）；強茂、富鼎為兼營車用的功率元件廠。",
+      "engineeringNotes": "車用功率元件需通過 AEC-Q101 認證與 PPAP 流程，從送樣到量產通常 2–3 年，客戶黏著度高。純電車單車 MOSFET 用量約 200–400 顆（BMS、DC-DC、車身電子），主逆變器則用 IGBT 或 SiC 模組。400V 平台多用矽 IGBT，800V 平台則幾乎全面採用 SiC。",
+      "companies": [
+        {
+          "ticker": "8261",
+          "name": "富鼎",
+          "verdict": "confirmed",
+          "role": "MOSFET 與 IGBT 應用於電動車電源管理系統，並已投產 SiC MOSFET 瞄準新能源車；但營收主力仍在伺服器、筆電",
+          "core": 1,
+          "sources": ["https://uc913.com/stock-8261/"],
+          "note": ""
+        },
+        {
+          "ticker": "2481",
+          "name": "強茂",
+          "verdict": "confirmed",
+          "role": "車用與 AI 伺服器雙核心策略，車規防護元件與 SiC 方案涵蓋 EPS、BMS、三電與 ADAS，並與日系、歐系車廠進行認證",
+          "core": 2,
+          "sources": ["https://news.cnyes.com/news/id/6519166", "https://www.pocket.tw/school/report/SCHOOL/6520/"],
+          "note": ""
+        },
+        {
+          "ticker": "5425",
+          "name": "台半",
+          "verdict": "confirmed",
+          "role": "功率分離元件 IDM，汽車應用占營收約 56%、汽車與工業合計約 7 成；開發 650V/1200V SiC 蕭特基二極體",
+          "core": 3,
+          "sources": ["https://www.cmoney.tw/forum/article/177270504", "https://uanalyze.com.tw/articles/872417587"],
+          "note": ""
+        },
+        {
+          "ticker": "2342",
+          "name": "茂矽",
+          "verdict": "confirmed",
+          "role": "車用營收占比約 47%、稼動率約九成，以車用 MOSFET/IGBT 代工為基本盤，SiC 2026 年接棒",
+          "core": 3,
+          "sources": ["https://udn.com/news/story/7253/9179810", "https://www.ctee.com.tw/news/20251204700536-430201"],
+          "note": ""
+        },
+        {
+          "ticker": "8255",
+          "name": "朋程",
+          "verdict": "added",
+          "role": "車用二極體龍頭，並延伸至車用 IGBT 模組與 SiC 模組",
+          "core": 3,
+          "sources": [
+            "https://news.cnyes.com/news/id/5508559",
+            "https://tw.news.yahoo.com/news/%E6%9C%8B%E7%A8%8B%E6%98%8E%E5%B9%B4%E6%8E%A8sic%E6%A8%A1%E7%B5%84-%E6%8B%9A%E9%9B%BB%E5%8B%95%E8%BB%8A4%E5%A4%A7%E9%A0%98%E5%9F%9F-041028299.html"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "pmic",
+      "name": "PMIC 電源管理 IC",
+      "category": "power",
+      "summary": "台系類比 PMIC 設計公司。矽力*-KY 為產品線最完整的龍頭（車用、工業、資料中心）；力智聚焦伺服器 Vcore／DrMOS；茂達以 DDR5 PMIC 與伺服器風扇驅動 IC 見長；致新以面板與 PC PMIC 為主。",
+      "engineeringNotes": "AI 伺服器 GPU 核心電壓低於 1V、電流超過 1,000A，需要多相（數十相）降壓 Vcore 控制器搭配 DrMOS／Smart Power Stage，這是 MPS、Infineon、Renesas 的主戰場，台廠多從周邊電源軌切入。DDR5 把電源管理從主機板移到記憶體模組上（每條 DIMM 一顆 PMIC），讓台廠取得 Intel/AMD 平台認證後可進入伺服器市場。垂直供電（VPD）則把電源模組放到 GPU 正背面，以縮短大電流路徑。",
+      "companies": [
+        {
+          "ticker": "8081",
+          "name": "致新",
+          "verdict": "confirmed",
+          "role": "老牌類比 IC 設計公司，PMIC 占營收八成以上，應用以面板、筆電、伺服器、工控為主；受惠 AI 伺服器與 DDR5",
+          "core": 2,
+          "sources": ["https://blog.fugle.tw/post/earnings-call-8081-2026-02-10", "https://uc913.com/stock-8081/"],
+          "note": ""
+        },
+        {
+          "ticker": "6415",
+          "name": "矽力*-KY",
+          "verdict": "confirmed",
+          "role": "台股 PMIC 龍頭，產品橫跨 DC-DC、AC-DC、車用與資料中心，AI 伺服器 SPS 與 Vcore 晶片滲透率提升，車用營收占約 13–14%",
+          "core": 3,
+          "sources": ["https://news.cnyes.com/news/id/6238192", "https://vocus.cc/article/69e60f70fd89780001ce9a0c"],
+          "note": ""
+        },
+        {
+          "ticker": "6719",
+          "name": "力智",
+          "verdict": "confirmed",
+          "role": "聚焦伺服器 CPU/GPU 電源管理、DrMOS、Power Stage，並延伸至電源模組、伺服器電源與 BBU",
+          "core": 2,
+          "sources": [
+            "https://udn.com/news/story/7253/9483375",
+            "https://readmo.cmoney.tw/article/8db432d5-2599-485f-98e5-dbf9488cb420"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6138",
+          "name": "茂達",
+          "verdict": "confirmed",
+          "role": "PMIC 與風扇馬達驅動 IC 雙主軸，為少數通過 Intel/AMD 平台認證的台系 DDR5 PMIC 供應商，並切入 AI 伺服器 48V 三相風扇驅動",
+          "core": 2,
+          "sources": [
+            "https://www.pocket.tw/school/report/SCHOOL/6357/",
+            "https://vocus.cc/article/69ff2544fd8978000100ee35"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "high-speed-transmission",
+      "name": "高速傳輸（材料／線纜）",
+      "category": "ai-hpc",
+      "summary": "AI 伺服器與交換器的高速訊號傳輸硬體：高速 CCL（台光電、台燿、聯茂）與高速銅纜（貿聯）。聯電不屬於此族群核心，僅透過矽光子代工沾邊。",
+      "engineeringNotes": "SerDes 單通道速率由 112G 走向 224G PAM4 後，PCB 損耗容許量急遽縮小，CCL 必須從 M7 升級到 M8（800G 交換器、主流 AI 伺服器）、M9（下一代 GPU 與 1.6T 交換器），層數由 20–30 層增加到 36–48 層。機櫃內 GPU 互連則以銅纜為主（GB200 NVL72 背板約 5,000 條 224G 銅纜），距離拉長時改用含 retimer 的主動式電纜 AEC，再更遠才用光纖。",
+      "companies": [
+        {
+          "ticker": "2383",
+          "name": "台光電",
+          "verdict": "confirmed",
+          "role": "全球高速 CCL 龍頭，M8 對應 800G 與主流 AI 伺服器，M9 鎖定下一代 GPU 與交換器、2026 下半年量產",
+          "core": 3,
+          "sources": ["https://news.cnyes.com/news/id/6241907", "https://www.storm.mg/article/11164365"],
+          "note": ""
+        },
+        {
+          "ticker": "6274",
+          "name": "台燿",
+          "verdict": "confirmed",
+          "role": "全球少數可供應 M7 以上高階 CCL 的廠商之一，應用以交換器、伺服器、低軌衛星為主",
+          "core": 2,
+          "sources": [
+            "https://blog.fugle.tw/post/taiwan-union-technology-analysis",
+            "https://www.ctee.com.tw/news/20260510700037-430502"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3665",
+          "name": "貿聯-KY",
+          "verdict": "confirmed",
+          "role": "高速線纜與 AEC 主動式電纜（400G 放量、1.6T 研發），已進入 GB300 供應鏈，並供應 AI 機櫃電源互連與 800V HVDC 生態",
+          "core": 3,
+          "sources": [
+            "https://news.cnyes.com/news/id/6456563",
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/201823"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2303",
+          "name": "聯電",
+          "verdict": "corrected",
+          "role": "晶圓代工廠；與高速傳輸相關的是矽光子平台（與 SILITH 合作交付 1.6T 晶圓、2027 年推 12 吋平台），並非 CCL 或線纜",
+          "core": 1,
+          "sources": ["https://news.nextapple.com/finance/20260714/161C36512AC602EEDCEF2CC40E88F44E"],
+          "note": "原值『高速傳輸核心』→ 邊緣：聯電僅以矽光子代工沾邊"
+        },
+        {
+          "ticker": "6213",
+          "name": "聯茂",
+          "verdict": "added",
+          "role": "高速 CCL 三雄之一，與台光電、台燿同受惠 M9/M10 材料升級",
+          "core": 2,
+          "sources": ["https://www.storm.mg/article/11164365"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "cxl",
+      "name": "CXL 記憶體擴充",
+      "category": "ai-hpc",
+      "summary": "以 CXL 協定擴充伺服器記憶體容量與頻寬的模組。台系模組廠中以宜鼎最具體（E3.S CXL 模組與 AIC 卡），十銓、宇瞻、威剛僅有發表或展示，量產出貨規模未見公開資料。CXL 控制晶片由三星、Astera Labs、瀾起、Marvell 等主導，台股尚無量產的 CXL 控制器。",
+      "engineeringNotes": "CXL 跑在 PCIe 實體層上（CXL 2.0 對應 PCIe Gen5、CXL 3.x 對應 Gen6），Type 3 裝置讓 CPU 以快取一致的方式存取外接 DRAM，用來突破 CPU 記憶體通道數（8 或 12 通道）的容量上限。主要用途是記憶體擴充、記憶體池化（多台主機共用）與降低大型 in-memory 資料庫、AI 推論 KV cache 的成本。CXL 模組的核心是控制器晶片，模組廠負責 DRAM 顆粒、PCB 與散熱整合。",
+      "companies": [
+        {
+          "ticker": "3260",
+          "name": "威剛",
+          "verdict": "corrected",
+          "role": "2023 年 COMPUTEX 展示符合 CXL 1.1、PCIe 5.0 x4、E3.S 規格的 CXL 模組；之後未見量產出貨資訊",
+          "core": 1,
+          "sources": ["https://www.tomshardware.com/news/adata-demos-next-gen-memory-modules"],
+          "note": "原值『CXL 出貨廠』→ 僅展示階段：查無量產出貨資料"
+        },
+        {
+          "ticker": "4967",
+          "name": "十銓",
+          "verdict": "corrected",
+          "role": "發表工業級 CXL 2.0 E3.S 記憶體模組（原生 DDR5 顆粒、石墨烯散熱）；出貨規模未見公開資料",
+          "core": 1,
+          "sources": ["https://gnn.gamer.com.tw/detail.php?sn=268433"],
+          "note": "原值『CXL 出貨廠』→ 產品發表階段：查無量產出貨資料"
+        },
+        {
+          "ticker": "8271",
+          "name": "宇瞻",
+          "verdict": "corrected",
+          "role": "於 COMPUTEX 2024 展示 DDR5 CXL DRAM 模組，鎖定 AI 伺服器；出貨規模未見公開資料",
+          "core": 1,
+          "sources": ["https://www.apacer.com/en/news/news-and-events/content/apacer-2024-computex"],
+          "note": "原值『CXL 出貨廠』→ 產品展示階段：查無量產出貨資料"
+        },
+        {
+          "ticker": "5289",
+          "name": "宜鼎",
+          "verdict": "confirmed",
+          "role": "推出 E3.S 2T CXL 記憶體模組（64/96/128GB、32GB/s）與 CXL 2.0 Type 3 AIC 擴充卡，原規劃 2025 年初出貨，專攻雲端資料中心",
+          "core": 2,
+          "sources": [
+            "https://www.ctee.com.tw/news/20240918700153-439901",
+            "https://www.innodisk.com/en/products/dram-modules/cxl/cxl-memory-module"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "pcie",
+      "name": "PCIe 介面晶片",
+      "category": "ai-hpc",
+      "summary": "PCIe switch、retimer／redriver 與控制晶片。祥碩（PCIe packet switch，AMD 生態）與譜瑞（PCIe retimer／redriver）是核心；創惟以 USB hub 為主，PCIe 只占小部分；群聯以 PCIe SSD 控制器及 Gen5 retimer 切入。",
+      "engineeringNotes": "PCIe Gen5 為 32GT/s NRZ，Gen6 為 64GT/s 並改用 PAM4＋FLIT＋FEC，Gen7 為 128GT/s。速率每代翻倍使通道損耗預算更緊，伺服器內 GPU、NIC、NVMe SSD 的連結因而需要 switch 做扇出、retimer 做訊號重建。AI 伺服器 GPU 數量與 SSD 數量增加，直接帶動 PCIe switch 與 retimer 用量。",
+      "companies": [
+        {
+          "ticker": "6104",
+          "name": "創惟",
+          "verdict": "corrected",
+          "role": "營收以 USB Type-C hub／PD（約 48%）與傳統 USB hub（約 27%）為主，PCIe 僅有 re-driver 等類比產品（約 9%），伺服器 PCIe 曝險低",
+          "core": 1,
+          "sources": ["https://blog.fugle.tw/post/earnings-call-6104-2025-08-15"],
+          "note": "原值『PCIe 核心』→ 邊緣：創惟主力為 USB，PCIe 只占小比重"
+        },
+        {
+          "ticker": "4966",
+          "name": "譜瑞-KY",
+          "verdict": "confirmed",
+          "role": "高速介面 IC 大廠，供應 PCIe Gen4–Gen7 linear redriver 與 retimer，PCIe Gen5 retimer 打入 AI 伺服器供應鏈，持續布局 Gen6",
+          "core": 3,
+          "sources": [
+            "https://blog.fugle.tw/post/earnings-call-4966-2026-09-09",
+            "https://tw.stock.yahoo.com/news/%E8%AD%9C%E7%91%9Epcie-gen5-retimer%E6%89%93%E9%80%B2ai%E4%BC%BA%E6%9C%8D%E5%99%A8%E4%BE%9B%E6%87%89%E9%8F%88-%E6%98%8E%E5%B9%B4%E7%AC%AC-%E5%AD%A3%E9%87%8F%E7%94%A2%E5%87%BA%E8%B2%A8-020225055.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "5269",
+          "name": "祥碩",
+          "verdict": "confirmed",
+          "role": "PCIe packet switch 已用於 AI 伺服器（Gen4 量產、Gen5 48–80 lane 推進中），為 AMD 晶片組主要夥伴",
+          "core": 3,
+          "sources": [
+            "https://news.cnyes.com/news/id/5604302",
+            "https://www.chinatimes.com/realtimenews/20260724002026-260410"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "8299",
+          "name": "群聯",
+          "verdict": "added",
+          "role": "PCIe SSD 控制晶片大廠，並自研 PCIe Gen5 retimer／redriver，已出貨給美超微等伺服器業者",
+          "core": 2,
+          "sources": [
+            "https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=0000695661_2JN5ORDP73W529001R85U",
+            "https://news.cnyes.com/news/id/5587878"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "serdes",
+      "name": "SerDes 高速串列 IP",
+      "category": "ai-hpc",
+      "summary": "SerDes 是 AI ASIC、交換器、retimer 的核心類比 IP。台股中真正擁有長距 224G SerDes 自研能力的是聯發科（Google TPU 訂單關鍵）；創意以晶片間互連（GLink、UCIe）與 HBM IP 見長；世芯主要整合第三方 SerDes IP；祥碩自研 PCIe/USB 等級 SerDes。",
+      "engineeringNotes": "SerDes 把平行資料轉成高速串列訊號，速率由 56G、112G 演進到 224G PAM4，需要 DSP 等化、CDR 與 FEC，是資料中心晶片最難的類比 IP 之一。目前能商業化提供 224G SerDes 的主要是 Broadcom、Marvell、聯發科，以及 Synopsys、Cadence 等 IP 廠。晶片內 die-to-die 互連（UCIe、GLink）屬短距平行介面，與長距 SerDes 是不同技術。",
+      "companies": [
+        {
+          "ticker": "3443",
+          "name": "創意",
+          "verdict": "corrected",
+          "role": "強項為 2.5D/3D 先進封裝的晶片間互連 IP（GLink、UCIe，已投片 N3P UCIe 64G）與 HBM PHY，長距乙太網 SerDes 非其主要自研 IP",
+          "core": 2,
+          "sources": [
+            "https://www.guc-asic.com/tw/solutions/IPPortfolio/Die-on-Die(3D)IP",
+            "https://www.guc-asic.com/tw/solution-ip-d2d.php"
+          ],
+          "note": "原值『SerDes 核心』→ 以 D2D 互連 IP 為主：創意的強項是 UCIe／GLink 而非 224G 長距 SerDes"
+        },
+        {
+          "ticker": "3661",
+          "name": "世芯-KY",
+          "verdict": "corrected",
+          "role": "AI ASIC 設計服務，IP 庫包含來自一線供應商的 PCIe5、112G SerDes 等，屬 IP 整合者而非 SerDes 開發者",
+          "core": 1,
+          "sources": [
+            "https://www.21ic.com/a/936394.html",
+            "https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=0000378336_EV220DM14LDM625F6I6XF"
+          ],
+          "note": "原值『SerDes 核心』→ IP 整合者：世芯 SerDes 多採第三方授權"
+        },
+        {
+          "ticker": "5269",
+          "name": "祥碩",
+          "verdict": "confirmed",
+          "role": "自研 USB4／PCIe 等介面 SerDes，Gen5 與 USB4 v2 產品採 12nm，新一代 switch／retimer 推進至 6nm",
+          "core": 2,
+          "sources": ["https://news.cnyes.com/news/id/5604302"],
+          "note": ""
+        },
+        {
+          "ticker": "2454",
+          "name": "聯發科",
+          "verdict": "added",
+          "role": "歷經 10 年自研 224G SerDes，為少數可商業化的業者之一，是拿下 Google TPU ASIC 訂單的關鍵",
+          "core": 3,
+          "sources": [
+            "https://www.bnext.com.tw/article/83399/mediatek-ceo-story",
+            "https://technews.tw/2026/02/21/google-tpu-mediatek/"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "high-speed-switch",
+      "name": "高速交換器（整機）",
+      "category": "ai-hpc",
+      "summary": "資料中心 800G／1.6T 乙太網交換器與 NVLink switch tray 的台系代工廠。智邦為白牌交換器龍頭；明泰 800G 仍在送樣量產爬坡階段；鴻海獨家拿下 GB200 NVLink switch tray，緯穎承接部分客戶 switch tray 組裝。",
+      "engineeringNotes": "交換器整機由交換 ASIC（Broadcom Tomahawk、NVIDIA Spectrum-X、Marvell Teralynx）、高層數 PCB、光模組籠與電源散熱組成；ASIC 頻寬每兩年翻倍（51.2T → 102.4T），對應 800G → 1.6T 埠速。AI 叢集分為 scale-out（機櫃間乙太網／InfiniBand）與 scale-up（機櫃內 NVLink），GB200 NVL72 內含 9 個 NVLink switch tray，各有 2 顆 NVSwitch 晶片。下一步是共封裝光學（CPO）交換器。",
+      "companies": [
+        {
+          "ticker": "2345",
+          "name": "智邦",
+          "verdict": "confirmed",
+          "role": "白牌資料中心交換器龍頭，800G 放量、1.6T 自 2026 年出貨，另有客製 AI 加速卡；8 月營收破 400 億元創新高",
+          "core": 3,
+          "sources": [
+            "https://www.ctee.com.tw/news/20260929700959-430201",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=3b3a975f-6b82-4497-a201-23fbabda8430",
+            "https://www.ctee.com.tw/news/20260907701179-430502"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3380",
+          "name": "明泰",
+          "verdict": "confirmed",
+          "role": "轉型資料中心交換器，400G 放量、800G 送樣後量產，1.6T 液冷交換器規劃中；營收規模與智邦差距大",
+          "core": 1,
+          "sources": ["https://news.cnyes.com/news/id/6288270", "https://news.cnyes.com/news/id/6405995"],
+          "note": ""
+        },
+        {
+          "ticker": "2317",
+          "name": "鴻海",
+          "verdict": "added",
+          "role": "獨家拿下 NVIDIA GB200 NVLink switch tray 代工，數量約為機櫃的 7 倍，毛利高於伺服器組裝",
+          "core": 2,
+          "sources": ["https://money.udn.com/money/story/5612/8037218", "https://hao.cnyes.com/post/171533"],
+          "note": ""
+        },
+        {
+          "ticker": "2356",
+          "name": "英業達",
+          "verdict": "unverified",
+          "role": "為博通 800G AI 乙太網卡合作夥伴，但查無交換器整機或 NVLink switch tray 代工的具體出貨資料",
+          "core": 1,
+          "sources": [],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "retimer",
+      "name": "Retimer",
+      "category": "ai-hpc",
+      "summary": "PCIe／CXL／乙太網的訊號重建晶片。全球由 Astera Labs 主導（PCIe retimer 市佔約 6 成，Gen6 幾乎獨家量產），Broadcom、Marvell、瀾起追趕。台股中確實有 PCIe Gen5 retimer 量產的是譜瑞與群聯；祥碩 retimer 仍在開發；創惟僅有 redriver。",
+      "engineeringNotes": "Redriver 只做類比放大與等化，會連同雜訊一起放大；retimer 則內含完整 SerDes 與 CDR，把訊號解出後重新發送，可延長 PCIe 通道距離並隔離損耗預算。PCIe Gen6 改用 PAM4 後訊號裕度大幅縮小，retimer 從選配變成 GPU tray、NIC、SSD 背板、CXL 擴充的標配；延伸到機櫃外的銅纜則把 retimer 內建在 AEC 線材中。",
+      "companies": [
+        {
+          "ticker": "6104",
+          "name": "創惟",
+          "verdict": "removed",
+          "role": "PCIe 相關產品僅有 re-driver（類比產品約占營收 9%），無 retimer 量產",
+          "core": 1,
+          "sources": ["https://blog.fugle.tw/post/earnings-call-6104-2025-08-15"],
+          "note": "原值『Retimer』→ 移除：創惟只有 redriver，不是 retimer"
+        },
+        {
+          "ticker": "4966",
+          "name": "譜瑞-KY",
+          "verdict": "confirmed",
+          "role": "台股 retimer 最核心：USB4 retimer 在 AMD／高通平台居主導，PCIe Gen5 retimer 打入 AI 伺服器，收購 Spectrum7 IP 推進 Gen6 retimer",
+          "core": 3,
+          "sources": [
+            "https://tw.stock.yahoo.com/news/%E8%AD%9C%E7%91%9Epcie-gen5-retimer%E6%89%93%E9%80%B2ai%E4%BC%BA%E6%9C%8D%E5%99%A8%E4%BE%9B%E6%87%89%E9%8F%88-%E6%98%8E%E5%B9%B4%E7%AC%AC-%E5%AD%A3%E9%87%8F%E7%94%A2%E5%87%BA%E8%B2%A8-020225055.html",
+            "https://www.ctee.com.tw/news/20260516700016-430502",
+            "https://wealth.firstbank.com.tw/investment-tips/trend-insight/news/news-detail?id=%7BE59D4281-D947-4644-9EE7-A84B35AECD3A%7D"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "5269",
+          "name": "祥碩",
+          "verdict": "corrected",
+          "role": "以 PCIe packet switch 為主，新一代 retimer 產品仍在往 12nm／6nm 開發，尚無量產 PCIe retimer 公開資料",
+          "core": 1,
+          "sources": ["https://news.cnyes.com/news/id/5604302"],
+          "note": "原值『Retimer 核心』→ 開發中：祥碩主力是 PCIe switch"
+        },
+        {
+          "ticker": "8299",
+          "name": "群聯",
+          "verdict": "added",
+          "role": "PCIe Gen5 retimer 已量產出貨，十餘家客戶完成驗證，切入美超微等伺服器業者，自稱台灣唯一切入此領域的業者",
+          "core": 2,
+          "sources": [
+            "https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=0000695661_2JN5ORDP73W529001R85U",
+            "https://news.cnyes.com/news/id/5587878"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2454",
+          "name": "聯發科",
+          "verdict": "added",
+          "role": "把 PCIe Gen5/6/7 與 800G/1.6T retimer 核心技術模組化為自有 IP，用於資料中心機架互連，非獨立 retimer 晶片供應商",
+          "core": 1,
+          "sources": ["https://www.ctee.com.tw/news/20260516700016-430502"],
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "globalPlayers": [
+    {
+      "groupId": "power-sic",
+      "name": "Infineon",
+      "country": "DE",
+      "role": "全球功率半導體龍頭，Si/SiC/GaN 全產品線，NVIDIA 800VDC 合作夥伴並發表 12kW GaN+SiC 參考設計；GB200 PMIC 份額估約 6–7 成",
+      "sources": [
+        "https://www.powerelectronicsnews.com/powering-the-future-how-nvidia-and-infineon-are-reinventing-ai-data-center-architecture/",
+        "https://www.eenewseurope.com/en/nvidia-consortium-pushes-800v-power-distribution-for-ai-datacentres/"
+      ]
+    },
+    {
+      "groupId": "power-sic",
+      "name": "onsemi",
+      "country": "US",
+      "role": "SiC 主力供應商之一，列名 NVIDIA 800VDC 架構 14 家晶片夥伴",
+      "sources": ["https://compoundsemiconductor.net/article/122292/Is_Nvidia_defining_the_future_of_power_electronics"]
+    },
+    {
+      "groupId": "power-sic",
+      "name": "STMicroelectronics",
+      "country": "CH",
+      "role": "車用 SiC MOSFET 大廠，列名 NVIDIA 800VDC 架構晶片夥伴",
+      "sources": [
+        "https://www.eenewseurope.com/en/nvidia-consortium-pushes-800v-power-distribution-for-ai-datacentres/"
+      ]
+    },
+    {
+      "groupId": "power-gan",
+      "name": "Navitas",
+      "country": "US",
+      "role": "GaNFast／GeneSiC 功率元件，與 NVIDIA 合作 800V HVDC；GaN 代工由台積電轉往力積電",
+      "sources": [
+        "https://compoundsemiconductor.net/article/121803/NVIDIA_and_Navitas_to_collaborate_on_800V_HVDC_architecture",
+        "https://news.cnyes.com/news/id/6047250"
+      ]
+    },
+    {
+      "groupId": "pmic",
+      "name": "Texas Instruments",
+      "country": "US",
+      "role": "類比與 PMIC 龍頭，整合式 GaN 方案供應群電、光寶等電源廠，列名 NVIDIA 800VDC 夥伴",
+      "sources": ["https://udn.com/news/story/7240/6838399", "https://www.ctee.com.tw/news/20230302701128-430502"]
+    },
+    {
+      "groupId": "pmic",
+      "name": "Monolithic Power Systems (MPS)",
+      "country": "US",
+      "role": "AI GPU Vcore 電源模組主要供應商，Blackwell 世代份額由獨家逐步被 Infineon、Renesas 分食",
+      "sources": ["https://nuttycld.substack.com/p/the-ai-power-crisis-part-3"]
+    },
+    {
+      "groupId": "pmic",
+      "name": "Infineon",
+      "country": "DE",
+      "role": "多相 Vcore 控制器、Power Stage 與垂直供電模組，與台達電合作 VPD",
+      "sources": [
+        "https://www.electronicdesign.com/technologies/power/video/55362417/electronic-design-infineon-unveils-vertical-power-modules-to-supply-ai-silicon"
+      ]
+    },
+    {
+      "groupId": "retimer",
+      "name": "Astera Labs",
+      "country": "US",
+      "role": "PCIe retimer 龍頭（市佔約 6 成），Aries PCIe Gen6 retimer 為目前唯一大量出貨者",
+      "sources": [
+        "https://iamfabian.substack.com/p/the-architecture-of-ai-interconnect",
+        "https://www.marketsandmarkets.com/Market-Reports/global-retimer-market-224754448.html"
+      ]
+    },
+    {
+      "groupId": "retimer",
+      "name": "Broadcom",
+      "country": "US",
+      "role": "挾 SerDes IP 與 PCIe switch 優勢進入 retimer 市場",
+      "sources": ["https://iamfabian.substack.com/p/the-architecture-of-ai-interconnect"]
+    },
+    {
+      "groupId": "retimer",
+      "name": "Marvell",
+      "country": "US",
+      "role": "以 SerDes IP 切入 PCIe retimer 與 CXL 控制器",
+      "sources": ["https://www.marvell.com/products/cxl.html"]
+    },
+    {
+      "groupId": "retimer",
+      "name": "瀾起科技（Montage）",
+      "country": "CN",
+      "role": "PCIe 5.0/CXL 2.0 retimer 已量產，推出 Gen6 retimer 挑戰既有廠商",
+      "sources": ["https://n.yam.com/Article/20230106575926", "https://finance.biggo.com/news/pCWJlp4BYH_ypPqOTYJz"]
+    },
+    {
+      "groupId": "high-speed-switch",
+      "name": "Broadcom",
+      "country": "US",
+      "role": "商用交換 ASIC 霸主，Tomahawk 6 達 102.4Tbps（64 埠 1.6TbE），並有 CPO 版本",
+      "sources": [
+        "https://www.theregister.com/2025/06/04/broadcom_tomahawk_6/",
+        "https://www.servethehome.com/broadcom-tomahawk-6-launched-for-1-6tbe-generation/"
+      ]
+    },
+    {
+      "groupId": "high-speed-switch",
+      "name": "NVIDIA",
+      "country": "US",
+      "role": "Spectrum-X 乙太網與 Quantum InfiniBand 交換器，以及 NVLink Switch 晶片",
+      "sources": ["https://www.theregister.com/2025/06/04/broadcom_tomahawk_6/"]
+    },
+    {
+      "groupId": "high-speed-switch",
+      "name": "Marvell",
+      "country": "US",
+      "role": "Teralynx 交換 ASIC（併購 Innovium），商用交換晶片第二名",
+      "sources": ["https://www.nextplatform.com/2025/06/03/the-ai-datacenter-is-ravenous-for-102-4-tb-sec-ethernet/"]
+    },
+    {
+      "groupId": "high-speed-transmission",
+      "name": "Amphenol",
+      "country": "US",
+      "role": "GB200 NVL72 NVLink 背板 Paladin HD 224G 連接器與銅纜主要供應商",
+      "sources": [
+        "https://newsletter.semianalysis.com/p/gb200-hardware-architecture-and-component",
+        "https://www.diskmfr.com/nvidia-gpu-copper-cable-interconnect-technology-explained/"
+      ]
+    }
+  ]
+}

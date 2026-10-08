@@ -207,4 +207,35 @@ export const PROCESS_CHAINS: Record<ProcessChainId, ProcessChain> = {
       },
     ],
   },
+  rack: {
+    id: 'rack',
+    name: '從晶片到 AI 機櫃',
+    steps: [
+      {
+        title: 'GPU 封裝與測試完成',
+        description: 'CoWoS 封裝、FT／SLT 測試完成的 GPU（見封裝與測試場景）。',
+        produces: ['gpu-module'],
+      },
+      {
+        title: '模組板組裝（L6）',
+        description: 'GPU、CPU、記憶體、VRM 焊上高多層模組板，裝上液冷冷板。',
+        produces: ['gpu-module', 'vrm', 'memory-module', 'cooling'],
+      },
+      {
+        title: '托盤組裝（L10）',
+        description: '模組板與網路卡、Retimer、連接器組成運算托盤；交換晶片組成 NVLink 交換托盤。',
+        produces: ['compute-tray', 'nic', 'retimer-chip', 'nvlink-switch'],
+      },
+      {
+        title: '整櫃整合（L11）',
+        description: '托盤、銅纜背板、電源櫃、液冷管路整合成整櫃並通電測試。',
+        produces: ['rack-frame', 'nvlink-spine', 'power-shelf', 'psu', 'cooling'],
+      },
+      {
+        title: '機櫃互連（Scale-out）',
+        description: '以交換器與 800G／1.6T 光模組、光纖把數百個機櫃連成大型 GPU 叢集。',
+        produces: ['tor-switch', 'optical-module', 'fiber-cable'],
+      },
+    ],
+  },
 };

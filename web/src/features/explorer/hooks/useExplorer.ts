@@ -35,6 +35,8 @@ function linkOf(id: string): LinkItem | null {
   return null;
 }
 
+const uniqueById = <T extends { id: string }>(items: T[]) => [...new Map(items.map((i) => [i.id, i])).values()];
+
 const links = (ids: string[]) => ids.map(linkOf).filter((l): l is LinkItem => l !== null);
 
 /** 3D 錨點（層或材料）→ 實際要高亮的渲染層 */
@@ -75,12 +77,31 @@ function unionBounds(layout: StackLayout, ids: Iterable<string>): FocusBox | nul
   };
 }
 
-const LABEL_NUDGE: Partial<Record<LayerId, number>> = { gpu: -0.35, hbm: 0.35 };
+/** 場景切換列依製程順序排列 */
+const SCENE_ORDER: SceneKey[] = ['fab', 'package', 'test', 'rack'];
+
+const LAYER_VARIANT_SLOT: Partial<Record<LayerId, VariantSlot>> = {
+  interposer: 'interposer',
+  substrate: 'substrate',
+  'tor-switch': 'switch',
+};
+
+/** 同高度的標籤上下錯開避免重疊 */
+const LABEL_NUDGE: Partial<Record<LayerId, number>> = {
+  gpu: -0.35,
+  hbm: 0.35,
+  'tor-switch': 0.5,
+  'fiber-cable': -0.45,
+  cooling: 0.35,
+  'nvlink-spine': 1.2,
+};
 
 interface SceneConfig {
   labels: LayerId[];
   /** 組裝狀態（爆炸 < 0.15）下會擋住內部、暫不可點擊的層 */
   covers: LayerId[];
+  /** 永遠不可點擊的外框類物件（仍可從搜尋選取） */
+  alwaysPassive?: LayerId[];
   home: { position: [number, number, number]; target: [number, number, number] };
 }
 
@@ -100,6 +121,21 @@ const SCENES: Record<SceneKey, SceneConfig> = {
     ],
     covers: [],
     home: { position: [4, 32, 42], target: [0, 0, 1] },
+  },
+  rack: {
+    labels: [
+      'tor-switch',
+      'optical-module',
+      'fiber-cable',
+      'power-shelf',
+      'compute-tray',
+      'nvlink-switch',
+      'nvlink-spine',
+      'cooling',
+    ],
+    covers: [],
+    alwaysPassive: ['rack-frame'],
+    home: { position: [17, 13, 21], target: [0, 4, 0] },
   },
   package: {
     labels: ['lid', 'gpu', 'hbm', 'ubump', 'interposer', 'c4', 'substrate', 'bga', 'server-pcb'],
@@ -166,6 +202,7 @@ export function useExplorer() {
     explode: state.explode,
     interposerVariant: variants.interposer,
     substrateVariant: variants.substrate,
+    switchVariant: variants.switch,
   });
 
   const highlightIds = useMemo(() => highlightFor(selection, catalog), [selection, catalog]);
@@ -181,11 +218,11 @@ export function useExplorer() {
     return config.labels.flatMap((id) => {
       const b = layout.bounds[id];
       if (!b) return [];
-      // GPU 與 HBM 在同一槽位，標籤上下錯開避免重疊
-      const dy = LABEL_NUDGE[id] ?? 0;
-      return [
-        { id, name: LAYER_MAP[id].name, position: [b.center[0] + b.size[0] / 2 + 0.2, b.center[1] + dy, b.center[2]] },
-      ];
+      // 重複出現的零件（多個托盤、電源櫃）標在第一個實體的高度，x 對齊整體右緣
+      const first = layout.blocks.find((blk) => blk.layerId === id);
+      const y = (first ? first.position[1] : b.center[1]) + (LABEL_NUDGE[id] ?? 0);
+      const z = first ? first.position[2] : b.center[2];
+      return [{ id, name: LAYER_MAP[id].name, position: [b.center[0] + b.size[0] / 2 + 0.2, y, z] }];
     });
   }, [layout, state.explode, config]);
 
@@ -237,7 +274,7 @@ export function useExplorer() {
       labels,
       focus,
       focusKey: state.focusKey,
-      passiveIds: state.explode < 0.15 ? config.covers : [],
+      passiveIds: [...(config.alwaysPassive ?? []), ...(state.explode < 0.15 ? config.covers : [])],
       home: config.home,
       onSelectLayer: (id: string) => actions.select({ kind: 'layer', id }),
       onHoverLayer: actions.hoverLayer,
@@ -272,7 +309,7 @@ export function useExplorer() {
     },
     sceneSwitch: {
       value: scene,
-      options: (Object.keys(SCENES) as SceneKey[]).map((key) => ({ value: key, label: SCENE_LABEL[key] })),
+      options: SCENE_ORDER.map((key) => ({ value: key, label: SCENE_LABEL[key] })),
       onChange: actions.setScene,
     },
   };
@@ -302,15 +339,17 @@ function buildCard(
 
   if (selection.kind === 'layer' && isLayer(selection.id)) {
     const layer = LAYER_MAP[selection.id];
-    const slot: VariantSlot | null =
-      layer.id === 'interposer' ? 'interposer' : layer.id === 'substrate' ? 'substrate' : null;
+    const slot = LAYER_VARIANT_SLOT[layer.id] ?? null;
     return {
       kind: 'layer',
       layer,
       parent: layer.parent ? (linkOf(layer.parent) ?? undefined) : undefined,
       children: links(LAYERS.filter((l) => l.parent === layer.id).map((l) => l.id)),
+      related: links(layer.related ?? []),
       materials: links(layer.materials),
-      sectors: [layer.id, ...(layer.parent ? [layer.parent] : [])].flatMap((id) => catalog.groupsForTarget(id)),
+      sectors: uniqueById(
+        [layer.id, ...(layer.parent ? [layer.parent] : [])].flatMap((id) => catalog.groupsForTarget(id)),
+      ),
       chain: chainView(layer.processChain, layer.id),
       variant: slot ? variantView(slot, layer.variants, variants[slot]) : undefined,
       microView: layer.microView,

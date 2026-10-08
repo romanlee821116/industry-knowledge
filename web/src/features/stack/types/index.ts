@@ -46,16 +46,33 @@ export type LayerId =
   | 'inspection-tool'
   | 'vacuum-pump'
   | 'amhs'
-  | 'process-flow';
+  | 'process-flow'
+  // 伺服器機櫃場景
+  | 'rack-frame'
+  | 'compute-tray'
+  | 'gpu-module'
+  | 'vrm'
+  | 'memory-module'
+  | 'retimer-chip'
+  | 'nic'
+  | 'cooling'
+  | 'nvlink-switch'
+  | 'nvlink-spine'
+  | 'tor-switch'
+  | 'optical-module'
+  | 'fiber-cable'
+  | 'power-shelf'
+  | 'psu';
 
 /** 已建模的 3D 場景 */
-export type SceneKey = 'fab' | 'package' | 'test';
+export type SceneKey = 'fab' | 'package' | 'test' | 'rack';
 
 export type MaterialId = 'glass-fabric' | 'ccl' | 'abf-film' | 'copper-foil' | 'resin';
 
-export type MicroViewId = 'glass-fabric' | 'substrate-section' | 'probe-contact' | 'pogo-pin' | 'chip-section';
+export type MicroViewId =
+  'glass-fabric' | 'substrate-section' | 'probe-contact' | 'pogo-pin' | 'chip-section' | 'transceiver';
 
-export type ProcessChainId = 'laminate' | 'substrate' | 'cowos' | 'test' | 'fab';
+export type ProcessChainId = 'laminate' | 'substrate' | 'cowos' | 'test' | 'fab' | 'rack';
 
 /** 材料色票 key：技術插畫風，每種材料固定一色 */
 export type PaletteKey =
@@ -118,6 +135,8 @@ export interface StackLayer {
   /** 所屬場景，未填為 package */
   scene?: SceneKey;
   parent?: LayerId;
+  /** 其他場景中相關的結構（知識卡上可直接跳轉） */
+  related?: LayerId[];
   microView?: MicroViewId;
   processChain?: ProcessChainId;
   variants?: Variant[];
