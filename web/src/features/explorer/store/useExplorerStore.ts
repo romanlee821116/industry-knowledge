@@ -33,14 +33,14 @@ interface ExplorerState {
   resetView: () => void;
 }
 
-/** 測試場景的零件上下疊在一起看不出結構，切換過去時預設拉開 */
-const SCENE_DEFAULT_EXPLODE: Record<SceneKey, number> = { fab: 0.5, package: 0, test: 1, rack: 0.5 };
+/** 各場景預設拉開程度：封裝與測試的零件上下疊在一起，預設拉開才看得到內部 */
+const SCENE_DEFAULT_EXPLODE: Record<SceneKey, number> = { fab: 0.5, package: 0.4, test: 1, rack: 0.5 };
 
 export const useExplorerStore = create<ExplorerState>((set) => ({
   scene: 'package',
   selection: null,
   hoveredLayer: null,
-  explode: 0,
+  explode: SCENE_DEFAULT_EXPLODE.package,
   clipEnabled: false,
   clipX: 0,
   variants: { interposer: 'cowos-l', substrate: 'organic-core', 'glass-fabric': 'low-cte', switch: 'pluggable' },

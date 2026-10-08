@@ -1,37 +1,68 @@
+import { useGLTF } from '@react-three/drei';
 import { useMemo } from 'react';
 
 import FAB_META from '../data/generated/fab-scene.meta.json';
+import PACKAGE_META from '../data/generated/package-scene.meta.json';
+import RACK_META from '../data/generated/rack-scene.meta.json';
+import TEST_META from '../data/generated/test-scene.meta.json';
 import { LAYERS } from '../data/layers';
-import type { LayerId, PaletteKey, SceneKey, StackLayout } from '../types';
-import { createLayoutBuilder, grid, type Vec3 } from './layoutBuilder';
+import type { LayerId, SceneKey, StackLayout } from '../types';
+
+/** 與 SceneModel 的爆炸間距一致 */
+export const EXPLODE_GAP = 0.9;
+
+type Vec3 = [number, number, number];
+
+interface MetaEntry {
+  center: number[];
+  size: number[];
+  tier: number;
+  anchor: number[];
+}
+
+/** 各場景的幾何全部來自 Blender（blender/*_scene.py），這裡只讀模型路徑與各層包圍盒 */
+const SCENES: Record<SceneKey, { url: string; meta: Record<string, MetaEntry> }> = {
+  fab: { url: '/models/fab_scene.glb', meta: FAB_META },
+  package: { url: '/models/package_scene.glb', meta: PACKAGE_META },
+  test: { url: '/models/test_scene.glb', meta: TEST_META },
+  rack: { url: '/models/rack_scene.glb', meta: RACK_META },
+};
+
+// 預先載入四個場景，切換場景時不必暫停渲染（避免 Html 標籤在 Suspense 中途卸載）
+Object.values(SCENES).forEach(({ url }) => useGLTF.preload(url));
+
+function union(a: StackLayout['bounds'][LayerId], b: StackLayout['bounds'][LayerId]) {
+  const lo = a.center.map((c, i) => Math.min(c - a.size[i] / 2, b.center[i] - b.size[i] / 2));
+  const hi = a.center.map((c, i) => Math.max(c + a.size[i] / 2, b.center[i] + b.size[i] / 2));
+  return {
+    center: [0, 1, 2].map((i) => (lo[i] + hi[i]) / 2) as Vec3,
+    size: [0, 1, 2].map((i) => hi[i] - lo[i]) as Vec3,
+  };
+}
 
 interface Options {
   scene: SceneKey;
   explode: number;
-  interposerVariant: string;
-  substrateVariant: string;
-  switchVariant: string;
 }
 
-/** 依場景計算每個方塊的位置（厚度誇張化，非真實比例） */
-export function useStackLayout({
-  scene,
-  explode,
-  interposerVariant,
-  substrateVariant,
-  switchVariant,
-}: Options): StackLayout {
-  return useMemo(
-    () =>
-      scene === 'test'
-        ? buildTest(explode)
-        : scene === 'fab'
-          ? buildFab()
-          : scene === 'rack'
-            ? buildRack(explode, switchVariant)
-            : buildPackage(explode, interposerVariant, substrateVariant),
-    [scene, explode, interposerVariant, substrateVariant, switchVariant],
-  );
+/** 依爆炸程度把各層包圍盒與標籤錨點往上平移（tier × explode × gap），並讓父層包含子層 */
+export function useStackLayout({ scene, explode }: Options): StackLayout {
+  return useMemo(() => {
+    const { url, meta } = SCENES[scene];
+    const bounds = {} as StackLayout['bounds'];
+    const anchors = {} as StackLayout['anchors'];
+    for (const [id, e] of Object.entries(meta)) {
+      const lift = e.tier * explode * EXPLODE_GAP;
+      bounds[id as LayerId] = { center: [e.center[0], e.center[1] + lift, e.center[2]], size: e.size as Vec3 };
+      anchors[id as LayerId] = [e.anchor[0], e.anchor[1] + lift, e.anchor[2]];
+    }
+    for (const layer of LAYERS) {
+      const own = bounds[layer.id];
+      if (!own || !layer.parent) continue;
+      bounds[layer.parent] = bounds[layer.parent] ? union(bounds[layer.parent], own) : own;
+    }
+    return { bounds, anchors, model: { url } };
+  }, [scene, explode]);
 }
 
 /** 把父層（例如 substrate）展開成實際渲染的子層 id */
@@ -41,357 +72,4 @@ export function expandLayerIds(ids: string[]): Set<string> {
     if (layer.parent && out.has(layer.parent)) out.add(layer.id);
   }
   return out;
-}
-
-function buildPackage(explode: number, interposerVariant: string, substrateVariant: string): StackLayout {
-  const b = createLayoutBuilder(explode);
-
-  // --- PCB：多層 CCL，側面看得到內層銅 ---
-  const pcbT = 0.7;
-  b.block('pcb', 'server-pcb', [24, pcbT, 20], 'pcb');
-  for (let i = 1; i < 6; i++) {
-    b.fixedBlock({
-      key: `pcb-cu-${i}`,
-      layerId: 'server-pcb',
-      size: [24.04, 0.025, 20.04],
-      palette: 'copper',
-      position: [0, (pcbT * i) / 6, 0],
-    });
-  }
-  b.advance(pcbT);
-  b.nextSlot();
-
-  // --- BGA ---
-  const bgaH = 0.5;
-  b.instances({
-    key: 'bga',
-    layerId: 'bga',
-    shape: 'sphere',
-    radius: 0.28,
-    height: bgaH,
-    palette: 'solder',
-    positions: grid(13, 13, 11, 11, b.liftedY + bgaH / 2),
-  });
-  b.advance(bgaH);
-  b.nextSlot();
-
-  // --- ABF 載板：防焊 / 增層 / 核心 / 增層 / 防焊 ---
-  const sub = 12;
-  const glassCore = substrateVariant === 'glass-core';
-  const subLayers: [string, LayerId, number, PaletteKey, number?][] = [
-    ['mask-bot', 'solder-mask', 0.06, 'mask'],
-    ['buildup-bot', 'substrate-buildup', 0.3, 'abf'],
-    ['core', 'substrate-core', 0.45, glassCore ? 'glassCore' : 'core', glassCore ? 0.75 : undefined],
-    ['buildup-top', 'substrate-buildup', 0.3, 'abf'],
-    ['mask-top', 'solder-mask', 0.06, 'mask'],
-  ];
-  for (const [key, id, t, palette, opacity] of subLayers) {
-    b.block(key, id, [sub, t, sub], palette, { opacity });
-    b.advance(t);
-    b.nextSlot();
-  }
-
-  // --- C4 + underfill ---
-  const ipW = 8;
-  const ipD = 6;
-  const c4H = 0.22;
-  b.instances({
-    key: 'c4',
-    layerId: 'c4',
-    shape: 'sphere',
-    radius: 0.11,
-    height: c4H,
-    palette: 'solder',
-    positions: grid(20, 15, ipW - 0.4, ipD - 0.4, b.liftedY + c4H / 2),
-  });
-  b.block('underfill', 'c4', [ipW + 0.3, c4H, ipD + 0.3], 'underfill', { opacity: 0.35 });
-  b.advance(c4H);
-  b.nextSlot();
-
-  // --- 中介層（S / R / L） ---
-  const ipT = 0.28;
-  b.block('interposer', 'interposer', [ipW, ipT, ipD], interposerVariant === 'cowos-s' ? 'silicon' : 'organicRdl');
-  if (interposerVariant === 'cowos-l') {
-    // LSI 局部矽橋：位於 GPU 與 GPU、GPU 與 HBM 交界下方；略高於中介層，上下表面露出、不與 RDL 面重疊閃爍
-    const bridges: [number, number][] = [
-      [0, -0.9],
-      [0, 0.9],
-      ...[-2.1, -0.7, 0.7, 2.1].flatMap<[number, number]>((z) => [
-        [-2.6, z],
-        [2.6, z],
-      ]),
-    ];
-    bridges.forEach(([x, z], i) =>
-      b.block(`lsi-${i}`, 'interposer', [0.7, ipT + 0.012, 0.45], 'silicon', { offset: [x, -0.006, z] }),
-    );
-  }
-  b.advance(ipT);
-  b.nextSlot();
-
-  // --- µBump ---
-  const ubH = 0.1;
-  const dieW = 2.4;
-  const dieD = 3.4;
-  const gpuX = [-1.3, 1.3];
-  const hbmX = [-3.3, 3.3];
-  const hbmZ = [-2.1, -0.7, 0.7, 2.1];
-  const ubY = b.liftedY + ubH / 2;
-  b.instances({
-    key: 'ubump',
-    layerId: 'ubump',
-    shape: 'cylinder',
-    radius: 0.045,
-    height: ubH,
-    palette: 'copper',
-    positions: [
-      ...gpuX.flatMap((x) => grid(12, 16, dieW - 0.3, dieD - 0.3, ubY, x)),
-      ...hbmX.flatMap((x) => hbmZ.flatMap((z) => grid(5, 5, 0.8, 0.9, ubY, x, z))),
-    ],
-  });
-  b.advance(ubH);
-  b.nextSlot();
-
-  // --- GPU 晶粒 + HBM 堆疊（同一槽位） ---
-  const dieT = 0.45;
-  gpuX.forEach((x, i) => b.block(`gpu-${i}`, 'gpu', [dieW, dieT, dieD], 'die', { offset: [x, 0, 0] }));
-  const sliceT = 0.07;
-  hbmX.forEach((x, i) =>
-    hbmZ.forEach((z, j) => {
-      for (let k = 0; k < 9; k++) {
-        b.block(`hbm-${i}-${j}-${k}`, 'hbm', [1.1, sliceT - 0.008, 1.2], k === 0 ? 'die' : 'hbm', {
-          offset: [x, k * sliceT, z],
-        });
-      }
-    }),
-  );
-  b.advance(Math.max(dieT, 9 * sliceT));
-  b.nextSlot();
-
-  // --- 蓋板 ---
-  b.advance(0.15);
-  b.block('lid', 'lid', [sub, 0.2, sub], 'lid', { opacity: 0.28 });
-
-  return b.build();
-}
-
-/** 測試場景：左 CP（探針卡壓晶圓）、右 FT（測試座接封裝） */
-function buildTest(explode: number): StackLayout {
-  const b = createLayoutBuilder(explode);
-  const step = (h: number) => {
-    b.advance(h);
-    b.nextSlot();
-  };
-
-  // ===== CP 晶圓測試站 =====
-  b.column(-7.5);
-  b.block('chuck', 'prober-chuck', [9, 0.6, 9], 'chuck', { shape: 'cylinder' });
-  step(0.6);
-
-  b.block('wafer', 'wafer', [8, 0.08, 8], 'silicon', { shape: 'cylinder' });
-  const dies: Vec3[] = grid(9, 9, 6.4, 6.4, 0).filter(([x, , z]) => Math.hypot(x, z) < 3.6);
-  dies.forEach(([x, , z], i) => b.block(`die-${i}`, 'wafer', [0.68, 0.02, 0.68], 'die', { offset: [x, 0.08, z] }));
-  step(0.1);
-
-  // 探針：針尖朝下，下端略突出探針頭底面
-  const headT = 0.5;
-  const pinH = 0.65;
-  const gap = 0.15;
-  b.instances({
-    key: 'probes',
-    layerId: 'probe-head',
-    shape: 'cylinder',
-    radius: 0.025,
-    height: pinH,
-    palette: 'probe',
-    positions: grid(16, 16, 2.0, 2.0, b.liftedY + gap + pinH / 2),
-  });
-  b.block('probe-head', 'probe-head', [2.4, headT, 2.4], 'ceramic', { offset: [0, gap + 0.1, 0], opacity: 0.55 });
-  step(gap + 0.1 + headT);
-
-  b.block('st', 'space-transformer', [3.4, 0.25, 3.4], 'st');
-  step(0.25);
-
-  b.block('probe-card-pcb', 'probe-card-pcb', [11, 0.4, 11], 'pcb', { shape: 'cylinder' });
-  b.block('pc-stiffener', 'probe-card-pcb', [4.4, 0.25, 4.4], 'chuck', { offset: [0, 0.4, 0] });
-  step(0.65);
-
-  b.block('pogo-tower', 'pogo-tower', [10, 0.7, 10], 'pogo', { shape: 'cylinder', opacity: 0.45 });
-  step(0.7);
-
-  b.block('ate-head-cp', 'ate-head', [10.5, 1.3, 10], 'ate');
-
-  // ===== FT 成品測試站 =====
-  b.column(7.5);
-  b.block('ate-head-ft', 'ate-head', [9, 1.3, 8], 'ate');
-  step(1.3);
-
-  b.block('load-board', 'load-board', [8, 0.35, 7], 'pcb');
-  step(0.35);
-
-  const socketT = 0.6;
-  b.block('socket', 'test-socket', [3.4, socketT, 3.4], 'socket');
-  b.instances({
-    key: 'pogo-pins',
-    layerId: 'test-socket',
-    shape: 'cylinder',
-    radius: 0.05,
-    height: 0.1,
-    palette: 'gold',
-    positions: grid(14, 14, 2.4, 2.4, b.liftedY + socketT + 0.05),
-  });
-  step(socketT + 0.1);
-
-  b.block('dut-substrate', 'dut-package', [2.8, 0.22, 2.8], 'abf');
-  b.block('dut-lid', 'dut-package', [2.2, 0.16, 2.2], 'lid', { offset: [0, 0.22, 0] });
-  step(0.38);
-
-  b.block('handler-head', 'handler', [3.2, 0.8, 3.2], 'handler');
-  b.block('handler-arm', 'handler', [1.4, 1.6, 1.4], 'handler', { offset: [0, 0.8, 0] });
-
-  return b.build();
-}
-
-/**
- * 晶圓廠場景：幾何全部來自 Blender（blender/fab_scene.py），這裡只提供模型路徑與各層包圍盒。
- * 父層（例如薄膜沉積設備）的包圍盒包含其子層（PVD／CVD／ALD 腔體）。
- */
-function buildFab(): StackLayout {
-  const bounds = { ...(FAB_META as StackLayout['bounds']) };
-  for (const layer of LAYERS) {
-    const own = bounds[layer.id];
-    const parent = layer.parent;
-    if (!own || !parent || !bounds[parent]) continue;
-    const p = bounds[parent];
-    const lo = p.center.map((c, a) => Math.min(c - p.size[a] / 2, own.center[a] - own.size[a] / 2));
-    const hi = p.center.map((c, a) => Math.max(c + p.size[a] / 2, own.center[a] + own.size[a] / 2));
-    bounds[parent] = {
-      center: [0, 1, 2].map((a) => (lo[a] + hi[a]) / 2) as Vec3,
-      size: [0, 1, 2].map((a) => hi[a] - lo[a]) as Vec3,
-    };
-  }
-  return { blocks: [], instances: [], bounds, model: { url: '/models/fab_scene.glb' } };
-}
-
-/** 伺服器機櫃：由下而上 電源櫃 → 運算托盤 → NVLink 交換托盤 → 運算托盤 → 電源櫃 → Scale-out 交換器 */
-function buildRack(explode: number, switchVariant: string): StackLayout {
-  const b = createLayoutBuilder(explode);
-  const TRAY_W = 6;
-  const TRAY_D = 8;
-  const TRAY_H = 0.7;
-  const BASE_T = 0.1;
-  const step = () => {
-    b.advance(TRAY_H);
-    b.nextSlot();
-  };
-  const base = (key: string, id: LayerId) => b.block(key, id, [TRAY_W, BASE_T, TRAY_D], 'toolDark');
-  const on = (key: string, id: LayerId, size: Vec3, palette: PaletteKey, x: number, z: number, dy = 0) =>
-    b.block(key, id, size, palette, { offset: [x, BASE_T + dy, z] });
-
-  const powerShelf = (n: number) => {
-    base(`ps-${n}`, 'power-shelf');
-    on(`ps-${n}-busbar`, 'power-shelf', [5.6, 0.3, 0.3], 'copper', 0, -3.7);
-    for (let k = 0; k < 6; k++) on(`ps-${n}-psu-${k}`, 'psu', [0.85, 0.5, 3.2], 'handler', -2.5 + k, 2.2);
-    step();
-  };
-
-  const computeTray = (n: number) => {
-    base(`ct-${n}`, 'compute-tray');
-    [-1.5, 1.5].forEach((x, j) => {
-      on(`ct-${n}-board-${j}`, 'gpu-module', [2.6, 0.06, 4.4], 'pcb', x, -0.6);
-      [-1.9, -0.6].forEach((z, g) => {
-        on(`ct-${n}-gpu-${j}-${g}`, 'gpu-module', [1, 0.14, 1], 'lid', x, z, 0.06);
-        on(`ct-${n}-cold-${j}-${g}`, 'cooling', [0.9, 0.1, 0.9], 'copper', x, z, 0.2);
-      });
-      on(`ct-${n}-cpu-${j}`, 'gpu-module', [0.75, 0.12, 0.75], 'die', x, 0.7, 0.06);
-      [-0.55, 0.55].forEach((dx, k) =>
-        on(`ct-${n}-mem-${j}-${k}`, 'memory-module', [0.3, 0.08, 0.6], 'hbm', x + dx, 0.7, 0.06),
-      );
-      for (let k = 0; k < 5; k++)
-        on(`ct-${n}-vrm-${j}-${k}`, 'vrm', [0.22, 0.14, 0.22], 'toolDark', x - 1.1, -2.5 + k * 0.5, 0.06);
-    });
-    [-0.6, 0.6].forEach((x, k) => on(`ct-${n}-retimer-${k}`, 'retimer-chip', [0.35, 0.08, 0.35], 'die', x, 2.4));
-    [-1.8, 1.8].forEach((x, k) => {
-      on(`ct-${n}-nic-${k}`, 'nic', [1.4, 0.08, 1], 'pcb', x, 3.1);
-      on(`ct-${n}-nic-port-${k}`, 'nic', [0.7, 0.3, 0.3], 'tool', x, 3.75);
-    });
-    step();
-  };
-
-  const switchTray = (n: number) => {
-    base(`st-${n}`, 'nvlink-switch');
-    [-1.3, 1.3].forEach((x, k) => {
-      on(`st-${n}-asic-${k}`, 'nvlink-switch', [1.1, 0.15, 1.1], 'die', x, 0);
-      on(`st-${n}-cold-${k}`, 'cooling', [1, 0.1, 1], 'copper', x, 0, 0.15);
-    });
-    on(`st-${n}-conn`, 'nvlink-switch', [5, 0.3, 0.3], 'copper', 0, -3.7);
-    step();
-  };
-
-  powerShelf(0);
-  computeTray(0);
-  computeTray(1);
-  switchTray(0);
-  switchTray(1);
-  computeTray(2);
-  computeTray(3);
-  powerShelf(1);
-
-  // Scale-out 交換器：可插拔光模組 vs CPO
-  base('tor', 'tor-switch');
-  on('tor-asic', 'tor-switch', [1.4, 0.2, 1.4], 'die', 0, 0);
-  if (switchVariant === 'cpo') {
-    const engines: [number, number][] = [
-      [-1.1, -0.6],
-      [-1.1, 0.6],
-      [1.1, -0.6],
-      [1.1, 0.6],
-      [-0.5, -1.1],
-      [0.5, -1.1],
-      [-0.5, 1.1],
-      [0.5, 1.1],
-    ];
-    engines.forEach(([x, z], k) => {
-      on(`tor-oe-${k}`, 'optical-module', [0.4, 0.14, 0.4], 'gold', x, z);
-      on(`tor-oe-fiber-${k}`, 'fiber-cable', [0.05, 0.04, 3.9 - z], 'flow', x * 0.6, (z + 3.9) / 2, 0.16);
-    });
-    for (let k = 0; k < 8; k++) on(`tor-fp-${k}`, 'fiber-cable', [0.4, 0.25, 0.3], 'socket', -2.45 + k * 0.7, 3.85);
-  } else {
-    for (let k = 0; k < 16; k++) {
-      const x = -2.65 + k * 0.35;
-      on(`tor-trx-${k}`, 'optical-module', [0.28, 0.24, 1.3], 'tool', x, 3.4);
-      on(`tor-fiber-${k}`, 'fiber-cable', [0.05, 0.05, 1.6], 'flow', x, 4.85);
-    }
-  }
-  step();
-
-  // 固定件：機櫃框、後方銅纜背板、液冷分歧管（不隨爆炸移動）
-  const H = b.y;
-  b.fixedBlock({
-    key: 'frame',
-    layerId: 'rack-frame',
-    size: [6.8, H + 0.4, 8.6],
-    palette: 'tool',
-    opacity: 0.08,
-    position: [0, (H + 0.4) / 2, 0],
-  });
-  b.fixedBlock({
-    key: 'spine',
-    layerId: 'nvlink-spine',
-    size: [4.6, H * 0.62, 0.35],
-    palette: 'copper',
-    opacity: 0.85,
-    position: [0, H * 0.45, -4.55],
-  });
-  [-3.1, 3.1].forEach((x, k) =>
-    b.fixedBlock({
-      key: `manifold-${k}`,
-      layerId: 'cooling',
-      shape: 'cylinder',
-      size: [0.3, H, 0.3],
-      palette: 'liquid',
-      position: [x, H / 2, -4.5],
-    }),
-  );
-
-  return b.build();
 }

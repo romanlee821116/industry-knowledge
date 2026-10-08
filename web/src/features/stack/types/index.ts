@@ -188,33 +188,11 @@ export interface MicroView {
   parts: MicroPart[];
 }
 
-/** 主堆疊中單一可渲染方塊（由 hook 依資料計算位置） */
-export interface LayerBlock {
-  key: string;
-  layerId: LayerId;
-  /** cylinder 時 size = [直徑, 高, 直徑] */
-  shape?: 'box' | 'cylinder';
-  position: [number, number, number];
-  size: [number, number, number];
-  palette: PaletteKey;
-  opacity?: number;
-}
-
-export interface LayerInstances {
-  key: string;
-  layerId: LayerId;
-  shape: 'sphere' | 'cylinder';
-  positions: [number, number, number][];
-  radius: number;
-  height: number;
-  palette: PaletteKey;
-}
-
 export interface StackLayout {
-  blocks: LayerBlock[];
-  instances: LayerInstances[];
-  /** Blender 匯出的整體場景模型（晶圓廠）；有的話與 blocks 一起渲染 */
-  model?: { url: string };
-  /** 每層的包圍盒中心與尺寸，用於鏡頭聚焦與標籤 */
+  /** Blender 匯出的整體場景模型 */
+  model: { url: string };
+  /** 每層的包圍盒中心與尺寸（已含爆炸位移），用於鏡頭聚焦 */
   bounds: Record<LayerId, { center: [number, number, number]; size: [number, number, number] }>;
+  /** 每層第一個實體的中心，用於標籤（重複出現的托盤只標最下面那個） */
+  anchors: Record<LayerId, [number, number, number]>;
 }

@@ -88,11 +88,12 @@ const LAYER_VARIANT_SLOT: Partial<Record<LayerId, VariantSlot>> = {
 
 /** 同高度的標籤上下錯開避免重疊 */
 const LABEL_NUDGE: Partial<Record<LayerId, number>> = {
-  gpu: -0.35,
-  hbm: 0.35,
+  gpu: -0.65,
+  hbm: 0.3,
+  lid: 0.35,
   'tor-switch': 0.5,
-  'fiber-cable': -0.45,
-  cooling: 0.35,
+  'fiber-cable': -0.75,
+  cooling: 0.85,
   'nvlink-spine': 1.2,
 };
 
@@ -200,10 +201,8 @@ export function useExplorer() {
   const layout = useStackLayout({
     scene,
     explode: state.explode,
-    interposerVariant: variants.interposer,
-    substrateVariant: variants.substrate,
-    switchVariant: variants.switch,
   });
+  const activeVariants = useMemo(() => Object.values(variants), [variants]);
 
   const highlightIds = useMemo(() => highlightFor(selection, catalog), [selection, catalog]);
   const highlighted = useMemo(() => expandLayerIds(highlightIds), [highlightIds]);
@@ -219,10 +218,9 @@ export function useExplorer() {
       const b = layout.bounds[id];
       if (!b) return [];
       // 重複出現的零件（多個托盤、電源櫃）標在第一個實體的高度，x 對齊整體右緣
-      const first = layout.blocks.find((blk) => blk.layerId === id);
-      const y = (first ? first.position[1] : b.center[1]) + (LABEL_NUDGE[id] ?? 0);
-      const z = first ? first.position[2] : b.center[2];
-      return [{ id, name: LAYER_MAP[id].name, position: [b.center[0] + b.size[0] / 2 + 0.2, y, z] }];
+      const anchor = layout.anchors[id] ?? b.center;
+      const y = anchor[1] + (LABEL_NUDGE[id] ?? 0);
+      return [{ id, name: LAYER_MAP[id].name, position: [b.center[0] + b.size[0] / 2 + 0.2, y, anchor[2]] }];
     });
   }, [layout, state.explode, config]);
 
@@ -276,6 +274,7 @@ export function useExplorer() {
       focusKey: state.focusKey,
       passiveIds: [...(config.alwaysPassive ?? []), ...(state.explode < 0.15 ? config.covers : [])],
       explode: state.explode,
+      variants: activeVariants,
       home: config.home,
       onSelectLayer: (id: string) => actions.select({ kind: 'layer', id }),
       onHoverLayer: actions.hoverLayer,

@@ -9,14 +9,12 @@ Mesh naming read by the web app:  <layerId>__<part>[__e<k>]
 meta.json holds per-layer world bounds (glTF Y-up) for camera focus and labels.
 """
 
-import json
 import math
 import os
 import sys
 
 sys.path.append(os.path.dirname(__file__))
 
-import bpy  # noqa: E402
 from mathutils import Vector  # noqa: E402
 
 import lib_mesh as m  # noqa: E402
@@ -25,47 +23,9 @@ RX, RZ = 15.0, 10.0  # station ellipse (in web/R3F x–z, +z toward the viewer)
 RAIL_INSET = 2.7
 RAIL_Z = 3.9
 
-_count = {"n": 0}
+from lib_scene import M, mats, nm, write_meta  # noqa: E402,F401
 
 
-def nm(layer, part, tier=0):
-    _count["n"] += 1
-    return f"{layer}__{part}{_count['n']}" + (f"__e{tier}" if tier else "")
-
-
-# ---------------------------------------------------------------- materials
-M = {}
-
-
-def mats():
-    M["panel"] = m.material("panel", (0.78, 0.79, 0.78, 1), roughness=0.42)
-    M["panel_alt"] = m.material("panel_alt", (0.66, 0.69, 0.72, 1), roughness=0.45)
-    M["trim"] = m.material("trim", (0.42, 0.45, 0.5, 1), metallic=0.3, roughness=0.45)
-    M["dark"] = m.material("dark", (0.1, 0.11, 0.13, 1), roughness=0.4)
-    M["screen"] = m.material("screen", (0.03, 0.05, 0.08, 1), roughness=0.12, emission=(0.1, 0.35, 0.7), strength=0.8)
-    M["glass"] = m.material("glass", (0.75, 0.85, 0.95, 1), roughness=0.05, alpha=0.22)
-    M["amber_glass"] = m.material("amber_glass", (1.0, 0.82, 0.35, 1), roughness=0.05, alpha=0.3)
-    M["steel"] = m.material("steel", (0.78, 0.8, 0.83, 1), metallic=0.9, roughness=0.28)
-    M["liquid"] = m.material("liquid", (0.25, 0.6, 0.95, 1), roughness=0.05, alpha=0.6)
-    M["foup"] = m.material("foup", (0.3, 0.33, 0.37, 1), roughness=0.3, alpha=0.82)
-    M["foup_door"] = m.material("foup_door", (0.16, 0.17, 0.2, 1), roughness=0.35)
-    M["copper"] = m.material("copper", (0.85, 0.47, 0.27, 1), metallic=1.0, roughness=0.3)
-    M["quartz"] = m.material("quartz", (0.85, 0.92, 0.98, 1), roughness=0.05, alpha=0.55)
-    M["pad"] = m.material("pad", (0.14, 0.14, 0.16, 1), roughness=0.85)
-    M["diamond"] = m.material("diamond", (0.82, 0.84, 0.88, 1), metallic=0.7, roughness=0.25)
-    M["slurry"] = m.material("slurry", (0.92, 0.92, 0.85, 1), roughness=0.2)
-    M["plasma"] = m.material("plasma", (0.7, 0.4, 1.0, 1), alpha=0.75, emission=(0.65, 0.35, 1.0), strength=6)
-    M["green"] = m.material("sig_green", (0.2, 0.9, 0.3, 1), emission=(0.2, 1, 0.3), strength=3)
-    M["yellow"] = m.material("sig_yellow", (1, 0.85, 0.2, 1), emission=(1, 0.8, 0.1), strength=1)
-    M["red"] = m.material("sig_red", (0.9, 0.2, 0.2, 1), emission=(1, 0.1, 0.1), strength=0.5)
-    M["arrow"] = m.material("arrow", (1.0, 0.62, 0.12, 1), emission=(1.0, 0.55, 0.08), strength=1.5)
-    M["floor"] = m.material("floor", (0.36, 0.38, 0.41, 1), roughness=0.8)
-    M["floor_gap"] = m.material("floor_gap", (0.2, 0.21, 0.23, 1), roughness=0.9)
-    M["silicon"] = m.material("silicon", (0.33, 0.36, 0.5, 1), metallic=0.4, roughness=0.18)
-    M["die"] = m.material("die", (0.42, 0.5, 0.72, 1), metallic=0.5, roughness=0.15)
-
-
-# ---------------------------------------------------------------- helpers
 def B(P, layer, part, center, size, mat, tier=0, bev=0.02):
     obj = m.box(nm(layer, part, tier), center, size, mat, parent=P)
     if bev:
@@ -94,7 +54,7 @@ def screen(P, layer, x, y, z, w=0.5, h=0.34):
 def tower(P, layer, x, y, z):
     C(P, layer, "tower_pole", (x, y), 0.02, z, z + 0.2, M["steel"], segments=10)
     for k, col in enumerate(("green", "yellow", "red")):
-        C(P, layer, f"tower_{col}", (x, y), 0.055, z + 0.2 + k * 0.09, z + 0.28 + k * 0.09, M[col], segments=16)
+        C(P, layer, f"tower_{col}", (x, y), 0.055, z + 0.2 + k * 0.09, z + 0.28 + k * 0.09, M[f"sig_{col}"], segments=16)
 
 
 def foup(P, x, y, z, tier=0):
@@ -369,33 +329,6 @@ def build_floor():
             faces.append((n, n + 1, n + 2, n + 3))
     m.add_object("floor_tiles", verts, faces, M["floor"])
     m.box("floor_base", (0, 0, -0.03), (43.2, 31.2, 0.05), M["floor_gap"])
-
-
-# ---------------------------------------------------------------- meta
-def write_meta(path):
-    bpy.context.view_layer.update()
-    bounds = {}
-    for obj in bpy.context.scene.objects:
-        if obj.type != "MESH" or "__" not in obj.name:
-            continue
-        layer = obj.name.split("__")[0]
-        for c in obj.bound_box:
-            w = obj.matrix_world @ Vector(c)
-            g = (w.x, w.z, -w.y)  # Blender Z-up -> glTF Y-up
-            lo, hi = bounds.setdefault(layer, [list(g), list(g)])
-            for a in range(3):
-                lo[a] = min(lo[a], g[a])
-                hi[a] = max(hi[a], g[a])
-    out = {
-        layer: {
-            "center": [round((lo[a] + hi[a]) / 2, 3) for a in range(3)],
-            "size": [round(hi[a] - lo[a], 3) for a in range(3)],
-        }
-        for layer, (lo, hi) in sorted(bounds.items())
-    }
-    with open(path, "w") as f:
-        json.dump(out, f, ensure_ascii=False, indent=2)
-        f.write("\n")
 
 
 def main(out, meta):
