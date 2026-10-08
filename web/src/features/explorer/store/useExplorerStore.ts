@@ -78,7 +78,8 @@ export const useExplorerStore = create<ExplorerState>((set) => ({
   setVariant: (slot, value) => set((s) => ({ variants: { ...s.variants, [slot]: value } })),
   openMicro: (microView) => set({ microView, microPart: null, microExplode: 0 }),
   closeMicro: () => set({ microView: null, microPart: null }),
-  selectMicroPart: (microPart) => set({ microPart }),
+  // 再點一次同一個部位即取消選取
+  selectMicroPart: (microPart) => set((s) => ({ microPart: s.microPart === microPart ? null : microPart })),
   setMicroExplode: (microExplode) => set({ microExplode }),
   resetView: () =>
     set((s) => ({

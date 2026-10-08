@@ -197,6 +197,9 @@ export function useExplorer() {
   const { selection, variants, scene } = state;
   const config = SCENES[scene];
   const select = (item: Selection | null) => actions.select(item, sceneOfSelection(item, catalog));
+  /** 再點一次同一個對象即取消選取，鏡頭回到場景全景 */
+  const toggle = (item: Selection) =>
+    selection?.kind === item.kind && selection.id === item.id ? actions.select(null) : select(item);
 
   const layout = useStackLayout({
     scene,
@@ -276,7 +279,7 @@ export function useExplorer() {
       explode: state.explode,
       variants: activeVariants,
       home: config.home,
-      onSelectLayer: (id: string) => actions.select({ kind: 'layer', id }),
+      onSelectLayer: (id: string) => toggle({ kind: 'layer', id }),
       onHoverLayer: actions.hoverLayer,
     },
     toolbar: {
@@ -291,7 +294,7 @@ export function useExplorer() {
     sidebar: {
       categories: catalog.categories,
       selectedGroupId: selectedSectorId,
-      onSelectGroup: (id: string) => select({ kind: 'sector', id }),
+      onSelectGroup: (id: string) => toggle({ kind: 'sector', id }),
     },
     search: {
       groups: searchGroups,
