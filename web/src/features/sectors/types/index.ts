@@ -27,6 +27,8 @@ export interface SectorGroupDef {
   scene: SceneId;
   /** 對應到 3D 模型的層或材料 id（LayerId | MaterialId） */
   anchors: string[];
+  /** 與其他分類下的同名族群共用查證資料（例如「測試」與「設備」都有探針卡） */
+  source?: string;
 }
 
 export interface SectorCategoryDef {
@@ -40,6 +42,7 @@ export type SectorStatus = 'modeled' | 'verified-unmodeled' | 'pending';
 export interface SectorGroup extends SectorGroupDef {
   categoryId: string;
   summary?: string;
+  engineeringNotes?: string;
   companies: Company[];
   globalPlayers: GlobalPlayer[];
   status: SectorStatus;
@@ -58,6 +61,7 @@ export interface VerifiedBatch {
     name: string;
     category: string;
     summary: string;
+    engineeringNotes?: string;
     companies: Company[];
   }[];
   globalPlayers: GlobalPlayer[];

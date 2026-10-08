@@ -32,8 +32,10 @@ interface Props {
   labels: StackLabel[];
   focus: FocusBox | null;
   focusKey: number;
-  /** 組裝狀態下蓋板會擋住晶片，此時讓它不可點擊 */
-  lidPassive: boolean;
+  /** 組裝狀態下會擋住內部結構、暫時不可點擊的層（例如蓋板） */
+  passiveIds: string[];
+  /** 未選取任何東西時的鏡頭位置與注視點 */
+  home: { position: [number, number, number]; target: [number, number, number] };
   onSelectLayer: (id: string) => void;
   onHoverLayer: (id: string | null) => void;
 }
@@ -105,7 +107,11 @@ function Block({
 }) {
   return (
     <mesh position={block.position} {...pointerHandlers(block.layerId, handlers)}>
-      <boxGeometry args={block.size} />
+      {block.shape === 'cylinder' ? (
+        <cylinderGeometry args={[block.size[0] / 2, block.size[0] / 2, block.size[1], 64]} />
+      ) : (
+        <boxGeometry args={block.size} />
+      )}
       <LayerMaterial layerId={block.layerId} palette={block.palette} opacity={block.opacity} {...look} />
     </mesh>
   );
@@ -150,19 +156,18 @@ function Instanced({
   );
 }
 
-const DEFAULT_VIEW = { position: new THREE.Vector3(26, 16, 26), target: new THREE.Vector3(0, 2, 0) };
 /** 聚焦時至少維持的俯角，避免 fitToBox 轉成正面平視而失去立體感 */
 const MIN_ELEVATION = THREE.MathUtils.degToRad(28);
 
-function CameraRig({ focus, focusKey }: { focus: FocusBox | null; focusKey: number }) {
+function CameraRig({ focus, focusKey, home }: Pick<Props, 'focus' | 'focusKey' | 'home'>) {
   const ref = useRef<CameraControls>(null);
   const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
   useEffect(() => {
     const controls = ref.current;
     if (!controls) return;
     if (!focus) {
-      const { position: p, target: t } = DEFAULT_VIEW;
-      controls.setLookAt(p.x, p.y, p.z, t.x, t.y, t.z, true);
+      const [p, t] = [home.position, home.target];
+      controls.setLookAt(p[0], p[1], p[2], t[0], t[1], t[2], true);
       return;
     }
     const target = new THREE.Vector3(...focus.center);
@@ -193,7 +198,8 @@ export function StackCanvas({
   labels,
   focus,
   focusKey,
-  lidPassive,
+  passiveIds,
+  home,
   onSelectLayer,
   onHoverLayer,
 }: Props) {
@@ -206,9 +212,9 @@ export function StackCanvas({
     const ids = new Set<string>();
     const all = [...layout.blocks, ...layout.instances].map((b) => b.layerId);
     if (highlighted.size > 0) all.filter((id) => !highlighted.has(id)).forEach((id) => ids.add(id));
-    if (lidPassive) ids.add('lid');
+    passiveIds.forEach((id) => ids.add(id));
     return ids;
-  }, [layout, highlighted, lidPassive]);
+  }, [layout, highlighted, passiveIds]);
   const handlers = { onSelectLayer, onHoverLayer, clipX, passive };
 
   return (
@@ -243,7 +249,7 @@ export function StackCanvas({
         </Html>
       ))}
       <gridHelper args={[60, 30, '#1e293b', '#1e293b']} position={[0, -0.01, 0]} />
-      <CameraRig focus={focus} focusKey={focusKey} />
+      <CameraRig focus={focus} focusKey={focusKey} home={home} />
     </Canvas>
   );
 }

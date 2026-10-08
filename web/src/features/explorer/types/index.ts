@@ -1,4 +1,4 @@
-import type { Material, MicroViewId, ProcessChain, StackLayer, Variant } from '@/features/stack';
+import type { Material, MicroViewId, ProcessChain, SceneKey, StackLayer, Variant } from '@/features/stack';
 import type { CompanyIndexEntry, SectorGroup } from '@/features/sectors';
 
 export type SelectionKind = 'layer' | 'material' | 'sector' | 'company';
@@ -31,7 +31,7 @@ export interface VariantView {
 }
 
 export type PanelCard =
-  | { kind: 'overview' }
+  | { kind: 'overview'; scene: SceneKey }
   | {
       kind: 'layer';
       layer: StackLayer;

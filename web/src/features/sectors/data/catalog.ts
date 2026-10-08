@@ -1,6 +1,17 @@
 import type { SectorCategoryDef } from '../types';
 
 const PACKAGE_ALL = ['interposer', 'ubump', 'c4', 'gpu', 'hbm', 'substrate'];
+const PROBE_CARD = ['probe-card-pcb', 'space-transformer', 'probe-head'];
+const TEST_ALL = [
+  ...PROBE_CARD,
+  'wafer',
+  'prober-chuck',
+  'ate-head',
+  'test-socket',
+  'load-board',
+  'handler',
+  'dut-package',
+];
 
 /**
  * 族群索引（來源：使用者提供的台股細族群清單 + 查證後新增的材料族群）。
@@ -46,10 +57,16 @@ export const CATALOG: SectorCategoryDef[] = [
     id: 'equipment',
     name: '半導體設備',
     groups: [
-      { id: 'wafer-probe', name: '晶圓探針', scene: 'test', anchors: [] },
-      { id: 'probe-card', name: '探針卡', scene: 'test', anchors: [] },
-      { id: 'test-interface-eq', name: '測試介面', scene: 'test', anchors: [] },
-      { id: 'probe-station', name: 'Probe Station', scene: 'test', anchors: [] },
+      { id: 'wafer-probe', name: '晶圓探針', scene: 'test', anchors: ['probe-head'] },
+      { id: 'probe-card', name: '探針卡', scene: 'test', anchors: PROBE_CARD },
+      {
+        id: 'test-interface-eq',
+        name: '測試介面',
+        scene: 'test',
+        anchors: [...PROBE_CARD, 'test-socket', 'load-board'],
+        source: 'test-interface',
+      },
+      { id: 'probe-station', name: 'Probe Station', scene: 'test', anchors: ['prober-chuck'] },
       { id: 'wafer-clean', name: '晶圓清洗設備', scene: 'fab', anchors: [] },
       { id: 'etch', name: '蝕刻設備', scene: 'fab', anchors: [] },
       { id: 'deposition', name: '薄膜沉積', scene: 'fab', anchors: [] },
@@ -98,7 +115,7 @@ export const CATALOG: SectorCategoryDef[] = [
       { id: 'asic-design-service', name: 'ASIC 設計服務', scene: 'design', anchors: [] },
       { id: 'hbm', name: 'HBM', scene: 'package', anchors: ['hbm'] },
       { id: 'hbm-packaging', name: 'HBM 封裝', scene: 'package', anchors: ['hbm'] },
-      { id: 'hbm-test', name: 'HBM 測試', scene: 'test', anchors: [] },
+      { id: 'hbm-test', name: 'HBM 測試', scene: 'test', anchors: ['wafer', 'probe-head'] },
       { id: 'high-speed-transmission', name: '高速傳輸', scene: 'package', anchors: ['server-pcb', 'ccl'] },
       { id: 'cxl', name: 'CXL', scene: 'rack', anchors: [] },
       { id: 'pcie', name: 'PCIe', scene: 'rack', anchors: [] },
@@ -143,18 +160,29 @@ export const CATALOG: SectorCategoryDef[] = [
     id: 'testing',
     name: '測試',
     groups: [
-      { id: 'ic-test', name: 'IC 測試', scene: 'test', anchors: [] },
-      { id: 'wafer-test', name: '晶圓測試', scene: 'test', anchors: [] },
-      { id: 'test-probe-card', name: '探針卡', scene: 'test', anchors: [] },
-      { id: 'test-socket', name: '測試座 Socket', scene: 'test', anchors: [] },
-      { id: 'test-interface', name: '測試介面', scene: 'test', anchors: [] },
+      { id: 'ic-test', name: 'IC 測試', scene: 'test', anchors: ['dut-package', 'wafer'] },
+      { id: 'wafer-test', name: '晶圓測試', scene: 'test', anchors: ['wafer', 'probe-head'] },
+      { id: 'test-probe-card', name: '探針卡', scene: 'test', anchors: PROBE_CARD, source: 'probe-card' },
+      { id: 'test-socket', name: '測試座 Socket', scene: 'test', anchors: ['test-socket'] },
+      { id: 'test-interface', name: '測試介面', scene: 'test', anchors: [...PROBE_CARD, 'test-socket', 'load-board'] },
       { id: 'burn-in', name: 'Burn-in', scene: 'test', anchors: [] },
-      { id: 'ate', name: '高階 ATE', scene: 'test', anchors: [] },
-      { id: 'high-speed-test', name: '高速測試', scene: 'test', anchors: [] },
-      { id: 'ai-chip-test', name: 'AI 晶片測試', scene: 'test', anchors: [] },
+      { id: 'ate', name: '高階 ATE', scene: 'test', anchors: ['ate-head'] },
+      {
+        id: 'high-speed-test',
+        name: '高速測試',
+        scene: 'test',
+        anchors: ['load-board', 'test-socket', 'probe-card-pcb'],
+      },
+      { id: 'ai-chip-test', name: 'AI 晶片測試', scene: 'test', anchors: TEST_ALL },
+      { id: 'test-load-board', name: '測試載板', scene: 'test', anchors: ['load-board', 'probe-card-pcb'] },
+      { id: 'test-handler', name: '分類機 Handler', scene: 'test', anchors: ['handler'] },
+      { id: 'slt', name: '系統級測試 SLT', scene: 'test', anchors: [] },
     ],
   },
 ];
+
+/** 已有 3D 模型的場景 */
+export const MODELED_SCENES = ['package', 'test'];
 
 export const SCENE_LABEL: Record<string, string> = {
   package: 'CoWoS 封裝堆疊',
@@ -174,9 +202,25 @@ export const COMPANY_ANCHORS: Record<string, string[]> = {
   '8046': ['substrate'],
   '3189': ['substrate'],
   '4958': ['substrate'],
-  '2449': [],
-  '6510': [],
-  '6223': [],
+  // 測試代工：CP 與 FT 都做
+  '2449': ['wafer', 'dut-package'],
+  '3264': ['wafer', 'dut-package'],
+  '6257': ['wafer', 'dut-package'],
+  // 測試介面耗材
+  '6510': ['probe-card-pcb', 'space-transformer', 'probe-head', 'load-board'],
+  '6223': ['probe-card-pcb', 'space-transformer', 'probe-head', 'prober-chuck'],
+  '6515': ['test-socket', 'probe-head'],
+  '6683': ['load-board', 'probe-card-pcb'],
+  '6217': ['test-socket', 'probe-head'],
+  '7856': ['probe-card-pcb', 'space-transformer', 'probe-head'],
+  '2368': ['load-board'],
+  '6141': ['load-board'],
+  '8155': ['load-board'],
+  '5439': ['load-board'],
+  // 測試設備
+  '2360': ['ate-head', 'handler'],
+  '7769': ['handler'],
+  // 封裝設備：不在堆疊與測試場景內
   '3131': [],
   '3583': [],
   '6187': [],

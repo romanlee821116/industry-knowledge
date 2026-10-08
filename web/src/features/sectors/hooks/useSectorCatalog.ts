@@ -1,8 +1,9 @@
-import { CATALOG, COMPANY_ANCHORS } from '../data/catalog';
+import { CATALOG, COMPANY_ANCHORS, MODELED_SCENES } from '../data/catalog';
 import batch1 from '../data/verified/batch-1.json';
+import batch2 from '../data/verified/batch-2.json';
 import type { CompanyIndexEntry, SectorCategory, SectorGroup, SectorStatus, VerifiedBatch } from '../types';
 
-const BATCHES: VerifiedBatch[] = [batch1 as VerifiedBatch];
+const BATCHES: VerifiedBatch[] = [batch1 as VerifiedBatch, batch2 as VerifiedBatch];
 
 const VERIFIED = new Map(BATCHES.flatMap((b) => b.groups.map((g) => [g.id, g])));
 const GLOBAL_PLAYERS = BATCHES.flatMap((b) => b.globalPlayers);
@@ -11,22 +12,23 @@ const VERDICT_ORDER = { confirmed: 0, added: 1, corrected: 2, unverified: 3, rem
 
 function statusOf(verified: boolean, scene: string, anchors: string[]): SectorStatus {
   if (!verified) return 'pending';
-  return scene === 'package' && anchors.length > 0 ? 'modeled' : 'verified-unmodeled';
+  return MODELED_SCENES.includes(scene) && anchors.length > 0 ? 'modeled' : 'verified-unmodeled';
 }
 
 const CATEGORIES: SectorCategory[] = CATALOG.map((cat) => ({
   id: cat.id,
   name: cat.name,
   groups: cat.groups.map<SectorGroup>((def) => {
-    const v = VERIFIED.get(def.id);
+    const v = VERIFIED.get(def.source ?? def.id);
     return {
       ...def,
       categoryId: cat.id,
       summary: v?.summary,
+      engineeringNotes: v?.engineeringNotes,
       companies: [...(v?.companies ?? [])].sort(
         (a, b) => VERDICT_ORDER[a.verdict] - VERDICT_ORDER[b.verdict] || b.core - a.core,
       ),
-      globalPlayers: GLOBAL_PLAYERS.filter((p) => p.groupId === def.id),
+      globalPlayers: GLOBAL_PLAYERS.filter((p) => p.groupId === (def.source ?? def.id)),
       status: statusOf(Boolean(v), def.scene, def.anchors),
     };
   }),
@@ -38,6 +40,7 @@ const GROUPS = new Map(CATEGORIES.flatMap((c) => c.groups.map((g) => [g.id, g]))
 const COMPANIES: CompanyIndexEntry[] = (() => {
   const map = new Map<string, CompanyIndexEntry>();
   for (const group of GROUPS.values()) {
+    if (group.source) continue; // 共用資料的族群只計一次
     for (const c of group.companies) {
       if (c.verdict === 'removed') continue;
       const entry = map.get(c.ticker) ?? { ticker: c.ticker, name: c.name, memberships: [] };
@@ -68,7 +71,7 @@ const CATALOG_API = {
     ),
   /** 某個 3D 層／材料關聯到哪些族群 */
   groupsForTarget: (targetId: string) =>
-    [...GROUPS.values()].filter((g) => g.anchors.includes(targetId) && g.status !== 'pending'),
+    [...GROUPS.values()].filter((g) => !g.source && g.anchors.includes(targetId) && g.status !== 'pending'),
 };
 
 export type SectorCatalog = typeof CATALOG_API;

@@ -3,7 +3,7 @@ import { Button, Segmented, Steps, Tag } from 'antd';
 import type { ReactNode } from 'react';
 
 import type { SectorGroup } from '@/features/sectors';
-import type { MicroViewId, Spec } from '@/features/stack';
+import type { MicroViewId, SceneKey, Spec } from '@/features/stack';
 import { cn } from '@/shared/lib/cn';
 
 import type { ChainView, LinkItem, PanelCard, Selection, VariantSlot, VariantView } from '../types';
@@ -18,6 +18,29 @@ interface Props {
 }
 
 const ERA_LABEL = { mainstream: '主流', next: '下一代', legacy: '傳統' } as const;
+
+const OVERVIEW: Record<SceneKey, { title: string; intro: string; tips: string[] }> = {
+  package: {
+    title: 'CoWoS AI GPU 封裝全堆疊',
+    intro: '由下而上：PCB 主機板 → BGA 錫球 → ABF 載板 → C4 凸塊 → 中介層 → 微凸塊 → GPU＋HBM → 蓋板。',
+    tips: [
+      '點擊 3D 模型任一層，查看功能、規格、材料與相關族群',
+      '左側族群索引：點族群會高亮它在堆疊中的位置並列出個股',
+      '拖動「爆炸分解」把堆疊拉開；開啟「剖面」看橫截面',
+      '載板、玻纖布可開啟微觀切片與製程鏈',
+    ],
+  },
+  test: {
+    title: 'AI 晶片測試：CP 與 FT',
+    intro:
+      '左側 CP 晶圓測試：ATE 測試頭 → Pogo Tower → 探針卡（PCB／空間轉換板／探針頭）→ 晶圓 → 探針台。右側 FT 成品測試：分類機壓測頭 → 封裝 → 測試座 → 測試載板 → ATE 測試頭。',
+    tips: [
+      'CoWoS 把多顆晶粒封在一起，一顆壞就整組報廢，所以封裝前的 CP 測試越來越重要',
+      '探針頭、測試座可開啟微觀切片，看探針如何接觸凸塊、pogo pin 內部結構',
+      '左側「測試」「半導體設備」族群可直接定位到對應零件',
+    ],
+  },
+};
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -155,15 +178,15 @@ function MicroButton({ id, onOpen }: { id?: MicroViewId; onOpen: Props['onOpenMi
 
 export function KnowledgePanel({ card, onNavigate, onVariantChange, onOpenMicro, onClose }: Props) {
   if (card.kind === 'overview') {
+    const o = OVERVIEW[card.scene];
     return (
       <div className="space-y-3 p-5 text-sm leading-relaxed text-slate-400">
-        <h2 className="text-lg font-semibold text-slate-100">CoWoS AI GPU 封裝全堆疊</h2>
-        <p>由下而上：PCB 主機板 → BGA 錫球 → ABF 載板 → C4 凸塊 → 中介層 → 微凸塊 → GPU＋HBM → 蓋板。</p>
+        <h2 className="text-lg font-semibold text-slate-100">{o.title}</h2>
+        <p>{o.intro}</p>
         <ul className="list-disc space-y-1 pl-5 text-xs">
-          <li>點擊 3D 模型任一層，查看功能、規格、材料與相關族群</li>
-          <li>左側族群索引：點族群會高亮它在堆疊中的位置並列出個股</li>
-          <li>拖動「爆炸分解」把堆疊拉開；開啟「剖面」看橫截面</li>
-          <li>載板、玻纖布可開啟微觀切片與製程鏈</li>
+          {o.tips.map((t) => (
+            <li key={t}>{t}</li>
+          ))}
         </ul>
         <p className="text-xs text-slate-500">標示「待確認」的數值尚未對照一手資料。</p>
       </div>
@@ -234,6 +257,11 @@ export function KnowledgePanel({ card, onNavigate, onVariantChange, onOpenMicro,
       <div>
         <Header kicker={`族群・${card.categoryName}`} title={group.name} onClose={onClose} />
         {group.summary && <p className="px-4 pb-3 text-sm leading-relaxed text-slate-300">{group.summary}</p>}
+        {group.engineeringNotes && (
+          <Section title="工程說明">
+            <p className="text-xs leading-relaxed text-slate-400">{group.engineeringNotes}</p>
+          </Section>
+        )}
         <Section title="3D 位置">
           {card.anchors.length > 0 ? (
             <Chips items={card.anchors} onNavigate={onNavigate} />

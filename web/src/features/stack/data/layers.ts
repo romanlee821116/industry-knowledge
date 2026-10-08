@@ -1,10 +1,11 @@
-import type { StackLayer } from '../types';
+import type { SceneKey, StackLayer } from '../types';
+import { TEST_LAYERS } from './test-layers';
 
 /**
  * CoWoS AI GPU 封裝全堆疊（由上到下）。
  * 數值為量級參考；標記 unverified 者尚未對照一手資料，待審。
  */
-export const LAYERS: StackLayer[] = [
+const PACKAGE_LAYERS: StackLayer[] = [
   {
     id: 'lid',
     name: '封裝蓋板＋熱介面材料',
@@ -242,5 +243,9 @@ export const LAYERS: StackLayer[] = [
     processChain: 'laminate',
   },
 ];
+
+export const LAYERS: StackLayer[] = [...PACKAGE_LAYERS, ...TEST_LAYERS];
+
+export const sceneOfLayer = (layer: StackLayer): SceneKey => layer.scene ?? 'package';
 
 export const LAYER_MAP = Object.fromEntries(LAYERS.map((l) => [l.id, l])) as Record<StackLayer['id'], StackLayer>;

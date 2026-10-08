@@ -1,4 +1,4 @@
-export { LAYERS, LAYER_MAP } from './data/layers';
+export { LAYERS, LAYER_MAP, sceneOfLayer } from './data/layers';
 export { MATERIALS, MATERIAL_MAP } from './data/materials';
 export { MICRO_VIEWS, PALETTE, GLASS_TINT } from './data/micro-views';
 export { PROCESS_CHAINS } from './data/process-chains';

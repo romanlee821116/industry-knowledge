@@ -5,6 +5,7 @@ import { MicroCanvas, StackCanvas } from '@/features/stack';
 import { ExplorerLayout } from '../components/ExplorerLayout';
 import { KnowledgePanel } from '../components/KnowledgePanel';
 import { MicroViewModal } from '../components/MicroViewModal';
+import { SceneSwitch } from '../components/SceneSwitch';
 import { SearchBox } from '../components/SearchBox';
 import { SectorSidebar } from '../components/SectorSidebar';
 import { ViewToolbar } from '../components/ViewToolbar';
@@ -45,6 +46,7 @@ export function ExplorerContainer() {
       <ExplorerLayout
         sidebar={<SectorSidebar {...ex.sidebar} />}
         search={<SearchBox {...ex.search} />}
+        sceneSwitch={<SceneSwitch {...ex.sceneSwitch} />}
         viewport={<StackCanvas {...ex.canvas} />}
         toolbar={<ViewToolbar {...ex.toolbar} />}
         panel={<KnowledgePanel {...ex.panel} />}

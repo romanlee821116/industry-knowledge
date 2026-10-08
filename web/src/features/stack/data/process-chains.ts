@@ -114,4 +114,44 @@ export const PROCESS_CHAINS: Record<ProcessChainId, ProcessChain> = {
       },
     ],
   },
+  test: {
+    id: 'test',
+    name: '晶片測試流程',
+    steps: [
+      {
+        title: 'CP 晶圓測試',
+        description: '探針台把晶圓送到探針卡下方，探針壓在凸塊上，ATE 逐顆量測並標記不良晶粒。',
+        produces: [
+          'wafer',
+          'probe-head',
+          'space-transformer',
+          'probe-card-pcb',
+          'prober-chuck',
+          'pogo-tower',
+          'ate-head',
+        ],
+      },
+      {
+        title: '切割取 KGD',
+        description: '只挑良好晶粒（KGD）進入 CoWoS 封裝，避免一顆壞晶粒報廢整個模組。',
+        produces: ['wafer'],
+      },
+      {
+        title: 'CoWoS 封裝',
+        description: 'CoW 接合中介層、oS 接到 ABF 載板（見封裝場景）。',
+        produces: ['dut-package'],
+      },
+      {
+        title: 'FT 成品測試',
+        description: '分類機把封裝放進測試座、ATE 透過測試載板量測功能與速度分級。',
+        produces: ['dut-package', 'test-socket', 'load-board', 'handler', 'ate-head'],
+      },
+      { title: 'Burn-in 預燒', description: '高溫高壓長時間運轉，篩掉早期失效品。', produces: ['dut-package'] },
+      {
+        title: 'SLT 系統級測試',
+        description: '在接近實際系統的板子上跑真實工作負載，抓出 ATE 測不到的缺陷。',
+        produces: ['dut-package'],
+      },
+    ],
+  },
 };

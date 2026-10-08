@@ -11,11 +11,13 @@ import {
   MATERIALS,
   MICRO_VIEWS,
   PROCESS_CHAINS,
+  sceneOfLayer,
   useStackLayout,
   type FocusBox,
   type LayerId,
   type MaterialId,
   type ProcessChainId,
+  type SceneKey,
   type StackLabel,
   type StackLayout,
   type Variant,
@@ -74,11 +76,48 @@ function unionBounds(layout: StackLayout, ids: Iterable<string>): FocusBox | nul
 }
 
 const LABEL_NUDGE: Partial<Record<LayerId, number>> = { gpu: -0.35, hbm: 0.35 };
-const LABEL_IDS: LayerId[] = ['lid', 'gpu', 'hbm', 'ubump', 'interposer', 'c4', 'substrate', 'bga', 'server-pcb'];
+
+interface SceneConfig {
+  labels: LayerId[];
+  /** 組裝狀態（爆炸 < 0.15）下會擋住內部、暫不可點擊的層 */
+  covers: LayerId[];
+  home: { position: [number, number, number]; target: [number, number, number] };
+}
+
+const SCENES: Record<SceneKey, SceneConfig> = {
+  package: {
+    labels: ['lid', 'gpu', 'hbm', 'ubump', 'interposer', 'c4', 'substrate', 'bga', 'server-pcb'],
+    covers: ['lid'],
+    home: { position: [26, 16, 26], target: [0, 2, 0] },
+  },
+  test: {
+    labels: [
+      'pogo-tower',
+      'probe-card-pcb',
+      'space-transformer',
+      'probe-head',
+      'wafer',
+      'prober-chuck',
+      'handler',
+      'dut-package',
+      'test-socket',
+      'load-board',
+    ],
+    covers: ['ate-head', 'pogo-tower', 'handler'],
+    home: { position: [26, 24, 40], target: [0, 4, 0] },
+  },
+};
+
+/** 選取目標實際位於哪個場景；無 3D 位置者回傳 undefined（不切換） */
+export function sceneOfSelection(selection: Selection | null, catalog: SectorCatalog): SceneKey | undefined {
+  const first = highlightFor(selection, catalog).find(isLayer);
+  return first ? sceneOfLayer(LAYER_MAP[first]) : undefined;
+}
 
 export function useExplorer() {
   const state = useExplorerStore(
     useShallow((s) => ({
+      scene: s.scene,
       selection: s.selection,
       hoveredLayer: s.hoveredLayer,
       explode: s.explode,
@@ -91,6 +130,7 @@ export function useExplorer() {
   const actions = useExplorerStore(
     useShallow((s) => ({
       select: s.select,
+      setScene: s.setScene,
       hoverLayer: s.hoverLayer,
       setExplode: s.setExplode,
       setClipEnabled: s.setClipEnabled,
@@ -101,9 +141,12 @@ export function useExplorer() {
     })),
   );
   const catalog = useSectorCatalog();
-  const { selection, variants } = state;
+  const { selection, variants, scene } = state;
+  const config = SCENES[scene];
+  const select = (item: Selection | null) => actions.select(item, sceneOfSelection(item, catalog));
 
   const layout = useStackLayout({
+    scene,
     explode: state.explode,
     interposerVariant: variants.interposer,
     substrateVariant: variants.substrate,
@@ -112,11 +155,14 @@ export function useExplorer() {
   const highlightIds = useMemo(() => highlightFor(selection, catalog), [selection, catalog]);
   const highlighted = useMemo(() => expandLayerIds(highlightIds), [highlightIds]);
 
-  const card = useMemo<PanelCard>(() => buildCard(selection, catalog, variants), [selection, catalog, variants]);
+  const card = useMemo<PanelCard>(
+    () => buildCard(selection, catalog, variants, scene),
+    [selection, catalog, variants, scene],
+  );
 
   const labels = useMemo<StackLabel[]>(() => {
     if (state.explode < 0.35) return [];
-    return LABEL_IDS.flatMap((id) => {
+    return config.labels.flatMap((id) => {
       const b = layout.bounds[id];
       if (!b) return [];
       // GPU 與 HBM 在同一槽位，標籤上下錯開避免重疊
@@ -125,7 +171,7 @@ export function useExplorer() {
         { id, name: LAYER_MAP[id].name, position: [b.center[0] + b.size[0] / 2 + 0.2, b.center[1] + dy, b.center[2]] },
       ];
     });
-  }, [layout, state.explode]);
+  }, [layout, state.explode, config]);
 
   // 聚焦框只在 focusKey 改變時被相機讀取，因此依當下佈局計算即可
   const focus = useMemo(() => (selection ? unionBounds(layout, highlighted) : null), [layout, highlighted, selection]);
@@ -134,7 +180,11 @@ export function useExplorer() {
     () => [
       {
         label: '結構層',
-        options: LAYERS.map((l) => ({ value: `layer:${l.id}`, label: l.name, hint: l.nameEn })),
+        options: LAYERS.map((l) => ({
+          value: `layer:${l.id}`,
+          label: l.name,
+          hint: `${SCENE_LABEL[sceneOfLayer(l)]}・${l.nameEn}`,
+        })),
       },
       {
         label: '材料',
@@ -171,7 +221,8 @@ export function useExplorer() {
       labels,
       focus,
       focusKey: state.focusKey,
-      lidPassive: state.explode < 0.15,
+      passiveIds: state.explode < 0.15 ? config.covers : [],
+      home: config.home,
       onSelectLayer: (id: string) => actions.select({ kind: 'layer', id }),
       onHoverLayer: actions.hoverLayer,
     },
@@ -187,23 +238,27 @@ export function useExplorer() {
     sidebar: {
       categories: catalog.categories,
       selectedGroupId: selectedSectorId,
-      onSelectGroup: (id: string) => actions.select({ kind: 'sector', id }),
+      onSelectGroup: (id: string) => select({ kind: 'sector', id }),
     },
     search: {
       groups: searchGroups,
       onSelect: (value: string) => {
         const [kind, ...rest] = value.split(':');
-        actions.select({ kind: kind as Selection['kind'], id: rest.join(':') });
+        select({ kind: kind as Selection['kind'], id: rest.join(':') });
       },
     },
     panel: {
       card,
-      onNavigate: (item: Selection) => actions.select(item),
+      onNavigate: (item: Selection) => select(item),
       onVariantChange: (slot: VariantSlot, value: string) => actions.setVariant(slot, value),
       onOpenMicro: actions.openMicro,
       onClose: () => actions.select(null),
     },
-    glassTint: GLASS_TINT[variants['glass-fabric']],
+    sceneSwitch: {
+      value: scene,
+      options: (Object.keys(SCENES) as SceneKey[]).map((key) => ({ value: key, label: SCENE_LABEL[key] })),
+      onChange: actions.setScene,
+    },
   };
 }
 
@@ -225,8 +280,9 @@ function buildCard(
   selection: Selection | null,
   catalog: SectorCatalog,
   variants: Record<VariantSlot, string>,
+  scene: SceneKey,
 ): PanelCard {
-  if (!selection) return { kind: 'overview' };
+  if (!selection) return { kind: 'overview', scene };
 
   if (selection.kind === 'layer' && isLayer(selection.id)) {
     const layer = LAYER_MAP[selection.id];
@@ -279,10 +335,11 @@ function buildCard(
     if (company) return { kind: 'company', company };
   }
 
-  return { kind: 'overview' };
+  return { kind: 'overview', scene };
 }
 
 export function useMicroView() {
+  const catalog = useSectorCatalog();
   const s = useExplorerStore(
     useShallow((st) => ({
       microView: st.microView,
@@ -310,7 +367,7 @@ export function useMicroView() {
     onExplodeChange: s.setMicroExplode,
     onNavigate: (item: Selection) => {
       s.closeMicro();
-      s.select(item);
+      s.select(item, sceneOfSelection(item, catalog));
     },
   };
 }

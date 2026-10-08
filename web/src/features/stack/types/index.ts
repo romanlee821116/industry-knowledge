@@ -10,13 +10,28 @@ export type LayerId =
   | 'substrate-core'
   | 'solder-mask'
   | 'bga'
-  | 'server-pcb';
+  | 'server-pcb'
+  // 測試場景
+  | 'ate-head'
+  | 'pogo-tower'
+  | 'probe-card-pcb'
+  | 'space-transformer'
+  | 'probe-head'
+  | 'wafer'
+  | 'prober-chuck'
+  | 'handler'
+  | 'dut-package'
+  | 'test-socket'
+  | 'load-board';
+
+/** 已建模的 3D 場景 */
+export type SceneKey = 'package' | 'test';
 
 export type MaterialId = 'glass-fabric' | 'ccl' | 'abf-film' | 'copper-foil' | 'resin';
 
-export type MicroViewId = 'glass-fabric' | 'substrate-section';
+export type MicroViewId = 'glass-fabric' | 'substrate-section' | 'probe-contact' | 'pogo-pin';
 
-export type ProcessChainId = 'laminate' | 'substrate' | 'cowos';
+export type ProcessChainId = 'laminate' | 'substrate' | 'cowos' | 'test';
 
 /** 材料色票 key：技術插畫風，每種材料固定一色 */
 export type PaletteKey =
@@ -33,7 +48,16 @@ export type PaletteKey =
   | 'die'
   | 'hbm'
   | 'lid'
-  | 'glass';
+  | 'glass'
+  | 'ceramic'
+  | 'probe'
+  | 'gold'
+  | 'st'
+  | 'chuck'
+  | 'ate'
+  | 'handler'
+  | 'socket'
+  | 'pogo';
 
 export interface Spec {
   label: string;
@@ -60,6 +84,8 @@ export interface StackLayer {
   role: string;
   specs: Spec[];
   materials: MaterialId[];
+  /** 所屬場景，未填為 package */
+  scene?: SceneKey;
   parent?: LayerId;
   microView?: MicroViewId;
   processChain?: ProcessChainId;
@@ -116,6 +142,8 @@ export interface MicroView {
 export interface LayerBlock {
   key: string;
   layerId: LayerId;
+  /** cylinder 時 size = [直徑, 高, 直徑] */
+  shape?: 'box' | 'cylinder';
   position: [number, number, number];
   size: [number, number, number];
   palette: PaletteKey;

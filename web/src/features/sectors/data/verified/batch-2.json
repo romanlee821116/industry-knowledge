@@ -1,0 +1,960 @@
+{
+  "generatedAt": "2026-10-08",
+  "groups": [
+    {
+      "id": "wafer-probe",
+      "name": "晶圓探針（探針本體）",
+      "category": "equipment",
+      "summary": "此族群定義為「探針卡／測試座裡的金屬探針本體」（MEMS 針、垂直針、彈簧針 pogo pin），是測試介面的關鍵耗材。能自製探針的廠商毛利與交期掌控度較高。",
+      "engineeringNotes": "探針依結構分為懸臂式（cantilever，人工組裝、適合成熟製程）、垂直式（VPC，適合覆晶凸塊高密度陣列）與 MEMS 探針（以微影製程批量製作，適合先進製程與 AI 晶片）。AI 晶片探針卡的針數已由約 2 萬根提升到 3 萬根以上，間距約 20–50µm，因此探針自製產能（以「每月百萬針」計）成為各廠擴產的關鍵指標。測試座用的是內含微彈簧的 pogo pin，與探針卡用的探針是不同產品。",
+      "companies": [
+        {
+          "ticker": "6515",
+          "name": "穎崴",
+          "verdict": "confirmed",
+          "role": "自製彈簧針（pogo pin）與 VPC 垂直探針，供自家測試座與探針卡使用；並與 Technoprobe 簽長約採購 MEMS 探針",
+          "core": 3,
+          "sources": [
+            "https://udn.com/news/story/7253/9153036",
+            "https://blog.fugle.tw/post/earnings-call-6515-2025-11-20",
+            "https://money.udn.com/money/story/5613/9192247"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6223",
+          "name": "旺矽",
+          "verdict": "confirmed",
+          "role": "自製 MEMS 探針與垂直式探針，MEMS 探針月產能約 200 萬針（2026 年初）、目標約 300 萬針",
+          "core": 2,
+          "sources": [
+            "https://cmnews.com.tw/article/cmoney-7abf9a8c-d8ce-11ef-865f-58a0de739574",
+            "https://www.pocket.tw/school/report/SCHOOL/6433/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6510",
+          "name": "精測",
+          "verdict": "confirmed",
+          "role": "自製 MEMS 探針（探針設計、PCB、組裝一條龍），近年提高探針自製率",
+          "core": 2,
+          "sources": [
+            "https://uanalyze.com.tw/articles/620505042",
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=4096b6ab-3886-4484-ae73-675c83a8d30a"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6683",
+          "name": "雍智",
+          "verdict": "removed",
+          "role": "測試載板／老化板設計商，不自製金屬探針",
+          "core": 1,
+          "sources": [
+            "https://uanalyze.com.tw/articles/620505042",
+            "https://vocus.cc/article/6a3b9bdefd8978000132180f"
+          ],
+          "note": "原值『晶圓探針』→ 移除：雍智以設計為主、製造委外，不生產探針本體，應歸入測試載板族群"
+        },
+        {
+          "ticker": "6217",
+          "name": "中探針",
+          "verdict": "added",
+          "role": "Pogo pin／測試探針專業廠，並推出 MEMS 探針、測試座與高功率 burn-in socket；半導體營收占比約 25–30%",
+          "core": 1,
+          "sources": ["https://news.cnyes.com/news/id/6149219", "https://www.pocket.tw/school/report/SCHOOL/6282/"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "probe-card",
+      "name": "探針卡",
+      "category": "equipment",
+      "summary": "晶圓測試（CP）時連接 ATE 與晶粒焊墊的介面耗材，依客戶晶片客製。AI/HPC 與 Chiplet 帶動 VPC 與 MEMS 探針卡需求。",
+      "engineeringNotes": "探針卡由三層組成：最上層是接 ATE 的 PCB（高多層、常見數十層）、中間是空間轉換板 ST（把晶圓微間距放大成 PCB 可接的間距，材質為 MLC 多層陶瓷或 MLO 多層有機）、最下層是承載探針的探針頭。CoWoS 等 2.5D 封裝一次把多顆昂貴晶粒與 HBM 合封，任何一顆壞掉整組報廢，因此每顆晶粒封裝前都必須做 100% KGD（Known Good Die）晶圓測試，CP 測試道次與時間大增。全球市場由 FormFactor（約 27–30%）、Technoprobe（約 17%）、MJC（約 12–14%）主導，MEMS 探針卡約占市場 7 成以上。",
+      "companies": [
+        {
+          "ticker": "6223",
+          "name": "旺矽",
+          "verdict": "confirmed",
+          "role": "懸臂式、垂直式（VPC）、MEMS 三種探針卡皆有，懸臂與垂直式市佔全球領先；探針卡約占 2025 營收 72%",
+          "core": 3,
+          "sources": [
+            "https://blog.fugle.tw/post/earnings-call-6223-2026-03-30",
+            "https://cmnews.com.tw/article/cmoney-7abf9a8c-d8ce-11ef-865f-58a0de739574"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6510",
+          "name": "精測",
+          "verdict": "confirmed",
+          "role": "MEMS 探針卡與自製探針卡 PCB／載板，可同時供應 PCB、載板與探針卡三項測試介面產品",
+          "core": 3,
+          "sources": [
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=4096b6ab-3886-4484-ae73-675c83a8d30a",
+            "https://www.chpt.com/information-detail/0__33/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6683",
+          "name": "雍智",
+          "verdict": "confirmed",
+          "role": "晶圓探針卡（約占營收 15%），以設計為主、製造委外",
+          "core": 1,
+          "sources": ["https://7evenguy.com/what-is-6683-doing/", "https://www.cna.com.tw/news/afe/202511010077.aspx"],
+          "note": ""
+        },
+        {
+          "ticker": "6515",
+          "name": "穎崴",
+          "verdict": "added",
+          "role": "垂直式探針卡（VPC）與 MEMS 探針卡，探針卡約占營收 1 成，為成長中的第二支柱",
+          "core": 2,
+          "sources": [
+            "https://www.cmoney.tw/notes/note-detail.aspx?nid=756872",
+            "https://money.udn.com/money/story/5613/9192247"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "7856",
+          "name": "漢測",
+          "verdict": "added",
+          "role": "薄膜式（membrane）探針卡",
+          "core": 1,
+          "sources": ["https://www.bnext.com.tw/article/84752/probe-card"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "test-interface",
+      "name": "測試介面",
+      "category": "equipment",
+      "summary": "泛指 ATE 與待測晶片之間的所有耗材：CP 段的探針卡、FT 段的測試座與測試載板、老化板。台灣「測試介面四雄」各自專精不同環節。",
+      "engineeringNotes": "測試流程中，CP（晶圓測試）用探針卡＋探針台，FT（成品測試）用測試座（socket）＋測試載板（load board）＋分類機（handler），預燒用 burn-in board＋burn-in socket。測試介面屬於客製化耗材，依每顆新晶片重新設計，因此 AI 晶片新案數越多、針數與功率越高，單價與用量同步提升。使用者觀點大致正確：探針／測試座偏穎崴、探針卡偏旺矽、測試載板偏精測與雍智，四家皆屬測試介面。",
+      "companies": [
+        {
+          "ticker": "6223",
+          "name": "旺矽",
+          "verdict": "confirmed",
+          "role": "CP 段探針卡為主，另有探針台、熱測試設備",
+          "core": 3,
+          "sources": [
+            "https://uanalyze.com.tw/articles/620505042",
+            "https://vocus.cc/article/6a3b9bdefd8978000132180f"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6510",
+          "name": "精測",
+          "verdict": "confirmed",
+          "role": "CP 探針卡＋探針卡 PCB、FT 段 IC 測試板，從晶圓測試到系統級測試全流程介面",
+          "core": 3,
+          "sources": [
+            "https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=0000767153_RJ908KVE6VY4FL2PG3XS4",
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=4096b6ab-3886-4484-ae73-675c83a8d30a"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6515",
+          "name": "穎崴",
+          "verdict": "confirmed",
+          "role": "FT／SLT／burn-in 測試座（Coaxial socket 為主）＋探針卡",
+          "core": 3,
+          "sources": [
+            "https://www.cmoney.tw/notes/note-detail.aspx?nid=756872",
+            "https://uanalyze.com.tw/articles/620505042"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6683",
+          "name": "雍智",
+          "verdict": "confirmed",
+          "role": "IC 測試載板（約 50%）、老化測試板（約 35%）、探針卡（約 15%）",
+          "core": 2,
+          "sources": ["https://7evenguy.com/what-is-6683-doing/", "https://uanalyze.com.tw/articles/620505042"],
+          "note": ""
+        },
+        {
+          "ticker": "6217",
+          "name": "中探針",
+          "verdict": "added",
+          "role": "測試探針、測試座、高功率 burn-in socket，切入 IC 設計大廠",
+          "core": 1,
+          "sources": ["https://news.cnyes.com/news/id/6149219"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "probe-station",
+      "name": "Probe Station 探針台",
+      "category": "equipment",
+      "summary": "承載晶圓並精準對位探針卡的設備。量產用全自動 prober 由日系 TEL、東京精密寡占；台廠旺矽主攻工程／研發用探針系統（RF、高功率、矽光子）。",
+      "engineeringNotes": "量產 prober 負責晶圓搬送、對位、溫控（-55~150°C 級），並把探針卡壓在晶粒上與 ATE 接通；工程用 probe station 則用於元件特性量測（DC、RF 到約 110GHz、高功率、光電）。矽光子／CPO 興起後，需同時對準光纖與電探針的光電探針系統成為新需求。",
+      "companies": [
+        {
+          "ticker": "6223",
+          "name": "旺矽",
+          "verdict": "confirmed",
+          "role": "工程用探針系統（50–300mm、手動到全自動、RF/高功率/矽光子），屬先進半導體測試（AST）事業",
+          "core": 3,
+          "sources": [
+            "https://www.mpi-corporation.cn/ast/engineering-probe-systems/mpi-fully-automated-systems/",
+            "https://www.mpi.com.tw/ast/applications/device-characterization/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6510",
+          "name": "精測",
+          "verdict": "removed",
+          "role": "探針卡與測試板供應商，非探針台製造商",
+          "core": 1,
+          "sources": ["https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=4096b6ab-3886-4484-ae73-675c83a8d30a"],
+          "note": "原值『探針台』→ 移除：查無精測生產 probe station 的公開資料，其產品為探針卡、PCB、載板"
+        },
+        {
+          "ticker": "6640",
+          "name": "均華",
+          "verdict": "removed",
+          "role": "先進封裝設備：晶粒挑揀機（Chip Sorter）、高精度黏晶機（Die Bonder）",
+          "core": 1,
+          "sources": ["https://statementdog.com/news/14448"],
+          "note": "原值『探針台』→ 移除：均華為封裝設備廠（先進封裝設備占營收約 85%），應歸入先進封裝設備族群"
+        }
+      ]
+    },
+    {
+      "id": "ic-test",
+      "name": "IC 測試",
+      "category": "testing",
+      "summary": "專業測試代工（OSAT 測試段），涵蓋晶圓測試（CP）、成品測試（FT）、預燒與 SLT。AI GPU/ASIC 測試時間大幅拉長，帶動測試廠擴產。",
+      "engineeringNotes": "測試代工的產能單位是「ATE 機台＋handler＋測試時間」，傳統晶片測試約 2–4 小時，AI GPU 約 12–40 小時（含 burn-in 與 SLT），因此 AI 晶片的測試營收貢獻遠高於其顆數占比。京元電為全球第二大專業測試廠；記憶體測試則由力成等封測一條龍廠承接。",
+      "companies": [
+        {
+          "ticker": "2449",
+          "name": "京元電",
+          "verdict": "confirmed",
+          "role": "純測試廠：產品測試約 59%、晶圓測試約 31%、預燒約 8%（2025），NVIDIA AI GPU 成品測試主要供應商",
+          "core": 3,
+          "sources": [
+            "https://www.businesstoday.com.tw/article/category/183008/post/202605050030/",
+            "https://uc913.com/stock-2449/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3264",
+          "name": "欣銓",
+          "verdict": "confirmed",
+          "role": "以晶圓測試（CP）為主的測試代工，車用／MCU 為基本盤，AI ASIC CP 比重快速拉升",
+          "core": 2,
+          "sources": ["https://news.cnyes.com/news/id/6609139", "https://news.cnyes.com/news/id/6278656"],
+          "note": ""
+        },
+        {
+          "ticker": "6257",
+          "name": "矽格",
+          "verdict": "confirmed",
+          "role": "CP 到 FT 測試代工（測試占營收八成以上），AI/ASIC/矽光子占比約 24%",
+          "core": 2,
+          "sources": [
+            "https://blog.fugle.tw/post/earnings-call-6257-2026-10-06",
+            "https://news.cnyes.com/news/id/6254267"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6239",
+          "name": "力成",
+          "verdict": "confirmed",
+          "role": "記憶體封測一條龍，測試收入約占 22%（2025），涵蓋晶圓針測、最終測試、預燒",
+          "core": 2,
+          "sources": ["https://vocus.cc/article/6a79e58dfd89780001099c88", "https://uc913.com/stock-6239/"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "wafer-test",
+      "name": "晶圓測試（CP）",
+      "category": "testing",
+      "summary": "封裝前在晶圓上逐顆量測晶粒（Chip Probing）。包含「測試代工服務商」與「測試耗材供應商」兩類角色，role 已分別註明。",
+      "engineeringNotes": "CP 由 ATE＋探針台＋探針卡構成；Chiplet 與 CoWoS 讓每顆晶粒都須在封裝前確認為 KGD，CP 測試時間呈倍數拉長。部分晶圓代工廠內部 CP 產能有限，CP 逐步委外給京元電、欣銓等專業測試廠。",
+      "companies": [
+        {
+          "ticker": "2449",
+          "name": "京元電",
+          "verdict": "confirmed",
+          "role": "【代工服務】CP 晶圓測試約占營收 31%，承接晶圓代工委外 CP",
+          "core": 3,
+          "sources": [
+            "https://www.businesstoday.com.tw/article/category/183008/post/202605050030/",
+            "https://www.kyec.com.tw/zh-tw/Service/%E6%B8%AC%E8%A9%A6%E6%9C%8D%E5%8B%99"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6257",
+          "name": "矽格",
+          "verdict": "confirmed",
+          "role": "【代工服務】CP 到 FT 測試代工，擴產承接美系 CPU/GPU 客戶",
+          "core": 2,
+          "sources": ["https://uanalyze.com.tw/articles/2966351898"],
+          "note": ""
+        },
+        {
+          "ticker": "3264",
+          "name": "欣銓",
+          "verdict": "added",
+          "role": "【代工服務】晶圓測試專業廠，龍潭廠承接晶圓代工客戶 AI ASIC CP",
+          "core": 3,
+          "sources": ["https://news.cnyes.com/news/id/6609139"],
+          "note": ""
+        },
+        {
+          "ticker": "6223",
+          "name": "旺矽",
+          "verdict": "corrected",
+          "role": "【耗材供應商】CP 用探針卡與探針台，不提供測試代工",
+          "core": 2,
+          "sources": ["https://blog.fugle.tw/post/earnings-call-6223-2026-03-30"],
+          "note": "原值『晶圓測試』→ 新值『晶圓測試耗材（探針卡）供應商』：旺矽不做測試代工，應與京元電等服務商區分"
+        },
+        {
+          "ticker": "6510",
+          "name": "精測",
+          "verdict": "corrected",
+          "role": "【耗材供應商】CP 用 MEMS 探針卡與探針卡 PCB，不提供測試代工",
+          "core": 2,
+          "sources": ["https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=4096b6ab-3886-4484-ae73-675c83a8d30a"],
+          "note": "原值『晶圓測試』→ 新值『晶圓測試耗材（探針卡）供應商』：精測不做測試代工"
+        }
+      ]
+    },
+    {
+      "id": "test-socket",
+      "name": "測試座 Socket",
+      "category": "equipment",
+      "summary": "FT／SLT／burn-in 階段承接封裝後晶片的治具，內含 pogo pin。AI GPU 大尺寸、高功率、高速訊號帶動 Coaxial socket 需求。",
+      "engineeringNotes": "測試座由座體、蓋板（含壓扣與散熱模組）與數千根 pogo pin 組成；pogo pin 是針筒＋內部彈簧＋上下柱塞的結構。高速測試採同軸（Coaxial）設計，以金屬屏蔽每根訊號針降低串擾；AI 晶片測試功率達數百瓦到 1,000W 以上，測試座需搭配 ATC 主動溫控或水冷板散熱。全球前段班為 Yamaichi、Cohu、Smiths Interconnect、LEENO、ISC 與穎崴。",
+      "companies": [
+        {
+          "ticker": "6515",
+          "name": "穎崴",
+          "verdict": "confirmed",
+          "role": "AI GPU 大尺寸 Coaxial socket（約 42%）、RF／Plastic socket、Burn-in socket，自製彈簧針；全球測試座市佔約第四",
+          "core": 3,
+          "sources": [
+            "https://www.cmoney.tw/notes/note-detail.aspx?nid=756872",
+            "https://news.cnyes.com/news/id/5853135"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6510",
+          "name": "精測",
+          "verdict": "added",
+          "role": "Coaxial socket 測試座（例如 PCIe 5 NAND 控制晶片），屬非主力產品線",
+          "core": 1,
+          "sources": ["https://www.chpt.com/information-detail/0__33/"],
+          "note": ""
+        },
+        {
+          "ticker": "6217",
+          "name": "中探針",
+          "verdict": "added",
+          "role": "測試座＋pogo pin，含 1,200W 以上高功率 burn-in socket",
+          "core": 1,
+          "sources": ["https://news.cnyes.com/news/id/6149219", "https://www.pocket.tw/school/report/SCHOOL/6282/"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "burn-in",
+      "name": "Burn-in 預燒",
+      "category": "testing",
+      "summary": "以高溫高壓長時間運作篩除早夭（infant mortality）晶片。AI GPU 與 ASIC 已把 burn-in 納入標準流程，包含代工服務、預燒板／座與設備三類參與者。",
+      "engineeringNotes": "預燒利用浴缸曲線原理，在高溫（約 125°C 級）與過電壓下加速老化，把早期失效品先篩掉。傳統是把封裝後晶片插在 burn-in board 上整批進烤箱；AI 晶片功率與尺寸大增後，板級預燒受限，業界開始評估逐顆控溫的高功率預燒與晶粒級（Die-level）burn-in。",
+      "companies": [
+        {
+          "ticker": "2449",
+          "name": "京元電",
+          "verdict": "confirmed",
+          "role": "【代工服務】高功率預燒測試，預燒約占營收 8%，AI GPU／ASIC 預燒主要供應商",
+          "core": 3,
+          "sources": [
+            "https://www.kyec.com.tw/zh-tw/Service/%E5%89%B5%E6%96%B0%E7%AC%AC%E4%BA%8C%E7%AD%86",
+            "https://www.businesstoday.com.tw/article/category/183008/post/202605050030/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6239",
+          "name": "力成",
+          "verdict": "confirmed",
+          "role": "【代工服務】記憶體封測一條龍中的預燒（burn-in）",
+          "core": 2,
+          "sources": ["https://vocus.cc/article/6a79e58dfd89780001099c88"],
+          "note": ""
+        },
+        {
+          "ticker": "3264",
+          "name": "欣銓",
+          "verdict": "confirmed",
+          "role": "【代工服務】持續投資老化測試（Burn-in）能力，規模尚小",
+          "core": 1,
+          "sources": ["https://news.cnyes.com/news/id/6278656"],
+          "note": ""
+        },
+        {
+          "ticker": "6683",
+          "name": "雍智",
+          "verdict": "added",
+          "role": "【耗材】老化測試板（Burn-in Board），約占營收 35%",
+          "core": 2,
+          "sources": ["https://7evenguy.com/what-is-6683-doing/"],
+          "note": ""
+        },
+        {
+          "ticker": "6515",
+          "name": "穎崴",
+          "verdict": "added",
+          "role": "【耗材】Burn-in socket（約占營收 3%）",
+          "core": 1,
+          "sources": ["https://www.cmoney.tw/notes/note-detail.aspx?nid=756872"],
+          "note": ""
+        },
+        {
+          "ticker": "2360",
+          "name": "致茂",
+          "verdict": "added",
+          "role": "【設備】高功率預燒與晶粒級（Die-level）burn-in 測試平台，客戶預計 2027 年起導入",
+          "core": 1,
+          "sources": ["https://m.cnyes.com/news/id/6609155"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ate",
+      "name": "高階 ATE",
+      "category": "equipment",
+      "summary": "自動測試設備（測試機本體），由 Advantest 與 Teradyne 雙寡占。原清單三家皆非 ATE 製造商；台股中唯一有 SoC 測試機產品線的是致茂。",
+      "engineeringNotes": "ATE 是產生測試向量、量測電性並判定 pass/fail 的測試機，CP 與 FT 都要用；探針卡、測試座只是接在 ATE 上的介面。全球 ATE 約 95% 由 Advantest（約 58%）與 Teradyne（約 37%）掌握，SoC 測試機中 Advantest 市佔由約 56%（CY24）升到約 66%（CY25）。台廠多為 ATE 周邊（介面、handler、溫控）或 SLT，而非高階 SoC ATE 本體。",
+      "companies": [
+        {
+          "ticker": "6223",
+          "name": "旺矽",
+          "verdict": "removed",
+          "role": "探針卡、探針台、熱測試設備，非 SoC ATE 測試機廠",
+          "core": 1,
+          "sources": ["https://www.semi.org/en/resources/member-directory/mpi-corporation"],
+          "note": "原值『高階 ATE』→ 移除：旺矽產品為 ATE 周邊介面與探針系統，非測試機本體"
+        },
+        {
+          "ticker": "6510",
+          "name": "精測",
+          "verdict": "removed",
+          "role": "測試介面（探針卡、測試板）",
+          "core": 1,
+          "sources": ["https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=4096b6ab-3886-4484-ae73-675c83a8d30a"],
+          "note": "原值『高階 ATE』→ 移除：精測為測試介面耗材廠，非 ATE 製造商"
+        },
+        {
+          "ticker": "2449",
+          "name": "京元電",
+          "verdict": "removed",
+          "role": "ATE 的使用者（測試代工廠），採購 Advantest／Teradyne 機台",
+          "core": 1,
+          "sources": ["https://uc913.com/stock-2449/"],
+          "note": "原值『高階 ATE』→ 移除：京元電是 ATE 買方，應歸 IC 測試代工族群"
+        },
+        {
+          "ticker": "2360",
+          "name": "致茂",
+          "verdict": "added",
+          "role": "Chroma 3680 Advanced SoC 測試系統（SoC／類比混訊 ATE）＋ SLT 系統，為台股少數自有測試機品牌",
+          "core": 2,
+          "sources": [
+            "https://www.cmoney.tw/notes/note-detail.aspx?nid=855904",
+            "https://www.ctee.com.tw/news/20260702700291-439901"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "high-speed-test",
+      "name": "高速測試",
+      "category": "ai-hpc",
+      "summary": "針對 SerDes（56G/112G PAM4）、PCIe、HBM PHY 等高速介面的測試介面，重點在訊號完整性（SI）與低損耗設計。",
+      "engineeringNotes": "112G PAM4 以上訊號在探針卡 PCB、空間轉換板與測試座中的插入損耗與串擾會直接影響量測，需低損耗板材、阻抗控制與同軸結構。測試座常用 Coaxial 設計、探針卡則講求短訊號路徑；RF 量測則需要校正軟體與 RF 探針（可達約 110GHz）。",
+      "companies": [
+        {
+          "ticker": "6510",
+          "name": "精測",
+          "verdict": "confirmed",
+          "role": "AI 晶片 56Gbps／112Gbps PAM4 高速探針卡與高速測試介面方案",
+          "core": 3,
+          "sources": ["https://www.chpt.com/information-detail/0__33/"],
+          "note": ""
+        },
+        {
+          "ticker": "6223",
+          "name": "旺矽",
+          "verdict": "confirmed",
+          "role": "RF 探針與校正軟體（量測可達 110GHz）、高頻探針卡",
+          "core": 2,
+          "sources": ["https://www.semi.org/en/resources/member-directory/mpi-corporation"],
+          "note": ""
+        },
+        {
+          "ticker": "6683",
+          "name": "雍智",
+          "verdict": "confirmed",
+          "role": "AI ASIC／GPU 高速測試載板與高速解決方案",
+          "core": 2,
+          "sources": [
+            "https://vocus.cc/article/68fc3538fd897800017ad7d0",
+            "https://www.cna.com.tw/news/afe/202511010077.aspx"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6515",
+          "name": "穎崴",
+          "verdict": "added",
+          "role": "高頻高速 Coaxial socket（AI GPU FT 主力）",
+          "core": 3,
+          "sources": ["https://www.cmoney.tw/notes/note-detail.aspx?nid=756872"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ai-chip-test",
+      "name": "AI 晶片測試",
+      "category": "ai-hpc",
+      "summary": "AI GPU／ASIC 的 CP→FT→Burn-in→SLT 全流程，涵蓋測試介面、設備與測試代工。",
+      "engineeringNotes": "AI 晶片測試的三大變化：針數多（MEMS 探針卡 3 萬針以上）、功率高（測試中需數百瓦以上散熱，handler 搭配 ATC 主動溫控／水冷板）、時間長（AI GPU 約 12–40 小時）。因此除了介面耗材，handler、溫控與 SLT 設備以及測試代工產能同步受惠。",
+      "companies": [
+        {
+          "ticker": "6223",
+          "name": "旺矽",
+          "verdict": "confirmed",
+          "role": "AI ASIC／GPU CP 用 VPC 與 MEMS 探針卡",
+          "core": 3,
+          "sources": ["https://udn.com/news/story/6850/9267314"],
+          "note": ""
+        },
+        {
+          "ticker": "6510",
+          "name": "精測",
+          "verdict": "confirmed",
+          "role": "AI 晶片 CP 用 MEMS 探針卡與高速測試板",
+          "core": 2,
+          "sources": [
+            "https://www.chpt.com/information-detail/0__33/",
+            "https://blog.fugle.tw/post/2026-chpt-analysis"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6515",
+          "name": "穎崴",
+          "verdict": "confirmed",
+          "role": "NVIDIA／AMD AI GPU FT 大量使用的 Coaxial socket，以及 SLT socket",
+          "core": 3,
+          "sources": [
+            "https://www.cmoney.tw/notes/note-detail.aspx?nid=756872",
+            "https://news.cnyes.com/news/id/5853135"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6683",
+          "name": "雍智",
+          "verdict": "confirmed",
+          "role": "AI／ASIC 測試載板、老化板，2026 產能規劃提升約 50%",
+          "core": 2,
+          "sources": ["https://udn.com/news/story/7254/9553671", "https://www.cna.com.tw/news/afe/202511010077.aspx"],
+          "note": ""
+        },
+        {
+          "ticker": "2449",
+          "name": "京元電",
+          "verdict": "confirmed",
+          "role": "【代工服務】AI GPU 成品測試、高功率 burn-in、SLT；AI ASIC 測試機台擴增",
+          "core": 3,
+          "sources": [
+            "https://www.businesstoday.com.tw/article/category/183008/post/202605050030/",
+            "https://wantrich.chinatimes.com/news/20260310900303-420101"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "7769",
+          "name": "鴻勁",
+          "verdict": "added",
+          "role": "【設備】AI 晶片 FT／SLT 測試分類機＋ATC 主動溫控＋水冷板",
+          "core": 3,
+          "sources": ["https://www.bnext.com.tw/article/84909/hon-precision-ipo"],
+          "note": ""
+        },
+        {
+          "ticker": "2360",
+          "name": "致茂",
+          "verdict": "added",
+          "role": "【設備】GPU 高功率 SLT 系統，NVIDIA 指定使用",
+          "core": 2,
+          "sources": [
+            "https://www.cmoney.tw/notes/note-detail.aspx?nid=855904",
+            "https://www.ctee.com.tw/news/20260702700291-439901"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "hbm-test",
+      "name": "HBM 測試",
+      "category": "ai-hpc",
+      "summary": "HBM 堆疊的 DRAM 晶粒、基底邏輯晶粒與 KGSD（Known Good Stacked Die）測試。DRAM 探針卡由 FormFactor、MJC 主導，台廠多屬間接受惠，原清單多數缺乏直接佐證。",
+      "engineeringNotes": "HBM 以 TSV 堆疊 8–12 層（或更多）DRAM 晶粒，再接在基底邏輯晶粒上；測試點包括每層 DRAM 的晶圓測試、基底晶粒測試、堆疊後 KGSD 全功能測試與預燒，完整流程約 15 道以上。DRAM 晶圓測試講求高平行度（一次觸壓多顆晶粒）的 MEMS 探針卡，主要由 FormFactor、MJC 供應；HBM 測試多在記憶體原廠內部完成。",
+      "companies": [
+        {
+          "ticker": "6223",
+          "name": "旺矽",
+          "verdict": "confirmed",
+          "role": "媒體稱其為 AI ASIC 與 HBM 測試介面供應商；實際以邏輯晶片探針卡為主，HBM 屬間接／小量",
+          "core": 1,
+          "sources": ["https://udn.com/news/story/6850/9267314"],
+          "note": ""
+        },
+        {
+          "ticker": "2449",
+          "name": "京元電",
+          "verdict": "unverified",
+          "role": "AI GPU 與 HBM 合封後的成品測試／預燒；查無直接承接 HBM KGSD 測試的公開資料",
+          "core": 1,
+          "sources": [],
+          "note": ""
+        },
+        {
+          "ticker": "6510",
+          "name": "精測",
+          "verdict": "unverified",
+          "role": "查無可靠公開資料證實精測供應 HBM 用探針卡",
+          "core": 1,
+          "sources": [],
+          "note": ""
+        },
+        {
+          "ticker": "6515",
+          "name": "穎崴",
+          "verdict": "unverified",
+          "role": "僅見投資部落格泛稱可用於 HBM，查無公司或主流媒體佐證",
+          "core": 1,
+          "sources": [],
+          "note": ""
+        },
+        {
+          "ticker": "6239",
+          "name": "力成",
+          "verdict": "added",
+          "role": "【代工服務】記憶體封測，HBM 封裝與測試試產／導入（HBM3、HBM3E），客戶含美光",
+          "core": 2,
+          "sources": [
+            "https://vocus.cc/article/6a79e58dfd89780001099c88",
+            "https://vocus.cc/article/683964dcfd89780001fd25ad"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "test-load-board",
+      "name": "測試載板 Load board / 探針卡 PCB",
+      "category": "equipment",
+      "summary": "FT 用 IC 測試載板（Load board）、預燒用 Burn-in board，以及 CP 用探針卡 PCB。依難度排序：Burn-in board < Load board < 探針卡 PCB。",
+      "engineeringNotes": "測試板是 ATE 與測試座／探針卡之間的高多層 PCB，層數高、板厚大（測試板常見 30 層起跳），探針卡 PCB 難度最高、量少但毛利高。AI 晶片針數多、電流大，載板需更多電源層與更嚴格的高速訊號設計。雍智為設計商（製造委外），精測則自製 PCB；部分 PCB 廠（金像電、柏承、博智、高技）跨入半導體測試板代工。",
+      "companies": [
+        {
+          "ticker": "6510",
+          "name": "精測",
+          "verdict": "added",
+          "role": "IC 測試板＋自製探針卡 PCB 與中介層載板，垂直整合",
+          "core": 3,
+          "sources": [
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=4096b6ab-3886-4484-ae73-675c83a8d30a",
+            "https://www.cnyes.com/twstock/intro.aspx?code=6510"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6683",
+          "name": "雍智",
+          "verdict": "added",
+          "role": "IC 測試載板（約 50%）與老化測試板（約 35%）設計，製造委外",
+          "core": 3,
+          "sources": ["https://7evenguy.com/what-is-6683-doing/", "https://uanalyze.com.tw/articles/620505042"],
+          "note": ""
+        },
+        {
+          "ticker": "2368",
+          "name": "金像電",
+          "verdict": "added",
+          "role": "Burn-in board（30 層以上），並挑戰 Load board；主業為伺服器 PCB",
+          "core": 1,
+          "sources": ["https://www.ctee.com.tw/news/20211221700475-430502"],
+          "note": "資料為 2021 年報導，測試板比重較小"
+        },
+        {
+          "ticker": "6141",
+          "name": "柏承",
+          "verdict": "added",
+          "role": "半導體測試板，2021 年 Q3 占營收約 40%",
+          "core": 1,
+          "sources": ["https://www.ctee.com.tw/news/20211221700475-430502"],
+          "note": "比重數字為 2021 年資料"
+        },
+        {
+          "ticker": "8155",
+          "name": "博智",
+          "verdict": "added",
+          "role": "高層數半導體測試板",
+          "core": 1,
+          "sources": ["https://www.ctee.com.tw/news/20211221700475-430502"],
+          "note": ""
+        },
+        {
+          "ticker": "5439",
+          "name": "高技",
+          "verdict": "added",
+          "role": "半導體測試板與晶片製造用 PCB，半導體占比約 10%",
+          "core": 1,
+          "sources": ["https://www.ctee.com.tw/news/20211221700475-430502"],
+          "note": "比重數字為 2021 年資料"
+        }
+      ]
+    },
+    {
+      "id": "test-handler",
+      "name": "分類機 Handler／測試溫控設備",
+      "category": "equipment",
+      "summary": "FT／SLT 階段自動取放晶片、壓入測試座並依結果分級的設備，AI 晶片時代須整合主動溫控（ATC）。",
+      "engineeringNotes": "Handler 負責把晶片從 tray 取出、壓進測試座、維持設定溫度（ATC 約 -70°C～175°C）並依 ATE 結果分 bin。AI 晶片測試功耗高，handler 須搭配 ATC 與水冷板即時帶走熱量，否則晶片過熱會讓測試失真。全球 handler 主要玩家為 Cohu、Advantest、鴻勁、Techwing、長川。",
+      "companies": [
+        {
+          "ticker": "7769",
+          "name": "鴻勁",
+          "verdict": "added",
+          "role": "測試分類機（約 42%）、ATC 主動溫控（約 33%）、水冷板（約 23%）；2025/11/27 上市，全球分選機市佔約 32%，AI FT 市佔極高",
+          "core": 3,
+          "sources": [
+            "https://www.bnext.com.tw/article/84909/hon-precision-ipo",
+            "https://uanalyze.com.tw/articles/3132938379",
+            "https://statementdog.com/news/14857"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2360",
+          "name": "致茂",
+          "verdict": "added",
+          "role": "SLT 系統（含自動化取放與溫控）與高功率 FT 平台",
+          "core": 2,
+          "sources": ["https://www.ctee.com.tw/news/20260702700291-439901"],
+          "note": ""
+        },
+        {
+          "ticker": "6187",
+          "name": "萬潤",
+          "verdict": "removed",
+          "role": "先進封裝設備（點膠、AOI、熱製程、貼合）與被動元件設備，非 IC 測試分類機",
+          "core": 1,
+          "sources": ["https://uc913.com/stock-6187/"],
+          "note": "候選『Handler』→ 移除：萬潤主力為 CoWoS 封裝製程設備，查無 IC 測試分類機業務"
+        }
+      ]
+    },
+    {
+      "id": "slt",
+      "name": "系統級測試 SLT",
+      "category": "testing",
+      "summary": "把晶片放在接近實際系統的板子上跑真實工作負載，抓出 ATE 結構性測試抓不到的瑕疵，AI GPU／ASIC 已普遍導入。",
+      "engineeringNotes": "ATE 以測試向量檢查電路結構，SLT 則讓晶片開機、跑韌體與實際運算負載，捕捉多晶片協同與高負載下的瑕疵。SLT 單次測試時間長、需大量平行測位（京元電機型約 6～720 測位）與高功率散熱，因此 SLT 設備（致茂、鴻勁 handler）、SLT socket（穎崴）與 SLT 代工（京元電）同步受惠。",
+      "companies": [
+        {
+          "ticker": "2360",
+          "name": "致茂",
+          "verdict": "added",
+          "role": "【設備】GPU 高功率 SLT 系統，NVIDIA 指定，擴建高雄橋頭 SLT 產能",
+          "core": 3,
+          "sources": [
+            "https://www.ctee.com.tw/news/20260702700291-439901",
+            "https://www.cmoney.tw/notes/note-detail.aspx?nid=855904"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2449",
+          "name": "京元電",
+          "verdict": "added",
+          "role": "【代工服務】AI GPU／ASIC／CPU 系統級測試",
+          "core": 3,
+          "sources": [
+            "https://www.kyec.com.tw/zh-tw/Service/%E7%B3%BB%E7%B5%B1%E7%B4%9A%E6%B8%AC%E8%A9%A6",
+            "https://readmo.cmoney.tw/article/2548ad22-39d5-49db-b7ac-27f4deb24cc4"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "7769",
+          "name": "鴻勁",
+          "verdict": "added",
+          "role": "【設備】SLT 用分類機與 ATC 溫控",
+          "core": 2,
+          "sources": ["https://www.bnext.com.tw/article/84909/hon-precision-ipo"],
+          "note": ""
+        },
+        {
+          "ticker": "6515",
+          "name": "穎崴",
+          "verdict": "added",
+          "role": "【耗材】SLT 測試座",
+          "core": 1,
+          "sources": ["https://blog.fugle.tw/post/earnings-call-6515-2025-11-20"],
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "globalPlayers": [
+    {
+      "groupId": "probe-card",
+      "name": "FormFactor",
+      "country": "US",
+      "role": "全球探針卡龍頭（市佔約 27–30%），DRAM／HBM MEMS 探針卡主力，亦有工程用探針台",
+      "sources": [
+        "https://www.gii.tw/report/qyr1866705-semiconductor-probe-cards-global-market-share.html",
+        "https://vocus.cc/article/69f75000fd89780001a99abc"
+      ]
+    },
+    {
+      "groupId": "probe-card",
+      "name": "Technoprobe",
+      "country": "IT",
+      "role": "邏輯（非記憶體）MEMS 探針卡龍頭（市佔約 17%），與穎崴簽長期探針供貨合約",
+      "sources": [
+        "https://www.gii.tw/report/qyr1866705-semiconductor-probe-cards-global-market-share.html",
+        "https://money.udn.com/money/story/5613/9192247"
+      ]
+    },
+    {
+      "groupId": "probe-card",
+      "name": "MJC（Micronics Japan，日本麥克尼克斯）",
+      "country": "JP",
+      "role": "DRAM／HBM 探針卡主要供應商（市佔約 12–14%）",
+      "sources": ["https://www.gii.tw/report/qyr1866705-semiconductor-probe-cards-global-market-share.html"]
+    },
+    {
+      "groupId": "ate",
+      "name": "Advantest（愛德萬）",
+      "country": "JP",
+      "role": "ATE 龍頭，SoC 測試機市佔約 66%（CY25）；亦為 handler 主要廠商",
+      "sources": [
+        "https://x.com/jukan05/status/2048660802736140321?lang=en",
+        "https://www.advantest.com/document/en/investors/ir-library/investors-guide/Investors_Guide_2407E.pdf"
+      ]
+    },
+    {
+      "groupId": "ate",
+      "name": "Teradyne（泰瑞達）",
+      "country": "US",
+      "role": "ATE 第二大廠，與 Advantest 合計約占 ATE 市場 9 成以上",
+      "sources": ["https://seekingalpha.com/article/4510517-teradyne-semicon-ate-market-leader"]
+    },
+    {
+      "groupId": "probe-station",
+      "name": "Tokyo Electron（東京威力科創 TEL）",
+      "country": "JP",
+      "role": "量產用全自動晶圓探針台（prober）領導廠商之一",
+      "sources": ["https://www.mordorintelligence.com/industry-reports/wafer-prober-market"]
+    },
+    {
+      "groupId": "probe-station",
+      "name": "Accretech（東京精密 Tokyo Seimitsu）",
+      "country": "JP",
+      "role": "晶圓探針台主要供應商，與 TEL 寡占量產 prober 市場",
+      "sources": [
+        "https://www.accretech.com/en/product/index.html",
+        "https://www.mordorintelligence.com/industry-reports/wafer-prober-market"
+      ]
+    },
+    {
+      "groupId": "test-handler",
+      "name": "Advantest",
+      "country": "JP",
+      "role": "測試分類機主要廠商（市佔約 19%）",
+      "sources": ["https://www.globalgrowthinsights.com/market-reports/semiconductor-chip-test-handler-market-119930"]
+    },
+    {
+      "groupId": "test-handler",
+      "name": "Cohu（含 Xcerra）",
+      "country": "US",
+      "role": "測試分類機主要廠商（市佔約 16–21%），亦有測試座與接觸器",
+      "sources": [
+        "https://zhuanlan.zhihu.com/p/620145615",
+        "https://www.globalgrowthinsights.com/market-reports/semiconductor-chip-test-handler-market-119930"
+      ]
+    },
+    {
+      "groupId": "test-socket",
+      "name": "Cohu",
+      "country": "US",
+      "role": "測試座／接觸器主要廠商（市佔約 22%）",
+      "sources": [
+        "https://www.prnewswire.co.uk/news-releases/semiconductor-test-socket-market-size-to-grow-usd-1833-8-million-by-2030-at-a-cagr-of-7--valuates-reports-302195059.html"
+      ]
+    },
+    {
+      "groupId": "test-socket",
+      "name": "Yamaichi Electronics",
+      "country": "JP",
+      "role": "測試座市佔最大（約 28%），含 burn-in socket",
+      "sources": [
+        "https://www.prnewswire.co.uk/news-releases/semiconductor-test-socket-market-size-to-grow-usd-1833-8-million-by-2030-at-a-cagr-of-7--valuates-reports-302195059.html"
+      ]
+    },
+    {
+      "groupId": "test-socket",
+      "name": "Smiths Interconnect",
+      "country": "UK",
+      "role": "高階測試座與彈簧探針供應商",
+      "sources": [
+        "https://www.globenewswire.com/news-release/2026/10/01/3372595/28124/en/semiconductor-test-socket-market-size-share-and-forecast-2026-2031-ai-chips-6g-advanced-packaging-and-evs-drive-7-3-8-8-cagr-and-high-value-growth.html"
+      ]
+    },
+    {
+      "groupId": "test-socket",
+      "name": "LEENO / ISC",
+      "country": "KR",
+      "role": "韓系測試座與 pogo pin 大廠",
+      "sources": [
+        "https://www.prnewswire.co.uk/news-releases/semiconductor-test-socket-market-size-to-grow-usd-1833-8-million-by-2030-at-a-cagr-of-7--valuates-reports-302195059.html"
+      ]
+    }
+  ]
+}

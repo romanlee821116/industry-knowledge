@@ -1,10 +1,11 @@
 import { create } from 'zustand';
 
-import type { MicroViewId } from '@/features/stack';
+import type { MicroViewId, SceneKey } from '@/features/stack';
 
 import type { Selection, VariantSlot } from '../types';
 
 interface ExplorerState {
+  scene: SceneKey;
   selection: Selection | null;
   hoveredLayer: string | null;
   explode: number;
@@ -17,7 +18,9 @@ interface ExplorerState {
   /** 每次需要鏡頭重新聚焦時遞增 */
   focusKey: number;
 
-  select: (selection: Selection | null) => void;
+  /** 選取；若目標位於其他場景，一併切換場景 */
+  select: (selection: Selection | null, scene?: SceneKey) => void;
+  setScene: (scene: SceneKey) => void;
   hoverLayer: (id: string | null) => void;
   setExplode: (value: number) => void;
   setClipEnabled: (value: boolean) => void;
@@ -30,7 +33,11 @@ interface ExplorerState {
   resetView: () => void;
 }
 
+/** 測試場景的零件上下疊在一起看不出結構，切換過去時預設拉開 */
+const SCENE_DEFAULT_EXPLODE: Record<SceneKey, number> = { package: 0, test: 1 };
+
 export const useExplorerStore = create<ExplorerState>((set) => ({
+  scene: 'package',
   selection: null,
   hoveredLayer: null,
   explode: 0,
@@ -42,7 +49,28 @@ export const useExplorerStore = create<ExplorerState>((set) => ({
   microExplode: 0,
   focusKey: 0,
 
-  select: (selection) => set((s) => ({ selection, focusKey: s.focusKey + 1 })),
+  select: (selection, scene) =>
+    set((s) => {
+      const switching = scene !== undefined && scene !== s.scene;
+      return {
+        selection,
+        focusKey: s.focusKey + 1,
+        ...(switching && { scene, explode: SCENE_DEFAULT_EXPLODE[scene], hoveredLayer: null }),
+      };
+    }),
+  setScene: (scene) =>
+    set((s) =>
+      scene === s.scene
+        ? {}
+        : {
+            scene,
+            selection: null,
+            hoveredLayer: null,
+            explode: SCENE_DEFAULT_EXPLODE[scene],
+            clipEnabled: false,
+            focusKey: s.focusKey + 1,
+          },
+    ),
   hoverLayer: (hoveredLayer) => set({ hoveredLayer }),
   setExplode: (explode) => set({ explode }),
   setClipEnabled: (clipEnabled) => set({ clipEnabled }),
@@ -53,5 +81,11 @@ export const useExplorerStore = create<ExplorerState>((set) => ({
   selectMicroPart: (microPart) => set({ microPart }),
   setMicroExplode: (microExplode) => set({ microExplode }),
   resetView: () =>
-    set((s) => ({ selection: null, explode: 0, clipEnabled: false, clipX: 0, focusKey: s.focusKey + 1 })),
+    set((s) => ({
+      selection: null,
+      explode: SCENE_DEFAULT_EXPLODE[s.scene],
+      clipEnabled: false,
+      clipX: 0,
+      focusKey: s.focusKey + 1,
+    })),
 }));
