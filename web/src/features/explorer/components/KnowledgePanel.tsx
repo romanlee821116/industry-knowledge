@@ -210,7 +210,6 @@ export function KnowledgePanel({ card, onNavigate, onVariantChange, onOpenMicro,
             <li key={t}>{t}</li>
           ))}
         </ul>
-        <p className="text-xs text-slate-500">標示「待確認」的數值尚未對照一手資料。</p>
       </div>
     );
   }
