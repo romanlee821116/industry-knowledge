@@ -1,0 +1,166 @@
+import type { MicroView, MicroViewId, PaletteKey } from '../types';
+
+/** 技術插畫色票：每種材料固定一色 */
+export const PALETTE: Record<PaletteKey, string> = {
+  pcb: '#3f7a52',
+  copper: '#c8794a',
+  solder: '#b9bec7',
+  core: '#9aa86a',
+  glassCore: '#9fd3e0',
+  abf: '#5b8fc7',
+  mask: '#2f7d4f',
+  underfill: '#e2c46c',
+  silicon: '#6f7394',
+  organicRdl: '#c99a4e',
+  die: '#3b4766',
+  hbm: '#7d5fae',
+  lid: '#a9b2bc',
+  glass: '#e4edf3',
+};
+
+export const MICRO_VIEWS: Record<MicroViewId, MicroView> = {
+  'glass-fabric': {
+    id: 'glass-fabric',
+    name: '玻纖布 → CCL 微觀切片',
+    url: '/models/glass_fabric.glb',
+    caption: '一層 CCL：平織玻纖布含浸在樹脂中，上下壓合銅箔。右側散開的是單根紗線拆成的玻璃纖維單絲。',
+    scaleNote: '真實尺寸：單絲約 5 µm、紗寬約 0.1–0.4 mm、1037 布厚約 27 µm（示意，未依比例）',
+    parts: [
+      {
+        prefix: 'copper_top',
+        name: '銅箔（上）',
+        description: '電解銅箔，壓合後蝕刻成線路。高速板用 HVLP 低粗糙度銅箔。',
+        palette: 'copper',
+        explode: 0.9,
+        links: ['copper-foil'],
+      },
+      {
+        prefix: 'resin',
+        name: '樹脂',
+        description: '含浸並包覆玻纖布，填滿紗線間空隙。決定 Tg 與介電損耗。',
+        palette: 'underfill',
+        opacity: 0.35,
+        explode: 0.35,
+        links: ['resin'],
+      },
+      {
+        prefix: 'yarn_warp',
+        name: '經紗',
+        description: '沿織機長度方向的紗線，由數百根玻纖單絲集束而成。',
+        palette: 'glass',
+        links: ['glass-fabric'],
+      },
+      {
+        prefix: 'yarn_weft',
+        name: '緯紗',
+        description: '與經紗上下交錯（平織）的橫向紗線。',
+        palette: 'glass',
+        links: ['glass-fabric'],
+      },
+      {
+        prefix: 'filament',
+        name: '玻纖單絲',
+        description: '直徑僅數微米的玻璃纖維，玻璃配方決定 Dk／CTE（E-glass、Low-Dk、T-glass、石英）。',
+        palette: 'glass',
+        links: ['glass-fabric'],
+      },
+      {
+        prefix: 'copper_bottom',
+        name: '銅箔（下）',
+        description: 'CCL 雙面皆有銅箔。',
+        palette: 'copper',
+        explode: -0.9,
+        links: ['copper-foil'],
+      },
+    ],
+  },
+  'substrate-section': {
+    id: 'substrate-section',
+    name: 'ABF 載板剖面',
+    url: '/models/substrate_section.glb',
+    caption: '正面為切開的剖面：中間是含玻纖布的核心層與塞孔 PTH，上下是 ABF 增層與疊孔，最外層是防焊與凸塊／錫球。',
+    scaleNote: '真實尺寸：ABF 單層約 15–40 µm、核心約 0.8–1.6 mm、盲孔直徑數十 µm（示意，厚度誇張化）',
+    parts: [
+      { prefix: 'c4_', name: 'C4 凸塊', description: '中介層接到載板的錫凸塊。', palette: 'solder', links: ['c4'] },
+      {
+        prefix: 'mask_',
+        name: '防焊層',
+        description: '最外層絕緣保護，只在焊墊處開窗。',
+        palette: 'mask',
+        links: ['solder-mask'],
+      },
+      {
+        prefix: 'abf_',
+        name: 'ABF 增層',
+        description: '味之素 ABF 絕緣膜，每層上面一層銅線路。',
+        palette: 'abf',
+        links: ['substrate-buildup', 'abf-film'],
+      },
+      {
+        prefix: 'via_',
+        name: '雷射微盲孔',
+        description: '雷射鑽孔後電鍍填銅，上下層疊成「疊孔」。',
+        palette: 'copper',
+        links: ['substrate-buildup'],
+      },
+      {
+        prefix: 'cu_pad',
+        name: '銅焊墊',
+        description: 'SAP 製程做出的盲孔承接墊。',
+        palette: 'copper',
+        links: ['copper-foil'],
+      },
+      {
+        prefix: 'cu_trace',
+        name: '銅線路',
+        description: 'SAP 細線路，線寬約數微米。',
+        palette: 'copper',
+        links: ['copper-foil'],
+      },
+      {
+        prefix: 'cu_core',
+        name: '核心銅層',
+        description: 'CCL 表面銅箔蝕刻的核心線路。',
+        palette: 'copper',
+        links: ['copper-foil', 'ccl'],
+      },
+      {
+        prefix: 'pth_',
+        name: 'PTH 電鍍通孔',
+        description: '機械鑽穿核心後電鍍的銅管壁，連通上下增層。',
+        palette: 'copper',
+        links: ['substrate-core'],
+      },
+      {
+        prefix: 'plug_',
+        name: '塞孔樹脂',
+        description: '填滿 PTH 中空部分，讓上方可以疊盲孔。',
+        palette: 'die',
+        links: ['substrate-core'],
+      },
+      {
+        prefix: 'glass_yarn',
+        name: '玻纖布（剖面）',
+        description: '核心層內的 Low-CTE 玻纖布：橢圓是被切斷的緯紗，波浪是經紗。',
+        palette: 'glass',
+        links: ['glass-fabric'],
+      },
+      {
+        prefix: 'core_',
+        name: '核心介電層',
+        description: '含玻纖布的 BT／類 BT 樹脂基材。',
+        palette: 'core',
+        links: ['substrate-core', 'ccl'],
+      },
+      { prefix: 'bga_', name: 'BGA 錫球', description: '把封裝焊到主機板的錫球。', palette: 'solder', links: ['bga'] },
+    ],
+  },
+};
+
+/** 玻纖布版本在微觀視圖中的色調 */
+export const GLASS_TINT: Record<string, string> = {
+  'e-glass': '#d9dee3',
+  'low-dk': '#cfe4f7',
+  'low-cte': '#e9e1f7',
+  quartz: '#f4fbff',
+};

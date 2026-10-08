@@ -1,0 +1,1169 @@
+{
+  "generatedAt": "2026-10-08",
+  "groups": [
+    {
+      "id": "cowos",
+      "name": "CoWoS",
+      "category": "advanced-packaging",
+      "summary": "台積電 2.5D 先進封裝平台（Chip-on-Wafer-on-Substrate）：先把邏輯晶片與 HBM 接到中介層（CoW），再接到 ABF 載板（oS），是目前 AI GPU / ASIC 的主流封裝。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "confirmed",
+          "role": "CoWoS 技術擁有者與主要產能（CoW 前段 + 大部分 oS）",
+          "core": 3,
+          "sources": [
+            "https://www.bnext.com.tw/article/76126/tsmc-cowos-advanced-packaging",
+            "https://www.bnext.com.tw/article/82088/tsmc-cowos-type-explanation"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3711",
+          "name": "日月光投控",
+          "verdict": "confirmed",
+          "role": "承接台積電 CoWoS 後段 oS 委外，並逐步切入前段 CoW；另有自有 FOCoS 類 CoWoS 方案",
+          "core": 3,
+          "sources": [
+            "https://money.udn.com/money/story/5612/8335250",
+            "https://www.cna.com.tw/news/afe/202411030102.aspx",
+            "https://finance.technews.tw/2026/01/29/tsmcs-cowos-advanced-packaging-capacity-expansion-still-falls-short-of-market-demand/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2449",
+          "name": "京元電",
+          "verdict": "corrected",
+          "role": "CoWoS 封裝後 AI GPU/ASIC 的成品測試與高功率預燒（burn-in）測試，非封裝本身",
+          "core": 2,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=f4065c09-b528-435e-8707-ab401405cde3",
+            "https://news.cnyes.com/news/id/5786996"
+          ],
+          "note": "原值『CoWoS 封裝』→ 新值『CoWoS 後測試（FT / burn-in）』：京元電為測試廠，受惠的是 CoWoS 產能開出後的測試需求，不參與封裝製程"
+        },
+        {
+          "ticker": "6510",
+          "name": "精測",
+          "verdict": "corrected",
+          "role": "AI 晶片晶圓測試（CP）用探針卡與測試介面板，屬測試耗材供應商",
+          "core": 1,
+          "sources": [
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/146106/",
+            "https://www.ctee.com.tw/news/20260625700300-430203"
+          ],
+          "note": "原值『CoWoS 族群』→ 新值『CoWoS 周邊測試介面』：精測供應的是測試用探針卡/載板，與 CoWoS 封裝本身無直接製程關係，題材性較高"
+        },
+        {
+          "ticker": "6223",
+          "name": "旺矽",
+          "verdict": "corrected",
+          "role": "AI GPU/ASIC 晶圓測試（CP）用垂直探針卡，另有 CPO 光學測試設備",
+          "core": 2,
+          "sources": [
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/146106/",
+            "https://www.ctee.com.tw/news/20260625700300-430203",
+            "https://www.bnext.com.tw/article/84752/probe-card"
+          ],
+          "note": "原值『CoWoS 族群』→ 新值『CoWoS 前的 CP 測試探針卡』：角色是測試，不是封裝"
+        },
+        {
+          "ticker": "3037",
+          "name": "欣興",
+          "verdict": "confirmed",
+          "role": "CoWoS 最底層的 ABF 載板（oS 段的 Substrate），為輝達 Blackwell 第二大載板供應商",
+          "core": 3,
+          "sources": ["https://news.cnyes.com/news/id/6612993", "https://www.ctee.com.tw/news/20260518700039-439901"],
+          "note": "角色為載板材料端，而非封裝代工"
+        },
+        {
+          "ticker": "2467",
+          "name": "志聖",
+          "verdict": "added",
+          "role": "CoWoS 製程用壓膜、貼膜、烘烤（固化）設備",
+          "core": 2,
+          "sources": ["https://news.cnyes.com/news/id/5989427", "https://statementdog.com/news/15560"],
+          "note": "原清單未列；公司 50% 以上設備受惠 CoWoS 擴產"
+        },
+        {
+          "ticker": "3131",
+          "name": "弘塑",
+          "verdict": "added",
+          "role": "CoWoS / 先進封裝晶圓級濕製程設備（清洗、蝕刻、顯影、去光阻）與配方化學品",
+          "core": 3,
+          "sources": [
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=54372b56-cb2c-47d1-8b42-3708d458f1ed",
+            "https://news.cnyes.com/news/id/5254061"
+          ],
+          "note": "原清單只放在 SoIC，實際 CoWoS 也是主要受惠"
+        },
+        {
+          "ticker": "6187",
+          "name": "萬潤",
+          "verdict": "added",
+          "role": "CoWoS 點膠機（underfill）與 AOI 檢測設備，點膠市占高",
+          "core": 2,
+          "sources": [
+            "https://news.cnyes.com/news/id/5254061",
+            "https://tw.stock.yahoo.com/news/%E8%90%AC%E6%BD%A4%E7%9F%BD%E5%85%89%E5%AD%90%E8%A8%AD%E5%82%99q4%E4%BA%A4%E8%B2%A8-%E9%BB%9E%E8%86%A0%E6%A9%9F%E5%88%87%E5%85%A5soic-021500479.html"
+          ],
+          "note": "原清單只放在 SoIC"
+        },
+        {
+          "ticker": "3583",
+          "name": "辛耘",
+          "verdict": "added",
+          "role": "CoWoS 用單/批次濕製程設備、暫時性貼合/剝離設備；另有再生晶圓",
+          "core": 2,
+          "sources": ["https://news.cnyes.com/news/id/5254061", "https://www.cw.com.tw/article/5134117"],
+          "note": "原清單只放在 SoIC"
+        }
+      ]
+    },
+    {
+      "id": "cowos-s",
+      "name": "CoWoS-S",
+      "category": "advanced-packaging",
+      "summary": "CoWoS 的矽中介層（Silicon Interposer）版本，整片中介層為矽，用於 H100/A100、MI300 等前代 AI 晶片。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "confirmed",
+          "role": "CoWoS-S 矽中介層製作與 CoW 封裝",
+          "core": 3,
+          "sources": ["https://www.bnext.com.tw/article/82088/tsmc-cowos-type-explanation"],
+          "note": ""
+        },
+        {
+          "ticker": "3711",
+          "name": "日月光投控",
+          "verdict": "added",
+          "role": "承接台積電 CoWoS-S 後段 oS 封裝委外（矽品與日月光皆參與）",
+          "core": 2,
+          "sources": [
+            "https://ec.ltn.com.tw/article/breakingnews/4762921",
+            "https://money.udn.com/money/story/5612/8335250"
+          ],
+          "note": "原清單未列；法人估台積電 CoWoS-S 後段 oS 可能外包 40~50% 給日月光投控"
+        },
+        {
+          "ticker": "3037",
+          "name": "欣興",
+          "verdict": "confirmed",
+          "role": "CoWoS-S 用大尺寸 ABF 載板",
+          "core": 3,
+          "sources": ["https://news.cnyes.com/news/id/6612993"],
+          "note": ""
+        },
+        {
+          "ticker": "8046",
+          "name": "南電",
+          "verdict": "confirmed",
+          "role": "AI 伺服器 / ASIC / 800G 交換器用高階 ABF 載板（可用於 CoWoS 封裝）",
+          "core": 2,
+          "sources": [
+            "https://news.cnyes.com/news/id/6612993",
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/222584/"
+          ],
+          "note": "公開資料多以『AI 用 ABF 載板』描述，未明確區分 CoWoS-S 版本；高階 GPU 滲透度低於欣興、景碩，核心度由 3 調為 2"
+        },
+        {
+          "ticker": "3189",
+          "name": "景碩",
+          "verdict": "confirmed",
+          "role": "AI ASIC（Google TPU、Meta 加速器）與 GPU 用 ABF 載板",
+          "core": 2,
+          "sources": [
+            "https://tw.stock.yahoo.com/news/%E6%99%AF%E7%A2%A9%E7%BA%8C%E6%93%B4abf%E8%BC%89%E6%9D%BF-%E9%8E%96%E5%AE%9Aasic-ai%E7%AD%89%E9%AB%98%E9%9A%8E%E6%87%89%E7%94%A8-015000843.html",
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/222606"
+          ],
+          "note": "公開資料未明確指出使用 CoWoS-S 或 -L 版本"
+        }
+      ]
+    },
+    {
+      "id": "cowos-r",
+      "name": "CoWoS-R",
+      "category": "advanced-packaging",
+      "summary": "CoWoS 的 RDL 中介層版本，用聚合物 + 銅線重布線層取代矽中介層，成本較低，適合網通與成本敏感 ASIC。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "confirmed",
+          "role": "CoWoS-R（基於 InFO RDL 中介層）技術與產能",
+          "core": 3,
+          "sources": ["https://www.bnext.com.tw/article/82088/tsmc-cowos-type-explanation"],
+          "note": ""
+        },
+        {
+          "ticker": "3711",
+          "name": "日月光投控",
+          "verdict": "confirmed",
+          "role": "自有 FOCoS（Fan-Out Chip-on-Substrate）RDL 中介層方案，對標 CoWoS-R；並承接 oS 委外",
+          "core": 2,
+          "sources": [
+            "https://www.aseglobal.com/press-room-ch/vipack/",
+            "https://money.udn.com/money/story/5612/8335250"
+          ],
+          "note": "日月光的 FOCoS 為自有技術，與台積電 CoWoS-R 為競合關係，非直接代工 CoWoS-R"
+        },
+        {
+          "ticker": "3037",
+          "name": "欣興",
+          "verdict": "confirmed",
+          "role": "CoWoS 系列共用的 ABF 載板",
+          "core": 2,
+          "sources": ["https://news.cnyes.com/news/id/6612993"],
+          "note": "未查到專指 CoWoS-R 的出貨報導，以 CoWoS 共通載板供應商身分列入，核心度由 3 調為 2"
+        }
+      ]
+    },
+    {
+      "id": "cowos-l",
+      "name": "CoWoS-L",
+      "category": "advanced-packaging",
+      "summary": "CoWoS 的局部矽互連（LSI）版本：有機/RDL 中介層中嵌入小塊矽橋，可放更大面積與更多 HBM，輝達 Blackwell / Rubin 採用。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "confirmed",
+          "role": "CoWoS-L（LSI 矽橋 + RDL 中介層）技術與主要產能，Blackwell 採用",
+          "core": 3,
+          "sources": ["https://www.bnext.com.tw/article/82088/tsmc-cowos-type-explanation"],
+          "note": ""
+        },
+        {
+          "ticker": "3037",
+          "name": "欣興",
+          "verdict": "confirmed",
+          "role": "輝達 Blackwell（CoWoS-L）ABF 載板第二大供應商（僅次於 Ibiden）",
+          "core": 3,
+          "sources": [
+            "https://www.ctee.com.tw/news/20260518700039-439901",
+            "https://wantrich.chinatimes.com/news/20260806900001-420101"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3189",
+          "name": "景碩",
+          "verdict": "confirmed",
+          "role": "輝達 GPU（Blackwell / Vera Rubin）ABF 載板第三供應商",
+          "core": 2,
+          "sources": [
+            "https://tw.stock.yahoo.com/news/abf%E8%BC%89%E6%9D%BF%E5%A4%A7%E7%88%86%E7%99%BC-%E9%80%99%E6%AA%94-%E5%A5%AA%E8%BC%9D%E9%81%94vera-rubin%E5%A4%A7%E5%96%AE%E7%8D%B2%E5%88%A9%E7%BF%BB%E5%80%8D-%E5%8D%97%E9%9B%BB%E5%A0%B1%E5%83%B9%E6%9C%AA%E4%BE%86%E5%85%A9%E5%AD%A3%E5%86%8D%E6%BC%B220-074500627.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "8046",
+          "name": "南電",
+          "verdict": "unverified",
+          "role": "AI 用高階 ABF 載板（主要為 ASIC、交換器）",
+          "core": 1,
+          "sources": [],
+          "note": "查無南電進入輝達 Blackwell/Rubin（CoWoS-L）GPU 載板供應的可靠報導；評論指其高階 GPU 滲透度低於欣興、景碩，建議改列 abf-substrate 即可"
+        },
+        {
+          "ticker": "3711",
+          "name": "日月光投控",
+          "verdict": "added",
+          "role": "CoWoS 後段 oS 委外與 FOCoS-Bridge（對標 CoWoS-L 的矽橋方案）",
+          "core": 2,
+          "sources": [
+            "https://www.aseglobal.com/press-room-ch/vipack/",
+            "https://finance.technews.tw/2026/01/29/tsmcs-cowos-advanced-packaging-capacity-expansion-still-falls-short-of-market-demand/"
+          ],
+          "note": "原清單未列"
+        }
+      ]
+    },
+    {
+      "id": "soic",
+      "name": "SoIC",
+      "category": "advanced-packaging",
+      "summary": "台積電 3D 晶片堆疊平台（System on Integrated Chips），SoIC-X 採無凸塊混合鍵合，SoIC-P 為微凸塊堆疊。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "confirmed",
+          "role": "SoIC 技術擁有者與唯一量產廠（混合鍵合 pitch 6μm 已量產）",
+          "core": 3,
+          "sources": [
+            "https://technews.tw/2024/05/08/hybrid-bonding-explicit-knowledge/",
+            "https://technews.tw/2024/05/24/tsmc-2024-taiwan-technology-symposium-technology/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3131",
+          "name": "弘塑",
+          "verdict": "confirmed",
+          "role": "SoIC / CoPoS 用晶圓級濕製程（清洗、蝕刻）設備",
+          "core": 2,
+          "sources": [
+            "https://news.nextapple.com/finance/20260423/FEECA6E664453C2F4FDF6EA556734D78",
+            "https://wealth.businessweekly.com.tw/GArticle.aspx?id=ARTL003017917"
+          ],
+          "note": "混合鍵合關鍵 bonder 設備主要由 Besi、AMAT、TEL 供應，弘塑為周邊濕製程"
+        },
+        {
+          "ticker": "3583",
+          "name": "辛耘",
+          "verdict": "confirmed",
+          "role": "SoIC 用濕製程設備與暫時性貼合/剝離設備",
+          "core": 2,
+          "sources": [
+            "https://smart.businessweekly.com.tw/Reading/IndepArticle.aspx?id=6022372",
+            "https://wealth.businessweekly.com.tw/GArticle.aspx?id=ARTL003017917"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6187",
+          "name": "萬潤",
+          "verdict": "confirmed",
+          "role": "點膠機與 AOI 由 CoWoS 延伸切入 SoIC 製程",
+          "core": 1,
+          "sources": [
+            "https://tw.stock.yahoo.com/news/%E8%90%AC%E6%BD%A4%E7%9F%BD%E5%85%89%E5%AD%90%E8%A8%AD%E5%82%99q4%E4%BA%A4%E8%B2%A8-%E9%BB%9E%E8%86%A0%E6%A9%9F%E5%88%87%E5%85%A5soic-021500479.html"
+          ],
+          "note": "SoIC 仍屬切入初期，主要營收仍來自 CoWoS，核心度給 1"
+        },
+        {
+          "ticker": "2467",
+          "name": "志聖",
+          "verdict": "added",
+          "role": "SoIC 製程用暫時性貼合、壓膜、烘烤設備",
+          "core": 1,
+          "sources": [
+            "https://smart.businessweekly.com.tw/Reading/IndepArticle.aspx?id=6022372",
+            "https://news.cnyes.com/news/id/5989427"
+          ],
+          "note": "原清單未列"
+        },
+        {
+          "ticker": "2449",
+          "name": "京元電",
+          "verdict": "added",
+          "role": "SoIC 相關晶片測試需求受惠者（測試，非封裝）",
+          "core": 1,
+          "sources": ["https://smart.businessweekly.com.tw/Reading/IndepArticle.aspx?id=6022372"],
+          "note": "原清單未列；屬測試端受惠"
+        }
+      ]
+    },
+    {
+      "id": "foplp",
+      "name": "FOPLP",
+      "category": "advanced-packaging",
+      "summary": "扇出型面板級封裝：以方形面板取代圓形晶圓做載具，面積利用率可達 85~95%，降低大尺寸 AI 封裝成本。",
+      "companies": [
+        {
+          "ticker": "3711",
+          "name": "日月光投控",
+          "verdict": "confirmed",
+          "role": "投資約 2 億美元建置 FOPLP 產線，已建業界首條 310x310mm 自動化產線（FOCoS / FOCoS-Bridge）",
+          "core": 3,
+          "sources": [
+            "https://news.cnyes.com/news/id/5865099",
+            "https://news.cnyes.com/news/id/6037198",
+            "https://ec.ltn.com.tw/article/breakingnews/4954558"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6239",
+          "name": "力成",
+          "verdict": "confirmed",
+          "role": "FOPLP 封裝代工，客戶含 AMD、博通，規劃 2027 年中量產",
+          "core": 3,
+          "sources": [
+            "https://news.cnyes.com/news/id/6548365",
+            "https://technews.tw/2026/08/26/powertech-to-mass-produce-foplp-by-mid-2027"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6147",
+          "name": "頎邦",
+          "verdict": "removed",
+          "role": "驅動 IC（DDIC）封測、RF 封裝，並轉型矽光子 / LPO 光通訊封裝",
+          "core": 1,
+          "sources": ["https://www.moneyweekly.com.tw/ArticleData/Info/Article/220081"],
+          "note": "原值『FOPLP』→ 移除：公開報導顯示 FOPLP 是群創的轉型方向，頎邦的新業務為矽光子與 LPO，查無頎邦 FOPLP 業務佐證；疑與群創混淆"
+        },
+        {
+          "ticker": "2325",
+          "name": "矽品",
+          "verdict": "removed",
+          "role": "已為日月光投控 100% 子公司",
+          "core": 1,
+          "sources": [
+            "https://www.chinatimes.com/realtimenews/20180328001230-260410",
+            "https://www.ctee.com.tw/news/20180430700178-439901"
+          ],
+          "note": "原值『矽品 2325』→ 移除：矽品於 2018/4/30 終止上市，併入日月光投控（3711），其業務應計入 3711"
+        },
+        {
+          "ticker": "2467",
+          "name": "志聖",
+          "verdict": "confirmed",
+          "role": "FOPLP / CoPoS 用暫時性貼合機、UV 曝光、真空壓膜與烘烤設備",
+          "core": 2,
+          "sources": ["https://news.cnyes.com/news/id/5989427", "https://statementdog.com/news/15560"],
+          "note": "屬設備端，非封裝代工"
+        },
+        {
+          "ticker": "3481",
+          "name": "群創",
+          "verdict": "added",
+          "role": "以面板廠產線轉做 FOPLP（Chip-First），月出貨達 4,000 萬顆，後續發展 RDL 與 TGV",
+          "core": 3,
+          "sources": ["https://www.ctee.com.tw/news/20260508700963-430201", "https://news.cnyes.com/news/id/6580492"],
+          "note": "原清單漏列，為台股 FOPLP 純度最高的標的之一"
+        },
+        {
+          "ticker": "8064",
+          "name": "東捷",
+          "verdict": "added",
+          "role": "FOPLP 用 AOI、雷射剝離/開孔與玻璃載板切割設備",
+          "core": 1,
+          "sources": ["https://money.udn.com/money/story/5607/9473919"],
+          "note": "原清單未列，設備題材"
+        },
+        {
+          "ticker": "8027",
+          "name": "鈦昇",
+          "verdict": "added",
+          "role": "FOPLP 用雷射鑽孔（TGV）、RDL 介電層開孔與電漿去膠渣設備",
+          "core": 1,
+          "sources": ["https://money.udn.com/money/story/5607/9473919"],
+          "note": "原清單未列，設備題材"
+        }
+      ]
+    },
+    {
+      "id": "packaging-2-5d",
+      "name": "2.5D 封裝",
+      "category": "advanced-packaging",
+      "summary": "多顆晶片並排放在中介層（矽 / RDL / 矽橋）上再接到載板的封裝方式，CoWoS 與 FOCoS 為代表。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "confirmed",
+          "role": "CoWoS-S/R/L 全系列 2.5D 封裝",
+          "core": 3,
+          "sources": ["https://www.bnext.com.tw/article/82088/tsmc-cowos-type-explanation"],
+          "note": ""
+        },
+        {
+          "ticker": "3711",
+          "name": "日月光投控",
+          "verdict": "confirmed",
+          "role": "VIPack 平台中的 2.5D（TSV 中介層、FOCoS、FOCoS-Bridge）與 CoWoS oS 委外",
+          "core": 3,
+          "sources": [
+            "https://www.aseglobal.com/press-room-ch/vipack/",
+            "https://money.udn.com/money/story/5612/8335250"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3037",
+          "name": "欣興",
+          "verdict": "corrected",
+          "role": "2.5D 封裝用 ABF 載板（材料端）",
+          "core": 2,
+          "sources": ["https://news.cnyes.com/news/id/6612993"],
+          "note": "原值『2.5D 封裝廠』→ 新值『2.5D 封裝用載板』：載板廠不做封裝，建議改歸 abf-substrate，此處僅作上游關聯"
+        },
+        {
+          "ticker": "8046",
+          "name": "南電",
+          "verdict": "corrected",
+          "role": "2.5D 封裝用 ABF 載板（材料端）",
+          "core": 1,
+          "sources": ["https://news.cnyes.com/news/id/6612993"],
+          "note": "原值『2.5D 封裝廠』→ 新值『2.5D 封裝用載板』：同上"
+        },
+        {
+          "ticker": "3189",
+          "name": "景碩",
+          "verdict": "corrected",
+          "role": "2.5D 封裝用 ABF 載板（材料端）",
+          "core": 1,
+          "sources": ["https://news.cnyes.com/news/id/6612993"],
+          "note": "原值『2.5D 封裝廠』→ 新值『2.5D 封裝用載板』：同上"
+        }
+      ]
+    },
+    {
+      "id": "packaging-3d",
+      "name": "3D 封裝",
+      "category": "advanced-packaging",
+      "summary": "晶片垂直堆疊（TSV / 微凸塊 / 混合鍵合）的封裝方式，代表為台積電 SoIC、HBM 堆疊。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "confirmed",
+          "role": "SoIC 3D 堆疊（SoIC-X 混合鍵合 / SoIC-P 微凸塊）",
+          "core": 3,
+          "sources": ["https://technews.tw/2024/05/24/tsmc-2024-taiwan-technology-symposium-technology/"],
+          "note": ""
+        },
+        {
+          "ticker": "3711",
+          "name": "日月光投控",
+          "verdict": "confirmed",
+          "role": "VIPack 平台中基於 TSV 的 2.5D/3D IC 方案",
+          "core": 2,
+          "sources": [
+            "https://www.aseglobal.com/press-room-ch/vipack/",
+            "https://technews.tw/2026/08/03/ase-technology-holding-co-ltd-unveils-its-advanced-packaging-blueprint-for-ai/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6239",
+          "name": "力成",
+          "verdict": "corrected",
+          "role": "記憶體 TSV 堆疊封裝（承接美光 HBM 委外）",
+          "core": 2,
+          "sources": ["https://money.udn.com/money/story/5710/8763666"],
+          "note": "原值『3D 封裝（泛稱）』→ 新值『記憶體 TSV 3D 堆疊』：力成的 3D 能力集中在記憶體堆疊，非邏輯 SoIC 類 3D"
+        },
+        {
+          "ticker": "3374",
+          "name": "精材",
+          "verdict": "corrected",
+          "role": "以 TSV 為基礎的 CIS 晶圓級尺寸封裝（WLCSP）與台積電委外晶圓測試",
+          "core": 1,
+          "sources": [
+            "https://www.moneydj.com/kmdj/wiki/wikiviewer.aspx?keyid=450feebb-3b06-4fe4-ae7d-416b3e58b238",
+            "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E6%93%B4%E5%85%85cowos%E8%AA%BF%E9%85%8D%E7%94%A2%E7%B7%9A-%E6%9B%BF%E8%98%8B%E6%9E%9C%E5%81%9A%E6%99%B6%E5%9C%93%E6%B8%AC%E8%A9%A6%E7%9A%84%E6%A9%9F%E5%8F%B0-%E5%82%B3%E5%B7%B2%E7%A7%BB%E5%BE%80%E7%B2%BE%E6%9D%90-024350189.html"
+          ],
+          "note": "原值『3D 封裝』→ 新值『TSV WLCSP + 晶圓測試』：精材具 TSV 技術但主力為 CIS 封裝與晶圓測試（測試占比快速上升），非 AI 3D 堆疊封裝廠，核心度給 1"
+        }
+      ]
+    },
+    {
+      "id": "hybrid-bonding",
+      "name": "混合鍵結（Hybrid Bonding）",
+      "category": "advanced-packaging",
+      "summary": "上下晶片銅對銅、介電層對介電層直接鍵合、不用凸塊的互連技術，接點間距可縮到數微米，用於 SoIC-X、HBM4E 以後世代。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "confirmed",
+          "role": "SoIC-X 混合鍵合量產（pitch 6μm，2029 年目標 4.5μm）",
+          "core": 3,
+          "sources": [
+            "https://technews.tw/2024/05/08/hybrid-bonding-explicit-knowledge/",
+            "https://technews.tw/2024/05/24/tsmc-2024-taiwan-technology-symposium-technology/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3131",
+          "name": "弘塑",
+          "verdict": "confirmed",
+          "role": "混合鍵合前的晶圓表面清洗/蝕刻濕製程設備",
+          "core": 1,
+          "sources": ["https://news.nextapple.com/finance/20260423/FEECA6E664453C2F4FDF6EA556734D78"],
+          "note": "關鍵 bonder 由 Besi / AMAT / TEL 主導，台廠為周邊製程，核心度給 1"
+        },
+        {
+          "ticker": "3583",
+          "name": "辛耘",
+          "verdict": "confirmed",
+          "role": "SoIC（混合鍵合）製程用濕製程設備",
+          "core": 1,
+          "sources": ["https://smart.businessweekly.com.tw/Reading/IndepArticle.aspx?id=6022372"],
+          "note": "同上，屬周邊製程"
+        },
+        {
+          "ticker": "3374",
+          "name": "精材",
+          "verdict": "unverified",
+          "role": "CIS WLCSP 封裝與晶圓測試",
+          "core": 1,
+          "sources": [],
+          "note": "查無精材具混合鍵合量產或設備業務的可靠資料，建議移出"
+        }
+      ]
+    },
+    {
+      "id": "hbm-packaging",
+      "name": "HBM 封裝",
+      "category": "advanced-packaging",
+      "summary": "多層 DRAM 以 TSV 垂直堆疊在 base die 上，再透過 CoWoS 與 GPU 整合；堆疊主要由 SK 海力士、三星、美光自行完成。",
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "台積電",
+          "verdict": "corrected",
+          "role": "HBM4 base die（邏輯底層晶片）代工，以及 HBM 與 GPU 的 CoWoS 整合",
+          "core": 3,
+          "sources": [
+            "https://technews.tw/2024/05/17/tsmc-prepares-for-hbm4-base-chip-production/",
+            "https://technews.tw/2026/05/26/microns-hbm4-capacity-expansion-is-progressing-smoothly/"
+          ],
+          "note": "原值『HBM 封裝』→ 新值『HBM4 base die 代工 + CoWoS 整合』：DRAM 堆疊本身由記憶體原廠完成，台積電負責 base die 與 2.5D 整合"
+        },
+        {
+          "ticker": "6239",
+          "name": "力成",
+          "verdict": "confirmed",
+          "role": "獨家承接美光 HBM 封測委外（TSV 堆疊封裝）",
+          "core": 3,
+          "sources": ["https://money.udn.com/money/story/5710/8763666", "https://udn.com/news/story/7240/8834099"],
+          "note": ""
+        },
+        {
+          "ticker": "3711",
+          "name": "日月光投控",
+          "verdict": "unverified",
+          "role": "可能承接部分 HBM 後段測試/封裝",
+          "core": 1,
+          "sources": [],
+          "note": "僅見非一手來源提及，查無日月光 HBM 堆疊封裝之法說會或主流媒體明確報導"
+        },
+        {
+          "ticker": "3374",
+          "name": "精材",
+          "verdict": "unverified",
+          "role": "CIS WLCSP 封裝與晶圓測試",
+          "core": 1,
+          "sources": [],
+          "note": "查無精材 HBM 業務佐證，建議移出"
+        }
+      ]
+    },
+    {
+      "id": "abf-substrate",
+      "name": "ABF 載板",
+      "category": "substrate",
+      "summary": "以味之素 ABF 增層膜為絕緣層製作的高階 IC 載板（FC-BGA），用於 CPU / GPU / ASIC / 交換器晶片封裝。",
+      "companies": [
+        {
+          "ticker": "3037",
+          "name": "欣興",
+          "verdict": "confirmed",
+          "role": "台灣最大 ABF 載板廠，輝達 Blackwell 第二大供應商、AI ASIC 主要供應商",
+          "core": 3,
+          "sources": [
+            "https://news.cnyes.com/news/id/6612993",
+            "https://finance.technews.tw/2026/02/04/abf-carrier-board-supply-is-tight/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "8046",
+          "name": "南電",
+          "verdict": "confirmed",
+          "role": "ABF 載板（AI 伺服器、ASIC、800G 交換器），亦有 BT 載板",
+          "core": 3,
+          "sources": [
+            "https://news.cnyes.com/news/id/6612993",
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/222584/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "3189",
+          "name": "景碩",
+          "verdict": "confirmed",
+          "role": "ABF 載板（Google TPU、Meta、輝達 GPU/CPU），2027 年擴產 25%",
+          "core": 3,
+          "sources": [
+            "https://news.cnyes.com/news/id/6612993",
+            "https://tw.stock.yahoo.com/news/%E6%99%AF%E7%A2%A9%E7%BA%8C%E6%93%B4abf%E8%BC%89%E6%9D%BF-%E9%8E%96%E5%AE%9Aasic-ai%E7%AD%89%E9%AB%98%E9%9A%8E%E6%87%89%E7%94%A8-015000843.html"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4958",
+          "name": "臻鼎-KY",
+          "verdict": "added",
+          "role": "ABF 載板新進者（最大 158x158mm、28 層），約六成 ABF 營收來自 AI 算力",
+          "core": 2,
+          "sources": [
+            "https://www.ctee.com.tw/news/20260506701005-430201",
+            "https://cdnfinance.technews.tw/2025/03/11/advanced-packaging/"
+          ],
+          "note": "原清單漏列"
+        }
+      ]
+    },
+    {
+      "id": "ic-substrate",
+      "name": "IC 載板",
+      "category": "substrate",
+      "summary": "承載晶片並連接到 PCB 的封裝基板，主要分 ABF（FC-BGA，高階運算）與 BT（記憶體、手機 AP、RF）兩類。",
+      "companies": [
+        {
+          "ticker": "3037",
+          "name": "欣興",
+          "verdict": "confirmed",
+          "role": "ABF + BT 載板全產品線",
+          "core": 3,
+          "sources": ["https://news.cnyes.com/news/id/6612993"],
+          "note": ""
+        },
+        {
+          "ticker": "8046",
+          "name": "南電",
+          "verdict": "confirmed",
+          "role": "ABF + BT 載板",
+          "core": 3,
+          "sources": ["https://statementdog.com/news/15529"],
+          "note": ""
+        },
+        {
+          "ticker": "3189",
+          "name": "景碩",
+          "verdict": "confirmed",
+          "role": "ABF + BT 載板（BT 受惠記憶體需求）",
+          "core": 3,
+          "sources": ["https://news.cnyes.com/news/id/6612993"],
+          "note": ""
+        },
+        {
+          "ticker": "2313",
+          "name": "華通",
+          "verdict": "removed",
+          "role": "HDI、mSAP 類載板（SLP）、衛星板與光模組板，屬 PCB 而非 IC 載板",
+          "core": 1,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=78b3e1af-d610-474c-8df5-885874d74c2c",
+            "https://www.stockfeel.com.tw/financial/?stock=2313"
+          ],
+          "note": "原值『IC 載板』→ 移除：華通早年曾投入覆晶載板，但目前營收為 PCB/HDI/SLP 類載板，『類載板』是 mSAP 製程的手機主板，不是 ABF/BT 封裝基板"
+        },
+        {
+          "ticker": "4958",
+          "name": "臻鼎-KY",
+          "verdict": "added",
+          "role": "BT 載板（秦皇島擴產）與 ABF 載板",
+          "core": 2,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=6bd9ed87-ca74-4249-acd1-e3553a87dd49",
+            "https://www.ctee.com.tw/news/20260506701005-430201"
+          ],
+          "note": "原清單漏列"
+        }
+      ]
+    },
+    {
+      "id": "abf-film",
+      "name": "ABF 膜（增層絕緣材料）",
+      "category": "materials",
+      "summary": "ABF（Ajinomoto Build-up Film）是 ABF 載板每一層線路之間的絕緣增層膜，味之素市占逾九成，是載板的上游材料，與載板廠是不同環節。",
+      "companies": [
+        {
+          "ticker": "3037",
+          "name": "欣興",
+          "verdict": "removed",
+          "role": "ABF 膜的使用者（載板製造），非 ABF 膜供應商",
+          "core": 1,
+          "sources": ["https://udn.com/news/story/7254/9465757"],
+          "note": "原值『ABF 膜』→ 移除：欣興是 ABF 載板廠，向味之素採購 ABF 膜；應歸 abf-substrate"
+        },
+        {
+          "ticker": "8046",
+          "name": "南電",
+          "verdict": "removed",
+          "role": "ABF 膜的使用者（載板製造）",
+          "core": 1,
+          "sources": ["https://udn.com/news/story/7254/9465757"],
+          "note": "原值『ABF 膜』→ 移除：同上"
+        },
+        {
+          "ticker": "3189",
+          "name": "景碩",
+          "verdict": "removed",
+          "role": "ABF 膜的使用者（載板製造）",
+          "core": 1,
+          "sources": ["https://udn.com/news/story/7254/9465757"],
+          "note": "原值『ABF 膜』→ 移除：同上"
+        },
+        {
+          "ticker": "5483",
+          "name": "中美晶",
+          "verdict": "added",
+          "role": "旗下晶化科技（持股約 50.8%）為台灣首家自主研發絕緣增層膜（TBF）廠，已小量出貨，為味之素第二來源候選",
+          "core": 1,
+          "sources": ["https://udn.com/news/story/7254/9465757", "https://money.udn.com/money/story/11074/9704378"],
+          "note": "原清單漏列；晶化科技本身未上市，透過中美晶間接持有，增層膜占中美晶營收比重很小，屬題材性"
+        }
+      ]
+    },
+    {
+      "id": "packaging-materials",
+      "name": "先進封裝材料",
+      "category": "materials",
+      "summary": "CoWoS / InFO 等先進封裝製程使用的化學材料，如液態封裝膠（LMC）、底部填充（MUF）、感光聚醯亞胺（PSPI）、光阻剝離液等。",
+      "companies": [
+        {
+          "ticker": "1717",
+          "name": "長興",
+          "verdict": "confirmed",
+          "role": "CoWoS / 蘋果處理器先進封裝用液態封裝材料（LMC）與 MUF",
+          "core": 2,
+          "sources": [
+            "https://www.ctee.com.tw/news/20250813700675-430201",
+            "https://www.pocket.tw/school/report/SCHOOL/7382/"
+          ],
+          "note": "半導體材料占營收比重仍低（法人估 2026 下半年單月約 4~5%），核心度給 2"
+        },
+        {
+          "ticker": "1711",
+          "name": "永光",
+          "verdict": "confirmed",
+          "role": "先進封裝用感光聚醯亞胺（PSPI）光阻，已供應台積電",
+          "core": 2,
+          "sources": [
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/253750",
+            "https://sunmedia.tw/news/collaborative/807JEeiJNfFv85gtpSGPh8paUw"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "4755",
+          "name": "三福化",
+          "verdict": "confirmed",
+          "role": "台積電 CoWoS 光阻剝離液、顯影液（TMAH）等特用化學品",
+          "core": 2,
+          "sources": ["https://statementdog.com/news/13347", "https://statementdog.com/news/5526"],
+          "note": ""
+        },
+        {
+          "ticker": "1303",
+          "name": "南亞",
+          "verdict": "corrected",
+          "role": "載板 / PCB 上游電子材料：玻纖紗與玻纖布、環氧樹脂、銅箔、CCL",
+          "core": 1,
+          "sources": ["https://statementdog.com/news/15529", "https://money.udn.com/money/story/5607/9799823"],
+          "note": "原值『先進封裝材料』→ 新值『載板/PCB 上游材料』：南亞並非供應封裝製程化學品，應改歸 glass-fabric / ccl / copper-foil / resin"
+        }
+      ]
+    },
+    {
+      "id": "glass-fabric",
+      "name": "玻纖紗／玻纖布（Low-Dk、T-glass、石英布）",
+      "category": "materials",
+      "summary": "CCL 與載板的補強材料；AI 伺服器需要 Low-Dk（低介電）布，ABF / BT 載板需要 Low-CTE 的 T-glass，次世代用石英布（Q-glass）。",
+      "companies": [
+        {
+          "ticker": "1802",
+          "name": "台玻",
+          "verdict": "added",
+          "role": "電子級玻纖紗/布，台灣唯一可量產 Low-Dk 玻纖布並開發第二代 Low-Dk",
+          "core": 2,
+          "sources": [
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/245093",
+            "https://finance.technews.tw/2025/11/17/t-glass/"
+          ],
+          "note": "玻纖布占台玻整體營收比重有限（另有平板玻璃等），核心度給 2"
+        },
+        {
+          "ticker": "1815",
+          "name": "富喬",
+          "verdict": "added",
+          "role": "紗到布垂直整合的電子級玻纖布，Low-Dk 產品比重提升中",
+          "core": 3,
+          "sources": [
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/245093",
+            "https://finance.technews.tw/2025/11/17/t-glass/"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "5340",
+          "name": "建榮",
+          "verdict": "added",
+          "role": "日東紡持股約 47.65% 的台灣子公司，加工 Low-Dk / Low-CTE / T-glass 玻纖布，T-glass 2026 年量產",
+          "core": 3,
+          "sources": [
+            "https://www.pocket.tw/school/report/SCHOOL/7035/",
+            "https://money.udn.com/money/story/5607/8787797"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "5475",
+          "name": "德宏",
+          "verdict": "added",
+          "role": "電子級玻纖布，布局石英纖維布",
+          "core": 2,
+          "sources": [
+            "https://www.moneyweekly.com.tw/ArticleData/Info/Article/245093",
+            "https://vocus.cc/article/69de350cfd897800016f5a95"
+          ],
+          "note": "石英布量產進度以媒體報導為主，尚待法說確認"
+        },
+        {
+          "ticker": "1303",
+          "name": "南亞",
+          "verdict": "added",
+          "role": "全球第二大電子級玻纖絲、第三大玻纖布廠，與日東紡結盟代工 Low-Dk 布與 ABF 用 Low-CTE 布",
+          "core": 2,
+          "sources": [
+            "https://blog.fugle.tw/post/jinyufeng-2026-01-12-1303-premium",
+            "https://www.nanya-glass-fabrics.com.tw/"
+          ],
+          "note": "玻纖布僅為南亞眾多事業之一，核心度給 2"
+        }
+      ]
+    },
+    {
+      "id": "ccl",
+      "name": "CCL 銅箔基板",
+      "category": "materials",
+      "summary": "樹脂 + 玻纖布 + 銅箔壓合的 PCB / 載板基材；AI 伺服器推動 M7~M9 高速材料，載板則使用 BT 類低 CTE 基材。",
+      "companies": [
+        {
+          "ticker": "2383",
+          "name": "台光電",
+          "verdict": "added",
+          "role": "全球高階高速 CCL 龍頭（M8 主力、M9 小量出貨），並跨入 BT / ABF 載板用基材",
+          "core": 3,
+          "sources": [
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=28d56108-acaf-485d-883d-b9b957da5406",
+            "https://news.cnyes.com/news/id/6609044"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "6274",
+          "name": "台燿",
+          "verdict": "added",
+          "role": "高速 CCL，主攻高階交換器、ASIC 伺服器與厚銅電源板",
+          "core": 3,
+          "sources": ["https://news.cnyes.com/news/id/5825550", "https://www.setn.com/news/1916309"],
+          "note": ""
+        },
+        {
+          "ticker": "6213",
+          "name": "聯茂",
+          "verdict": "added",
+          "role": "高速 CCL（M7 為主、M9 已通過美系 GPU 認證），並與三菱瓦斯合資『菱茂電子』開發 BT 類載板基材",
+          "core": 3,
+          "sources": ["https://news.cnyes.com/news/id/5825550", "https://news.cnyes.com/news/id/4846020"],
+          "note": ""
+        },
+        {
+          "ticker": "1303",
+          "name": "南亞",
+          "verdict": "added",
+          "role": "全球第三大 CCL 廠，具玻纖布、環氧樹脂、銅箔垂直整合",
+          "core": 2,
+          "sources": ["https://statementdog.com/news/15529", "https://money.udn.com/money/story/5607/9799823"],
+          "note": "高階高速材料比重低於 CCL 三雄"
+        }
+      ]
+    },
+    {
+      "id": "copper-foil",
+      "name": "銅箔（HVLP / 載板用極薄銅箔）",
+      "category": "materials",
+      "summary": "高速 CCL 需要超低粗糙度的 HVLP 銅箔以降低訊號損耗；載板 mSAP 製程則使用附載體極薄銅箔（如三井 MicroThin）。",
+      "companies": [
+        {
+          "ticker": "8358",
+          "name": "金居",
+          "verdict": "added",
+          "role": "HVLP4 銅箔首波供應商，已停產標準銅箔、專注 RG / HVLP 系列",
+          "core": 3,
+          "sources": [
+            "https://www.ctee.com.tw/news/20250825700751-430201",
+            "https://wantrich.chinatimes.com/news/20260313900690-420101"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "1303",
+          "name": "南亞",
+          "verdict": "added",
+          "role": "電解銅箔（以 HVLP1/2 為主，HVLP3/4 少量，部分自用於 CCL）",
+          "core": 2,
+          "sources": ["https://money.udn.com/money/story/5607/9799823", "https://statementdog.com/news/15529"],
+          "note": "銅箔約占南亞電子材料營收一成"
+        },
+        {
+          "ticker": "未上市",
+          "name": "長春集團（長春石化）",
+          "verdict": "added",
+          "role": "台灣大型電解銅箔廠（標準銅箔與鋰電池銅箔），未上市",
+          "core": 1,
+          "sources": ["https://www.bnext.com.tw/article/62041/ccp"],
+          "note": "非台股標的；查無長春 HVLP 或載板用極薄銅箔的可靠報導，僅列為參考"
+        }
+      ]
+    },
+    {
+      "id": "resin",
+      "name": "樹脂（BT、PPO/PPE、BMI、碳氫樹脂）",
+      "category": "materials",
+      "summary": "CCL 與載板基材的樹脂系統：高速 CCL 用改質 PPE、碳氫樹脂、BMI，載板用 BT 樹脂（三菱瓦斯主導）。",
+      "companies": [
+        {
+          "ticker": "1303",
+          "name": "南亞",
+          "verdict": "added",
+          "role": "全球第五大環氧樹脂廠，供應 CCL 用環氧樹脂",
+          "core": 1,
+          "sources": ["https://statementdog.com/news/15529", "https://fnc.ebc.net.tw/fncnews/business/215870"],
+          "note": "以傳統環氧樹脂為主，非高速 PPE/BT"
+        },
+        {
+          "ticker": "4722",
+          "name": "國精化",
+          "verdict": "added",
+          "role": "高速運算 CCL 用碳氫（HC）材料與 PSMA 樹脂",
+          "core": 2,
+          "sources": ["https://fnc.ebc.net.tw/fncnews/business/215870"],
+          "note": ""
+        },
+        {
+          "ticker": "4764",
+          "name": "雙鍵",
+          "verdict": "added",
+          "role": "高頻高速電子樹脂",
+          "core": 1,
+          "sources": ["https://fnc.ebc.net.tw/fncnews/business/215870"],
+          "note": ""
+        },
+        {
+          "ticker": "1721",
+          "name": "三晃",
+          "verdict": "added",
+          "role": "開發 BMI、改質 PPE 與含磷阻燃劑",
+          "core": 1,
+          "sources": ["https://fnc.ebc.net.tw/fncnews/business/215870"],
+          "note": "仍屬開發階段"
+        },
+        {
+          "ticker": "3708",
+          "name": "上緯投控",
+          "verdict": "added",
+          "role": "高階 CCL 用環氧樹脂",
+          "core": 1,
+          "sources": ["https://fnc.ebc.net.tw/fncnews/business/215870"],
+          "note": ""
+        },
+        {
+          "ticker": "7763",
+          "name": "崇舜",
+          "verdict": "added",
+          "role": "BMI 樹脂用特殊胺類固化劑（HARTCURE），經日系化學廠間接供應台系 CCL",
+          "core": 2,
+          "sources": ["https://udn.com/news/story/7241/9794149"],
+          "note": "台股目前查無量產 BT 樹脂或 PPO 本體的上市標的；BT 樹脂由三菱瓦斯主導"
+        }
+      ]
+    }
+  ],
+  "globalPlayers": [
+    {
+      "groupId": "abf-film",
+      "name": "味之素 Ajinomoto",
+      "country": "JP",
+      "role": "ABF 增層膜，全球市占逾九成",
+      "sources": ["https://udn.com/news/story/7254/9465757", "https://money.udn.com/money/story/11074/9704378"]
+    },
+    {
+      "groupId": "abf-substrate",
+      "name": "揖斐電 Ibiden",
+      "country": "JP",
+      "role": "輝達 GPU 主要 ABF 載板供應商",
+      "sources": ["https://money.udn.com/money/story/5612/7854727"]
+    },
+    {
+      "groupId": "abf-substrate",
+      "name": "新光電氣 Shinko / 京瓷 Kyocera / 三星電機 SEMCO",
+      "country": "JP/KR",
+      "role": "其他主要 ABF 載板廠",
+      "sources": ["https://money.udn.com/money/story/5612/7854727"]
+    },
+    {
+      "groupId": "glass-fabric",
+      "name": "日東紡 Nittobo",
+      "country": "JP",
+      "role": "T-glass / Low-CTE 玻纖布，市占逾九成，持續滿載",
+      "sources": [
+        "https://tw.stock.yahoo.com/news/%E7%8E%BB%E7%BA%96%E5%B8%83%E5%BB%A0%E6%97%A5%E6%9D%B1%E7%B4%A1-t-glass%E4%BE%9B%E4%B8%8D%E6%87%89%E6%B1%82-%E6%BB%BF%E8%BC%89%E7%94%9F%E7%94%A2-014000539.html",
+        "https://www.postation.jp/news/nittobo-t-glass-ai-substrate-2026-90-percent-share"
+      ]
+    },
+    {
+      "groupId": "glass-fabric",
+      "name": "旭化成 Asahi Kasei",
+      "country": "JP",
+      "role": "特種玻纖布供應商，布局石英布（Q-glass）挑戰日東紡",
+      "sources": ["https://www.eet-china.com/news/202602051993.html"]
+    },
+    {
+      "groupId": "ccl",
+      "name": "斗山 Doosan",
+      "country": "KR",
+      "role": "輝達 GB 系列 Compute Tray CCL 幾乎獨家供應",
+      "sources": ["https://www.setn.com/news/1918366"]
+    },
+    {
+      "groupId": "ccl",
+      "name": "生益科技 Shengyi",
+      "country": "CN",
+      "role": "GB 系列 Switch Tray CCL 供應商之一（與台光電並列）",
+      "sources": ["https://www.setn.com/news/1918366"]
+    },
+    {
+      "groupId": "ccl",
+      "name": "三菱瓦斯化學 MGC",
+      "country": "JP",
+      "role": "BT 載板用基材（BT 樹脂 CCL / 預浸材）龍頭，與聯茂合資菱茂電子",
+      "sources": ["https://www.materialsnet.com.tw/DocView.aspx?id=46905", "https://news.cnyes.com/news/id/4846020"]
+    },
+    {
+      "groupId": "resin",
+      "name": "三菱瓦斯化學 MGC",
+      "country": "JP",
+      "role": "BT 樹脂原創者與主要供應商",
+      "sources": ["https://www.materialsnet.com.tw/DocView.aspx?id=46905"]
+    },
+    {
+      "groupId": "copper-foil",
+      "name": "三井金屬 Mitsui Kinzoku",
+      "country": "JP",
+      "role": "載板用附載體極薄銅箔 MicroThin，全球市占逾九成；亦供應 HVLP",
+      "sources": [
+        "https://em.mitsui-kinzoku.com/douhaku/technology/microthin",
+        "https://www.mitsuipr.com/news/2023/1221-3/"
+      ]
+    },
+    {
+      "groupId": "copper-foil",
+      "name": "古河電工 Furukawa / 日本電解 Nippon Denkai",
+      "country": "JP",
+      "role": "HVLP4 高階銅箔主要供應商",
+      "sources": ["https://www.pocket.tw/school/report/SCHOOL/7495/"]
+    },
+    {
+      "groupId": "hybrid-bonding",
+      "name": "Besi / Applied Materials / 東京威力科創 TEL",
+      "country": "NL/US/JP",
+      "role": "混合鍵合關鍵 bonder 與前段設備",
+      "sources": []
+    }
+  ]
+}
