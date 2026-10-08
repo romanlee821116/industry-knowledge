@@ -116,7 +116,7 @@ function SectorChips({ sectors, onNavigate }: { sectors: SectorGroup[]; onNaviga
       items={sectors.map((g) => ({
         kind: 'sector',
         id: g.id,
-        label: `${g.name}（${g.companies.filter((c) => c.verdict !== 'removed').length}）`,
+        label: `${g.name}（${g.companies.length}）`,
       }))}
       onNavigate={onNavigate}
     />

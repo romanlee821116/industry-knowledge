@@ -14,7 +14,8 @@ const BATCHES: VerifiedBatch[] = [batch1, batch2, batch3, batch4, batch5, batch6
 const VERIFIED = new Map(BATCHES.flatMap((b) => b.groups.map((g) => [g.id, g])));
 const GLOBAL_PLAYERS = BATCHES.flatMap((b) => b.globalPlayers);
 
-const VERDICT_ORDER = { confirmed: 0, added: 1, corrected: 2, unverified: 3, removed: 4 };
+/** 只呈現查證後成立的個股；移除與查無佐證的不進畫面（原始查證紀錄保留在 verified/*.json） */
+const SHOWN = new Set(['confirmed', 'added', 'corrected']);
 
 function statusOf(verified: boolean, scene: string, anchors: string[]): SectorStatus {
   if (!verified) return 'pending';
@@ -31,9 +32,7 @@ const CATEGORIES: SectorCategory[] = CATALOG.map((cat) => ({
       categoryId: cat.id,
       summary: v?.summary,
       engineeringNotes: v?.engineeringNotes,
-      companies: [...(v?.companies ?? [])].sort(
-        (a, b) => VERDICT_ORDER[a.verdict] - VERDICT_ORDER[b.verdict] || b.core - a.core,
-      ),
+      companies: (v?.companies ?? []).filter((c) => SHOWN.has(c.verdict)).sort((a, b) => b.core - a.core),
       globalPlayers: GLOBAL_PLAYERS.filter((p) => p.groupId === (def.source ?? def.id)),
       status: statusOf(Boolean(v), def.scene, def.anchors),
     };
@@ -42,13 +41,12 @@ const CATEGORIES: SectorCategory[] = CATALOG.map((cat) => ({
 
 const GROUPS = new Map(CATEGORIES.flatMap((c) => c.groups.map((g) => [g.id, g])));
 
-/** 個股反查：只收錄查證後仍屬於該族群的紀錄（排除 removed） */
+/** 個股反查 */
 const COMPANIES: CompanyIndexEntry[] = (() => {
   const map = new Map<string, CompanyIndexEntry>();
   for (const group of GROUPS.values()) {
     if (group.source) continue; // 共用資料的族群只計一次
     for (const c of group.companies) {
-      if (c.verdict === 'removed') continue;
       const entry = map.get(c.ticker) ?? { ticker: c.ticker, name: c.name, memberships: [] };
       entry.memberships.push({
         groupId: group.id,
