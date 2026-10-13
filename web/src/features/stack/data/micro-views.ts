@@ -1,3 +1,5 @@
+import { assetPath } from '@/shared/lib/asset-path';
+
 import type { MicroView, MicroViewId, PaletteKey } from '../types';
 
 /** 技術插畫色票：每種材料固定一色 */
@@ -38,7 +40,7 @@ export const MICRO_VIEWS: Record<MicroViewId, MicroView> = {
   'glass-fabric': {
     id: 'glass-fabric',
     name: '玻纖布 → CCL 微觀切片',
-    url: '/models/glass_fabric.glb',
+    url: assetPath('/models/glass_fabric.glb'),
     caption: '一層 CCL：平織玻纖布含浸在樹脂中，上下壓合銅箔。右側散開的是單根紗線拆成的玻璃纖維單絲。',
     scaleNote: '真實尺寸：單絲約 5 µm、紗寬約 0.1–0.4 mm、1037 布厚約 27 µm（示意，未依比例）',
     parts: [
@@ -93,7 +95,7 @@ export const MICRO_VIEWS: Record<MicroViewId, MicroView> = {
   'substrate-section': {
     id: 'substrate-section',
     name: 'ABF 載板剖面',
-    url: '/models/substrate_section.glb',
+    url: assetPath('/models/substrate_section.glb'),
     caption: '正面為切開的剖面：中間是含玻纖布的核心層與塞孔 PTH，上下是 ABF 增層與疊孔，最外層是防焊與凸塊／錫球。',
     scaleNote: '真實尺寸：ABF 單層約 15–40 µm、核心約 0.8–1.6 mm、盲孔直徑數十 µm（示意，厚度誇張化）',
     parts: [
@@ -174,7 +176,7 @@ export const MICRO_VIEWS: Record<MicroViewId, MicroView> = {
   'probe-contact': {
     id: 'probe-contact',
     name: '探針接觸晶圓凸塊',
-    url: '/models/probe_contact.glb',
+    url: assetPath('/models/probe_contact.glb'),
     caption: '垂直式探針穿過上下兩片陶瓷導板，被空間轉換板往下壓而彎曲，針尖刺進晶圓上的微凸塊錫帽。',
     scaleNote: '真實尺寸：凸塊間距約數十 µm、探針直徑數十 µm、長度數 mm（示意，未依比例）',
     parts: [
@@ -247,7 +249,7 @@ export const MICRO_VIEWS: Record<MicroViewId, MicroView> = {
   'pogo-pin': {
     id: 'pogo-pin',
     name: '測試座 pogo pin 剖面',
-    url: '/models/pogo_pin.glb',
+    url: assetPath('/models/pogo_pin.glb'),
     caption:
       '測試座內每顆錫球對應一根彈簧針：上針頭的爪狀針尖抓住錫球、下針頭接觸測試載板，中間的彈簧提供接觸力。中間那根的套筒已剖開。',
     scaleNote: '真實尺寸：針距約 0.4–1.0 mm、針長數 mm（示意，未依比例）',
@@ -326,7 +328,7 @@ export const MICRO_VIEWS: Record<MicroViewId, MicroView> = {
   'chip-section': {
     id: 'chip-section',
     name: '晶片內部剖面（電晶體＋銅導線）',
-    url: '/models/chip_section.glb',
+    url: assetPath('/models/chip_section.glb'),
     caption:
       '晶圓表面數微米內的結構：最底層是 FinFET 電晶體，往上是接觸窗與十多層銅導線（此處示意 4 層），方向逐層交錯、越上層越粗，最頂端的焊墊上長出接到中介層的微凸塊。',
     scaleNote: '真實尺寸：鰭片寬數 nm、最底層導線間距約 20–30 nm、頂層導線數 µm（示意，未依比例）',
@@ -453,7 +455,7 @@ export const MICRO_VIEWS: Record<MicroViewId, MicroView> = {
   transceiver: {
     id: 'transceiver',
     name: '800G 可插拔光模組內部',
-    url: '/models/transceiver.glb',
+    url: assetPath('/models/transceiver.glb'),
     caption:
       '電訊號從金手指進入，經 DSP 處理後由雷射驅動器推動 8 道雷射發光；回來的光由 8 道光偵測器轉回電，經 TIA 放大。透鏡把光耦合進光纖，最後匯入 MPO 接頭。上蓋已透明化。',
     scaleNote: '真實尺寸：OSFP 模組長約 10 cm；雷射晶片僅數百 µm（示意，未依比例）',

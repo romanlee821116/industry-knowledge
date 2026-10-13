@@ -1,6 +1,8 @@
 import { useGLTF } from '@react-three/drei';
 import { useMemo } from 'react';
 
+import { assetPath } from '@/shared/lib/asset-path';
+
 import FAB_META from '../data/generated/fab-scene.meta.json';
 import PACKAGE_META from '../data/generated/package-scene.meta.json';
 import RACK_META from '../data/generated/rack-scene.meta.json';
@@ -22,10 +24,10 @@ interface MetaEntry {
 
 /** 各場景的幾何全部來自 Blender（blender/*_scene.py），這裡只讀模型路徑與各層包圍盒 */
 const SCENES: Record<SceneKey, { url: string; meta: Record<string, MetaEntry> }> = {
-  fab: { url: '/models/fab_scene.glb', meta: FAB_META },
-  package: { url: '/models/package_scene.glb', meta: PACKAGE_META },
-  test: { url: '/models/test_scene.glb', meta: TEST_META },
-  rack: { url: '/models/rack_scene.glb', meta: RACK_META },
+  fab: { url: assetPath('/models/fab_scene.glb'), meta: FAB_META },
+  package: { url: assetPath('/models/package_scene.glb'), meta: PACKAGE_META },
+  test: { url: assetPath('/models/test_scene.glb'), meta: TEST_META },
+  rack: { url: assetPath('/models/rack_scene.glb'), meta: RACK_META },
 };
 
 // 預先載入四個場景，切換場景時不必暫停渲染（避免 Html 標籤在 Suspense 中途卸載）
