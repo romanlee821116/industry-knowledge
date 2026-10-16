@@ -151,7 +151,7 @@ export const MATERIALS: Material[] = [
       { label: '台股', value: '台虹 8039（無玻纖 PTFE CCL 驗證中）、台光電 2383（二供認證中）' },
       { label: '國際', value: '生益科技（PTFE CCL 主供候選）、Rogers、大金（PTFE 樹脂）' },
     ],
-    usedIn: ['server-pcb'],
+    usedIn: ['server-pcb', 'nvlink-spine'],
     processChain: 'laminate',
     variants: [
       {

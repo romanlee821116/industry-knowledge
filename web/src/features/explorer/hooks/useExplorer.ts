@@ -84,6 +84,12 @@ const LAYER_VARIANT_SLOT: Partial<Record<LayerId, VariantSlot>> = {
   interposer: 'interposer',
   substrate: 'substrate',
   'tor-switch': 'switch',
+  'nvlink-spine': 'backplane',
+};
+
+const MATERIAL_VARIANT_SLOT: Partial<Record<MaterialId, VariantSlot>> = {
+  'glass-fabric': 'glass-fabric',
+  ptfe: 'ptfe',
 };
 
 /** 同高度的標籤上下錯開避免重疊 */
@@ -361,16 +367,14 @@ function buildCard(
 
   if (selection.kind === 'material' && isMaterial(selection.id)) {
     const material = MATERIAL_MAP[selection.id];
+    const slot = MATERIAL_VARIANT_SLOT[material.id] ?? null;
     return {
       kind: 'material',
       material,
       usedIn: links(material.usedIn),
       sectors: catalog.groupsForTarget(material.id),
       chain: chainView(material.processChain, material.id),
-      variant:
-        material.id === 'glass-fabric'
-          ? variantView('glass-fabric', material.variants, variants['glass-fabric'])
-          : undefined,
+      variant: slot ? variantView(slot, material.variants, variants[slot]) : undefined,
       microView: material.microView,
     };
   }

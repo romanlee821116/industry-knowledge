@@ -134,8 +134,47 @@ export const RACK_LAYERS: StackLayer[] = [
       { label: '線纜', value: '高速雙軸銅纜（twinax），數千條', unverified: true },
       { label: '國際', value: 'Amphenol、Molex' },
     ],
-    materials: [],
+    materials: ['ptfe', 'ccl'],
     processChain: 'rack',
+    variants: [
+      {
+        id: 'cable-spine',
+        name: '銅纜背板（Oberon）',
+        era: 'mainstream',
+        summary:
+          'GB200／GB300 NVL72 的做法：運算托盤與交換托盤水平堆疊，後方以可拆卸的銅纜匣（cable cartridge）把每個托盤連到每個 NVSwitch。',
+        specs: [
+          { label: '線纜數', value: '約 5,000 條 224G 雙軸銅纜' },
+          { label: '缺點', value: '線束龐大、組裝費工、插拔與彎折容易出錯；速率再升級時銅纜損耗吃緊' },
+        ],
+      },
+      {
+        id: 'orthogonal-midplane',
+        name: '正交背板（Kyber）',
+        era: 'next',
+        summary:
+          'Rubin Ultra 的 Kyber 機櫃改把運算刀鋒像書一樣直立插在一塊大型被動 PCB 中板的正面，NVLink 交換刀鋒從背面以垂直方向插入，兩側板卡互相正交，訊號直接穿過中板，不再需要銅纜。',
+        specs: [
+          {
+            label: '為何叫正交',
+            value:
+              '前方運算刀鋒直立、後方交換刀鋒橫向，每片運算刀鋒都與每片交換刀鋒在中板上交會，一個交會點就是一組連接器',
+          },
+          { label: '好處', value: '省掉整櫃線束、插入損耗更低、可減少 retimer、刀鋒盲插好維修' },
+          { label: '層數', value: '報導約 78 層，有改為 3 片 26 層分別壓合再結合的方案', unverified: true },
+          { label: '材料', value: 'PTFE＋二氧化矽填料 CCL 與 M9＋石英布混層壓合（供應鏈報導，未經官方證實）' },
+          {
+            label: '量產難點',
+            value: '超高層數需 10–20 次壓合，PTFE 軟、尺寸隨溫度漂移，層間對位、背鑽與孔壁鍍銅良率都難控制',
+          },
+          {
+            label: '時程',
+            value:
+              'NVIDIA 路線圖為 2027 年；SemiAnalysis 2026 年 7 月指中板量產卡關、延至 2028 年，NVIDIA 回應路線圖不變',
+          },
+        ],
+      },
+    ],
   },
   {
     id: 'tor-switch',

@@ -9,7 +9,7 @@ export interface Selection {
 }
 
 /** 可切換技術版本的對象：中介層、載板核心、玻纖布 */
-export type VariantSlot = 'interposer' | 'substrate' | 'glass-fabric' | 'switch';
+export type VariantSlot = 'interposer' | 'substrate' | 'glass-fabric' | 'switch' | 'backplane' | 'ptfe';
 
 export interface LinkItem {
   kind: SelectionKind;
