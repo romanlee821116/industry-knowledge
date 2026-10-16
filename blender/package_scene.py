@@ -12,7 +12,7 @@ import sys
 sys.path.append(os.path.dirname(__file__))
 
 import lib_mesh as m  # noqa: E402
-from lib_scene import B, C, M, join, mats, nm, write_meta  # noqa: E402
+from lib_scene import B, C, M, bus, join, mats, nm, traces, write_meta  # noqa: E402
 
 SUB = 12.0
 IP_W, IP_D = 8.0, 6.0
@@ -46,6 +46,16 @@ def build():
     B(None, "server-pcb", "mask", (0, 0, pcb_t - 0.015), (24, 20, 0.03), "mask_green", bev=0)
     pads = [B(None, "server-pcb", "pad", (x, y, pcb_t + 0.004), (0.36, 0.36, 0.008), "gold", bev=0) for x, y in grid(13, 13, 11, 11)]
     join(pads, nm("server-pcb", "pads"))
+    # Signal fan-out from the BGA field toward the board edges (high-speed lanes), power pour under the VRM row
+    routes = []
+    for c in (-3.0, 0.0, 3.0):
+        routes += bus((5.9, c), (1, 0), 8, 0.2, 0.8, 0.9, 5.6)
+        routes += bus((-5.9, c), (-1, 0), 8, 0.2, 0.8, 0.9, 5.6)
+        routes += bus((c, 5.9), (0, 1), 8, 0.2, 0.8, 0.9, 3.6)
+    traces(None, "server-pcb", pcb_t, routes, 0.07)
+    pour = [B(None, "server-pcb", "power_pour", (0, -6.6, pcb_t + 0.004), (18.0, 1.4, 0.008), "trace", bev=0),
+            B(None, "server-pcb", "power_neck", (0, -5.75, pcb_t + 0.004), (10.0, 0.5, 0.008), "trace", bev=0)]
+    join(pour, nm("server-pcb", "power_plane"))
     passives = []
     for k in range(28):  # decoupling MLCCs around the package
         a = k / 28 * 2 * math.pi

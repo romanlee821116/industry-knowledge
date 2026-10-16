@@ -12,7 +12,7 @@ import sys
 sys.path.append(os.path.dirname(__file__))
 
 import lib_mesh as m  # noqa: E402
-from lib_scene import B, C, S, join, mats, nm, write_meta  # noqa: E402
+from lib_scene import B, C, S, bus, join, mats, nm, traces, write_meta  # noqa: E402
 
 W, D, H = 6.0, 8.0, 0.7  # tray width (x), depth (y, front at -D/2), slot height
 FRONT = -D / 2
@@ -37,6 +37,7 @@ def chassis(layer, z, tier, height=0.5):
 def gpu_board(x, z, tier):
     """Superchip board: 2 GPU packages + 1 CPU under liquid cold plates, LPDDR, VRMs."""
     B(None, "gpu-module", "board", (x, -0.6, z + 0.08), (2.6, 4.4, 0.05), "pcb_green", tier, bev=0)
+    traces(None, "gpu-module", z + 0.105, bus((x, 0.0), (0, 1), 10, 0.05, 0.15, 0.6, 1.5), 0.02, tier)
     hoses = []
     for k, y in enumerate((-1.9, -0.6)):
         B(None, "gpu-module", "gpu_sub", (x, y, z + 0.13), (1.1, 1.1, 0.05), "mask_green", tier, bev=0)
@@ -75,6 +76,7 @@ def switch_tray(z, tier):
     chassis("nvlink-switch", z, tier)
     for x in (-1.3, 1.3):
         B(None, "nvlink-switch", "board", (x, 0, z + 0.08), (2.4, 3.0, 0.05), "pcb_green", tier, bev=0)
+        traces(None, "nvlink-switch", z + 0.105, bus((x, 0.55), (0, 1), 12, 0.05, 0.1, 0.6, 0.85), 0.02, tier)
         B(None, "nvlink-switch", "asic_lid", (x, 0, z + 0.15), (1.0, 1.0, 0.08), "nickel", tier, bev=0.02)
         B(None, "cooling", "switch_coldplate", (x, 0, z + 0.24), (1.05, 1.05, 0.1), "copper", tier, bev=0.03)
     B(None, "nvlink-switch", "connector", (0, D / 2 - 0.15, z + 0.2), (5.4, 0.25, 0.35), "dark", tier, bev=0.01)
@@ -94,6 +96,9 @@ def power_shelf(z, tier):
 def tor_switch(z, tier):
     chassis("tor-switch", z, tier)
     B(None, "tor-switch", "board", (0, -0.5, z + 0.08), (5.6, 6.0, 0.05), "pcb_green", tier, bev=0)
+    routes = bus((0, -0.75), (0, -1), 24, 0.06, 0.2, 0.8, 2.6)
+    routes += bus((0.75, 0), (1, 0), 12, 0.06, 0.2, 0.5, 1.9) + bus((-0.75, 0), (-1, 0), 12, 0.06, 0.2, 0.5, 1.9)
+    traces(None, "tor-switch", z + 0.105, routes, 0.025, tier)
     B(None, "tor-switch", "asic", (0, 0, z + 0.15), (1.4, 1.4, 0.08), "nickel", tier, bev=0.02)
     fins = [B(None, "tor-switch", "fin", (-0.9 + k * 0.15, 0, z + 0.38), (0.05, 1.8, 0.4), "aluminum", tier, bev=0) for k in range(13)]
     join(fins, nm("tor-switch", "heatsink", tier))

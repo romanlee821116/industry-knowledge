@@ -9,6 +9,7 @@ meta.json : per layer {center, size, tier, anchor} in glTF Y-up coordinates.
 """
 
 import json
+import math
 
 import bpy
 from mathutils import Vector
@@ -78,6 +79,7 @@ def mats():
     mat("mask_green", (0.08, 0.3, 0.17, 1), roughness=0.35)
     mat("pcb_green", (0.07, 0.24, 0.14, 1), roughness=0.4)
     mat("pcb_edge", (0.6, 0.58, 0.42, 1), roughness=0.6)
+    mat("trace", (0.8, 0.56, 0.3, 1), metallic=0.7, roughness=0.35)
     mat("underfill", (0.85, 0.7, 0.35, 1), roughness=0.3, alpha=0.55)
     mat("tim", (0.55, 0.56, 0.6, 1), roughness=0.7)
     mat("mlcc", (0.62, 0.52, 0.38, 1), roughness=0.5)
@@ -124,6 +126,33 @@ def S(P, layer, part, path, rw, rh, mat, tier=0, segments=10, variant=None, phas
         parent=P,
         phase=phase,
     )
+
+
+def bus(start, d, n, pitch, l1, fan, length):
+    """n parallel traces leaving `start` along unit axis `d`, fanning out at 45° after l1, all ending `length` along d."""
+    px, py = -d[1], d[0]
+    routes = []
+    for i in range(n):
+        o = (i - (n - 1) / 2) * pitch
+        j = o * fan
+        sx, sy = start[0] + px * o, start[1] + py * o
+        a = (sx + d[0] * l1, sy + d[1] * l1)
+        b = (a[0] + d[0] * abs(j) + px * j, a[1] + d[1] * abs(j) + py * j)
+        rest = length - l1 - abs(j)
+        c = (b[0] + d[0] * rest, b[1] + d[1] * rest)
+        routes.append([(sx, sy), a, b, c])
+    return routes
+
+
+def traces(P, layer, z, routes, w, tier=0, variant=None):
+    """Copper traces lying on a board surface at height z, with a via at the far end of each trace."""
+    hw = w / 2 / math.cos(math.pi / 4)  # rectangular sweep profile → actual half-width w/2
+    objs = []
+    for r in routes:
+        objs.append(S(P, layer, "trace", [(x, y, z + w * 0.08) for x, y in r], hw, w * 0.08 / math.cos(math.pi / 4), "trace", tier, segments=4, phase=math.pi / 4, variant=variant))
+        x, y = r[-1]
+        objs.append(C(P, layer, "via", (x, y), w * 1.1, z, z + w * 0.2, "gold", tier, segments=10, variant=variant))
+    return join(objs, nm(layer, "traces", tier, variant))
 
 
 def join(objs, name):

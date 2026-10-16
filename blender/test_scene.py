@@ -14,7 +14,7 @@ import sys
 sys.path.append(os.path.dirname(__file__))
 
 import lib_mesh as m  # noqa: E402
-from lib_scene import B, C, M, S, join, mats, nm, write_meta  # noqa: E402
+from lib_scene import B, C, M, S, bus, join, mats, nm, traces, write_meta  # noqa: E402
 
 CP_X, FT_X = -7.5, 7.5
 
@@ -100,6 +100,9 @@ def build_ft():
     z = 1.38
     # Load board (tier 1): thick PCB with power components and the socket footprint
     B(P, "load-board", "board", (0, 0, z + 0.16), (8.0, 7.0, 0.32), "pcb_green", 1, bev=0.02)
+    routes = bus((1.9, 0), (1, 0), 10, 0.12, 0.3, 0.5, 1.3) + bus((-1.9, 0), (-1, 0), 10, 0.12, 0.3, 0.5, 1.3)
+    routes += bus((0, 1.9), (0, 1), 10, 0.12, 0.2, 0.4, 0.75) + bus((0.8, -1.9), (0, -1), 6, 0.12, 0.2, 0.4, 0.75)
+    traces(P, "load-board", z + 0.32, routes, 0.045, 1)
     comps = []
     for x, y in grid(10, 2, 6.8, 5.8):
         comps.append(B(P, "load-board", "relay", (x, y, z + 0.42), (0.35, 0.25, 0.2), "dark", 1, bev=0.02))
