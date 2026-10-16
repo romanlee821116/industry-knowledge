@@ -126,6 +126,61 @@ export const MATERIALS: Material[] = [
     usedIn: ['substrate-core', 'server-pcb'],
     processChain: 'laminate',
   },
+  {
+    id: 'ptfe',
+    name: 'PTFE 低損耗材料',
+    nameEn: 'PTFE (Polytetrafluoroethylene)',
+    summary:
+      '聚四氟乙烯（俗稱鐵氟龍），介電常數與損耗是常用板材中最低的一群。過去用在雷達、基地台等射頻板；AI 伺服器走向 224G 以上 SerDes 後，被拉進高速 CCL，作為取代「M9 樹脂＋石英布」的方案。',
+    specs: [
+      { label: 'Dk／Df（純 PTFE）', value: '約 2.1／0.0002–0.0004', unverified: true },
+      { label: 'Dk／Df（陶瓷填充，如 Rogers RO3003）', value: '3.00／0.0010（10 GHz）' },
+      {
+        label: '為何低損耗',
+        value: 'C–F 鍵極性低且分子結構對稱，電場下幾乎不產生偶極轉向損耗；不吸濕，介電特性隨溫濕度變化小',
+      },
+      {
+        label: '無布化的好處',
+        value: '以二氧化矽填料取代玻纖布，避免玻纖與樹脂交界的介電不均（編織效應），訊號延遲與損耗更一致',
+      },
+      {
+        label: '加工難點',
+        value:
+          '材質軟、CTE 大、化學惰性使孔壁難以化學鍍銅（需電漿或鈉萘處理）；與一般板材混層壓合時需加接著層，良率是放量關鍵',
+      },
+      { label: '台股', value: '台虹 8039（無玻纖 PTFE CCL 驗證中）、台光電 2383（二供認證中）' },
+      { label: '國際', value: '生益科技（PTFE CCL 主供候選）、Rogers、大金（PTFE 樹脂）' },
+    ],
+    usedIn: ['server-pcb'],
+    processChain: 'laminate',
+    variants: [
+      {
+        id: 'ptfe-glass',
+        name: '玻纖補強 PTFE',
+        era: 'legacy',
+        summary: 'PTFE 含浸玻纖布，傳統微波／射頻板（基地台天線、雷達），層數少、單價高。',
+        specs: [{ label: '應用', value: '5G 基地台、車用雷達、衛星通訊' }],
+      },
+      {
+        id: 'ptfe-ceramic',
+        name: '陶瓷填充 PTFE',
+        era: 'mainstream',
+        summary: '加入陶瓷粉降低 CTE、穩定 Dk，是目前高頻射頻板主流（例如 Rogers RO3000 系列）。',
+        specs: [{ label: '代表料號', value: 'Rogers RO3003：Dk 3.00、Df 0.0010' }],
+      },
+      {
+        id: 'ptfe-glassless',
+        name: '無布化 PTFE＋二氧化矽填料 CCL',
+        era: 'next',
+        summary:
+          '完全不用玻纖布的 PTFE 覆銅板，供應鏈報導為 NVIDIA Rubin Ultra 正交背板（78–108 層）的候選材料，可能與 M9＋石英布混層壓合；最終設計與供應比重尚未由官方證實。',
+        specs: [
+          { label: '目標速率', value: 'PCIe Gen7、NVLink 6，單通道 337G 以上', unverified: true },
+          { label: '時程', value: '台虹規劃 2027 年初月產 10 萬張，普及預期 2028 年後' },
+        ],
+      },
+    ],
+  },
 ];
 
 export const MATERIAL_MAP = Object.fromEntries(MATERIALS.map((m) => [m.id, m])) as Record<Material['id'], Material>;

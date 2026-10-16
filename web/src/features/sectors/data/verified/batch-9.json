@@ -1,0 +1,147 @@
+{
+  "generatedAt": "2026-10-14",
+  "groups": [
+    {
+      "id": "fpc",
+      "name": "軟板／FCCL",
+      "category": "ai-hpc",
+      "summary": "軟性電路板（FPC）與其上游軟性銅箔基板（FCCL）。傳統主力是手機、NB 與穿戴裝置，近年延伸到 AI 伺服器內部的高層數軟板與液冷感測模組；台虹供材料、台郡做板。",
+      "engineeringNotes": "FCCL 以聚醯亞胺（PI）膜取代硬板的玻纖布＋環氧樹脂，再壓上銅箔，可彎折、薄且輕。軟板廠在 FCCL 上做線路、覆蓋保護膜（coverlay）後成為 FPC。高頻高速應用改用 MPI（改質 PI）或 LCP（液晶高分子）降低介電損耗；AI 伺服器用的軟板層數常在 6 層以上，用來在狹窄空間內跨板連接、取代部分線材，也承載液冷系統的漏液與溫度感測線路。",
+      "companies": [
+        {
+          "ticker": "6269",
+          "name": "台郡",
+          "verdict": "confirmed",
+          "role": "台灣前三大軟板廠，主攻高階 FPC；AI 伺服器用 6 層以上高層數軟板 2025 下半年小量出貨、2026 年放量，並開發 MPI／LCP 高頻軟板，切入 NVIDIA AI 伺服器液冷感測供應鏈；本業仍以手機、NB、穿戴為大宗，目前仍處虧損轉型期",
+          "core": 3,
+          "sources": [
+            "https://udn.com/news/story/7252/9660923",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=ca5d36a4-13ac-4b7a-a095-90ac8b2ebd19",
+            "https://uanalyze.com.tw/articles/1223251496"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "8039",
+          "name": "台虹",
+          "verdict": "confirmed",
+          "role": "FCCL 領導廠商，供應軟板用軟性銅箔基板與保護膜；細線路材料（手機顯示器、相機模組）營收占比已超過一成，另布局 PTFE 低損耗材料與先進封裝暫時性貼合膜（FOWLP／FOPLP，2027 年後貢獻）",
+          "core": 3,
+          "sources": [
+            "https://blog.fugle.tw/post/earnings-call-8039-2026-05-29",
+            "https://news.cnyes.com/news/id/6151502",
+            "https://n.yam.com/Article/20260902939745"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "liquid-cooling",
+      "name": "液冷散熱",
+      "category": "ai-hpc",
+      "summary": "AI 機櫃的直接液冷（DLC）硬體：機櫃內的水冷板、分歧管、快接頭（奇鋐），以及把熱帶出機櫃的熱交換器與 CDU（高力）。",
+      "engineeringNotes": "GPU 單顆功耗破千瓦後，氣冷的風量與噪音都到極限，GB200／GB300 NVL72 改為整櫃液冷。熱路徑是：晶片 → 水冷板（cold plate，銅底座內加工微流道）→ 快接頭（UQD）→ 機櫃後方分歧管（manifold）→ 冷卻分配單元（CDU）。CDU 內的板式熱交換器（PHE）把機櫃內的二次側冷卻液與機房冰水（一次側）隔開換熱，並控制流量與溫度；CDU 分為裝在機櫃內的 in-rack 與獨立成櫃的 in-row 兩種。",
+      "companies": [
+        {
+          "ticker": "3017",
+          "name": "奇鋐",
+          "verdict": "confirmed",
+          "role": "全球散熱模組與機構件大廠，GB200／GB300 水冷板主要供應商（法人估市占逾五成），整案供應水冷板、分歧管、快接頭、風扇與機構件；2026 上半年伺服器與網通營收占比升至約 66%",
+          "core": 3,
+          "sources": [
+            "https://blog.fugle.tw/post/avc-analysis",
+            "https://vocus.cc/article/6a801565fd8978000125a246",
+            "https://news.cnyes.com/news/id/6392216"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "8996",
+          "name": "高力",
+          "verdict": "confirmed",
+          "role": "精密硬銲板式熱交換器廠，供應液冷 CDU 的熱交換器與冷板，自有 in-row CDU 2026 下半年放量；另一成長引擎為 Bloom Energy 燃料電池零組件",
+          "core": 3,
+          "sources": [
+            "https://blog.fugle.tw/post/kaori-analysis",
+            "https://www.ttv.com.tw/finance/view/0520262010311C2A3BAC714A454EA112619F3DB3336C975F/587",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=389ec560-1a28-4f71-81d2-9e042c709137"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ai-server",
+      "name": "AI 伺服器",
+      "category": "ai-hpc",
+      "summary": "把 GPU、CPU、記憶體、網路卡、電源與散熱組成整台伺服器或整櫃系統的品牌與組裝廠。",
+      "engineeringNotes": "AI 伺服器有兩種主要形態：一是 NVIDIA 定義整櫃架構的 GB200／GB300 NVL72，由少數 ODM 依參考設計組裝並負責整櫃測試；二是 NVIDIA MGX 模組化架構，廠商可自選 CPU、GPU 數量與散熱方式，做成 4U／2U 的 8 GPU 機種，彈性大、適合企業與中小型雲端客戶。整櫃系統的難點在液冷管路、上千條銅纜背板與 100kW 以上供電的整合與測試。",
+      "companies": [
+        {
+          "ticker": "2377",
+          "name": "微星",
+          "verdict": "confirmed",
+          "role": "電競主機板、顯示卡與筆電品牌，伺服器為新事業：以 NVIDIA MGX 架構推出液冷 8 GPU 伺服器與機架級系統，美國廠出貨北美中小企業客戶；AI 伺服器占整體營收仍為個位數，目標 2026 年伺服器營收倍增",
+          "core": 1,
+          "sources": [
+            "https://money.udn.com/money/story/5612/9811659",
+            "https://uanalyze.com.tw/articles/2508855033",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=137ca53a-e8ca-4673-a68c-66e2eccd7cf8"
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ptfe",
+      "name": "PTFE 低損耗材料",
+      "category": "materials",
+      "summary": "以 PTFE（鐵氟龍）加二氧化矽填料、不用玻纖布的低損耗覆銅板，供應鏈報導為 NVIDIA Rubin Ultra 正交背板的主要材料方向；目前各廠仍在送樣與認證，尚無大量營收。",
+      "engineeringNotes": "PTFE 的 Dk 約 2.1、Df 在萬分之幾，是常用板材中最低的一群，且不吸濕。傳統 CCL 的玻纖布與樹脂介電常數不同，高速訊號走線跨過經緯紗時會出現編織效應；無布化 PTFE 以填料取代玻纖布，讓訊號環境更均勻。代價是加工困難：PTFE 軟、熱膨脹大、化學惰性，鑽孔後需電漿或鈉萘處理孔壁才能鍍銅，且要和 M9＋石英布等一般材料混層壓合成 78–108 層的背板，良率是放量關鍵。",
+      "companies": [
+        {
+          "ticker": "8039",
+          "name": "台虹",
+          "verdict": "confirmed",
+          "role": "以氟素樹脂塗佈與改性技術跨入硬板材料，無玻纖 PTFE CCL 自 2025 年 11 月進入客戶驗證，被點名為正交背板二供候選；規劃 2027 年初月產 10 萬張，認證尚未定案",
+          "core": 2,
+          "sources": [
+            "https://cmnews.com.tw/article/cmoney-ba3d2ef1-857f-11f1-9af2-ce04299a9724",
+            "https://blog.fugle.tw/post/earnings-call-8039-2026-05-29",
+            "https://n.yam.com/Article/20260902939745"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "2383",
+          "name": "台光電",
+          "verdict": "confirmed",
+          "role": "全球高速 CCL 龍頭，PTFE CCL 二供認證中，同時推進 PPO 樹脂摻 PTFE 微粉等改良方案",
+          "core": 2,
+          "sources": [
+            "https://hao.cnyes.com/post/250668",
+            "https://cmnews.com.tw/article/cmoney-ba3d2ef1-857f-11f1-9af2-ce04299a9724"
+          ],
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "globalPlayers": [
+    {
+      "groupId": "ptfe",
+      "name": "生益科技",
+      "country": "CN",
+      "role": "中國最大 CCL 廠，PTFE 布局最早，券商報告預估為 Rubin Ultra 正交背板 PTFE CCL 主供應商",
+      "sources": ["https://hao.cnyes.com/post/250668"]
+    },
+    {
+      "groupId": "ptfe",
+      "name": "Rogers",
+      "country": "US",
+      "role": "PTFE 高頻射頻板材龍頭（RO3000、RT/duroid 系列），主要應用在基地台、雷達與衛星通訊",
+      "sources": ["https://www.rogerscorp.com/blog/2023/finding-the-formula-for-low-loss-rf-microwave-laminates"]
+    }
+  ]
+}

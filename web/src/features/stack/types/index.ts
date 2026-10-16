@@ -67,7 +67,7 @@ export type LayerId =
 /** 已建模的 3D 場景 */
 export type SceneKey = 'fab' | 'package' | 'test' | 'rack';
 
-export type MaterialId = 'glass-fabric' | 'ccl' | 'abf-film' | 'copper-foil' | 'resin';
+export type MaterialId = 'glass-fabric' | 'ccl' | 'abf-film' | 'copper-foil' | 'resin' | 'ptfe';
 
 export type MicroViewId =
   'glass-fabric' | 'substrate-section' | 'probe-contact' | 'pogo-pin' | 'chip-section' | 'transceiver';

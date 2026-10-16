@@ -588,7 +588,7 @@
       "id": "high-speed-transmission",
       "name": "高速傳輸（材料／線纜）",
       "category": "ai-hpc",
-      "summary": "AI 伺服器與交換器的高速訊號傳輸硬體：高速 CCL（台光電、台燿、聯茂）與高速銅纜（貿聯）。",
+      "summary": "AI 伺服器與交換器的高速訊號傳輸硬體：高速 CCL（台光電、台燿、聯茂）、高速銅纜與伺服器內部線材（貿聯、嘉基），以及新一代低損耗 PTFE 材料（台虹）。",
       "engineeringNotes": "SerDes 單通道速率由 112G 走向 224G PAM4 後，PCB 損耗容許量急遽縮小，CCL 必須從 M7 升級到 M8（800G 交換器、主流 AI 伺服器）、M9（下一代 GPU 與 1.6T 交換器），層數由 20–30 層增加到 36–48 層。機櫃內 GPU 互連則以銅纜為主（GB200 NVL72 背板約 5,000 條 224G 銅纜），距離拉長時改用含 retimer 的主動式電纜 AEC，再更遠才用光纖。",
       "companies": [
         {
@@ -640,6 +640,31 @@
           "role": "高速 CCL 三雄之一，與台光電、台燿同受惠 M9/M10 材料升級",
           "core": 2,
           "sources": ["https://www.storm.mg/article/11164365"],
+          "note": ""
+        },
+        {
+          "ticker": "6715",
+          "name": "嘉基",
+          "verdict": "added",
+          "role": "嘉澤集團旗下高速線材廠：伺服器內部 MCIO／Riser 線、DAC 與 AEC 主動式銅纜（1.6T AEC 2026 下半年客戶驗證），並開發 1.6T–6.4T on-board optics／CPO connector socket（2027 年小量）；營收仍以 Thunderbolt 與螢幕線為大宗",
+          "core": 2,
+          "sources": [
+            "https://blog.fugle.tw/post/earnings-call-6715-2026-06-09",
+            "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=37f10e1c-2886-4171-bf7a-4888c6a54580",
+            "https://www.computextaipei.com.tw/zh-tw/exh-news/ABB66357D5E7E440/info.html?cr=2"
+          ],
+          "note": ""
+        },
+        {
+          "ticker": "8039",
+          "name": "台虹",
+          "verdict": "added",
+          "role": "軟性銅箔基板廠跨入低損耗材料：無玻纖 PTFE 薄膜 CCL 與 AI 客戶驗證中，規劃 2027 年初月產 10 萬張，普及預期在 2028 年後",
+          "core": 1,
+          "sources": [
+            "https://blog.fugle.tw/post/earnings-call-8039-2026-05-29",
+            "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%99%B9%E5%B8%83%E5%BB%BAptfe%E7%94%A2%E8%83%BD-%E7%9E%84%E6%BA%96ai%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%96%B0%E6%9D%90-024600265.html"
+          ],
           "note": ""
         }
       ]

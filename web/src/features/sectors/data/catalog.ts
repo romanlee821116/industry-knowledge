@@ -96,6 +96,7 @@ export const CATALOG: SectorCategoryDef[] = [
       { id: 'copper-foil', name: '銅箔', scene: 'package', anchors: ['copper-foil'] },
       { id: 'resin', name: '樹脂', scene: 'package', anchors: ['resin'] },
       { id: 'abf-film', name: 'ABF 膜', scene: 'package', anchors: ['abf-film'] },
+      { id: 'ptfe', name: 'PTFE 低損耗材料', scene: 'package', anchors: ['ptfe'] },
       { id: 'packaging-materials', name: '先進封裝材料', scene: 'package', anchors: ['c4', 'ubump'] },
       { id: 'silicon-wafer', name: '矽晶圓', scene: 'fab', anchors: ['fab-wafer'] },
       { id: 'photoresist', name: '光阻', scene: 'fab', anchors: ['coater-track'] },
@@ -128,6 +129,9 @@ export const CATALOG: SectorCategoryDef[] = [
         scene: 'rack',
         anchors: ['gpu-module', 'nvlink-spine', 'server-pcb'],
       },
+      { id: 'fpc', name: '軟板／FCCL', scene: 'rack', anchors: ['compute-tray'] },
+      { id: 'liquid-cooling', name: '液冷散熱', scene: 'rack', anchors: ['cooling'] },
+      { id: 'ai-server', name: 'AI 伺服器', scene: 'rack', anchors: ['compute-tray', 'rack-frame'] },
       { id: 'cxl', name: 'CXL', scene: 'rack', anchors: ['memory-module'] },
       { id: 'pcie', name: 'PCIe', scene: 'rack', anchors: ['retimer-chip', 'nic'] },
       { id: 'serdes', name: 'SerDes', scene: 'rack', anchors: ['nvlink-switch', 'tor-switch', 'optical-module'] },
@@ -265,6 +269,10 @@ export const COMPANY_ANCHORS: Record<string, string[]> = {
   '3665': ['nvlink-spine'],
   '4966': ['retimer-chip'],
   '8299': ['retimer-chip'],
+  // 軟板與伺服器線材：都在運算托盤內；台郡另供液冷感測軟板
+  '6269': ['compute-tray', 'cooling'],
+  '8039': ['compute-tray'],
+  '6715': ['compute-tray', 'tor-switch'],
   // 先進封裝設備：目前場景未建模
   '6187': [],
   '2467': [],
